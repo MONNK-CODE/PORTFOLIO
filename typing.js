@@ -55,7 +55,7 @@ window.onload = function() {
 
 document.addEventListener("DOMContentLoaded", function() {
   const dynamicText = document.querySelector("h1 span");
-  const words = ["Software Developer", "Web Developer", "the Future", "Muhais"];
+  const words = [" a Software Developer", " a Web Developer", "the Future", "Muhais Olatundun"];
 
   // Variables to track the position and deletion status of the word
   let wordIndex = 0;
@@ -90,6 +90,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
 
-
-
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,17 +11,91 @@
         <div class="container"> 
             <h2>My Projects</h2>
 
-            <div class="project-grid">
-                <div class="project-card">
-                    <img src="BATMAN.jpg" alt="Project 1"> 
-                    <h3>Project Title 1</h3>
-                    <p>A brief description of your project.</p>
-                    <a href="#" class="btn">View Details</a> 
-                </div>
-                </div> 
-                </div>
+          <div class="project-card">
+              <img src="BATMAN.jpg" alt="Project 1"> 
+              <h3>Music Playlist</h3>
+              <div class="project-details"> 
+                  <p>A brief description of your project.</p>
+                  <p>Technologies Used: HTML, CSS, JavaScript</p> </div>
+              <a href="https://monnk-code.github.io/MUSIC-Playlist/" class="btn">View Details</a> 
+          </div>
+
+
+
+         
+
+
+
+          
+        </div>
         </div>
     </section>
 
 </body>
 </html>
+ -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="project.css" rel="stylesheet" type="text/css" />
+  <link href="nav.css" rel="stylesheet" type="text/css" />
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+   <script defer src="nav.js"></script>
+  <title>My Projects</title>
+</head>
+<body>
+  <div class="container">
+    <h1>My Projects</h1>
+
+    <!-- Navigation Bar -->
+    <div class="nav" id="myBtnContainer">
+      <button class="btn active" onclick="filterSelection('all')">ALL</button>
+      <button class="btn" onclick="filterSelection('webapp')">WEBAPP</button>
+      <button class="btn" onclick="filterSelection('python')">PYTHON</button>
+    </div>
+
+    <!-- Projects Section -->
+    <div id="projects">
+      <!-- Project Example -->
+      <div class="project webapp">
+        <div class="overlay">
+          <img src="path-to-your-project-image.jpg" alt="Project Image" class="project-image">
+          <div class="project-title">Project Title</div>
+        </div>
+        <div class="project-description">
+          Click the image to visit the live webapp or <a href="link-to-project-details">learn more</a>.
+        </div>
+      </div>
+      <!-- Repeat for other projects -->
+    </div>
+  </div>
+
+
+  <nav>
+    <div class="nav-content">
+      <div class="toggle-btn">
+        <i class='bx bxs-dashboard'></i>
+      </div>
+      <span style="--i:2;">
+        <a href="index.html""><i class='bx bxs-home'></i></a> 
+      </span>
+      <span style="--i:3;">
+        <a href="aboutme.html"><i class='bx bxs-user'></i></a> 
+      </span>
+      <span style="--i:4;">
+        <a href="#"><i class='bx bxs-envelope'></i></a> <!-- Contact Me icon (envelope for mail/contact) -->
+      </span>
+    </div>
+  </nav>
+
+
+  
+</body>
+</html>
+
