@@ -8,6 +8,13 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
      <script src="nav.js"></script>
+     <script src="udc.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function(){
+           emailjs.init("PNtCG7VabnsGZQ5Sk");
+        })();
+     </script>
     <title>Website Coming Soon Page</title>
     <link href="udc.css" rel="stylesheet" type="text/css" />
      <link href="nav.css" rel="stylesheet" type="text/css" />
@@ -35,10 +42,8 @@
     <section class="container">
       <img src="ggg.png" alt="" class="image" />
       <header>Discord Channel Comming Soon</header>
-      <p>
-        Our website is under construction. We're working hard to improve our
-        website and we'll ready to launch after.
-      </p>
+      <p>Subscribe now to get the latest updates on its development!</p>
+      <form id="contactForm">
       <!-- <div class="time-content">
         <div class="time days">
           <span class="number"></span>
@@ -59,15 +64,18 @@
       </div> -->
 
       <div class="email-content">
-        <p>Subscribe now to get the latest updates!</p>
+        <p>Subscribe now to get the latest updates on its development!</p>
 
         <div class="input-box">
-          <input type="email" placeholder="Enter your email" />
-          <button>Notify Me</button>
+          <input type="email" placeholder="Enter your email" name="email_address" required/>
         </div>
-      </div>
-    </section>
-
+        <div class="input-box">
+          <input type="text" placeholder="First Name" name="first_name" required/>
+        </div>
+        <div class="input-box">
+          <button type="submit">Notify Me</button>
+           </div>
+        </form>
    
   </body>
 </html>

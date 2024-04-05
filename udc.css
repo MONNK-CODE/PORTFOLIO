@@ -72,6 +72,7 @@
 .input-box {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 40px;
   max-width: 360px;
   width: 100%;
@@ -102,6 +103,7 @@ input::placeholder {
   white-space: nowrap;
   padding: 0 20px;
   transition: all 0.3s ease;
+   flex-shrink: 0;
 }
 .input-box button:hover {
   background-color: #fff;

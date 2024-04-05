@@ -5,22 +5,21 @@ document.addEventListener('DOMContentLoaded', function() {
       event.preventDefault();
 
       // Extract the data from the form
-      var firstName = document.querySelector('[name="first_name"]').value;
-      var lastName = document.querySelector('[name="last_name"]').value;
-      var emailAddress = document.querySelector('[name="email"]').value;
-      var message = document.querySelector('[name="message"]').value;
-
+      var Name = document.querySelector('[name="first_name"]').value;
+      var emailAddress = document.querySelector('[name="email_address"]').value;
+      
+      // console.log("Name:", Name);
+      // console.log("Email Address:", emailAddress);
+      
       // Send email using EmailJS
-      emailjs.send("service_7des06e", "template_1rk1kak", { // Use your Service ID and Template ID
-          "firstName": firstName,
-          "lastName": lastName,
-          "emailAddress": emailAddress,
-          "message": message,
+      emailjs.send("service_7des06e","template_0se1syh", { 
+          "emailAddress": emailAddress,  
+          "Name": Name,      
       })
       .then(function(response) {
          console.log('SUCCESS!', response.status, response.text);
          alert('Your message has been sent successfully!');
-        form.reset(); //this resets the input fields
+        form.reset();
       }, function(error) {
          console.log('FAILED...', error);
          alert('Failed to send the message, please try again.');
@@ -29,4 +28,5 @@ document.addEventListener('DOMContentLoaded', function() {
   } else {
     console.log('Form not found');
   }
+
 });
