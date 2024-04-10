@@ -10,6 +10,10 @@ body{
    color : #474747;
    background: transparent;
 }
+
+
+
+
 body::before {
   content: "";
   position: fixed;
@@ -21,6 +25,8 @@ body::before {
   height: 100vh;
 }
 
+
+
 /* MOVING TEXT ANIMATION */
 svg {
   width: 100%; height: 100%;
@@ -29,7 +35,7 @@ svg text {
   animation: stroke 7s infinite alternate;
   stroke-width: 2;
   stroke: #110726;
-  font-size: 50px;
+  font-size: 100px;
 }
 @keyframes stroke {
   0%   {
@@ -48,7 +54,7 @@ svg text {
 text-transform: uppercase;
 letter-spacing: 0.25rem;
 width: calc(100% + 0.25rem);
-font-size: 1em;
+font-size: 2.5em;
 line-height: 2;
 font-weight: 300;
 text-align: center;
@@ -122,8 +128,7 @@ justify-content: space-around;
   flex-wrap: nowrap;
   justify-content: center;
   gap: 0.875rem;
-  flex-direction: row;
-  flex-wrap: wrap; 
+  flex-direction: row; 
 }
 
 a {
@@ -135,7 +140,13 @@ a {
 height: 100px;
 }
 
-.container {
-  max-height: calc(100vh - 90px); /* Adjust the height as needed */
-  overflow-y: auto; /* Enable vertical scrolling */
+.spaceboy{
+  margin-top:200px;
+}
+
+
+
+*{
+  max-height: calc(100vh - 90px); /* use this to Adjust the height as needed */
+  *overflow-y: auto; 
 }

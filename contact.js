@@ -4,14 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(event) {
       event.preventDefault();
 
-      // Extract the data from the form
+      //This Extracts the data from the user in the form 
       var firstName = document.querySelector('[name="first_name"]').value;
       var lastName = document.querySelector('[name="last_name"]').value;
       var emailAddress = document.querySelector('[name="email"]').value;
       var message = document.querySelector('[name="message"]').value;
 
-      // Send email using EmailJS
-      emailjs.send("service_7des06e", "template_1rk1kak", { // Use your Service ID and Template ID
+      // this Sends email using EmailJS API
+      emailjs.send("service_7des06e", "template_1rk1kak", { // Service ID and Template ID
           "firstName": firstName,
           "lastName": lastName,
           "emailAddress": emailAddress,

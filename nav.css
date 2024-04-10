@@ -27,7 +27,7 @@ nav .nav-content{
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
 .nav-content .toggle-btn{
-  font-size: 35px;
+  font-size: 25px;
   z-index: 100;
   cursor: pointer;
   transform: rotate(-225deg);
@@ -50,7 +50,7 @@ nav.open .nav-content span{
   transform: rotate(45deg);
 }
 .nav-content span a i{
-  font-size: 24px;
+  font-size: 25px;
   color: #0e2431;
   transform: rotate(calc(var(--i) * (360deg/ -8)));
   opacity: 0.8;
@@ -60,14 +60,35 @@ nav.open .nav-content span{
   opacity: 1;
 }
 
-.nav-content span a:hover i{
-   color: #b1dae7;
-}
+
 
 .nav-content .toggle-btn:hover i {
   transform: rotate(180deg);
 }
 
-.nav-content .toggle-btn:hover .bx.bxs-dashboard {
-  color: #b1dae7;
+
+
+.nav-content span a.house:hover i {
+  color:  #9d00a8;
+}  
+.nav-content span a.aboutme:hover i{
+  color: #4267B2;
 }
+.nav-content span a.project:hover i{
+  color: #8A0707;
+}
+.nav-content span a.email:hover i{
+  color: #db7bbc;
+}
+.nav-content .toggle-btn:hover .menu i{
+  color: #e9a81c;
+}
+
+.nav-content span a i {
+  /* display: none; */
+  color: black;
+  transition: opacity 0.5s ease; 
+}  
+
+
+

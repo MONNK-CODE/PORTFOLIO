@@ -16,6 +16,7 @@
 //   });
 // });
 
+
 document.addEventListener("DOMContentLoaded", function() {
   var contactButton = document.querySelector(".contact");
   var icons = document.querySelectorAll(".icons a i");
@@ -39,8 +40,8 @@ function downloadResume() {
   document.body.removeChild(link);
 }
 
-function openLink(url) {
-    window.open(url, '_blank');
-}
+// function openLink(url) {
+//     window.open(url, '_blank');
+// }
 
 

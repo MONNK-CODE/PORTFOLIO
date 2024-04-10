@@ -63,23 +63,21 @@
   color: #333;
 
 }
-.icons a.discord i{
-  color: #5D3FD3;
-  
-}
+/* .icons a.discord i{
+  color: #5D3FD3; 
+} */
 
-
+/* .icons a.discord:hover i,  */
 .icons a.ld:hover i,
 .icons a.email:hover i,
-.icons a.git:hover i,
-.icons a.discord:hover i {
+.icons a.git:hover i{
   display: block;
 } 
 
 
 .icons a i {
   display: none;
-  transition: opacity 0.5s ease; /* Add transition property */
+  transition: opacity 0.5s ease; /* THIS AddS transition property */
 }
 
 .icons a i.show {
