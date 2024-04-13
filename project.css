@@ -1,5 +1,6 @@
-body {
-  font-family: 'Arial', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&display=swap");
+body{
+  font-family: "Reem Kufi Fun" ;
   background: #f4f4f4;
   margin: 0;
   padding: 20px;

@@ -17,24 +17,24 @@
 // });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  var contactButton = document.querySelector(".contact");
-  var icons = document.querySelectorAll(".icons a i");
+// document.addEventListener("DOMContentLoaded", function() {
+//   var contactButton = document.querySelector(".contact");
+//   var icons = document.querySelectorAll(".icons a i");
 
-  contactButton.addEventListener("click", function() {
-    // Toggle the visibility of each icon
-    icons.forEach(function(icon) {
-      icon.classList.toggle("show");
-    });
-  });
-});
+//   contactButton.addEventListener("click", function() {
+//     // Toggle the visibility of each icon
+//     icons.forEach(function(icon) {
+//       icon.classList.toggle("show");
+//     });
+//   });
+// });
 
 
 
 function downloadResume() {
   var link = document.createElement('a');
-  link.href = 'RESUME 2023.pdf';
-  link.download = 'RESUME 2023.pdf';
+  link.href = 'MuhaisOlatundun-Resume-2024.4.pdf';
+  link.download = 'MuhaisOlatundun-Resume-2024..pdf';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

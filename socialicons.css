@@ -75,11 +75,10 @@
 } 
 
 
-.icons a i {
+/* .icons a i {
   display: none;
-  transition: opacity 0.5s ease; /* THIS AddS transition property */
-}
-
+  transition: opacity 0.5s ease; /* THIS AddS transition property }*/
+ 
 .icons a i.show {
   display: inline; 
   opacity: 1;
