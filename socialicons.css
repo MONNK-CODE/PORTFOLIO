@@ -6,7 +6,11 @@
 .sc{
   display: flex;
   justify-content: center;
+}
 
+  .rice{
+      width: 100%;
+    height: 120px;
 }
 .icons{
   display: flex;
@@ -24,8 +28,8 @@
   text-decoration: none;
   border-radius: 50%;
   transition: all 0.3s;
-  box-shadow: -3px -3px 7px #ffffff,
-              3px 3px 5px #ceced1;
+  box-shadow: -3px -3px 7px #a3d1f5,
+              3px 3px 5px #a3d1f5;
 }
 .icons a:hover:before{
   content: "";

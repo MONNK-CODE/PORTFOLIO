@@ -5,6 +5,11 @@
   box-sizing: border-box;
   text-decoration: none;
   scroll-behavior: smooth;
+  color: #ffffff; 
+}
+
+body{
+  background: #1e1e1e;
 }
 /* Custom Scroll Bar CSS */
 ::-webkit-scrollbar {
@@ -42,11 +47,15 @@ section .title{
   margin-bottom: 40px;
 }
 section .title span{
-  color: #0E2431;
-  font-size: 30px;
+  color: #ffffff;
+  font-size: 60px;
   font-weight: 600;
   position: relative;
   padding-bottom: 8px;
+}
+
+section .sn span{
+  color: #171616;
 }
 section .title span::before,
 section .title span::after{
@@ -54,7 +63,7 @@ section .title span::after{
   position: absolute;
   height: 3px;
   width: 100%;
-  background: #4070f4;
+  background: #9e0000;
   left: 0;
   bottom: 0;
 }
@@ -71,7 +80,6 @@ section .title span::after{
   height: 400px;
   width: 400px;
   object-fit: cover;
-  border-radius: 12px;
 }
 .about-details .right{
   width: 55%;
@@ -79,7 +87,7 @@ section .title span::after{
 
 .about-details .right p{
   text-align: justify;
-  color: #0E2431;
+  color: #ffffff;
 }
 /* Custom Scroll Bar END  */
 
@@ -103,7 +111,7 @@ section .title span::after{
   left: 0;
   display: block;
   border-radius: 50px;
-  background: #4070f4;
+  background: #9e0000;
   width: 45px;
   height: 45px;
   transition: all 0.3s ease;
@@ -111,11 +119,10 @@ section .title span::after{
 
 .cta span {
   position: relative;
-  font-family: "Ubuntu", sans-serif;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.05em;
-  color: #000000;
+  color: #ffffff;
 }
 
 .cta svg {
@@ -169,7 +176,7 @@ section .title span::after{
    width: 50%;
  }
  .skills-details p{
-   color: #0E2431;
+   color: #121212;
    text-align: justify;
  }
 .skills .skills-details .experience{
@@ -203,7 +210,7 @@ section .title span::after{
   font-size: 60px;
   color: #4070f4;
 }
-
+ /* My Skills CSS END */
 
 
 /* SKILL ICONS  */
@@ -226,9 +233,11 @@ section .title span::after{
     transition: transform 0.6s ease;
     transform-style: preserve-3d;
     display: inline-block;
-    color: #000; 
+    color: #121212; 
 }
-
+.sn{
+  color: #121212;
+}
 
 .icon i::after {
     content: "";
@@ -253,20 +262,26 @@ section .title span::after{
 #js-icon:hover i { color: #a5a800; }
 #python-icon:hover i {
   background: linear-gradient(to right, #4B8BBE 0%, #FFD43B 100%);
-    -webkit-background-clip: text;
+  -webkit-background-clip: text;
+  background-clip: text;
     color: transparent;
 }
 /* SKILL ICONS END  */
-/* My Skills CSS end */
+
 
 /* Typing effect */
 h1 {
-    color: #000000;
-    font-size: 2rem;
+    color: #ffffff;
+    font-size: 3rem;
     font-weight: 600;
 }
 h1 span {
-    color: blue;
+  /* background: radial-gradient(circle, rgba(2,161,156,1) 0%, rgba(210,170,48,1) 100%); */
+  background: linear-gradient(to bottom, #9E0000, #FF6A6A);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; 
+  -webkit-text-fill-color: transparent; 
     position: relative;
 }
 h1 span::before {
@@ -286,9 +301,10 @@ h1 span.stop-blinking::before {
 @keyframes blink {
     50% { opacity: 0 }
 }
+/* Typing effect end */
 
-.r{
-  font-size:50px;
+.right{
+  font-size: 20px;
 }
 
 

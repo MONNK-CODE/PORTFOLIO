@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 const nav = document.querySelector("nav"),
-      toggleBtn = nav.querySelector(".toggle-btn");
+toggleBtn = nav.querySelector(".toggle-btn");
   toggleBtn.addEventListener("click" , () =>{
     nav.classList.toggle("open");
   });
@@ -30,3 +30,25 @@ nav.addEventListener("mouseleave", () =>{
   nav.removeEventListener("mousemove", onDrag);
 });
   });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const sectionToScroll = urlParams.get('scrollTo');
+
+  if (sectionToScroll) {
+    const target = document.getElementById(sectionToScroll);
+    if (target) {
+      // Timeout to ensure the page is fully loaded before scrolling
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth' });
+        // Reset the URL parameter
+        const urlWithoutParams = window.location.origin + window.location.pathname;
+        history.replaceState({}, document.title, urlWithoutParams);
+      }, 100); // You can adjust the timeout as needed
+    }
+  }
+});
+
+
+

@@ -1,82 +1,238 @@
-@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&display=swap");
-body{
-  font-family: "Reem Kufi Fun" ;
-  background: #f4f4f4;
-  margin: 0;
-  padding: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+html {
+  height: 100%;
+  width: 100%;
 }
-.container {
-  display: flex;
-  flex-wrap: wrap;
+
+body{
+  font-family: "Outfit" ;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+  }
+  .gallery {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .gallery-title {
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 5em ;
+  }
+.gallery-title span:hover {
+  background: linear-gradient(to bottom, #9E0000, #FF6A6A);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; 
+  -webkit-text-fill-color: transparent; 
+}
+
+  .filter-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+.filter-btn {
+  background-color: #333;
+  border: none;
+  border-radius:20px;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-out; 
+  transition: background-image 0.5s ease-in-out;
+}
+
+.filter-btn:hover {
+  /* background-image: linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%); */
+  background-image: linear-gradient(to right, #ff6347, #ff0000); 
+  transform: scale(1.05);
+}
+
+.filter-btn.active {
+  background-color: #9e0000; 
+  transition: background-image 0.5s ease-in-out;
+}
+
+.filter-btn.active:hover{
+  /* background-image: linear-gradient(-225deg, #405459 0%, #05004d 100%); */
+  background-image: linear-gradient(135deg, #7a061d, #4d2323); 
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   justify-content: center;
 }
-.card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  width: 300px;
-  margin-bottom: 20px;
+
+.project-card {
+  background-color: #252525;
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 300px;
+  transition: opacity 0.3s ease-out, max-height 0.3s ease-out;
+  opacity: 1;
+  max-height: 1000px;
   transition: transform 0.3s ease;
-}
-.card:hover {
+} 
+
+.project-card:hover {
   transform: translateY(-5px);
 }
-.card-header {
-  padding: 20px;
-  border-bottom: 1px solid #eee;
+
+.filtered {
+  display: none;
 }
-.card-title {
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  .project-card h3 {
+    text-align: center;
+    margin: 0;
+    color: #fff;
+    font-size: 18px;
+  }
+
+  @media (prefers-color-scheme: light) {
+    body {
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    .project-card {
+      background-color: #fff;
+    }
+    .project-card h3 {
+      color: #333;
+    }
+  }
+.des{
+  text-align: center;
+}
+.card-title{
+  display: none;
+}
+
+
+/* View Project Button */
+button {
+ position: relative;
+ display: inline-block;
+ cursor: pointer;
+ outline: none;
+ border: 0;
+ vertical-align: middle;
+ text-decoration: none;
+ background: transparent;
+ padding: 0;
+ font-size: inherit;
+}
+
+button.learn-more {
+ width: 12rem;
+ height: auto;
+}
+
+button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
   margin: 0;
-  font-size: 24px;
+  width: 3rem;
+  height: 3rem;
+  background: #fff;
+  border-radius: 1.625rem;
 }
-.card-body {
-  padding: 20px;
+
+button.learn-more:hover .circle {
+  background: #9e0000; 
 }
-.language-stats {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
+
+button.learn-more .circle .icon {
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ position: absolute;
+ top: 0;
+ bottom: 0;
+ margin: auto;
+ background: #fff;
 }
-.language-stats li {
-  flex: 1;
-  margin-right: 10px;
-  background: #e9ecef;
-  border-radius: 5px;
-  padding: 5px 10px;
-  font-size: 0.9em;
+
+button.learn-more .circle .icon.arrow {
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ left: 0.625rem;
+ width: 1.125rem;
+ height: 0.125rem;
+ background: none;
+}
+
+button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.29rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #000000;
+  border-right: 0.125rem solid #000000;
+  transform: rotate(45deg);
+}
+
+button.learn-more:hover .circle .icon.arrow::before {
+  border-color: white; 
+}
+
+
+button.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: auto;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #c8c9da;
+  font-weight: 700;
+  line-height: 1.6;
   text-align: center;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
 }
-.language-stats li:last-child {
-  margin-right: 0;
+
+button.learn-more:hover .button-text {
+  left: 0;
 }
-.language-stats li span {
-  font-weight: bold;
+
+
+button:hover .circle {
+ width: 100%;
 }
-.button-group {
-  padding: 20px;
-  border-top: 1px solid #eee;
-  text-align: center;
-  display: flex; /* Ensure buttons and links are aligned inline */
-  justify-content: center; /* Center the buttons in the div */
-  gap: 10px;
+
+button:hover .circle .icon.arrow {
+  /* background: #1a1919; */
+    background: #ffffff;
+ transform: translate(1rem, 0);
 }
-.button {
-  text-decoration: none;
-  background: #007bff;
+
+button:hover .button-text {
+ /* color: #0d0c0c; */
   color: #fff;
-  padding: 10px 15px;
-  border-radius: 5px;
-  transition: background-color 0.2s;
-  display: inline-block;
-  margin-right: 10px;
-  
 }
+/* View Project Button End */
 
 
+/* GITHUB ICON */
 .github-link-button {
   border: none;
   border-radius: 50%;
@@ -90,10 +246,9 @@ body{
   position: relative;
   background-color: rgb(31, 31, 31);
   overflow: hidden;
-  margin-left: 10px; /* Added margin for spacing between buttons */
-  
-}
+  margin-left: 10px; 
 
+}
 
 .github-icon-svg {
   transition-duration: .3s;
@@ -127,10 +282,43 @@ body{
   opacity: 0;
   transition-duration: .3s;
 }
+/* GITHUB ICON END */
+
+/* CSS for buttons container */
+.button-container {
+  display: flex;
+  justify-content: space-evenly; 
+  align-items: center;
+}
+
+.learn-more, .github-link-button {
+  flex-grow: 1; 
+  margin: 5px; 
+}
 
 
+/* LANGUAGE STATS */
+ .language-stats {
+   list-style: none; 
+   padding: 0; 
+   display: flex; 
+   justify-content: center; 
+   margin-top: 10px; 
+   gap: 10px;
+ }
 
+ .language-stats li {
+   padding: 5px 1px; 
+   background-color: #9e0000; 
+   color: white;
+   border-radius: 5px; 
+   font-size: 10px; 
+   text-transform: uppercase; 
+   font-weight: bold;
+   transition: background-color 0.3s ease; 
+ }
 
-
-
-
+ .language-stats li:hover {
+   background-color: #252525; 
+ }
+/* LANGUAGE STATS END */

@@ -12,6 +12,8 @@
   <link href="resume.css" rel="stylesheet" type="text/css" />
   <link href="contact.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
    <script>
       (function(){
@@ -21,12 +23,14 @@
    <script src="contact.js"></script>
   <script src="script.js"></script>
   <script src="typing.js"></script>
+  <script src = "nav.js"></script>
 </head>
 <body>
-
+<div class = "oghome">
   <div class="header">
     <div class="center">
       <svg>
+        
         <text x="50%" y="75%" text-anchor="middle">
           Muhais Olatundun
         </text>
@@ -76,72 +80,15 @@
 
 <!-- SOCIAL ICONS -->
   
-  <div class="typewrite" ></div>
+  <div class="rice" ></div>
   <div class = "sc">
     <div class="icons">
       <a href="https://www.linkedin.com/in/muhais-olatundun-0bb273283" class="ld" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="mailto:monnk101@gmail.com" class="email"target="_blank"><i class="fab fa-google"></i></a>       
       <a href="https://github.com/MONNK-CODE" class="git" target="_blank"><i class="fab fa-github"></i></a>
-      <!-- <a href="udc.html" class="discord"><i class="fab fa-discord"></i></a> -->
     </div>
   </div>
  <!-- SOCIAL ICONS ENDS -->
-<div class = "spaceboy"></div>
- <!-- CONTACT FORM -->
-  <!-- <section class="contact-section">
-    <div class="container">
-      <div class="text">Contact Me</div>
-      <form id="contactForm"> -->
-  <section id="contact" class="contact-section">
-    <div class="container">
-      <div class="text">Contact Me</div>
-      <form id="contactForm">
-        <div class="form-row">
-          <div class="input-data">
-            <input type="text" name="first_name" required>
-            <div class="underline"></div>
-            <label for="">First Name</label>
-          </div>
-          <div class="input-data">
-            <input type="text" name="last_name" required>
-            <div class="underline"></div>
-            <label for="">Last Name</label>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="input-data">
-            <input type="email" name="email" required>
-            <div class="underline"></div>
-            <label for="">Email Address</label>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="input-data textarea">
-            <textarea name="message" rows="8" cols="80" required></textarea>
-            <br />
-            <div class="underline"></div>
-            <label for="">Write your message</label>
-          </div>
-        </div>
-        <div class="form-row submit-btn">
-          <div class="input-data">
-            <button type="submit" class="submit-button">
-              <div class="svg-wrapper-1">
-                <div class="svg-wrapper">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                    <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
-                  </svg>
-                </div>
-              </div>
-              <span>Send</span>
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </section>
-  <!-- CONTACT FORM END -->
 
  
 <!-- BACKGROUND ANIMATION -->
@@ -158,9 +105,76 @@
   <div class="cube"></div>
   <div class="cube"></div>
   <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
 </div>
 <!-- BACKGROUND ANIMATION END -->
+</div>
+  </div>
   
-
+  <!-- CONTACT FORM -->
+  <div id="contact-section" class="contact-section">
+      <h1 class = "contitle">Contact Me</h1>
+      <div class="form-container">
+          <form id="contactForm">
+              <div class="input-group">
+                  <input type="text" name="first_name" required>
+                  <label>First Name</label>
+              </div>
+              <div class="input-group">
+                  <input type="text" name="last_name" required>
+                  <label>Last Name</label>
+              </div>
+              <div class="input-group">
+                  <input type="email" name="email" required>
+                  <label>Email Address</label>
+              </div>
+              <div class="input-group">
+                  <textarea name="message" rows="4" required></textarea>
+                  <label>Write your message</label>
+              </div>
+              <div class="input-group">
+                  <button type="submit" class="submit-button">
+                      <div class="svg-wrapper-1">
+                          <div class="svg-wrapper">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="24">
+                                  <path fill="none" d="M0 0h24v24H0z"></path>
+                                  <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                              </svg>
+                          </div>
+                      </div>
+                      <span>Send</span>
+                  </button>
+              </div>
+          </form>
+      </div>
+  </div>
+  <!-- CONTACT FORM END -->
 </body>
+  <nav>
+    <div class="nav-content">
+      <div class="toggle-btn">
+        <a class="menu" ><i class="fa-solid fa-bars"></i></a>
+        </div>
+      <span style="--i:2;">
+        <a href="index.html" class="house" ><i class="fa-solid fa-house"></i></a> 
+      </span>
+      <span style="--i:3;">
+        <a href="project.html" class="project" ><i class="fa fa-lightbulb"></i></a> 
+      </span>
+      <span style="--i:4;">
+        <a href="index.html?scrollTo=contact-section" class="email" ><i class="fa-solid fa-envelope"></i></a> 
+      </span>
+    </div>
+  </nav>
 </html>

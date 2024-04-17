@@ -9,7 +9,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  box-shadow: 4px 4px #1a1a1a; 
+  box-shadow: 4px 4px #dedede; 
   background-color: var(--bg-color);
   border-radius: 10px;
   overflow: hidden;

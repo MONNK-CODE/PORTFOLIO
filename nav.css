@@ -2,8 +2,8 @@ nav{
   position: absolute;
   top: 20px;
   right: 0;
-  width: 80px;
-  height: 300px;
+  width: 200px;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,8 +17,8 @@ nav .nav-content{
 }
 .nav-content .toggle-btn,
 .nav-content span a{
-  height: 60px;
-  width: 60px;
+  height: 80px;
+  width: 80px;
   background: #fff;
   display: flex;
   align-items: center;
@@ -27,7 +27,7 @@ nav .nav-content{
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
 .nav-content .toggle-btn{
-  font-size: 25px;
+  font-size: 40px;
   z-index: 100;
   cursor: pointer;
   transform: rotate(-225deg);
@@ -50,7 +50,7 @@ nav.open .nav-content span{
   transform: rotate(45deg);
 }
 .nav-content span a i{
-  font-size: 25px;
+  font-size: 30px;
   color: #0e2431;
   transform: rotate(calc(var(--i) * (360deg/ -8)));
   opacity: 0.8;
@@ -67,43 +67,44 @@ nav.open .nav-content span{
 }
 
 
-
-/* .nav-content span a.house:hover i {
-  color: #FFD43B;
-}   */
-
 .nav-content span a.house:hover i {
-  background: linear-gradient(to right, #1f4037 0%, #99f2c8 100%);
+  /* background: linear-gradient(to right, #1f4037 0%, #99f2c8 100%); */
+  background: linear-gradient(to right, #142124, #2193b0);
+
   -webkit-background-clip: text;
   background-clip: text; 
   color: transparent;
 }
 
 .nav-content span a.aboutme:hover i{
-  background: linear-gradient(to right, #654ea3 0%, #1cefff 100%);
+  background: linear-gradient(to right, #654ea3, #1cefff );
   -webkit-background-clip: text;
   background-clip: text; 
   color: transparent;
 }
 .nav-content span a.project:hover i{
-  background: linear-gradient(to right, #f4791f,#A7BFE8);
+   background: linear-gradient(to right, #f4791f,#A7BFE8); 
   -webkit-background-clip: text;
   background-clip: text; 
   color: transparent;
 }
 .nav-content span a.email:hover i{
-  background: linear-gradient(to right, #b21f1f, #1565C0 ,#F3F9A7);
+   background: linear-gradient(to right, #033a2fff, #b76910); 
   -webkit-background-clip: text;
   background-clip: text; 
   color: transparent;
 }
 .nav-content .toggle-btn:hover .menu i{
-  background: linear-gradient(to right, #EECDA3 0%, #1565C0 70%);
+  /* background: linear-gradient(to right, #EECDA3 , #1565C0 ); */
+  background: linear-gradient(to right, #e22c2c, #030507);
   -webkit-background-clip: text;
   background-clip: text; 
   color: transparent;
 }
-
+.nav-content .menu i{
+  color:#000000;
+  
+}
 .nav-content span a i {
   /* display: none; */
   color: black;

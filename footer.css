@@ -1,165 +1,76 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&display=swap");
-
-*{
-  margin: 0;
-  padding: 0;
-  outline: none;
-}
-
-
 .contact-section {
-  padding: 50px 0; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  bottom: 0;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
   width: 100%;
-} 
-
-
-
-.contact-section .container {
-  max-width: 800px;
+  height : 100vh;
   background: #fff;
-  width: 800px;
-  padding: 25px 40px 10px 40px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+  
+  
+  .form-container {
+    width: 100%;
+      max-width: 800px;
+      padding: 25px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background: #fff;
+      text-align: center;
+  }
+  
+.contitle {
+    font-size: 5.5rem; /* Larger font size for main title */
+    background: linear-gradient(to right, #9e0000, #1e3c72);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* margin-bottom: 20px; */
 }
 
-.contact-section .text {
-  text-align: center;
-  font-size: 35px;
-  font-weight: 600;
-  background: -webkit-linear-gradient(right, #348ac7, #1e3c72);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Add other styling for form elements as needed */
-
-
-
-.container{
-  max-width: 800px;
+  
+  form {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .input-group {
+      position: relative;
+      margin-bottom: 20px;
+  }
+  
+  input, textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 2px solid #292424;
+      border-radius: 4px;
+      transition: border-color 0.3s;
+      font-family: Reem Kufi Fun;
+  }
+  
+  input:focus, textarea:focus {
+      border-color: #9e0000;
+  }
+  
+label {
+  position: absolute;
+  left: 12px;
+  top: -10px;
   background: #fff;
-  width: 800px;
-  padding: 25px 40px 10px 40px;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  padding: 0 5px;
+  transition: all 0.3s;
+  color: #9e0000;
+  font-size: 0.85rem;
 }
-.container .text{
-  text-align: center;
-  font-size: 35px;
-  font-weight: 600;
-  background: -webkit-linear-gradient(right, #348AC7, #1e3c72);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.container form{
-  padding: 30px 0 0 0;
-}
-.container form .form-row{
-  display: flex;
-  margin: 32px 0;
-}
-form .form-row .input-data{
-  width: 100%;
-  height: 40px;
-  margin: 0 20px;
-  position: relative;
-}
-form .form-row .textarea{
-  height: 70px;
-}
-.input-data input,
-.textarea textarea{
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: none;
-  font-size: 17px;
-  border-bottom: 2px solid rgba(0,0,0, 0.12);
-}
-.input-data input:focus ~ label, .textarea textarea:focus ~ label,
-.input-data input:valid ~ label, .textarea textarea:valid ~ label{
-  transform: translateY(-20px);
-  font-size: 14px;
-  color: #3498db;
-}
-.textarea textarea{
-  resize: none;
-  padding-top: 30px;
-  font-family: "Reem Kufi Fun";
-}
-.input-data label{
-  position: absolute;
-  pointer-events: none;
-  bottom: 10px;
-  font-size: 16px;
-  transition: all 0.3s ease;
-}
-.textarea label{
-  width: 100%;
-  /* bottom: 40px; */
-  bottom: 30px;
-  background: #fff;
-}
-.input-data .underline{
-  position: absolute;
-  bottom: 0;
-  height: 2px;
-  width: 100%;
-}
-.input-data .underline:before{
-  position: absolute;
-  content: "";
-  height: 2px;
-  width: 100%;
-  background: #3498db;
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.3s ease;
-}
-.input-data input:focus ~ .underline:before,
-.input-data input:valid ~ .underline:before,
-.textarea textarea:focus ~ .underline:before,
-.textarea textarea:valid ~ .underline:before{
-  transform: scale(1);
-}
-
-@media (max-width: 700px) {
-  .container .text{
-    font-size: 30px;
-  }
-  .container form{
-    padding: 10px 0 0 0;
-  }
-  .container form .form-row{
-    display: block;
-  }
-  form .form-row .input-data{
-    margin: 35px 0!important;
-  }
-
-  .submit-btn .input-data{
-    width: 40%!important;
-  }
-}
-
-
 
 .submit-button {
-  font-family: inherit;
-  /* font-size: 20px; */
-  /* background: #3586ff; */
-  background:linear-gradient(to right, #348ac7, #1e3c72);
+  font: Reem Kufi Fun;
+  background: linear-gradient(to right, #9e0000, #1e3c72);
   color: white;
-  padding: 0.7em 1em; */
-   padding-left: 0.9em;
+  padding: 0.7em 1.2em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,10 +79,8 @@ form .form-row .textarea{
   overflow: hidden;
   transition: all 0.2s;
   cursor: pointer;
+
 }
-
-
-
 
 .submit-button span {
   display: block;
@@ -203,11 +112,8 @@ form .form-row .textarea{
 
 @keyframes fly-1 {
   from {
-    transform: translateY(0.1em);
+      transform: translateY(0.1em);
   }
-
   to {
-    transform: translateY(-0.1em);
+      transform: translateY(-0.1em);
   }
-}
-

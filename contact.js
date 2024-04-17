@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var message = document.querySelector('[name="message"]').value;
 
       // this Sends email using EmailJS API
-      emailjs.send("service_7des06e", "template_1rk1kak", { // Service ID and Template ID
+      emailjs.send("", "", { // Service ID and Template ID
           "firstName": firstName,
           "lastName": lastName,
           "emailAddress": emailAddress,
@@ -19,11 +19,21 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .then(function(response) {
          console.log('SUCCESS!', response.status, response.text);
-         alert('Your message has been sent successfully!');
-        form.reset(); //this resets the input fields
+         // Use SweetAlert for success message
+         swal({
+            title: "Success!",
+            text: "Your message has been sent successfully!",
+            icon: "success",
+          });
+         form.reset(); //this resets the input fields
       }, function(error) {
          console.log('FAILED...', error);
-         alert('Failed to send the message, please try again.');
+         // Use SweetAlert for error message
+         swal({
+            title: "Failed!",
+            text: "Failed to send the message, please try again.",
+            icon: "error",
+          });
       });
     });
   } else {

@@ -11,7 +11,7 @@ function fetchRepoLanguages(owner, cardTitleElement) {
     })
     .then(data => {
       const totalBytes = Object.values(data).reduce((acc, val) => acc + val, 0);
-      const card = cardTitleElement.closest('.card');
+      const card = cardTitleElement.closest('.project-card');
       const languageStatsElement = card.querySelector('.language-stats');
       languageStatsElement.innerHTML = '';
 
@@ -32,3 +32,53 @@ window.onload = () => {
     fetchRepoLanguages('MONNK-CODE', cardTitleElement);
   });
 };
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const projectCards = document.querySelectorAll(".project-card");
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", function() {
+      const category = this.textContent.trim().toLowerCase();
+      projectCards.forEach(card => {
+        if (category === "all" || card.classList.contains(category)) {
+          card.classList.remove("filtered");
+        } else {
+          card.classList.add("filtered");
+        }
+      });
+    });
+  });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const filterButtons = document.querySelectorAll(".filter-btn");
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", function() {
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+      // Add active class to the clicked button
+      this.classList.add("active");
+    });
+  });
+});
+
+
+
+// document.getElementById('viewProject').addEventListener('click', function() {
+//   window.open('https://monnk-code.github.io/Instant-Ayah/', '_blank', 'noopener,noreferrer');
+// });
+
+
+
+
+
+
+
+
+
+
