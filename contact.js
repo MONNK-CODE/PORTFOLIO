@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var message = document.querySelector('[name="message"]').value;
 
       // this Sends email using EmailJS API
-      emailjs.send("", "", { // Service ID and Template ID
+      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", { // Service ID and Template ID
           "firstName": firstName,
           "lastName": lastName,
           "emailAddress": emailAddress,
@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
             icon: "success",
           });
          form.reset(); //this resets the input fields
-      }, function(error) {
+      })
+      .catch(function(error) {
          console.log('FAILED...', error);
          // Use SweetAlert for error message
          swal({
@@ -45,6 +46,4 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Form not found');
   }
 });
-
-  
 
