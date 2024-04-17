@@ -52,13 +52,16 @@ document.addEventListener('DOMContentLoaded', function() {
       // Extract the data from the form
       var Name = document.querySelector('[name="first_name"]').value;
       var emailAddress = document.querySelector('[name="email_address"]').value;
+       var message = document.querySelector('[name="message"]').value;
 
       console.log("Name:", Name);
       console.log("Email Address:", emailAddress);
+      
 
       // Send email using EmailJS
       emailjs.send(process.env.EMAILJS_SERVICE_ID, process.env.EMAILJS_TEMPLATE_ID, { 
           "emailAddress": emailAddress,  
+        "message": message,
           "Name": Name,      
        }, process.env.EMAILJS_PUBLIC_KEY)
       .then(function(response) {
