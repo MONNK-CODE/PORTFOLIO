@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var message = document.querySelector('[name="message"]').value;
 
       // this Sends email using EmailJS API
-      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", { // Service ID and Template ID
+      emailjs.send("service_7des06e", "template_1rk1kak", { // Service ID and Template ID
           "firstName": firstName,
           "lastName": lastName,
           "emailAddress": emailAddress,
