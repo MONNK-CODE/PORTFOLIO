@@ -5,7 +5,7 @@
   box-sizing: border-box;
   text-decoration: none;
   scroll-behavior: smooth;
-  color: #ffffff; 
+  color: #ffffff;
 }
 
 body{
@@ -80,6 +80,10 @@ section .title span::after{
   height: 400px;
   width: 400px;
   object-fit: cover;
+}
+
+.left{
+  display: none;
 }
 .about-details .right{
   width: 55%;

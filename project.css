@@ -235,7 +235,7 @@ button:hover .button-text {
 /* GITHUB ICON */
 .github-link-button {
   border: none;
-  border-radius: 50%;
+  border-radius: 5%;
   width: 45px;
   height: 45px;
   display: flex;

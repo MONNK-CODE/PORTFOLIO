@@ -37,7 +37,6 @@ window.onload = () => {
 document.addEventListener("DOMContentLoaded", function() {
   const filterButtons = document.querySelectorAll(".filter-btn");
   const projectCards = document.querySelectorAll(".project-card");
-
   filterButtons.forEach(button => {
     button.addEventListener("click", function() {
       const category = this.textContent.trim().toLowerCase();
@@ -67,11 +66,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-
-
-// document.getElementById('viewProject').addEventListener('click', function() {
-//   window.open('https://monnk-code.github.io/Instant-Ayah/', '_blank', 'noopener,noreferrer');
-// });
 
 
 
