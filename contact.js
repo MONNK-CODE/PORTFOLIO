@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
   (function(){
-     emailjs.init("ggYLuSeAb8KgHjiOv"); // THIS IS THE PUBLIC KEY 
+     emailjs.init(config.EMAIL_KEY); // THIS IS MY PUBLIC KEY 
   })();
 
   var form = document.getElementById('contactForm');
