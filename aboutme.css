@@ -178,6 +178,7 @@ h1 span.stop-blinking::after {
     justify-content: center;
     text-align: center;
     padding: 10px;
+  font-size: 2rem;
 }
 
 @media (min-width: 769px) {
