@@ -1,4 +1,4 @@
-nav{
+nav {
   position: absolute;
   top: 20px;
   right: 0;
@@ -9,14 +9,14 @@ nav{
   justify-content: center;
   cursor: grab;
 }
-nav .nav-content{
+nav .nav-content {
   display: flex;
   align-items: center;
   justify-content: center;
   transform: rotate(-45deg);
 }
 .nav-content .toggle-btn,
-.nav-content span a{
+.nav-content span a {
   height: 80px;
   width: 80px;
   background: #fff;
@@ -26,90 +26,100 @@ nav .nav-content{
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
-.nav-content .toggle-btn{
+.nav-content .toggle-btn {
   font-size: 40px;
   z-index: 100;
   cursor: pointer;
   transform: rotate(-225deg);
   transition: all 0.6s ease;
 }
-nav.open .toggle-btn{
+nav.open .toggle-btn {
   transform: rotate(0deg);
 }
-.nav-content span{
+.nav-content span {
   position: absolute;
   transition: all 0.6s ease;
   opacity: 0;
 }
-nav.open .nav-content span{
+nav.open .nav-content span {
   transform: rotate(calc(var(--i) * (360deg/8))) translateY(120px);
   opacity: 1;
 }
-.nav-content span a{
+.nav-content span a {
   text-decoration: none;
   transform: rotate(45deg);
 }
-.nav-content span a i{
+.nav-content span a i {
   font-size: 30px;
   color: #0e2431;
   transform: rotate(calc(var(--i) * (360deg/ -8)));
   opacity: 0.8;
   transition: 0.2s;
 }
-.nav-content span a:hover i{
+.nav-content span a:hover i {
   opacity: 1;
 }
-
-
-
 .nav-content .toggle-btn:hover i {
   transform: rotate(180deg);
 }
-
-
 .nav-content span a.house:hover i {
-  /* background: linear-gradient(to right, #1f4037 0%, #99f2c8 100%); */
   background: linear-gradient(to right, #142124, #2193b0);
-
   -webkit-background-clip: text;
-  background-clip: text; 
+  background-clip: text;
   color: transparent;
 }
-
-.nav-content span a.aboutme:hover i{
-  background: linear-gradient(to right, #654ea3, #1cefff );
+.nav-content span a.aboutme:hover i {
+  background: linear-gradient(to right, #654ea3, #1cefff);
   -webkit-background-clip: text;
-  background-clip: text; 
+  background-clip: text;
   color: transparent;
 }
-.nav-content span a.project:hover i{
-   background: linear-gradient(to right, #f4791f,#A7BFE8); 
+.nav-content span a.project:hover i {
+  background: linear-gradient(to right, #f4791f, #A7BFE8);
   -webkit-background-clip: text;
-  background-clip: text; 
+  background-clip: text;
   color: transparent;
 }
-.nav-content span a.email:hover i{
-   background: linear-gradient(to right, #033a2fff, #b76910); 
+.nav-content span a.email:hover i {
+  background: linear-gradient(to right, #033a2fff, #b76910);
   -webkit-background-clip: text;
-  background-clip: text; 
+  background-clip: text;
   color: transparent;
 }
-.nav-content .toggle-btn:hover .menu i{
-  /* background: linear-gradient(to right, #EECDA3 , #1565C0 ); */
-  background: linear-gradient(to right, #e22c2c, #030507);
-  -webkit-background-clip: text;
-  background-clip: text; 
-  color: transparent;
-}
-.nav-content .menu i{
-  color:#000000;
-  
+.nav-content .menu i {
+  color: #000000;
 }
 .nav-content span a i {
-  /* display: none; */
   color: black;
-  transition: opacity 0.5s ease; 
-}  
+  transition: opacity 0.5s ease;
+}
 
-
-
+/* Mobile Navigation Bar Styles */
+.mobile-nav {
+  display: none;
+  width: 100%;
+  background-color: #F0F8FF;
+}
+.mobile-nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+.mobile-nav ul li {
+  text-align: center;
+  border-bottom: 3px solid #1e1e1e;
+}
+.mobile-nav ul li a {
+  display: block;
+  padding: 14px 20px;
+  text-decoration: none;
+  color: #191515;
+}
+/* Media Queries */
+@media (max-width: 600px) {
+  nav {
+      display: none;
+  }
+  .mobile-nav {
+      display: block;
+  }
+}

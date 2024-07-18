@@ -1,29 +1,31 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.sc{
+
+.sc {
   display: flex;
   justify-content: center;
 }
 
-  .rice{
-      width: 100%;
-    height: 120px;
+.rice {
+  padding-bottom: 30px;
 }
-.icons{
+
+.icons {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 0;
 }
 
-
-
-.icons a{
+.icons a {
   background: #ecf0f3;
   position: relative;
   height: 60px;
   width: 60px;
-  margin: 0 10px;
+  margin: 10px;
   display: inline-flex;
   text-decoration: none;
   border-radius: 50%;
@@ -31,7 +33,8 @@
   box-shadow: -3px -3px 7px #a3d1f5,
               3px 3px 5px #a3d1f5;
 }
-.icons a:hover:before{
+
+.icons a:hover:before {
   content: "";
   position: absolute;
   top: 0;
@@ -43,7 +46,8 @@
   box-shadow: inset -3px -3px 7px #ffffff,
               inset 3px 3px 5px #ceced1;
 }
-.icons a i{
+
+.icons a i {
   position: relative;
   z-index: 3;
   text-align: center;
@@ -52,39 +56,23 @@
   font-size: 25px;
   line-height: 60px;
 }
-.icons a:hover i{
+
+.icons a:hover i {
   transform: scale(0.9);
 }
-.icons a.ld i{
+
+.icons a.ld i {
   color: #4267B2;
-
 }
-.icons a.email i{
+
+.icons a.email i {
   color: #8A0707;
-
 }
-.icons a.git i{
+
+.icons a.git i {
   color: #333;
-
-}
-/* .icons a.discord i{
-  color: #5D3FD3; 
-} */
-
-/* .icons a.discord:hover i,  */
-.icons a.ld:hover i,
-.icons a.email:hover i,
-.icons a.git:hover i{
-  display: block;
-} 
-
-
-/* .icons a i {
-  display: none;
-  transition: opacity 0.5s ease; /* THIS AddS transition property }*/
- 
-.icons a i.show {
-  display: inline; 
-  opacity: 1;
 }
 
+.icons {
+  padding: 10px 0;
+}

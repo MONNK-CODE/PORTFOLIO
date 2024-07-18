@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PORTFOLIO</title>
   <link rel = "icon" type = "image/x-icon" href = "nk.jpg">
   <link href="style.css" rel="stylesheet" type="text/css" />
@@ -16,7 +16,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
    <script src="contact.js"></script>
-   <script src="config.js"></script>
   <script src="script.js"></script>
   <script src="typing.js"></script>
   <script src = "nav.js"></script>
@@ -25,21 +24,30 @@
 <div class = "oghome">
   <div class="header">
     <div class="center">
-      <svg>
-        
+      
+      <!-- <svg>       
         <text x="50%" y="75%" text-anchor="middle">
           Muhais Olatundun
         </text>
-      </svg>
+      </svg> -->
+
+      <div class="svg-container">
+        <svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid meet">       
+          <text x="200" y="112.5" text-anchor="middle" dominant-baseline="middle">
+            Muhais Olatundun
+          </text>
+        </svg>
+      </div>
+      
     </div>
   </div>
 
-  <div class="sd">
-    <p>Student</p>
+  <div class="student">
+    <p>STUDENT</p>
   </div>
 
   <!-- TYPEWRITING -->
-  <h1 class="typewrite" data-period="2000" data-type='["import random", "num1 = random.randint(1,100)", "num2 = 7","if num1 + num2 == 12:","print(answer)","else:", "print(num1)","print(num2)","exit()"]'>
+  <h1 class="typewrite" data-period="2000" data-type='["Lets add two numbers!", "num1 = 5", "num2 = 7", "sum = num1 + num2", "print(sum)", "Result: 12"]'>
     <span class="wrap"></span>
   </h1>
   <!-- TYPEWRITING END -->
@@ -68,20 +76,19 @@
   
   <!-- BUTTONS -->
   <div class="btn">
-      <button class="button1"> <a href="aboutme.html">About Me</a> </button>
-      <button class="button1"> <a href="project.html">Projects</a> </button>
-      <button class="button1 contact"> <a>Contact Me</a> </button>
+    <a href="aboutme.html" class="button1">About Me</a>
+    <a href="project.html" class="button1">Projects</a>
+    <a href="#contact" class="button1 contact">Contact Me</a>
   </div>
- <!-- BUTTONS END -->
+  <!-- BUTTONS END -->
 
-<!-- SOCIAL ICONS -->
-  
-  <div class="rice" ></div>
-  <div class = "sc">
+<!-- SOCIAL ICONS -->  
+  <div class="rice"></div>
+  <div class="sc">
     <div class="icons">
-      <a href="https://www.linkedin.com/in/muhais-olatundun-0bb273283" class="ld" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:monnk101@gmail.com" class="email"target="_blank"><i class="fab fa-google"></i></a>       
-      <a href="https://github.com/MONNK-CODE" class="git" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/muhais-olatundun-0bb273283" class="ld" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:monnk101@gmail.com" class="email" target="_blank" aria-label="Email"><i class="fab fa-google"></i></a>       
+      <a href="https://github.com/MONNK-CODE" class="git" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
     </div>
   </div>
  <!-- SOCIAL ICONS ENDS -->
