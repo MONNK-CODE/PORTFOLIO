@@ -68,7 +68,6 @@ text-align: center;
 }
 
 .wrap{
-  border-right: 0.10em solid #000;
  display: flex;
 justify-content: space-around;
 }

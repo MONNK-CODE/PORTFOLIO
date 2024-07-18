@@ -25,7 +25,7 @@ section{
 section .content{
   width: 80%;
   margin: 40px auto;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins';
 }
 
 section .title{
@@ -139,17 +139,15 @@ h1 {
     color: #ffffff;
     font-size: 3rem;
     font-weight: 600;
+    text-align: center;
 }
+
 @media (max-width: 768px) {
   h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
-@media (min-width: 769px) {
-  h1 {
-    font-size: 3rem;
-  }
-}
+
 h1 span {
   background: linear-gradient(to bottom, #9E0000, #FF6A6A);
   -webkit-background-clip: text;
@@ -157,39 +155,34 @@ h1 span {
   color: transparent;
   -webkit-text-fill-color: transparent;
   position: relative;
+  display: inline-block;
 }
-h1 span::before {
-    content: "";
-    height: 30px;
-    width: 2px;
+
+h1 span::after {
+    content: "|";
     position: absolute;
-    top: 50%;
     right: -8px;
-    background: white;
-    transform: translateY(-45%);
+    color: white;
     animation: blink 0.7s infinite;
 }
-h1 span.stop-blinking::before {
+
+h1 span.stop-blinking::after {
     animation: none;
 }
+
 @keyframes blink {
     50% { opacity: 0 }
 }
-/* Typing effect end */
 
-
-@media (max-width: 768px) {
-  .details{
+.details {
     justify-content: center;
     text-align: center;
     padding: 10px;
-  }
 }
 
 @media (min-width: 769px) {
-  .details{
-    justify-content: center;
-    text-align: center;
+  .details {
     padding: 20px;
   }
 }
+/* Typing effect end */
