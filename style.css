@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 body{
-    font-family: "Reem Kufi Fun" ;
+   font-family: 'Outfit';
    color : #ffffff;
   background: #0e0e0e;
 }
@@ -54,7 +54,7 @@ svg text {
 
 @media screen and (max-width: 400px) {
   svg text {
-    font-size: 50px;
+    font-size: 40px;
   }
 }
 /* MOVING TEXT ANIMATION END */
@@ -85,7 +85,7 @@ justify-content: space-around;
   font-weight: 400;
   font-size: 17px;
   border: 1px solid var(--color);
-  font-family: inherit;
+   font-family: 'Outfit';
   text-transform: uppercase;
   color: var(--color);
   z-index: 1;

@@ -1,6 +1,6 @@
 nav {
 position: fixed;
-top: 250px;
+top: 150px;
 right: 20px;
 width: 200px;
 height: 200px;
@@ -25,7 +25,7 @@ transform: rotate(-45deg);
 .nav-content span a {
 height: 80px;
 width: 80px;
-background: #fff;
+background: #F0F8FF;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -107,11 +107,13 @@ color: black;
 transition: opacity 0.5s ease;
 }
 
+
+
 /* Mobile Navigation Bar Styles */
 .mobile-nav {
   display: none;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.9); 
+  background-color: none;
   padding: 10px;
   position: fixed;
   top: 0;
@@ -142,10 +144,10 @@ transition: opacity 0.5s ease;
   text-decoration: none;
   background-color: var(--color);
   border-radius: .3em;
-  color: white;
+  color: #F0F8FF;
   font-weight: 400;
   font-size: 14px; 
-  font-family: 'Poppins', sans-serif;
+   font-family: 'Outfit'; 
   text-transform: uppercase;
   text-align: center;
   transition: .5s;

@@ -5,72 +5,95 @@ html {
   width: 100%;
 }
 
-body{
-  font-family: "Outfit" ;
-    background-color: #1e1e1e;
-    color: #ffffff;
-    margin: 0;
-    padding: 20px;
-  }
-  .gallery {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .gallery-title {
-    text-align: center;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 5em ;
-  }
+body {
+  font-family: 'Outfit';
+  background-color: #1e1e1e;
+  color: #ffffff;
+  margin: 0;
+  padding: 20px;
+}
+
+.gallery {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-title {
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 5em;
+}
+
+.mobile-gallery-title {
+  display: none;
+}
+
 .gallery-title span:hover {
   background: linear-gradient(to bottom, #9E0000, #FF6A6A);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent; 
-  -webkit-text-fill-color: transparent; 
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
-  .filter-buttons {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+.filter-buttons {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
 .filter-btn {
   background-color: #333;
   border: none;
-  border-radius:20px;
+  border-radius: 20px;
   padding: 10px 20px;
   margin: 0 5px;
   cursor: pointer;
   color: #fff;
   text-transform: uppercase;
   font-size: 14px;
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease-out; 
-  transition: background-image 0.5s ease-in-out;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-out, background-image 0.5s ease-in-out;
 }
 
+/* Hover styles for desktop */
 .filter-btn:hover {
-  /* background-image: linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%); */
-  background-image: linear-gradient(to right, #ff6347, #ff0000); 
+  background-image: linear-gradient(to right, #ff6347, #ff0000);
   transform: scale(1.05);
 }
 
 .filter-btn.active {
-  background-color: #9e0000; 
+  background-color: #9e0000;
   transition: background-image 0.5s ease-in-out;
 }
 
-.filter-btn.active:hover{
-  /* background-image: linear-gradient(-225deg, #405459 0%, #05004d 100%); */
-  background-image: linear-gradient(135deg, #7a061d, #4d2323); 
+.filter-btn.active:hover {
+  background-image: linear-gradient(135deg, #7a061d, #4d2323);
+}
+
+/* Disable hover effect on mobile */
+@media (max-width: 768px) {
+  .filter-btn:hover {
+    background-image: none;
+    transform: none;
+  }
+
+  .filter-btn.active:hover {
+    background-image: none;
+  }
 }
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 300px));
   gap: 20px;
   justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .project-grid {
+    grid-template-columns: 1fr; 
+  }
 }
 
 .project-card {
@@ -78,11 +101,13 @@ body{
   padding: 20px;
   border-radius: 20px;
   max-width: 300px;
+  margin: 0 auto; 
   transition: opacity 0.3s ease-out, max-height 0.3s ease-out;
   opacity: 1;
   max-height: 1000px;
-  transition: transform 0.3s ease;
-} 
+  transform: translateY(0);
+}
+
 
 .project-card:hover {
   transform: translateY(-5px);
@@ -93,56 +118,60 @@ body{
 }
 
 .project-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.project-card h3 {
+  text-align: center;
+  margin: 0;
+  color: #fff;
+  font-size: 18px;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #f0f0f0;
+    color: #333;
   }
+
+  .project-card {
+    background-color: #fff;
+  }
+
   .project-card h3 {
-    text-align: center;
-    margin: 0;
-    color: #fff;
-    font-size: 18px;
+    color: #333;
   }
+}
 
-  @media (prefers-color-scheme: light) {
-    body {
-      background-color: #f0f0f0;
-      color: #333;
-    }
-
-    .project-card {
-      background-color: #fff;
-    }
-    .project-card h3 {
-      color: #333;
-    }
-  }
-.des{
+.des {
   text-align: center;
 }
-.card-title{
+
+.card-title {
   display: none;
 }
 
 
 /* View Project Button */
 button {
- position: relative;
- display: inline-block;
- cursor: pointer;
- outline: none;
- border: 0;
- vertical-align: middle;
- text-decoration: none;
- background: transparent;
- padding: 0;
- font-size: inherit;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
 }
 
 button.learn-more {
- width: 12rem;
- height: auto;
+  width: 12rem;
+  height: auto;
 }
 
 button.learn-more .circle {
@@ -157,29 +186,29 @@ button.learn-more .circle {
 }
 
 button.learn-more:hover .circle {
-  background: #9e0000; 
+  background: #9e0000;
 }
 
 button.learn-more .circle .icon {
- transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
- position: absolute;
- top: 0;
- bottom: 0;
- margin: auto;
- background: #fff;
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
 }
 
 button.learn-more .circle .icon.arrow {
- transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
- left: 0.625rem;
- width: 1.125rem;
- height: 0.125rem;
- background: none;
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
 }
 
 button.learn-more .circle .icon.arrow::before {
   position: absolute;
-  content: "";
+  content: '';
   top: -0.29rem;
   right: 0.0625rem;
   width: 0.625rem;
@@ -190,9 +219,8 @@ button.learn-more .circle .icon.arrow::before {
 }
 
 button.learn-more:hover .circle .icon.arrow::before {
-  border-color: white; 
+  border-color: white;
 }
-
 
 button.learn-more .button-text {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
@@ -214,44 +242,69 @@ button.learn-more:hover .button-text {
   left: 0;
 }
 
-
 button:hover .circle {
- width: 100%;
+  width: 100%;
 }
 
 button:hover .circle .icon.arrow {
-  /* background: #1a1919; */
-    background: #ffffff;
- transform: translate(1rem, 0);
+  background: #ffffff;
+  transform: translate(1rem, 0);
 }
 
 button:hover .button-text {
- /* color: #0d0c0c; */
   color: #fff;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* MOBILE STYLES */
+@media (max-width: 767px) {
+  button.learn-more {
+    width: 100%; 
+    height: auto;
+    padding: 10px; 
+    background-color: #9e0000; 
+    color: white;
+    border-radius: 12px; 
+    text-align: center;
+    border: none; 
+  }
+
+  button.learn-more .circle {
+    display: none; 
+  }
+
+  button.learn-more .button-text {
+    position: static; 
+    margin: 0; 
+    padding: 0; 
+    color: white;
+  }
 }
 /* View Project Button End */
 
-
-/* GITHUB ICON */
+/* GitHub Icon */
 .github-link-button {
   border: none;
-  border-radius: 5%;
+  border-radius: 12px;
   width: 45px;
   height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition-duration: .4s;
+  transition-duration: 0.4s;
   cursor: pointer;
   position: relative;
-  background-color: rgb(31, 31, 31);
   overflow: hidden;
-  margin-left: 10px; 
-
+  margin-left: 10px;
 }
 
 .github-icon-svg {
-  transition-duration: .3s;
+  transition-duration: 0.3s;
 }
 
 .github-icon-svg path {
@@ -260,65 +313,118 @@ button:hover .button-text {
 
 .github-text {
   position: absolute;
-  color: rgb(255, 255, 255);
+  color:  #F0F8FF;
   width: 120px;
   font-weight: 600;
   opacity: 0;
-  transition-duration: .4s;
+  transition-duration: 0.4s;
 }
 
 .github-link-button:hover {
   width: 150px;
-  transition-duration: .4s;
+  transition-duration: 0.4s;
   border-radius: 30px;
 }
 
 .github-link-button:hover .github-text {
   opacity: 1;
-  transition-duration: .4s;
+  transition-duration: 0.4s;
 }
 
 .github-link-button:hover .github-icon-svg {
   opacity: 0;
-  transition-duration: .3s;
-}
-/* GITHUB ICON END */
-
-/* CSS for buttons container */
-.button-container {
-  display: flex;
-  justify-content: space-evenly; 
-  align-items: center;
+  transition-duration: 0.3s;
 }
 
 .learn-more, .github-link-button {
-  flex-grow: 1; 
-  margin: 5px; 
+  flex-grow: 1;
+  margin: 5px;
 }
 
+/* Mobile-friendly styles */
+@media (max-width: 767px) {
+  .github-link-button {
+    width: 100%;
+    height: auto; 
+    padding: 10px; 
+    border-radius: 12px; 
+    margin-left: 0; 
+  }
 
-/* LANGUAGE STATS */
- .language-stats {
-   list-style: none; 
-   padding: 0; 
-   display: flex; 
-   justify-content: center; 
-   margin-top: 10px; 
-   gap: 10px;
- }
+  .github-icon-svg {
+    opacity: 1; 
+    margin-right: 10px; 
+  }
 
- .language-stats li {
-   padding: 5px 1px; 
-   background-color: #9e0000; 
-   color: white;
-   border-radius: 5px; 
-   font-size: 10px; 
-   text-transform: uppercase; 
-   font-weight: bold;
-   transition: background-color 0.3s ease; 
- }
+  .github-text {
+    position: static; 
+    opacity: 1; 
+    width: auto; 
+  }
 
- .language-stats li:hover {
-   background-color: #252525; 
- }
-/* LANGUAGE STATS END */
+  /* Removes hover effects for mobile */
+  .github-link-button:hover {
+    width: 100%; 
+    border-radius: 5px; 
+  }
+
+  .github-link-button:hover .github-text {
+    opacity: 1; 
+  }
+
+  .github-link-button:hover .github-icon-svg {
+    opacity: 1;
+  }
+
+  .button-container {
+    flex-direction: column; 
+  }
+
+  .learn-more, .github-link-button {
+    margin: 5px 0; 
+    background: rgb(27, 18, 18);
+  }
+}
+/* GitHub Icon End */
+
+/* Language Stats */
+.language-stats {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.language-stats li {
+  padding: 5px 1px;
+  background-color: #9e0000;
+  color: white;
+  border-radius: 5px;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.language-stats li:hover {
+  background-color: #252525;
+}
+/* Language Stats End */
+
+/* Mobile Title Style */
+@media (max-width: 767px) {
+  .mobile-gallery-title {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 3em;
+  }
+  .gallery-title {
+    display: none;
+  }
+}
+/* Mobile Title Style End */

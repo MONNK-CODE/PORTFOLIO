@@ -75,32 +75,39 @@
 /* Mobile styles */
 @media screen and (max-width: 767px) {
   .button {
-    --bg-color: #2a2a2a;
-    --font-color: #e0e0e0;
-    --bg-color-sub: #3a3a3a;
+    --bg-color: #a20202; 
+    --font-color: #f0efef; 
     width: auto;
-    padding: 0 15px;
-    box-shadow: 4px 4px #1a1a1a;
+    padding: 10px 20px;
+    background-color: var(--bg-color);
+    border: none;
+    box-shadow: none;
+    transition: none;
   }
 
   .button .button__text {
-    transform: translateX(0);
+    transform: none;
     padding-right: 10px;
+    color: var(--font-color);
   }
 
   .button .button__icon {
     position: static;
-    transform: translateX(0);
-    width: auto;
+    transform: none;
+    width: 15px; /* Adjusted icon width */
+    height: 15px; /* Adjusted icon height */
     background-color: transparent;
   }
 
   .button .svg {
-    fill: var(--font-color);
+    fill: var(--font-color); 
+    width: 100%; 
+    height: 100%; 
   }
 
+  /* this removes hover effects */
   .button:hover {
-    background: var(--bg-color);
+    background-color: var(--bg-color);
   }
 
   .button:hover .button__text {
@@ -111,8 +118,11 @@
     width: auto;
   }
 
+  /* this removes active state effects */
   .button:active {
-    box-shadow: 0px 0px #1a1a1a;
-    background-color: #3a3a3a;
+    box-shadow: none;
+    background-color: var(--bg-color);
   }
 }
+
+
