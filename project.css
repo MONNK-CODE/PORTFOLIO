@@ -58,7 +58,7 @@ body {
 
 /* Hover styles for desktop */
 .filter-btn:hover {
-  background-image: linear-gradient(to right, #ff6347, #ff0000);
+  background-image: linear-gradient(to right, #32110b, #a19191);
   transform: scale(1.05);
 }
 
@@ -301,6 +301,7 @@ button:hover .button-text {
   position: relative;
   overflow: hidden;
   margin-left: 10px;
+  background: #1B1B1B;
 }
 
 .github-icon-svg {
@@ -382,7 +383,7 @@ button:hover .button-text {
 
   .learn-more, .github-link-button {
     margin: 5px 0; 
-    background: rgb(27, 18, 18);
+    background: #1B1B1B;
   }
 }
 /* GitHub Icon End */
