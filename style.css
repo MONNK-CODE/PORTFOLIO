@@ -25,24 +25,36 @@ svg {
   height: auto;
   aspect-ratio: 16 / 9;
 }
-
 svg text {
   animation: stroke 6s infinite alternate;
   stroke-width: 1;
-  stroke: #FFFFFF;
+  stroke: url(#grad1); /* Reference the gradient */
   font-size: 48px;
 }
 
 @keyframes stroke {
-  0%   {
-    fill: rgba(255,255,255,0); stroke: rgba(255,255,255,1);
-    stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 1;
+  0% {
+    fill: rgba(255, 255, 255, 0); 
+    stroke: url(#grad1); /* Reference the gradient */
+    stroke-dashoffset: 25%; 
+    stroke-dasharray: 0 50%; 
+    stroke-width: 1;
   }
-  70%  {fill: rgba(255,255,255,0); stroke: rgba(255,255,255,1); }
-  80%  {fill: rgba(255,255,255,0); stroke: rgba(255,255,255,1); stroke-width: 2; }
+  70% {
+    fill: rgba(255, 255, 255, 0); 
+    stroke: url(#grad1); /* Reference the gradient */
+  }
+  80% {
+    fill: rgba(255, 255, 255, 0); 
+    stroke: url(#grad1); /* Reference the gradient */
+    stroke-width: 2; 
+  }
   100% {
-    fill: rgba(255,255,255,1); stroke: rgba(255,255,255,0);
-    stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+    fill: rgba(255, 255, 255, 1); 
+    stroke: rgba(255, 255, 255, 0);
+    stroke-dashoffset: -25%; 
+    stroke-dasharray: 50% 0; 
+    stroke-width: 0;
   }
 }
 
