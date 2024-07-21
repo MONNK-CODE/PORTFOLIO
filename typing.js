@@ -55,7 +55,7 @@ window.onload = function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     const dynamicText = document.querySelector("h1 span");
-    const words = ["a Software Developer", "a Web Developer", "the Future", "Muhais Olatundun"];
+    const words = ["a Student", "a Software Developer", "a Web Developer", "the Future"];
 
     let wordIndex = 0;
     let charIndex = 0;

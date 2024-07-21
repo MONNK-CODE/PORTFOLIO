@@ -1,14 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 body{
-   font-family: 'Outfit';
-   color : #ffffff;
+ font-family: 'Outfit';
+  color : #ffffff;
   background: #0e0e0e;
+  max-width: 100%;
+  max-height: 100vh;
+  scroll-behavior: smooth;
 }
 
-.oghome{
-  width: 100%;
-  height:100vh;
-}
 
 
 /* MOVING TEXT ANIMATION */
@@ -35,22 +34,22 @@ svg text {
 @keyframes stroke {
   0% {
     fill: rgba(255, 255, 255, 0); 
-    stroke: url(#grad1); /* Reference the gradient */
+    stroke: url(#grad1); 
     stroke-dashoffset: 25%; 
     stroke-dasharray: 0 50%; 
     stroke-width: 1;
   }
   70% {
     fill: rgba(255, 255, 255, 0); 
-    stroke: url(#grad1); /* Reference the gradient */
+    stroke: url(#grad1); 
   }
   80% {
     fill: rgba(255, 255, 255, 0); 
-    stroke: url(#grad1); /* Reference the gradient */
+    stroke: url(#grad1); 
     stroke-width: 2; 
   }
   100% {
-    fill: rgba(255, 255, 255, 1); 
+    fill: #9e0000; 
     stroke: rgba(255, 255, 255, 0);
     stroke-dashoffset: -25%; 
     stroke-dasharray: 50% 0; 
@@ -70,14 +69,6 @@ svg text {
   }
 }
 /* MOVING TEXT ANIMATION END */
-
-
-.student{
-letter-spacing: 0.25rem;
-font-size: 2.5em;
-font-weight: 300;
-text-align: center;
-}
 
 .wrap{
  display: flex;
@@ -178,7 +169,6 @@ justify-content: space-around;
   }
 }
 
-
 a {
   text-decoration: none;
   color: #ffffff;
@@ -186,34 +176,42 @@ a {
 /* NAV BAR BUTTTON  END*/
 
 
-/* PYTHON TEXT TYPEWRITE EFFECT  */
-.typewrite {
-  width: 100%;
-  height: auto;
-  font-size: 3vw;
+/* Typing effect */
+h1 {
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+h1 span {
   color: #9e0000;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  hyphens: auto;
-  text-align: center;
-  padding: 10px;
-  box-sizing: border-box;
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* color: transparent;
+  -webkit-text-fill-color: transparent; */
+  position: relative;
+  display: inline-block;
 }
 
-@media screen and (max-width: 768px) {
-  .typewrite {
-    font-size: 6vw;
-  }
+h1 span::after {
+    content: "|";
+    right: -8px;
+    color: white;
+    animation: blink 0.7s infinite;
 }
 
-@media screen and (max-width: 480px) {
-  .typewrite {
-    font-size: 7vw;
-  }
+h1 span.stop-blinking::after {
+    animation: none;
 }
 
-/* PYTHON TEXT TYPEWRITE EFFECT END  */
-
-.nav-content{
-  display: none;
+@keyframes blink {
+    50% { opacity: 0 }
 }
+/* Typing effect end */
