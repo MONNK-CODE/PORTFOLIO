@@ -115,7 +115,7 @@
   }
 
   .button:hover .button__icon {
-    width: auto;
+    width: none;
   }
 
   /* this removes active state effects */
