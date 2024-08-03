@@ -136,7 +136,6 @@ section .title span::after{
 .icon:hover i {
     transform: rotateY(180deg);
 }
-
 /*  icon hover effects */
 #css-icon:hover i { color: #0756d5; }
 #html-icon:hover i { color: #e34c26; }
@@ -147,6 +146,16 @@ section .title span::after{
   background-clip: text;
     color: transparent;
 }
+#replit-icon:hover i {
+    color: #F26207; 
+}
+#jupyter-icon:hover i {
+  background: linear-gradient(135deg, #000000 0%, #151515 25%, #F8A145 50%, #F07900 75%, #D35100 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Ensure the gradient shows */
+}
+/*  icon hover effects end */
 /* SKILL ICONS END  */
 
 
