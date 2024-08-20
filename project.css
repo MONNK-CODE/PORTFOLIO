@@ -38,6 +38,31 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.youtube-text{
+  font-family: 'Outfit';
+  font-weight: 700;
+  line-height: 1.6;
+  color: #fff;
+  font-size: 1.5rem;
+}
+  .youtube-link-button {
+      transition: transform 0.3s ease;
+      cursor: pointer;
+  }
+
+  .youtube-link-button:hover {
+      transform: scale(1.1);
+  }
+
+  .youtube-icon-svg {
+      transition: transform 0.3s ease;
+  }
+
+  .youtube-link-button:hover .youtube-icon-svg {
+      transform: scale(1.2);
+  }
+
+
 .filter-buttons {
   text-align: center;
   margin-bottom: 20px;
@@ -150,7 +175,7 @@ body {
   text-align: center;
 }
 
-.card-title {
+.card-title,.title-youtube {
   display: none;
 }
 

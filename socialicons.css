@@ -73,6 +73,10 @@
   color: #333;
 }
 
+.icons a.youtube i{
+  color: #FF0000;
+}
+
 .icons {
   padding: 10px 0;
 }
