@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     (function(){
-    emailjs.init(process.env.EMAILJS_PUBLIC_KEY);  // Access the key from .env
+    emailjs.init(ggYLuSeAb8KgHjiOv);  // Access the key from .env
   })();
   
   var form = document.getElementById('contactForm');
