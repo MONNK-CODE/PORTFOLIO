@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-  (function(){
-     emailjs.init("ggYLuSeAb8KgHjiOv"); // THIS IS MY PUBLIC KEY 
+    (function(){
+    emailjs.init(process.env.EMAILJS_PUBLIC_KEY);  // Access the key from .env
   })();
-
+  
   var form = document.getElementById('contactForm');
   if (form) {
     form.addEventListener('submit', function(event) {
