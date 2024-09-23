@@ -28,23 +28,43 @@
   <div class="header">
     <div class="center">
 
+      <style>
+        @media (prefers-color-scheme: light) {
+          :root {
+            --first-stop-color: #333; /* This changes it to black in light mode */
+          }
+        }
+
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --first-stop-color: #FFFAFA; /* Original white color in dark mode */
+          }
+        }
+
+        .svg-container stop:first-child {
+          stop-color: var(--first-stop-color); /* Use the variable for the stop color */
+        }
+      </style>
+
       <div class="svg-container">
         <svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid meet">
           <defs>
             <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style="stop-color:#FFFAFA;stop-opacity:1" />
+              <stop offset="0%" style="stop-opacity:1" />
               <stop offset="100%" style="stop-color:#9E0000;stop-opacity:1" />
             </linearGradient>
           </defs>
- <text x="200" y="112.5" text-anchor="middle" dominant-baseline="middle" fill="red">
+          <text x="200" y="112.5" text-anchor="middle" dominant-baseline="middle" fill="red">
             Muhais Olatundun
           </text>
         </svg>
       </div>
 
+
+
       <!--  Typing Effect --> 
       <header>
-          <h1>I'm <span></span></h1>
+          <h1 class = "text">I'm <span></span></h1>
       </header>
       <!--  Typing Effect -->
 

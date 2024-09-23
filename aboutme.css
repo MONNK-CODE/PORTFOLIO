@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 *{
   margin: 0;
@@ -84,7 +83,7 @@ section .title span::after{
 
  /* My Skills CSS */
  .skills{
-   background: #F0F8FF;
+   background: #413e3e;
  }
  .skills .content{
    padding: 40px 0;
@@ -115,10 +114,13 @@ section .title span::after{
     transition: transform 0.6s ease;
     transform-style: preserve-3d;
     display: inline-block;
-    color: #121212; 
+    color: #f1efef; 
 }
 .sn{
-  color: #121212;
+  color: #ded9d9;
+} 
+.title.sn span {
+  color: #d3cfcf; 
 }
 
 .icon i::after {
@@ -141,7 +143,6 @@ section .title span::after{
 #css-icon:hover i { color: #0756d5; }
 #html-icon:hover i { color: #e34c26; }
 #js-icon:hover i { color: #a5a800; }
-#kotlin-icon:hover i { color: #B125EA}
 #python-icon:hover i {
   background: linear-gradient(to right, #4B8BBE 0%, #FFD43B 100%);
   -webkit-background-clip: text;
@@ -165,7 +166,6 @@ section .title span::after{
     #css-icon i { color: #0756d5; }
     #html-icon i { color: #e34c26; }
     #js-icon i { color: #a5a800; }
-    #kotlin-icon i { color: #B125EA; }
     #python-icon i {
         background: linear-gradient(to right, #4B8BBE 0%, #FFD43B 100%);
         -webkit-background-clip: text;
@@ -223,3 +223,37 @@ h1 span.stop-blinking::after {
 
 /* Typing effect end */
 
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+
+  .title {
+     color: #333;
+  }
+
+.text{
+  color: #333;
+}
+  .details {
+    color: #333;
+  }
+  section .title span{
+    color: #333;
+  }
+  
+  .title.sn span {
+    color: #171616; 
+  }
+  .icon i {
+      color: #171616; 
+  }
+   .skills{
+     background: #F0F8FF;
+   }
+  .sn {
+    color : #121212
+  }
+}
