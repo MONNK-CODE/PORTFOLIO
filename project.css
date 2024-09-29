@@ -11,6 +11,7 @@ body {
   color: #ffffff;
   margin: 0;
   padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /*might remove*/
