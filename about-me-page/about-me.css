@@ -42,7 +42,7 @@ section{
 section .content{
   width: 80%;
   margin: 40px auto;
-  font-family: 'Outfit';
+    font-family: 'Outfit', serif;
 }
 
 section .title{
@@ -78,13 +78,13 @@ section .title span::after{
   transform: translateX(-50%);
 }
 
-.spaceboy{
+.space-boy{
   margin-top: 20px;
 }
 
  /* My Skills CSS */
  .skills{
-   background: #413e3e;
+   background: #232323;
  }
  .skills .content{
    padding: 40px 0;

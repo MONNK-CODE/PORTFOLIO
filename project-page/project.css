@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  font-family: 'Outfit';
+  font-family: 'Outfit', serif;
   background-color: #1e1e1e;
   color: #ffffff;
   margin: 0;
@@ -47,7 +47,7 @@ img {
 }
 
 .youtube-text{
-  font-family: 'Outfit';
+  font-family: 'Outfit', serif;
   font-weight: 700;
   line-height: 1.6;
   color: #fff;

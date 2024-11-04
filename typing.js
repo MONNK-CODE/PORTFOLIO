@@ -1,4 +1,4 @@
-var TxtType = function(el, toRotate, period) {
+const TxtType = function (el, toRotate, period) {
     this.toRotate = toRotate;
     this.el = el;
     this.loopNum = 0;
@@ -9,8 +9,8 @@ var TxtType = function(el, toRotate, period) {
 };
 
 TxtType.prototype.tick = function() {
-    var i = this.loopNum % this.toRotate.length;
-    var fullTxt = this.toRotate[i];
+    const i = this.loopNum % this.toRotate.length;
+    const fullTxt = this.toRotate[i];
 
     if (this.isDeleting) {
     this.txt = fullTxt.substring(0, this.txt.length - 1);
@@ -20,8 +20,8 @@ TxtType.prototype.tick = function() {
 
     this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
 
-    var that = this;
-    var delta = 200 - Math.random() * 100;
+    const that = this;
+    let delta = 200 - Math.random() * 100;
 
     if (this.isDeleting) { delta /= 2; }
 
@@ -40,10 +40,10 @@ TxtType.prototype.tick = function() {
 };
 
 window.onload = function() {
-    var elements = document.getElementsByClassName('typewrite');
-    for (var i=0; i<elements.length; i++) {
-        var toRotate = elements[i].getAttribute('data-type');
-        var period = elements[i].getAttribute('data-period');
+    const elements = document.getElementsByClassName('typewrite');
+    for (let i=0; i<elements.length; i++) {
+        const toRotate = elements[i].getAttribute('data-type');
+        const period = elements[i].getAttribute('data-period');
         if (toRotate) {
           new TxtType(elements[i], JSON.parse(toRotate), period);
         }
@@ -63,8 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function typeEffect() {
         const currentWord = words[wordIndex];
-        const currentChar = currentWord.substring(0, charIndex);
-        dynamicText.textContent = currentChar;
+        dynamicText.textContent = currentWord.substring(0, charIndex);
         dynamicText.classList.add("stop-blinking");
 
         if (!isDeleting && charIndex < currentWord.length) {

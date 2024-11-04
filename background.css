@@ -13,39 +13,39 @@
   /* border: solid 1px #c1cce2; */
   transform-origin: top left;
   transform: scale(0) rotate(0deg) translate(-50%, -50%);
-  -webkit-animation: cube 12s ease-in forwards infinite;
-          animation: cube 12s ease-in forwards infinite;
+  -webkit-animation: cube 10s ease-in forwards infinite;
+          animation: cube 10s ease-in forwards infinite;
 }
 .cube:nth-child(2n) {
   border-color: #18191b;
 }
 .cube:nth-child(2) {
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
   left: 25vw;
   top: 40vh;
 }
 .cube:nth-child(3) {
-  -webkit-animation-delay: 4s;
-          animation-delay: 4s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
   left: 75vw;
   top: 50vh;
 }
 .cube:nth-child(4) {
-  -webkit-animation-delay: 6s;
-          animation-delay: 6s;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
   left: 90vw;
   top: 10vh;
 }
 .cube:nth-child(5) {
-  -webkit-animation-delay: 8s;
-          animation-delay: 8s;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
   left: 10vw;
   top: 85vh;
 }
 .cube:nth-child(6) {
-  -webkit-animation-delay: 10s;
-          animation-delay: 10s;
+  -webkit-animation-delay: 2.5s;
+          animation-delay: 2.5s;
   left: 50vw;
   top: 10vh;
 }

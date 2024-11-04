@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 body{
- font-family: 'Outfit';
+  font-family: 'Outfit', serif;
   color : #ffffff;
   background: #0e0e0e;
   max-width: 100%;
@@ -21,22 +21,22 @@ body{
  
 }
 
-.profile-image {
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    overflow: hidden;
-    object-fit: cover;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    /* margin-bottom: 100px; */
+/*.profile-image {*/
+/*    width: 400px;*/
+/*    height: 400px;*/
+/*    border-radius: 50%;*/
+/*    overflow: hidden;*/
+/*    object-fit: cover;*/
+/*    display: block;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    !* margin-bottom: 100px; *!*/
 
-    @media screen and (max-width: 600px) {
-        width: 200px;
-        height: 200px;
-    }
-}
+/*    @media screen and (max-width: 600px) {*/
+/*        width: 200px;*/
+/*        height: 200px;*/
+/*    }*/
+/*}*/
 
 /* MOVING TEXT ANIMATION */
 .svg-container {
@@ -103,7 +103,7 @@ svg text {
 justify-content: space-around;
 }
 
-/* NAV BAR BUTTTON */
+/* NAV BAR BUTTON */
 .button1 {
   --color: #9e0000;
   padding: 0.8em 1.7em;
@@ -116,7 +116,7 @@ justify-content: space-around;
   font-weight: 400;
   font-size: 17px;
   border: 1px solid var(--color);
-   font-family: 'Outfit';
+  font-family: 'Outfit', serif;
   text-transform: uppercase;
   color: var(--color);
   z-index: 1;
@@ -201,7 +201,7 @@ a {
   text-decoration: none;
   color: #ffffff;
 }
-/* NAV BAR BUTTTON  END*/
+/* NAV BAR BUTTON  END*/
 
 
 /* Typing effect */
