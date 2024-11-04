@@ -1,7 +1,7 @@
 function downloadResume() {
   const link = document.createElement('a');
   link.href = 'RESUME.pdf';
-  link.download = 'MuhaisOlatundun-Resume-2024.pdf';
+  link.download = 'Muhais-Olatundun-Resume.pdf';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
