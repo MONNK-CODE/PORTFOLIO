@@ -165,6 +165,7 @@ section .title span::after{
     #css-icon i { color: #0756d5; }
     #html-icon i { color: #e34c26; }
     #js-icon i { color: #a5a800; }
+    #kt-icon i { color: #bd3bff; }
     #python-icon i {
         background: linear-gradient(to right, #4B8BBE 0%, #FFD43B 100%);
         -webkit-background-clip: text;
@@ -236,13 +237,13 @@ h1 span.stop-blinking::after {
 .text{
   color: #333;
 }
-  .details {
+    .details {
     color: #333;
   }
   section .title span{
     color: #333;
   }
-  
+
   .title.sn span {
     color: #171616; 
   }
