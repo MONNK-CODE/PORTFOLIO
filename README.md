@@ -1,4 +1,4 @@
-# 🌟 My Senior Year Journey: A Portfolio of Growth 🌟
+# 🌟 My HS Senior Year Journey: A Portfolio of Growth 🌟
 
 ## **A Letter to My Code Nation Project**
 
