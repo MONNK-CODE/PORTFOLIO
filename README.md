@@ -2,7 +2,7 @@
 
 ## **A Letter to My Code Nation Project**
 
-Welcome to my portfolio, a culmination of hard work, endless curiosity, and a journey of self-discovery that spanned my entire senior year of high school. What started as a class project with Code Nation became a passion that consumed countless evenings, weekends, and quiet hours of focus. This is not just a repository of code, it's a diary of my growth, a testament to resilience, and a snapshot of how I learned to create something meaningful.
+Welcome to my portfolio, proof of hard work, endless curiosity, and a journey of self-discovery that spanned my entire senior year of high school. What started as a class project with Code Nation became a passion that consumed countless evenings, weekends, and quiet hours of focus. This is not just a repository of code, it's a diary of my growth, a testament to resilience, and a snapshot of how I learned to create something meaningful.
 
 ---
 
