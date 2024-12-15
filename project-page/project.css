@@ -294,6 +294,7 @@ button:hover .button-text {
   align-items: center;
 }
 
+
 /* MOBILE STYLES */
 @media (max-width: 767px) {
   button.learn-more {
@@ -319,6 +320,9 @@ button:hover .button-text {
   }
 }
 /* View Project Button End */
+
+
+/* Icons */
 
 /* GitHub Icon */
 .github-link-button {
@@ -347,7 +351,7 @@ button:hover .button-text {
 
 .github-text {
   position: absolute;
-  color:  #F0F8FF;
+  color: #F0F8FF;
   width: 120px;
   font-weight: 600;
   opacity: 0;
@@ -375,51 +379,182 @@ button:hover .button-text {
   margin: 5px;
 }
 
+
+/* Video Icon Button */
+.video-link-button {
+  border: none;
+  border-radius: 12px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  margin-left: 10px;
+  background: #f6f6f6;
+}
+
+.video-icon-svg {
+  transition-duration: 0.3s;
+}
+
+.video-icon-svg path {
+  fill: #1e1c1c;
+}
+
+.video-text {
+  position: absolute;
+  color: #000809;
+  width: 120px;
+  font-weight: 600;
+  opacity: 0;
+  transition-duration: 0.4s;
+}
+
+/* Hover Effects for video button */
+.video-link-button:hover {
+  width: 150px;
+  transition-duration: 0.4s;
+  border-radius: 30px;
+}
+
+.video-link-button:hover .video-text {
+  opacity: 1;
+  transition-duration: 0.4s;
+}
+
+.video-link-button:hover .video-icon-svg {
+  opacity: 0;
+  transition-duration: 0.3s;
+}
+
+.video-link-button {
+  flex-grow: 1;
+  margin: 5px;
+}
+
+
+/* YouTube Icon Button */
+.youtube-link-button {
+  border: none;
+  border-radius: 12px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  margin-left: 10px;
+  background: #FF0000; /* YouTube brand color */
+}
+
+.youtube-icon-svg {
+  transition-duration: 0.3s;
+}
+
+.youtube-icon-svg path {
+  fill: white;
+}
+
+.youtube-text {
+  position: absolute;
+  width: 120px;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 1000;
+  opacity: 0;
+  transition-duration: 0.4s;
+}
+/*!* Light mode: text is dark *!*/
+/*@media (prefers-color-scheme: light) {*/
+/*  .youtube-text {*/
+/*    color: #000;*/
+/*  }*/
+/*}*/
+/*!* Dark mode: text is light *!*/
+/*@media (prefers-color-scheme: dark) {*/
+/*  .youtube-text {*/
+/*    color: #fff;*/
+/*  }*/
+/*}*/
+
+.youtube-link-button:hover {
+  width: 150px;
+  transition-duration: 0.4s;
+  border-radius: 30px;
+}
+
+.youtube-link-button:hover .youtube-text {
+  opacity: 1;
+  transition-duration: 0.4s;
+}
+
+.youtube-link-button:hover .youtube-icon-svg {
+  opacity: 0;
+  transition-duration: 0.3s;
+}
+
+.youtube-link-button {
+  flex-grow: 1;
+  margin: 5px;
+}
+
+
 /* Mobile-friendly styles */
 @media (max-width: 767px) {
-  .github-link-button {
+  .github-link-button, .video-link-button, .youtube-link-button {
     width: 100%;
-    height: auto; 
-    padding: 10px; 
-    border-radius: 12px; 
-    margin-left: 0; 
+    height: auto;
+    padding: 10px;
+    border-radius: 12px;
+    margin-left: 0;
   }
 
-  .github-icon-svg {
-    opacity: 1; 
-    margin-right: 10px; 
+  .github-icon-svg, .video-icon-svg, .youtube-icon-svg {
+    opacity: 1;
+    margin-right: 10px;
   }
 
-  .github-text {
-    position: static; 
-    opacity: 1; 
-    width: auto; 
+  .github-text, .video-text, .youtube-text {
+    position: static;
+    opacity: 1;
+    width: auto;
   }
 
   /* Removes hover effects for mobile */
-  .github-link-button:hover {
-    width: 100%; 
-    border-radius: 5px; 
+  .github-link-button:hover, .video-link-button:hover, .youtube-link-button:hover {
+    width: 100%;
+    border-radius: 5px;
   }
 
-  .github-link-button:hover .github-text {
-    opacity: 1; 
+  .github-link-button:hover .github-text, .video-link-button:hover .video-text, .youtube-link-button:hover .youtube-text {
+    opacity: 1;
   }
 
-  .github-link-button:hover .github-icon-svg {
+  .github-link-button:hover .github-icon-svg, .video-link-button:hover .video-icon-svg, .youtube-link-button:hover .youtube-icon-svg {
     opacity: 1;
   }
 
   .button-container {
-    flex-direction: column; 
+    flex-direction: column;
   }
 
-  .learn-more, .github-link-button {
-    margin: 5px 0; 
+  .learn-more, .github-link-button, .video-link-button, .youtube-link-button {
+    margin: 5px 0;
+  }
+
+  .github-link-button {
     background: #1B1B1B;
   }
 }
-/* GitHub Icon End */
+
+
 
 /* Language Stats */
 .language-stats {
