@@ -1,6 +1,6 @@
 # 🌟 My HS Senior Year Journey: A Portfolio of Growth 🌟
 
-## **A Letter to My Code Nation Project**
+## **A Letter to Code Nation **
 
 Welcome to my portfolio, proof of hard work, endless curiosity, and a journey of self-discovery that spanned my entire senior year of high school. What started as a class project with Code Nation became a passion that consumed countless evenings, weekends, and quiet hours of focus. This is not just a repository of code, it's a diary of my growth, a testament to resilience, and a snapshot of how I learned to create something meaningful.
 
@@ -15,8 +15,10 @@ It all started with Code Nation, a program that opened my eyes to the world of w
 Senior year became my playground for learning and refining my skills. I revisited my Code Nation project and asked myself: **"What more can I do?"**
 
 ### Highlights:
-- **AI-Powered Features**  
-  I took a bold leap into the future by incorporating AI into my project. It wasn’t easy, but it was exhilarating. AI didn’t just help me build smarter solutions—it taught me to think critically about technology and its impact.
+
+[//]: # (- **AI-Powered Features**  )
+
+[//]: # (  I took a bold leap into the future by incorporating AI into my project. It wasn’t easy, but it was exhilarating. AI didn’t just help me build smarter solutions—it taught me to think critically about technology and its impact.)
 
 - **Automation Magic**  
 Each line of code felt like a puzzle piece falling into place.
