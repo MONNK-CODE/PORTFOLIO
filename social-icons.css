@@ -76,6 +76,39 @@
 .icons a.youtube i{
   color: #FF0000;
 }
+.icons a.tiktok i {
+  /*background: linear-gradient(45deg, #69C9D0, #EE1D52);*/
+  /*-webkit-background-clip: text;*/
+  /*-webkit-text-fill-color: transparent;*/
+  color: #111111;
+  filter: drop-shadow(2px 0px 0px #FD3E3E)
+  drop-shadow(-2px -2px 0px #4DE8F4);
+}
+.icons a.instagram i {
+  background: linear-gradient(45deg, #405DE6, #5B51D8, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+  filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.2));
+}
+.icons a.gmail img.gmail-icon {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  padding: 12px;
+  background: #ecf0f3;
+  transition: all 0.3s;
+  box-shadow: -3px -3px 7px #a3d1f5,
+  3px 3px 5px #a3d1f5;
+}
+
+.icons a.gmail:hover img.gmail-icon {
+  box-shadow: inset -3px -3px 7px #ffffff,
+  inset 3px 3px 5px #ceced1;
+  transform: scale(0.9);
+}
 
 .icons {
   padding: 10px 0;
