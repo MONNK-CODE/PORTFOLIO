@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* Light Mode Styles */
+.contact-section {
+    font-family: 'Outfit', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background: #F0F8FF; /* Light background */
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 400px;
+    scroll-behavior: smooth;
+    transition: background 0.3s, color 0.3s; /* For smooth transition */
+}
+
+.form-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: #F0F8FF; /* Light background */
+    text-align: center;
+    transition: background 0.3s, color 0.3s; /* For smooth transition */
+}
+
+.con-title {
+    font-size: 5.5rem;
+    /*background: linear-gradient(to right, #9e0000, #1e3c72);*/
+    color: #9e0000
+    /*-webkit-background-clip: text;*/
+    /*background-clip: text;*/
+    /*-webkit-text-fill-color: transparent;*/
+    /*transition: color 0.3s; !* For smooth transition *!*/
+}
+
+@media screen and (max-width: 767px) {
+    .con-title {
+        font-size: 3rem;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #292424;
+    border-radius: 4px;
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+    font-family: 'Reem Kufi Fun', serif;
+    background-color: #F0F8FF; /* Light input background */
+    color: #292424; /* Light input text color */
+}
+
+input:focus,
+textarea:focus {
+    border-color: #9e0000;
+}
+
+label {
+    position: absolute;
+    left: 12px;
+    top: -10px;
+    background: #F0F8FF; /* Light label background */
+    padding: 0 5px;
+    transition: all 0.3s, background-color 0.3s, color 0.3s;
+    color: #9e0000;
+    font-size: 0.85rem;
+}
+
+.submit-button {
+    /*background: linear-gradient(to right, #9e0000, #1e3c72);*/
+    background: #9e0000;
+    color: #F0F8FF;
+    padding: 0.7em 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s, background 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.submit-button span {
+    display: block;
+    margin-left: 0.4em;
+    transition: all 0.3s ease-in-out;
+}
+
+.submit-button svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Desktop Animation Styles */
+@media screen and (min-width: 768px) {
+    .submit-button:hover .svg-wrapper {
+        animation: fly-1 0.6s ease-in-out infinite alternate;
+    }
+
+    .submit-button:hover svg {
+        transform: translateX(1.2em) rotate(45deg) scale(1.1);
+    }
+
+    .submit-button:hover span {
+        transform: translateX(5em);
+    }
+}
+
+.submit-button:active {
+    transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+    from {
+        transform: translateY(0.1em);
+    }
+    to {
+        transform: translateY(-0.1em);
+    }
+}
+
+/* Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+    .contact-section {
+        background: #121212; /* Dark background */
+        color: #E0E0E0; /* Light text */
+    }
+
+    .form-container {
+        background: #1E1E1E; /* Darker form background */
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        color: #E0E0E0; /* Light text */
+    }
+
+    .con-title {
+        /*background: linear-gradient(to right, #ff4d4d, #5c86c6); !* Adjusted gradient for dark mode *!*/
+        /*-webkit-background-clip: text;*/
+        /*background-clip: text;*/
+        /*-webkit-text-fill-color: transparent;*/
+        color: #9E0000;
+    }
+
+    input,
+    textarea {
+        border-color: #424242;
+        background-color: #303030; /* Dark input background */
+        color: #E0E0E0; /* Light input text color */
+    }
+
+    label {
+        background: #1E1E1E; /* Dark label background */
+        color: #ff4d4d; /* Adjusted label color */
+    }
+
+    .submit-button {
+        /*background: linear-gradient(to right, #ff4d4d, #5c86c6);*/
+        background: #9e0000;
+        color: #E0E0E0;
+    }
+
+    /* Mobile Specific Styles (Dark Mode) */
+    @media screen and (max-width: 767px) {
+        .submit-button span {
+            display: none; /* Hide the text on mobile */
+        }
+        .submit-button .svg-wrapper-1 {
+            display: block; /* Show the icon on mobile */
+        }
+        .submit-button svg {
+            transform: none; /* Reset any hover transforms on mobile */
+        }
+    }
+}
+
+/* Mobile Specific Styles (Light and Dark Mode) */
+@media screen and (max-width: 767px) {
+    .contact-section {
+        padding: 15px;
+        margin-top: 200px; /* Adjust margin for smaller screens */
+        height: auto; /* Adjust height for content */
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    .submit-button {
+        padding: 0.7em; /* Adjust padding for icon-only button */
+    }
+
+    .submit-button span {
+        display: none; /* Hide the text on mobile */
+    }
+
+    .submit-button .svg-wrapper-1 {
+        display: block; /* Show the icon on mobile */
+    }
+
+    .submit-button svg {
+        transform: none; /* Reset any hover transforms on mobile */
+    }
+}
+
+/* Desktop Specific Styles (Ensuring icon and text are visible) */
+@media screen and (min-width: 768px) {
+    .submit-button .svg-wrapper-1 {
+        display: block; /* Ensure icon is visible on desktop */
+    }
+    .submit-button span {
+        display: block; /* Ensure text is visible on desktop */
+    }
+}

@@ -145,6 +145,7 @@ section .title span::after{
 #html-icon:hover i { color: #e34c26; }
 #js-icon:hover i { color: #a5a800; }
 #kt-icon:hover i { color: #bd3bff; }
+#react-icon:hover i { color: #61dafb; }
 #python-icon:hover i {
   background: linear-gradient(to right, #4B8BBE 0%, #FFD43B 100%);
   -webkit-background-clip: text;
@@ -166,6 +167,7 @@ section .title span::after{
     #html-icon i { color: #e34c26; }
     #js-icon i { color: #a5a800; }
     #kt-icon i { color: #bd3bff; }
+    #react-icon i { color: #61dafb; }
     #python-icon i {
         background: linear-gradient(to right, #4B8BBE 0%, #FFD43B 100%);
         -webkit-background-clip: text;
@@ -257,3 +259,4 @@ h1 span.stop-blinking::after {
     color : #121212
   }
 }
+

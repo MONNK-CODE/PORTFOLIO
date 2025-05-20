@@ -188,138 +188,82 @@ img {
 }
 
 
-/* View Project Button */
-button {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  outline: none;
-  border: 0;
-  vertical-align: middle;
-  text-decoration: none;
-  background: transparent;
-  padding: 0;
-  font-size: inherit;
+
+
+
+
+/*NEW PROJECT BUTTON*/
+/* Base styles for the link */
+ .view-project-link {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   gap: 0.5rem;
+   background-color: #9e0000;
+   color: white;
+   border-radius: 12px;
+   text-decoration: none;
+   font-weight: bold;
+   transition: background-color 0.3s ease;
+   margin-top: 10px;
+ }
+
+.view-project-link:hover {
+  background-color: #252525;
 }
 
-button.learn-more {
-  width: 12rem;
-  height: auto;
+.view-project-link i {
+  font-size: 1rem; /* Slightly smaller icon */
 }
 
-button.learn-more .circle {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: relative;
-  display: block;
-  margin: 0;
-  width: 3rem;
-  height: 3rem;
-  background: #fff;
-  border-radius: 1.625rem;
-}
-
-button.learn-more:hover .circle {
-  background: #9e0000;
-}
-
-button.learn-more .circle .icon {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  background: #fff;
-}
-
-button.learn-more .circle .icon.arrow {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  left: 0.625rem;
-  width: 1.125rem;
-  height: 0.125rem;
-  background: none;
-}
-
-button.learn-more .circle .icon.arrow::before {
-  position: absolute;
-  content: '';
-  top: -0.29rem;
-  right: 0.0625rem;
-  width: 0.625rem;
-  height: 0.625rem;
-  border-top: 0.125rem solid #000000;
-  border-right: 0.125rem solid #000000;
-  transform: rotate(45deg);
-}
-
-button.learn-more:hover .circle .icon.arrow::before {
-  border-color: white;
-}
-
-button.learn-more .button-text {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  left: auto;
-  right: 0;
-  bottom: 0;
-  padding: 0.75rem 0;
-  margin: 0 0 0 1.85rem;
-  color: #c8c9da;
-  font-weight: 700;
-  line-height: 1.6;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-button.learn-more:hover .button-text {
-  left: 0;
-}
-
-button:hover .circle {
-  width: 100%;
-}
-
-button:hover .circle .icon.arrow {
-  background: #ffffff;
-  transform: translate(1rem, 0);
-}
-
-button:hover .button-text {
-  color: #fff;
-}
-
-.button-container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-
-/* MOBILE STYLES */
+/* Mobile styles */
 @media (max-width: 767px) {
-  button.learn-more {
-    width: 100%; 
-    height: auto;
-    padding: 10px; 
-    background-color: #9e0000; 
-    color: white;
-    border-radius: 12px; 
-    text-align: center;
-    border: none; 
+
+  .view-project-link {
+    font-size: 1rem; /* Slightly smaller text */
+    padding: 6px 1px; /* Reduce padding */
+    width: 100%; /* Ensure it tries to take the full width of its container */
   }
 
-  button.learn-more .circle {
-    display: none; 
-  }
-
-  button.learn-more .button-text {
-    position: static; 
-    margin: 0; 
-    padding: 0; 
-    color: white;
+  .view-project-link i {
+    font-size: 1rem; /* Keep the icon size reasonable */
   }
 }
-/* View Project Button End */
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .project-card .button-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .view-project-link {
+    width: auto;
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 1rem; /* Reset font size for desktop */
+    border-radius: 50px;  /* maybe */
+  }
+
+  .view-project-link i {
+    font-size: 1.2rem; /* Reset icon size for desktop */
+  }
+}
+
+@keyframes bob {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+.view-project-link i {
+  /* ... other icon styles ... */
+  animation: bob 2s ease-in-out infinite;
+}
+/*NEW PROJECT BUTTON END*/
+
+
 
 
 /* Icons */
@@ -374,7 +318,7 @@ button:hover .button-text {
   transition-duration: 0.3s;
 }
 
-.learn-more, .github-link-button {
+.github-link-button {
   flex-grow: 1;
   margin: 5px;
 }
@@ -601,8 +545,7 @@ button:hover .button-text {
   .button-container {
     flex-direction: column;
   }
-
-  .learn-more, .github-link-button, .video-link-button, .youtube-link-button, .python-link-button {
+  .github-link-button, .video-link-button, .youtube-link-button, .python-link-button {
     margin: 5px 0;
   }
 
