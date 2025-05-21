@@ -25,6 +25,13 @@ export default async function handler(req, res) {
             }),
         });
 
+        console.log("Sending to EmailJS:", {
+            first_name,
+            last_name,
+            email,
+            message,
+        });
+
         if (!response.ok) {
             const errorText = await response.text();
             console.error('EmailJS Error Response:', errorText);
@@ -36,10 +43,5 @@ export default async function handler(req, res) {
         console.error('Server Error:', err.message);
         return res.status(500).json({ success: false, error: err.message });
     }
+
 }
-console.log("Sending to EmailJS:", {
-    first_name,
-    last_name,
-    email,
-    message,
-});
