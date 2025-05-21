@@ -1,4 +1,4 @@
-console.log("✅ LOADED: FINAL version of send-email.js");
+console.log("LOADED: FINAL version of send-email.js");
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ message: 'Only POST requests are allowed' });
