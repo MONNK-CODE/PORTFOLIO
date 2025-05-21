@@ -42,3 +42,4 @@ export default async function handler(req, res) {
         return res.status(500).json({ success: false, error: err.message });
     }
 }
+console.log("EMAILJS_PUBLIC_KEY =", process.env.EMAILJS_PUBLIC_KEY);
