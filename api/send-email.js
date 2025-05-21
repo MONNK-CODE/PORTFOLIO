@@ -5,10 +5,10 @@ export default async function handler(req, res) {
 
     const { first_name, last_name, email, message } = req.body;
 
-    console.log("Sending to EmailJS:", {
-        first_name,
-        last_name,
-        email,
+    console.log("template_params keys sent:", {
+        firstName: first_name,
+        lastName: last_name,
+        emailAddress: email,
         message,
     });
 
