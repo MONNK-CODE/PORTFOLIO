@@ -5,36 +5,36 @@ document.addEventListener('DOMContentLoaded', function () {
         form.addEventListener('submit', function (event) {
             event.preventDefault();
 
-            const data = {
-                first_name: document.querySelector('[name="first_name"]').value,
-                last_name: document.querySelector('[name="last_name"]').value,
-                email: document.querySelector('[name="email"]').value,
-                message: document.querySelector('[name="message"]').value,
-            };
+            const firstName = document.querySelector('[name="first_name"]').value;
+            const lastName = document.querySelector('[name="last_name"]').value;
+            const emailAddress = document.querySelector('[name="email"]').value;
+            const message = document.querySelector('[name="message"]').value;
 
-            fetch('/.netlify/functions/send-contact-email', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
+            fetch("/api/send-email", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    first_name: firstName,
+                    last_name: lastName,
+                    email: emailAddress,
+                    message: message,
+                }),
             })
-                .then(async res => {
-                    const contentType = res.headers.get("content-type") || "";
-                    const isJson = contentType.includes("application/json");
-                    const body = isJson ? await res.json() : {};
-
-                    if (res.ok && body.success) {
-                        swal("Success!", "Your message has been sent successfully!", "success");
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.success) {
+                        swal("Success!", "Your message has been sent!", "success");
                         form.reset();
                     } else {
-                        swal("Failed!", body.error || "Something went wrong on the server.", "error");
+                        swal("Oops!", "Something went wrong. Try again later.", "error");
                     }
                 })
-                .catch(err => {
-                    console.error("Fetch error:", err);
-                    swal("Failed!", "Unexpected error occurred. Please try again.", "error");
+                .catch((error) => {
+                    console.error(error);
+                    swal("Error!", "Something went wrong. Try again.", "error");
                 });
         });
     } else {
-        console.log("Form not found. Make sure it has id='contactForm'");
+        console.log("Form not found.");
     }
 });
