@@ -17,18 +17,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             })
-                .then(res => res.json())
-                .then(res => {
-                    if (res.success) {
+                .then(async res => {
+                    const contentType = res.headers.get("content-type") || "";
+                    const isJson = contentType.includes("application/json");
+                    const body = isJson ? await res.json() : {};
+
+                    if (res.ok && body.success) {
                         swal("Success!", "Your message has been sent successfully!", "success");
                         form.reset();
                     } else {
-                        swal("Failed!", "Error sending message: " + res.error, "error");
+                        swal("Failed!", body.error || "Something went wrong on the server.", "error");
                     }
                 })
                 .catch(err => {
-                    console.error(err);
-                    swal("Failed!", "Unexpected error occurred.", "error");
+                    console.error("Fetch error:", err);
+                    swal("Failed!", "Unexpected error occurred. Please try again.", "error");
                 });
         });
     } else {
