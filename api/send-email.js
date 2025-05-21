@@ -5,6 +5,13 @@ export default async function handler(req, res) {
 
     const { first_name, last_name, email, message } = req.body;
 
+    console.log("Sending to EmailJS:", {
+        first_name,
+        last_name,
+        email,
+        message,
+    });
+
     try {
         const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
             method: 'POST',
@@ -25,12 +32,6 @@ export default async function handler(req, res) {
             }),
         });
 
-        console.log("Sending to EmailJS:", {
-            first_name,
-            last_name,
-            email,
-            message,
-        });
 
         if (!response.ok) {
             const errorText = await response.text();
