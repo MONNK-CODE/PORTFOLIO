@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             fetch("/api/send-email", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                },
                 body: JSON.stringify({
                     first_name: firstName,
                     last_name: lastName,
@@ -20,18 +22,31 @@ document.addEventListener('DOMContentLoaded', function () {
                     message: message,
                 }),
             })
-                .then((res) => res.json())
+                .then((response) => response.json())
                 .then((data) => {
                     if (data.success) {
-                        swal("Success!", "Your message has been sent!", "success");
+                        swal({
+                            title: "Success!",
+                            text: "Your message has been sent successfully!",
+                            icon: "success",
+                        });
                         form.reset();
                     } else {
-                        swal("Oops!", "Something went wrong. Try again later.", "error");
+                        swal({
+                            title: "Failed!",
+                            text: "Failed to send the message, please try again.",
+                            icon: "error",
+                        });
+                        console.error("Server Error:", data.error);
                     }
                 })
                 .catch((error) => {
-                    console.error(error);
-                    swal("Error!", "Something went wrong. Try again.", "error");
+                    console.error("Unexpected Error:", error);
+                    swal({
+                        title: "Error!",
+                        text: "Something went wrong while sending your message.",
+                        icon: "error",
+                    });
                 });
         });
     } else {
