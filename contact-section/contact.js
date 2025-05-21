@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
         form.addEventListener('submit', async function (event) {
             event.preventDefault();
 
-            const first_name = document.querySelector('[name="first_name"]').value;
-            const last_name = document.querySelector('[name="last_name"]').value;
-            const email = document.querySelector('[name="email"]').value;
+            const firstName = document.querySelector('[name="first_name"]').value;
+            const lastName = document.querySelector('[name="last_name"]').value;
+            const emailAddress = document.querySelector('[name="email"]').value;
             const message = document.querySelector('[name="message"]').value;
 
             try {
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ first_name, last_name, email, message }),
+                    body: JSON.stringify({ firstName, lastName, emailAddress, message }),
                 });
 
                 const result = await response.json();
