@@ -24,10 +24,10 @@ export default async function handler(req, res) {
                 user_id: process.env.EMAILJS_PUBLIC_KEY,
                 accessToken: process.env.EMAILJS_PRIVATE_KEY,
                 template_params: {
-                    first_name,
-                    last_name,
-                    email,
-                    message,
+                    firstName: first_name,
+                    lastName: last_name,
+                    emailAddress: email,
+                    message: message,
                 },
             }),
         });
