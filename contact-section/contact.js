@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 message: document.querySelector('[name="message"]').value,
             };
 
-            fetch('/.netlify/functions/sendEmail', {
+            fetch('/.netlify/functions/send-contact-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
