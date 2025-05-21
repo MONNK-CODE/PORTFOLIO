@@ -1,53 +1,37 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('contactForm');
+
     if (form) {
-        form.addEventListener('submit', function(event) {
+        form.addEventListener('submit', function (event) {
             event.preventDefault();
 
-            const firstName = document.querySelector('[name="first_name"]').value;
-            const lastName = document.querySelector('[name="last_name"]').value;
-            const emailAddress = document.querySelector('[name="email"]').value;
-            const message = document.querySelector('[name="message"]').value;
+            const data = {
+                first_name: document.querySelector('[name="first_name"]').value,
+                last_name: document.querySelector('[name="last_name"]').value,
+                email: document.querySelector('[name="email"]').value,
+                message: document.querySelector('[name="message"]').value,
+            };
 
-            fetch('/.netlify/functions/send-contact-email', { // Path to your Netlify Function
+            fetch('/.netlify/functions/sendEmail', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    first_name: firstName,
-                    last_name: lastName,
-                    email: emailAddress,
-                    message: message,
-                }),
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
             })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.message === 'Email sent successfully!') {
-                        swal({
-                            title: "Success!",
-                            text: "Your message has been sent successfully!",
-                            icon: "success",
-                        });
+                .then(res => res.json())
+                .then(res => {
+                    if (res.success) {
+                        swal("Success!", "Your message has been sent successfully!", "success");
                         form.reset();
                     } else {
-                        swal({
-                            title: "Failed!",
-                            text: "Failed to send the message, please try again.",
-                            icon: "error",
-                        });
+                        swal("Failed!", "Error sending message: " + res.error, "error");
                     }
                 })
-                .catch(error => {
-                    console.error('Error sending email:', error);
-                    swal({
-                        title: "Failed!",
-                        text: "Failed to send the message, please try again.",
-                        icon: "error",
-                    });
+                .catch(err => {
+                    console.error(err);
+                    swal("Failed!", "Unexpected error occurred.", "error");
                 });
         });
     } else {
-        console.log('Form not found');
+        console.log("Form not found. Make sure it has id='contactForm'");
     }
 });

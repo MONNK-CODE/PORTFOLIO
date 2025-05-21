@@ -10,5 +10,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="devicon" level="application" />
     <orderEntry type="library" name="devicon" level="application" />
+    <orderEntry type="library" name="email" level="application" />
+    <orderEntry type="library" name="sweetalert" level="application" />
+    <orderEntry type="library" name="@emailjs/browser" level="application" />
   </component>
 </module>
