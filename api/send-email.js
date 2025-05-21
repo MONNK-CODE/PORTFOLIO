@@ -22,12 +22,19 @@ export default async function handler(req, res) {
             }),
         });
 
-        const data = await emailRes.json();
-        console.log("EmailJS response:", data);
+        let data;
+        try {
+            data = await emailRes.json();
+        } catch (err) {
+            const text = await emailRes.text();
+            console.error("Non-JSON response from EmailJS:", text);
+            return res.status(500).json({ success: false, error: text });
+        }
 
         if (emailRes.ok) {
             return res.status(200).json({ success: true });
         } else {
+            console.error("EmailJS Error Response:", data);
             return res.status(500).json({ success: false, error: data });
         }
     } catch (err) {
