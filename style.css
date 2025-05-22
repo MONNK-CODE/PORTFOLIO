@@ -74,13 +74,7 @@ svg text {
   animation: stroke 6s infinite alternate;
   stroke-width: 1;
   stroke: url(#grad1);
-  stroke-dasharray: 700;
-  stroke-dashoffset: 700;
-  fill: transparent;
-  font-size: 90px;
-  font-family: 'Outfit', serif;
-  /*font-weight: bold;*/
-  letter-spacing: 2px;
+  font-size: 48px;
 }
 
 @keyframes stroke {
@@ -101,7 +95,7 @@ svg text {
     stroke-width: 2; 
   }
   100% {
-    fill: url(#grad1);
+    fill: #9e0000;
     stroke: rgba(255, 255, 255, 0);
     stroke-dashoffset: -25%; 
     stroke-dasharray: 50% 0; 
@@ -109,19 +103,29 @@ svg text {
   }
 }
 
-@media screen and (max-width: 600px) {
-  svg text {
-    font-size: 70px;
-    stroke-dasharray: 500;
-    stroke-dashoffset: 500;
-  }
+#mobile-name-output {
+  text-transform: uppercase;
+  color: #fdf6f0;
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0.08em 0em #940f08;
+  font-family: 'Outfit', sans-serif;
+  margin: 20px auto;
+  width: 90%;
+  display: none;
 }
 
-@media screen and (max-width: 400px) {
-  svg text {
-    font-size: 60px;
-    stroke-dasharray: 400;
-    stroke-dashoffset: 400;
+.desktop-only {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-only {
+    display: block !important;
   }
 }
 /* MOVING TEXT ANIMATION END */

@@ -97,3 +97,42 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 
+
+// NAME ANIMATION
+document.addEventListener("DOMContentLoaded", function () {
+    if (window.innerWidth <= 768) {
+    const theLetters = "abcdefghijklmnopqrstuvwxyz#%&^+=-";
+    const ctnt = "Muhais Olatundun";
+    const speed = 50;
+    const increment = 8;
+
+    let clen = ctnt.length;
+    let si = 0;
+    let stri = 0;
+    let block = "";
+    let fixed = "";
+
+    (function rustle(i) {
+    setTimeout(function () {
+    if (--i) rustle(i);
+    nextFrame(i);
+    si = si + 1;
+}, speed);
+})(clen * increment + 1);
+
+    function nextFrame(pos) {
+    for (let i = 0; i < clen - stri; i++) {
+    let num = Math.floor(theLetters.length * Math.random());
+    let letter = theLetters.charAt(num);
+    block += letter;
+}
+    if (si === (increment - 1)) stri++;
+    if (si === increment) {
+    fixed += ctnt.charAt(stri - 1);
+    si = 0;
+}
+    document.getElementById("mobile-name-output").innerHTML = fixed + block;
+    block = "";
+}
+}
+});
