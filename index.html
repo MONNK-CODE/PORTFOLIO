@@ -7,7 +7,8 @@
     <title>Muhais Olatundun | Portfolio of a Determined Student </title>
     <meta name="description" content="Muhais Olatundun, interested in Fintech. Explore my projects, resume, and get in touch with me for collaborations and opportunities.">
     <meta name="keywords" content="Muhais Olatundun, Portfolio, Projects, Resume, Contact, Computer Science, Software Development, Web Development">
-    <link rel="icon" type="image/x-icon" href="proj-images/nk.PNG">
+    <link rel="icon" type="image/x-icon" href="project-page/proj-images/nk.PNG">
+    <link href="footer.css" rel="stylesheet" type="text/css" />
     <link href="style.css" rel="stylesheet" type="text/css" />
     <link href="background.css" rel="stylesheet" type="text/css" />
     <link href="social-icons.css" rel="stylesheet" type="text/css" />
@@ -69,6 +70,13 @@
           <h1 class = "text">I'm <span></span></h1>
       </header>
       <!--  Typing Effect -->
+
+      <!-- Quote -->
+      <div class="daily-quote">
+        <p><span id="quoteDisplay"></span></p>
+      </div>
+      <!--  Quote End -->
+
 
   <!-- RESUME -->
   <div class="resume">
@@ -228,6 +236,15 @@
 <!-- BACKGROUND ANIMATION END -->
 </div>
   </div>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Muhais Olatundun. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Auto-update the year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>

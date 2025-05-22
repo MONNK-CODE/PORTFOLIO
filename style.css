@@ -275,3 +275,22 @@ h1 span.stop-blinking::after {
     50% { opacity: 0 }
 }
 /* Typing effect end */
+
+/*QUOTE GENERATOR*/
+.daily-quote {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 20px auto;
+  max-width: 90%;
+  padding: 0 10px;
+  font-style: italic;
+  font-weight: 400;
+  color: #9e0000;
+}
+
+@media (max-width: 768px) {
+  .daily-quote {
+    font-size: 1.1rem;
+  }
+}
+/*QUOTE GENERATOR END*/

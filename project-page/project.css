@@ -597,3 +597,9 @@ img {
   }
 }
 /* Mobile Title Style End */
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 20px !important;
+  }
+}

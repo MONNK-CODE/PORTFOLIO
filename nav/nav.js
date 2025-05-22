@@ -1,35 +1,19 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const nav = document.querySelector("nav");
   const toggleBtn = nav.querySelector(".toggle-btn");
+  const menuIcon = document.getElementById("menu-icon");
 
-  // Toggle navigation open/close
   toggleBtn.addEventListener("click", () => {
     nav.classList.toggle("open");
-  });
 
-  // Draggable navigation functionality
-  function onDrag({movementY}) {
-    const navStyle = window.getComputedStyle(nav);
-    const navTop = parseInt(navStyle.top);
-    const navHeight = parseInt(navStyle.height);
-    const windHeight = window.innerHeight;
-
-    nav.style.top = navTop > 0 ? `${navTop + movementY}px` : "1px";
-    if(navTop > windHeight - navHeight){
-      nav.style.top = `${windHeight - navHeight}px`;
+    // Toggle between hamburger and X icon
+    if (nav.classList.contains("open")) {
+      menuIcon.classList.remove("fa-bars");
+      menuIcon.classList.add("fa-times");
+    } else {
+      menuIcon.classList.remove("fa-times");
+      menuIcon.classList.add("fa-bars");
     }
-  }
-
-  nav.addEventListener("mousedown", () => {
-    nav.addEventListener("mousemove", onDrag);
-  });
-
-  nav.addEventListener("mouseup", () => {
-    nav.removeEventListener("mousemove", onDrag);
-  });
-
-  nav.addEventListener("mouseleave", () => {
-    nav.removeEventListener("mousemove", onDrag);
   });
 
   // Scroll to section functionality
@@ -46,4 +30,9 @@ document.addEventListener("DOMContentLoaded", function() {
       }, 100);
     }
   }
+
+
+
+
+
 });

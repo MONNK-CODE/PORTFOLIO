@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+.site-footer {
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 1rem;
+    background-color: #1a1a1a;
+    color: #ccc;
+    margin-top: 40px;
+    font-family: 'Outfit', serif;
+}
+
+@media (prefers-color-scheme: light) {
+    .site-footer {
+        background-color: #f4f4f4;
+        color: #1a1a1a;
+        font-weight: bold;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .site-footer * {
+        color: #1a1a1a !important;
+    }
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.site-footer {
+    /*background-color: inherit;*/
+    margin: 0;
+    padding: 15px 10px;
+}
