@@ -136,14 +136,16 @@ label {
 /* Dark Mode Styles */
 @media (prefers-color-scheme: dark) {
     .contact-section {
-        background: #121212; /* Dark background */
-        color: #E0E0E0; /* Light text */
+        /*background: #121212;*/
+        background: #0e0e0e;
+        color: #E0E0E0;
     }
 
     .form-container {
-        background: #1E1E1E; /* Darker form background */
+        /*background: #1E1E1E;*/
+        background: #0e0e0e;
         box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-        color: #E0E0E0; /* Light text */
+        color: #E0E0E0;
     }
 
     .con-title {
@@ -153,13 +155,16 @@ label {
     input,
     textarea {
         border-color: #424242;
-        background-color: #303030; /* Dark input background */
-        color: #E0E0E0; /* Light input text color */
+        /*background-color: #303030; */
+        background: #0e0e0e; /* input background */
+        color: #E0E0E0; /*  input text color */
     }
 
     label {
-        background: #1E1E1E; /* Dark label background */
-        color: #ff4d4d; /* Adjusted label color */
+        background: #0e0e0e; /* label background */
+        /*background: #1E1E1E; */
+        /*color: #ff4d4d; */
+        color: #9e0000; /*label color*/
     }
 
     .submit-button {

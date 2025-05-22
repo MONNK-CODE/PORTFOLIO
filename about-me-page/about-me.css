@@ -16,6 +16,26 @@ body{
   overflow-x: hidden;
   transition: background-color 0.3s, color 0.3s;
 }
+/* Fix white gap at bottom */
+html, body {
+    height: 100%;
+    background-color: #1e1e1e;
+    overflow-x: hidden;
+}
+
+/* Make sure nothing overflows vertically */
+body > * {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Remove any margin or padding that sneaks below */
+body::after {
+    content: "";
+    display: block;
+    height: 0;
+    background: transparent;
+}
 
 /* About Section Styling */
 
@@ -35,9 +55,9 @@ color : #F0F8FF;
 }
 
 section{
-  padding-top: 40px;
-  width: 100%;
-  box-sizing: border-box;
+  /*padding-top: 40px;*/
+  /*width: 100%;*/
+  /*box-sizing: border-box;*/
 }
 section .content{
   width: 80%;
@@ -84,7 +104,8 @@ section .title span::after{
 
  /* My Skills CSS */
  .skills{
-   background: #232323;
+   /*background: #232323;*/
+     background: #1e1e1e;
  }
  .skills .content{
    padding: 40px 0;
@@ -261,3 +282,51 @@ h1 span.stop-blinking::after {
   }
 }
 
+/* Carousel Styling */
+.carousel {
+    background-color: transparent !important;
+    max-width: 500px;
+    margin: 30px auto;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    border-radius: 12px;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+    background-color: #1e1e1e; /* fixes white flicker */
+}
+/* Force dark background on all carousel layers */
+.carousel-inner,
+.carousel-item {
+    background-color: transparent !important;
+}
+
+/* Ensure body and section also stay dark */
+section,
+.about,
+.skills {
+    background-color: #1e1e1e !important;
+}
+
+/* Responsive tweaks for mobile */
+@media (max-width: 768px) {
+    .carousel {
+        max-width: 90%;
+        height: auto;
+    }
+
+    .carousel-image {
+        height: 300px; /* taller for a better swipe experience */
+    }
+
+    .desktop-only {
+        display: none !important;
+    }
+}
