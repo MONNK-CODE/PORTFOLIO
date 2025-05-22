@@ -14,12 +14,12 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/*might remove*/
+
 img { 
   width: 300px; 
   height: 200px;
     }
-/*this*/
+
 
 .gallery {
   max-width: 1200px;
@@ -251,16 +251,16 @@ img {
   }
 }
 
-@keyframes bob {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-  100% { transform: translateY(0); }
-}
+/*@keyframes bob {*/
+/*  0% { transform: translateY(0); }*/
+/*  50% { transform: translateY(-5px); }*/
+/*  100% { transform: translateY(0); }*/
+/*}*/
 
-.view-project-link i {
-  /* ... other icon styles ... */
-  animation: bob 2s ease-in-out infinite;
-}
+/*.view-project-link i {*/
+/*  !* ... other icon styles ... *!*/
+/*  animation: bob 2s ease-in-out infinite;*/
+/*}*/
 /*NEW PROJECT BUTTON END*/
 
 

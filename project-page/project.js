@@ -1,6 +1,6 @@
 // Function to fetch programming languages used in a GitHub repository and display their statistics
 function fetchRepoLanguages(cardTitleElement, cardOwnerElement) {
-  // Extract repository name and owner from the card elements
+  // Extract the repository name and owner from the card elements
   const repoName = cardTitleElement.textContent.trim();
   const owner = cardOwnerElement.textContent.trim();
 

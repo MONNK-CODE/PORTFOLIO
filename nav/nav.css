@@ -25,7 +25,8 @@ transform: rotate(-45deg);
 .nav-content span a {
 height: 80px;
 width: 80px;
-background: #F0F8FF;
+/*background: #F0F8FF;*/
+  background:#f0f0f0;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -77,26 +78,31 @@ opacity: 1;
 transform: rotate(180deg);
 }
 
-.nav-content span a.house:hover i {
-background: linear-gradient(to right, #142124, #2193b0);
--webkit-background-clip: text;
-background-clip: text;
-color: transparent;
+.nav-content span a:hover i {
+  color: #9E0000;
 }
 
-.nav-content span a.project:hover i {
-background: linear-gradient(to right, #f4791f, #A7BFE8);
--webkit-background-clip: text;
-background-clip: text;
-color: transparent;
-}
 
-.nav-content span a.email:hover i {
-background: linear-gradient(to right, #033a2fff, #b76910);
--webkit-background-clip: text;
-background-clip: text;
-color: transparent;
-}
+/*.nav-content span a.house:hover i {*/
+/*background: linear-gradient(to right, #142124, #2193b0);*/
+/*-webkit-background-clip: text;*/
+/*background-clip: text;*/
+/*color: transparent;*/
+/*}*/
+
+/*.nav-content span a.project:hover i {*/
+/*background: linear-gradient(to right, #f4791f, #A7BFE8);*/
+/*-webkit-background-clip: text;*/
+/*background-clip: text;*/
+/*color: transparent;*/
+/*}*/
+
+/*.nav-content span a.email:hover i {*/
+/*background: linear-gradient(to right, #033a2fff, #b76910);*/
+/*-webkit-background-clip: text;*/
+/*background-clip: text;*/
+/*color: transparent;*/
+/*}*/
 
 .nav-content .menu i {
 color: #000000;

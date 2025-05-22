@@ -174,13 +174,13 @@ section .title span::after{
         background-clip: text;
         color: transparent;
     }
-    #replit-icon i { color: #F26207; }
-    #jupyter-icon i {
-        background: linear-gradient(135deg, #000000 0%, #151515 25%, #F8A145 50%, #F07900 75%, #D35100 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
+    /*#replit-icon i { color: #F26207; }*/
+    /*#jupyter-icon i {*/
+    /*    background: linear-gradient(135deg, #000000 0%, #151515 25%, #F8A145 50%, #F07900 75%, #D35100 100%);*/
+    /*    -webkit-background-clip: text;*/
+    /*    background-clip: text;*/
+    /*    color: transparent;*/
+    /*}*/
 }
 
 /* Typing effect */
@@ -253,7 +253,8 @@ h1 span.stop-blinking::after {
       color: #171616; 
   }
    .skills{
-     background: #F0F8FF;
+     /*background: #F0F8FF;*/
+       background: #f0f0f0;
    }
   .sn {
     color : #121212

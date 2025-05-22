@@ -8,8 +8,9 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100vh;
-    background: #F0F8FF; /* Light background */
+    height: 80vh;
+    /*background: #FAF9F6;*/
+    background: #f0f0f0;
     padding: 20px;
     box-sizing: border-box;
     text-align: center;
@@ -23,19 +24,14 @@
     max-width: 800px;
     padding: 25px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background: #F0F8FF; /* Light background */
+    background: #f0f0f0;
     text-align: center;
     transition: background 0.3s, color 0.3s; /* For smooth transition */
 }
 
 .con-title {
     font-size: 5.5rem;
-    /*background: linear-gradient(to right, #9e0000, #1e3c72);*/
     color: #9e0000
-    /*-webkit-background-clip: text;*/
-    /*background-clip: text;*/
-    /*-webkit-text-fill-color: transparent;*/
-    /*transition: color 0.3s; !* For smooth transition *!*/
 }
 
 @media screen and (max-width: 767px) {
@@ -62,8 +58,8 @@ textarea {
     border: 2px solid #292424;
     border-radius: 4px;
     transition: border-color 0.3s, background-color 0.3s, color 0.3s;
-    font-family: 'Reem Kufi Fun', serif;
-    background-color: #F0F8FF; /* Light input background */
+    font-family: 'Outfit', serif;
+    background-color: #f0f0f0;
     color: #292424; /* Light input text color */
 }
 
@@ -76,7 +72,7 @@ label {
     position: absolute;
     left: 12px;
     top: -10px;
-    background: #F0F8FF; /* Light label background */
+    background: #f0f0f0;
     padding: 0 5px;
     transition: all 0.3s, background-color 0.3s, color 0.3s;
     color: #9e0000;
@@ -84,7 +80,6 @@ label {
 }
 
 .submit-button {
-    /*background: linear-gradient(to right, #9e0000, #1e3c72);*/
     background: #9e0000;
     color: #F0F8FF;
     padding: 0.7em 1.2em;
@@ -152,10 +147,6 @@ label {
     }
 
     .con-title {
-        /*background: linear-gradient(to right, #ff4d4d, #5c86c6); !* Adjusted gradient for dark mode *!*/
-        /*-webkit-background-clip: text;*/
-        /*background-clip: text;*/
-        /*-webkit-text-fill-color: transparent;*/
         color: #9E0000;
     }
 
@@ -172,7 +163,6 @@ label {
     }
 
     .submit-button {
-        /*background: linear-gradient(to right, #ff4d4d, #5c86c6);*/
         background: #9e0000;
         color: #E0E0E0;
     }
@@ -220,12 +210,12 @@ label {
     }
 }
 
-/* Desktop Specific Styles (Ensuring icon and text are visible) */
+/* Desktop Specific Styles */
 @media screen and (min-width: 768px) {
     .submit-button .svg-wrapper-1 {
-        display: block; /* Ensure icon is visible on desktop */
+        display: block;
     }
     .submit-button span {
-        display: block; /* Ensure text is visible on desktop */
+        display: block;
     }
 }
