@@ -109,7 +109,7 @@ svg text {
   font-size: 3em;
   font-weight: bold;
   text-align: center;
-  text-shadow: 0.08em 0em #940f08;
+  text-shadow: 0.08em 0 #940f08;
   font-family: 'Outfit', sans-serif;
   margin: 20px auto;
   width: 90%;

@@ -100,39 +100,45 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // NAME ANIMATION
 document.addEventListener("DOMContentLoaded", function () {
+    // Only run this on mobile screens
     if (window.innerWidth <= 768) {
-    const theLetters = "abcdefghijklmnopqrstuvwxyz#%&^+=-";
-    const ctnt = "Muhais Olatundun";
-    const speed = 50;
-    const increment = 8;
+        const characterPool = "abcdefghijklmnopqrstuvwxyz#%&^+=-";
+        const finalText = "Muhais Olatundun";
+        const frameDelay = 50; // milliseconds per frame
+        const framesPerLetter = 8;
 
-    let clen = ctnt.length;
-    let si = 0;
-    let stri = 0;
-    let block = "";
-    let fixed = "";
+        const totalLetters = finalText.length;
+        let currentFrame = 0;
+        let revealedLetters = 0;
+        let randomLetters = "";
+        let revealedText = "";
 
-    (function rustle(i) {
-    setTimeout(function () {
-    if (--i) rustle(i);
-    nextFrame(i);
-    si = si + 1;
-}, speed);
-})(clen * increment + 1);
+        // Recursive function to animate each frame
+        (function animateLetters(frameCount) {
+            setTimeout(function () {
+                if (--frameCount) animateLetters(frameCount);
+                renderFrame(frameCount);
+                currentFrame++;
+            }, frameDelay);
+        })(totalLetters * framesPerLetter + 1);
 
-    function nextFrame(pos) {
-    for (let i = 0; i < clen - stri; i++) {
-    let num = Math.floor(theLetters.length * Math.random());
-    let letter = theLetters.charAt(num);
-    block += letter;
-}
-    if (si === (increment - 1)) stri++;
-    if (si === increment) {
-    fixed += ctnt.charAt(stri - 1);
-    si = 0;
-}
-    document.getElementById("mobile-name-output").innerHTML = fixed + block;
-    block = "";
-}
-}
+        function renderFrame(position) {
+            // Create random characters for unrevealed part
+            for (let i = 0; i < totalLetters - revealedLetters; i++) {
+                const randomIndex = Math.floor(characterPool.length * Math.random());
+                const randomChar = characterPool.charAt(randomIndex);
+                randomLetters += randomChar;
+            }
+
+            // Reveal next letter after specific number of frames
+            if (currentFrame === (framesPerLetter - 1)) revealedLetters++;
+            if (currentFrame === framesPerLetter) {
+                revealedText += finalText.charAt(revealedLetters - 1);
+                currentFrame = 0;
+            }
+
+            document.getElementById("mobile-name-output").innerHTML = revealedText + randomLetters;
+            randomLetters = ""; // reset for next frame
+        }
+    }
 });
