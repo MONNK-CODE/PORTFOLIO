@@ -46,10 +46,10 @@ html {
   border-radius: 50%;
 }
 
-/* Responsive adjustments for smaller screens (mobile) */
+/* mobile */
 @media (max-width: 600px) {
   .circle-container {
-    width: 150px;             /* Smaller size on mobile */
+    width: 150px;
     height: 150px;
   }
 }
