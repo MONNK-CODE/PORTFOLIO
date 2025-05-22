@@ -73,7 +73,7 @@ svg {
 svg text {
   animation: stroke 6s infinite alternate;
   stroke-width: 1;
-  stroke: url(#grad1); /* Reference the gradient */
+  stroke: url(#grad1);
   font-size: 48px;
 }
 
@@ -103,17 +103,17 @@ svg text {
   }
 }
 
-@media screen and (max-width: 600px) {
-  svg text {
-    font-size: 36px;
-  }
-}
+/*@media screen and (max-width: 600px) {*/
+/*  svg text {*/
+/*    font-size: 36px;*/
+/*  }*/
+/*}*/
 
-@media screen and (max-width: 400px) {
-  svg text {
-    font-size: 40px;
-  }
-}
+/*@media screen and (max-width: 400px) {*/
+/*  svg text {*/
+/*    font-size: 40px;*/
+/*  }*/
+/*}*/
 /* MOVING TEXT ANIMATION END */
 
 .wrap{
