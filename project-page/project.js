@@ -105,6 +105,13 @@ document.addEventListener("DOMContentLoaded", function() {
     event.preventDefault();
 
     const email = document.getElementById('subscriber-email').value;
+    const name = document.getElementById('subscriber-name').value;
+
+    const response = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ subscriber_email: email, subscriber_name: name }),
+    });
 
     if (!validateEmail(email)) {
       subscribeMessage.style.color = '#dc3545';
@@ -118,6 +125,8 @@ document.addEventListener("DOMContentLoaded", function() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ subscriber_email: email }),
       });
+
+
 
       const result = await response.json();
 
@@ -140,3 +149,7 @@ document.addEventListener("DOMContentLoaded", function() {
     return re.test(email);
   }
 });
+
+
+
+

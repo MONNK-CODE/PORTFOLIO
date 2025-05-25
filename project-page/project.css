@@ -606,7 +606,7 @@ img {
 
 
 
-
+/*Project Subscribers*/
 .subscription-container {
   text-align: center;
   padding: 15px;
@@ -617,59 +617,70 @@ img {
   transition: background-color 0.3s, color 0.3s;
 }
 
-.subscription-title {
-  margin-bottom: 10px;
-  font-size: 1.5rem;
+.subscription-container h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
 }
 
+.subscription-container input[type="text"],
 .subscription-container input[type="email"] {
-  width: 70%;
-  padding: 8px;
-  border-radius: 8px;
+  width: 90%;
+  padding: 10px;
+  margin: 6px 0;
   border: none;
-  margin-bottom: 10px;
+  border-radius: 8px;
+  font-size: 0.95rem;
 }
 
 .subscription-container button {
   background-color: #9e0000;
   border: none;
-  padding: 8px 16px;
+  padding: 10px 20px;
   color: #fff;
-  cursor: pointer;
+  font-weight: bold;
   border-radius: 8px;
-  transition: transform 0.2s;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
 }
 
 .subscription-container button:hover {
   transform: scale(1.05);
+  background-color: #7a061d;
 }
 
 #subscribe-message {
-  margin-top: 8px;
+  margin-top: 10px;
   font-size: 0.9rem;
 }
 
-@media (max-width: 600px) {
-  .subscription-container {
-    padding: 10px;
-    margin: 20px;
-  }
-
-  .subscription-container input[type="email"],
-  .subscription-container button {
-    width: 90%;
-    margin: 5px auto;
-  }
-}
-
-/* Light mode */
+/* Light mode override */
 @media (prefers-color-scheme: light) {
   .subscription-container {
-    background-color: #e0e0e0;
-    color: #1e1e1e;
+    background-color: #f0f0f0;
+    color: #000;
+  }
+
+  .subscription-container input[type="text"],
+  .subscription-container input[type="email"] {
+    background-color: #fff;
+    color: #000;
   }
 
   .subscription-container button {
     background-color: #7a061d;
+  }
+}
+
+/* Mobile-friendly */
+@media (max-width: 600px) {
+  .subscription-container {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .subscription-container input,
+  .subscription-container button {
+    width: 100%;
   }
 }

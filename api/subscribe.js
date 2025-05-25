@@ -3,10 +3,11 @@ export default async function handler(req, res) {
         return res.status(405).json({ message: 'Only POST requests are allowed' });
     }
 
-    const { subscriber_email } = req.body;
+    const { subscriber_email, subscriber_name } = req.body;
 
     console.log("Template params sent:", {
         subscriber_email,
+        subscriber_name,
         subscription_date: new Date().toLocaleString(),
     });
 
@@ -40,3 +41,5 @@ export default async function handler(req, res) {
         return res.status(500).json({ success: false, error: err.message });
     }
 }
+
+
