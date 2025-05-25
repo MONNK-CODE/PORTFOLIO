@@ -107,12 +107,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const email = document.getElementById('subscriber-email').value;
     const name = document.getElementById('subscriber-name').value;
 
-    const response = await fetch('/api/subscribe', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ subscriber_email: email, subscriber_name: name }),
-    });
-
     if (!validateEmail(email)) {
       subscribeMessage.style.color = '#dc3545';
       subscribeMessage.textContent = 'Please enter a valid email address.';
@@ -123,10 +117,8 @@ document.addEventListener("DOMContentLoaded", function() {
       const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ subscriber_email: email }),
+        body: JSON.stringify({ subscriber_email: email, subscriber_name: name }),
       });
-
-
 
       const result = await response.json();
 
