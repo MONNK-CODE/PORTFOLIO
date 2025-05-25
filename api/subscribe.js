@@ -40,4 +40,3 @@ export default async function handler(req, res) {
         return res.status(500).json({ success: false, error: err.message });
     }
 }
-console.log("Loaded TEMPLATE ID:", process.env.EMAILJS_SUBSCRIBE_TEMPLATE_ID);
