@@ -95,3 +95,48 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+
+//Project Subscribers
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById('subscription-form');
+  const subscribeMessage = document.getElementById('subscribe-message');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const email = document.getElementById('subscriber-email').value;
+
+    if (!validateEmail(email)) {
+      subscribeMessage.style.color = '#dc3545';
+      subscribeMessage.textContent = 'Please enter a valid email address.';
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ subscriber_email: email }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        subscribeMessage.style.color = '#28a745';
+        subscribeMessage.textContent = result.message;
+        form.reset();
+      } else {
+        throw new Error(result.error || 'Subscription failed.');
+      }
+    } catch (error) {
+      console.error('Subscription error:', error);
+      subscribeMessage.style.color = '#dc3545';
+      subscribeMessage.textContent = 'Subscription failed, please try again later.';
+    }
+  });
+
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+});
