@@ -24,6 +24,7 @@ export default async function handler(req, res) {
                 accessToken: process.env.EMAILJS_PRIVATE_KEY,
                 template_params: {
                     subscriber_email,
+                    subscriber_name,
                     subscription_date: new Date().toLocaleString(),
                 },
             }),
@@ -41,5 +42,3 @@ export default async function handler(req, res) {
         return res.status(500).json({ success: false, error: err.message });
     }
 }
-
-

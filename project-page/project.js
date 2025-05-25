@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 //Project Subscribers
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById('subscription-form');
   const subscribeMessage = document.getElementById('subscribe-message');
 
@@ -141,7 +141,6 @@ document.addEventListener("DOMContentLoaded", function() {
     return re.test(email);
   }
 });
-
 
 
 
