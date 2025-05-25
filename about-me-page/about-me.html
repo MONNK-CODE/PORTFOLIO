@@ -6,8 +6,12 @@
     <title>About Me</title>
     <link rel="icon" type="image/x-icon" href="../project-page/proj-images/nk.PNG">
     <link href="about-me.css" rel="stylesheet" type="text/css">
+    <link href="about-me2.css" rel="stylesheet" type="text/css">
+    <script src="about-me.js"></script>
     <link href="../nav/nav.css" rel="stylesheet" type="text/css">
     <link href="../footer.css" rel="stylesheet" type="text/css">
+    <link href="chess-stats/chess.css" rel="stylesheet" type="text/css">
+    <script src="chess-stats/chess.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <!-- Bootstrap -->
@@ -143,6 +147,173 @@
             </div>
     </section>
     <!-- My Skill Section End -->
+
+
+        <!-- UFavorite Quran Verse Section -->
+        <section class="quran-section" id="quran">
+            <div class="content">
+                <div class="title"><span>Favorite Quran Verse</span></div>
+                <div class="quran-container">
+                    <div class="quran-card">
+                        <div class="quran-verse-arabic">
+                            وَإِذْ يَمْكُرُ بِكَ ٱلَّذِينَ كَفَرُوا۟ لِيُثْبِتُوكَ أَوْ يَقْتُلُوكَ أَوْ يُخْرِجُوكَ ۚ وَيَمْكُرُونَ وَيَمْكُرُ ٱللَّهُ ۖ وَٱللَّهُ خَيْرُ ٱلْمَـٰكِرِينَ ٣٠
+                        </div>
+                        <div class="quran-verse-english">
+                            And ˹remember, O Prophet,˺ when the disbelievers conspired to capture, kill, or exile you. They planned, but Allah also planned. And Allah is the best of planners.
+                        </div>
+                        <div class="quran-reference">
+                            Surah Al-Anfal (8:30)
+                        </div>
+                        <a href="https://quran.com/8/30" target="_blank" class="quran-link">
+                            Read Full Surah →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="stats-container">
+            <h2 class="chess-title"></h2>
+            <ul class="stats-list">
+                <li>
+                    <div class="stat-icon">♟️</div>
+                    <span class="stat-name">Games</span>
+                    <span class="stat-value" id="games">Loading...</span>
+                </li>
+                <li>
+                    <div class="stat-icon">⏱️</div>
+                    <span class="stat-name">Rapid</span>
+                    <span class="stat-value" id="rapid">Loading...</span>
+                </li>
+                <li>
+                    <div class="stat-icon">🧩</div>
+                    <span class="stat-name">Puzzles</span>
+                    <span class="stat-value" id="puzzles">Loading...</span>
+                </li>
+                <li>
+                    <div class="stat-icon">☀️</div>
+                    <span class="stat-name">Daily</span>
+                    <span class="stat-value" id="daily">Loading...</span>
+                </li>
+                <li>
+                    <div class="stat-icon">⚡</div>
+                    <span class="stat-name">Blitz</span>
+                    <span class="stat-value" id="blitz">Loading...</span>
+                </li>
+                <li>
+                    <div class="stat-icon">🚀</div>
+                    <span class="stat-name">Bullet</span>
+                    <span class="stat-value" id="bullet">Loading...</span>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <!-- Favorite Anime Section -->
+        <section class="anime-section" id="anime">
+            <div class="content">
+                <div class="title anime"><span>Favorite Anime</span></div>
+                <div class="anime-container">
+                    <div class="anime-compact-card">
+                        <div class="anime-grid-compact">
+                            <div class="anime-item-compact">
+                                <img src="anime-images/blue-lock.png" alt="Blue Locket" class="anime-image-compact">
+                                <div class="anime-title-compact">Blue Lock</div>
+                                <div class="anime-desc-compact">The Egoist Soccer Battle Royale for Survival</div>
+                            </div>
+                            <div class="anime-item-compact">
+                                <img src="anime-images/death-note.png" alt="Death Note" class="anime-image-compact">
+                                <div class="anime-title-compact">Death Note</div>
+                                <div class="anime-desc-compact">Psychological thriller masterpiece</div>
+                            </div>
+                            <div class="anime-item-compact">
+                                <img src="anime-images/demon-slayer.png" alt="Demon Slayer" class="anime-image-compact">
+                                <div class="anime-title-compact">Demon Slayer</div>
+                                <div class="anime-desc-compact">Breathtaking animation & story</div>
+                            </div>
+                            <div class="anime-item-compact">
+                                <img src="anime-images/aot.png" alt="Attack on Titan" class="anime-image-compact">
+                                <div class="anime-title-compact">Attack on Titan</div>
+                                <div class="anime-desc-compact">Epic storytelling at its finest</div>
+                            </div>
+                            <div class="anime-item-compact">
+                                <img src="anime-images/jjk.png" alt="Jujutsu Kaisen" class="anime-image-compact">
+                                <div class="anime-title-compact">Jujutsu Kaisen</div>
+                                <div class="anime-desc-compact">Modern supernatural combat</div>
+                            </div>
+                            <div class="anime-item-compact">
+                                <img src="anime-images/cote.png" alt="Classroom of the Elite" class="anime-image-compact">
+                                <div class="anime-title-compact">Classroom of the Elite</div>
+                                <div class="anime-desc-compact">Mind games & strategy</div>
+                            </div>
+                            <div class="anime-item-compact">
+                                <img src="anime-images/sh.png" alt="Rising of the Shield Hero" class="anime-image-compact">
+                                <div class="anime-title-compact">Shield Hero</div>
+                                <div class="anime-desc-compact">Redemption & perseverance</div>
+                            </div>
+                            <div class="anime-item-compact">
+                                <img src="anime-images/sl.png" alt="Solo Leveling" class="anime-image-compact">
+                                <div class="anime-title-compact">Solo Leveling</div>
+                                <div class="anime-desc-compact">Ultimate power progression</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Languages Section -->
+        <section class="languages-section" id="languages">
+            <div class="content">
+                <div class="title"><span>Languages I Speak</span></div>
+                <div class="languages-container">
+                    <div class="language-item">
+                        <div class="language-flag">🇺🇸</div>
+                        <div class="language-info">
+                            <h3>English</h3>
+                            <div class="proficiency-bar">
+                                <div class="proficiency-fill" data-level="100"></div>
+                            </div>
+                            <span class="proficiency-text">Native</span>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-flag">🇳🇬</div>
+                        <div class="language-info">
+                            <h3>Yoruba</h3>
+                            <div class="proficiency-bar">
+                                <div class="proficiency-fill" data-level="90"></div>
+                            </div>
+                            <span class="proficiency-text">Native</span>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-flag">🗣️</div>
+                        <div class="language-info">
+                            <h3>Nigerian Pidgin</h3>
+                            <div class="proficiency-bar">
+                                <div class="proficiency-fill" data-level="80"></div>
+                            </div>
+                            <span class="proficiency-text">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-flag">🇫🇷</div>
+                        <div class="language-info">
+                            <h3>French</h3>
+                            <div class="proficiency-bar">
+                                <div class="proficiency-fill" data-level="30"></div>
+                            </div>
+                            <span class="proficiency-text">Basic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
     </section>
 
     <footer class="site-footer">

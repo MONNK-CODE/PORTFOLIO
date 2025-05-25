@@ -18,11 +18,12 @@ body{
 .text {
   color: #333;
 }
- 
+
 }
 html {
   scroll-behavior: smooth;
 }
+
 
 
 /*PROFILE PICTURE*/
@@ -79,26 +80,26 @@ svg text {
 
 @keyframes stroke {
   0% {
-    fill: rgba(255, 255, 255, 0); 
-    stroke: url(#grad1); 
-    stroke-dashoffset: 25%; 
-    stroke-dasharray: 0 50%; 
+    fill: rgba(255, 255, 255, 0);
+    stroke: url(#grad1);
+    stroke-dashoffset: 25%;
+    stroke-dasharray: 0 50%;
     stroke-width: 1;
   }
   70% {
-    fill: rgba(255, 255, 255, 0); 
-    stroke: url(#grad1); 
+    fill: rgba(255, 255, 255, 0);
+    stroke: url(#grad1);
   }
   80% {
-    fill: rgba(255, 255, 255, 0); 
-    stroke: url(#grad1); 
-    stroke-width: 2; 
+    fill: rgba(255, 255, 255, 0);
+    stroke: url(#grad1);
+    stroke-width: 2;
   }
   100% {
     fill: #9e0000;
     stroke: rgba(255, 255, 255, 0);
-    stroke-dashoffset: -25%; 
-    stroke-dasharray: 50% 0; 
+    stroke-dashoffset: -25%;
+    stroke-dasharray: 50% 0;
     stroke-width: 0;
   }
 }
@@ -225,7 +226,7 @@ justify-content: space-around;
   }
 
   .button1:active {
-    background-color: #5e0000; 
+    background-color: #5e0000;
   }
 }
 
@@ -294,3 +295,17 @@ h1 span.stop-blinking::after {
   }
 }
 /*QUOTE GENERATOR END*/
+
+
+
+@media (min-width: 1024px) and (max-width: 1964px) {
+  .intro-section {
+    position: relative;
+    bottom: 22rem;
+  }
+
+  .intro {
+    position: relative;
+    bottom: 10rem;
+  }
+}

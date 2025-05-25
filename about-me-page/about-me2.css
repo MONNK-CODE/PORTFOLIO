@@ -1,0 +1,403 @@
+/* Anime Section Styling - Compact Version */
+.anime-section {
+    background: #1e1e1e;
+    padding: 40px 0;
+}
+
+.anime-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.anime-compact-card {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.anime-compact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #9e0000, #FF6A6A, #9e0000);
+    border-radius: 15px 15px 0 0;
+}
+
+.anime-grid-compact {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.anime-item-compact {
+    text-align: center;
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.anime-item-compact:hover {
+    background: rgba(158, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.anime-image-compact {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease;
+}
+
+.anime-item-compact:hover .anime-image-compact {
+    transform: scale(1.05);
+}
+
+.anime-title-compact {
+    color: #F0F8FF;
+    font-family: 'Outfit', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    background: linear-gradient(135deg, #9e0000, #FF6A6A);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.anime-desc-compact {
+    color: #ccc;
+    font-family: 'Outfit', serif;
+    font-size: 0.75rem;
+    line-height: 1.3;
+}
+
+/* Languages Section Styling - More Compact */
+.languages-section {
+    background: #1e1e1e;
+    padding: 40px 0;
+}
+
+.languages-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.language-item {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 80px;
+}
+
+.language-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #9e0000, #FF6A6A, #9e0000);
+    border-radius: 12px 12px 0 0;
+}
+
+.language-item:hover {
+    transform: translateY(-2px);
+    border-color: #9e0000;
+    box-shadow: 0 6px 20px rgba(158, 0, 0, 0.15);
+}
+
+.language-flag {
+    font-size: 2rem;
+    margin-right: 15px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.language-info {
+    flex-grow: 1;
+}
+
+.language-info h3 {
+    color: #F0F8FF;
+    font-family: 'Outfit', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.proficiency-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.proficiency-fill {
+    height: 100%;
+    background: linear-gradient(135deg, #9e0000, #FF6A6A);
+    border-radius: 3px;
+    transition: width 2s ease-in-out;
+    width: 0%;
+}
+
+.proficiency-text {
+    color: #ccc;
+    font-family: 'Outfit', serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Quran Verse Section - With Link */
+.quran-section {
+    background: #1e1e1e;
+    padding: 50px 0;
+}
+
+.quran-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.quran-card {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+}
+
+.quran-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #228B22, #32CD32, #228B22);
+    border-radius: 20px 20px 0 0;
+}
+
+.quran-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(50, 205, 50, 0.15);
+    border-color: #228B22;
+}
+
+.quran-verse-arabic {
+    font-family: 'Amiri', 'Times New Roman', serif;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #F0F8FF;
+    margin-bottom: 20px;
+    text-align: right;
+    direction: rtl;
+}
+
+.quran-verse-english {
+    font-family: 'Outfit', serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.quran-reference {
+    color: #32CD32;
+    font-family: 'Outfit', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.quran-link {
+    display: inline-block;
+    color: #32CD32;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid #32CD32;
+    border-radius: 8px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    font-family: 'Outfit', serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.quran-link:hover {
+    background: #32CD32;
+    color: #1e1e1e;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(50, 205, 50, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .anime-grid-compact {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .languages-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .anime-grid-compact {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .anime-compact-card {
+        padding: 20px;
+    }
+
+    .anime-image-compact {
+        height: 100px;
+    }
+
+    .anime-title-compact {
+        font-size: 0.8rem;
+    }
+
+    .anime-desc-compact {
+        font-size: 0.7rem;
+    }
+
+    .languages-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .language-item {
+        padding: 15px;
+        min-height: 70px;
+    }
+
+    .language-flag {
+        font-size: 1.8rem;
+        margin-right: 12px;
+        min-width: 45px;
+    }
+
+    .language-info h3 {
+        font-size: 1rem;
+    }
+
+    .quran-card {
+        padding: 25px 20px;
+    }
+
+    .quran-verse-arabic {
+        font-size: 1.3rem;
+    }
+
+    .quran-verse-english {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .anime-grid-compact {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .anime-image-compact {
+        height: 80px;
+    }
+
+    .anime-title-compact {
+        font-size: 0.75rem;
+    }
+
+    .anime-desc-compact {
+        font-size: 0.65rem;
+    }
+
+    .quran-verse-arabic {
+        font-size: 1.2rem;
+    }
+
+    .quran-verse-english {
+        font-size: 0.95rem;
+    }
+}
+
+/* Light Mode Support */
+@media (prefers-color-scheme: light) {
+    .anime-section,
+    .languages-section,
+    .quran-section {
+        background: #f0f0f0;
+    }
+
+    .anime-compact-card,
+    .language-item,
+    .quran-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .anime-compact-card:hover,
+    .language-item:hover,
+    .quran-card:hover {
+        box-shadow: 0 8px 25px rgba(158, 0, 0, 0.15);
+    }
+
+    .anime-title-compact,
+    .language-info h3 {
+        color: #333;
+    }
+
+    .anime-desc-compact,
+    .proficiency-text,
+    .quran-verse-english {
+        color: #666;
+    }
+
+    .quran-verse-arabic {
+        color: #333;
+    }
+
+    .proficiency-bar {
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    .quran-reference,
+    .quran-link {
+        border-top-color: #ddd;
+    }
+}

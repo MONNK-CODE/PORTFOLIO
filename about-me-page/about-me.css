@@ -171,6 +171,13 @@ section .title span::after{
     }
 }
 
+/*mobile title*/
+@media (max-width: 768px) {
+    section .title span {
+        font-size: 40px;
+    }
+}
+
 /* Typing effect */
 h1 {
     color: #ffffff;

@@ -1,0 +1,268 @@
+/* Chess Stats Section - Enhanced for Laptops */
+.stats-container {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    padding: 40px 35px;
+    border-radius: 20px;
+    max-width: 800px; /* Increased from 500px */
+    margin: 30px auto;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+    border: 1px solid #333;
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px; /* Slightly thicker */
+    background: linear-gradient(90deg, #9e0000, #FF6A6A, #9e0000);
+    border-radius: 20px 20px 0 0;
+}
+
+.chess-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Outfit', serif;
+    font-size: 2rem; /* Increased from 1.4rem */
+    font-weight: 600;
+    color: #F0F8FF;
+    position: relative;
+}
+
+.stats-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Changed from 2 to 3 columns */
+    gap: 15px; /* Increased gap */
+}
+
+.stats-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 18px; /* Increased padding */
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    min-height: 60px; /* Increased from 40px */
+}
+
+.stats-list li:hover {
+    background: rgba(158, 0, 0, 0.15);
+    border-color: rgba(158, 0, 0, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(158, 0, 0, 0.3);
+}
+
+.stat-icon {
+    font-size: 22px; /* Increased from 16px */
+    margin-right: 12px;
+    min-width: 28px;
+    text-align: center;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.stat-name {
+    flex-grow: 1;
+    text-align: left;
+    font-family: 'Outfit', serif;
+    font-weight: 500;
+    color: #F0F8FF;
+    font-size: 1.1rem; /* Increased from 0.9rem */
+}
+
+.stat-value {
+    font-weight: 700;
+    font-family: 'Outfit', serif;
+    font-size: 1rem; /* Increased from 0.85rem */
+    color: #ffffff;
+    background: linear-gradient(135deg, #9e0000, #FF6A6A);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    min-width: 60px;
+    text-align: right;
+}
+
+/* Loading state animation */
+.stat-value:has-text("Loading...") {
+    background: linear-gradient(90deg, #666, #999, #666);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .stats-container {
+        max-width: 650px;
+        padding: 35px 30px;
+    }
+
+    .chess-title {
+        font-size: 1.7rem;
+    }
+
+    .stats-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .stats-list li {
+        min-height: 55px;
+        padding: 13px 16px;
+    }
+
+    .stat-icon {
+        font-size: 20px;
+    }
+
+    .stat-name {
+        font-size: 1rem;
+    }
+
+    .stat-value {
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile responsive design */
+@media (max-width: 768px) {
+    .stats-container {
+        margin: 15px auto;
+        padding: 20px;
+        max-width: 95%;
+        border-radius: 15px;
+    }
+
+    .stats-container::before {
+        height: 3px;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .chess-title {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .stats-list {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .stats-list li {
+        padding: 10px 12px;
+        min-height: 35px;
+        border-radius: 8px;
+    }
+
+    .stat-icon {
+        font-size: 14px;
+        margin-right: 10px;
+        min-width: 20px;
+    }
+
+    .stat-name {
+        font-size: 0.85rem;
+    }
+
+    .stat-value {
+        font-size: 0.8rem;
+        min-width: 50px;
+    }
+}
+
+/* Large desktop screens */
+@media (min-width: 1200px) {
+    .stats-container {
+        max-width: 900px;
+        padding: 45px 40px;
+    }
+
+    .chess-title {
+        font-size: 2.2rem;
+        margin-bottom: 35px;
+    }
+
+    .stats-list {
+        gap: 18px;
+    }
+
+    .stats-list li {
+        min-height: 65px;
+        padding: 18px 22px;
+    }
+
+    .stat-icon {
+        font-size: 24px;
+        margin-right: 15px;
+        min-width: 32px;
+    }
+
+    .stat-name {
+        font-size: 1.2rem;
+    }
+
+    .stat-value {
+        font-size: 1.1rem;
+        min-width: 65px;
+    }
+}
+
+/* Light mode support */
+@media (prefers-color-scheme: light) {
+    .stats-container {
+        background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
+        border: 1px solid #ddd;
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+    }
+
+    .chess-title {
+        color: #333;
+    }
+
+    .stats-list li {
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .stats-list li:hover {
+        background: rgba(158, 0, 0, 0.1);
+        border-color: rgba(158, 0, 0, 0.3);
+    }
+
+    .stat-name {
+        color: #333;
+    }
+
+    .stat-value {
+        color: #333;
+    }
+}
+
+/* Error state styling */
+.stat-value:has-text("Error") {
+    color: #ff6b6b !important;
+    background: none !important;
+    -webkit-text-fill-color: #ff6b6b !important;
+}
+
+.stat-value:has-text("N/A") {
+    color: #888 !important;
+    background: none !important;
+    -webkit-text-fill-color: #888 !important;
+}
