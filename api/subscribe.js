@@ -43,7 +43,7 @@ export default async function handler(req, res) {
             headers,
             body: JSON.stringify({
                 ...baseBody,
-                to_email: process.env.ADMIN_EMAIL, // <- set this in Vercel
+                // to_email: process.env.ADMIN_EMAIL,
             }),
         });
 
@@ -53,3 +53,7 @@ export default async function handler(req, res) {
         return res.status(500).json({ success: false, error: err.message });
     }
 }
+
+console.log("Sending to subscriber:", subscriber_email);
+console.log("Sending to admin:", process.env.ADMIN_EMAIL);
+console.log("EmailJS payload:", JSON.stringify({...}));
