@@ -4,41 +4,52 @@ export default async function handler(req, res) {
     }
 
     const { subscriber_email, subscriber_name } = req.body;
+    const subscription_date = new Date().toLocaleString();
 
-    console.log("Template params sent:", {
+    const headers = {
+        'Content-Type': 'application/json',
+    };
+
+    const templateId = process.env.EMAILJS_SUBSCRIBE_TEMPLATE_ID;
+
+    const template_params = {
         subscriber_email,
         subscriber_name,
-        subscription_date: new Date().toLocaleString(),
-    });
+        subscription_date,
+    };
+
+    const baseBody = {
+        service_id: process.env.EMAILJS_SERVICE_ID,
+        template_id: templateId,
+        user_id: process.env.EMAILJS_PUBLIC_KEY,
+        accessToken: process.env.EMAILJS_PRIVATE_KEY,
+        template_params,
+    };
 
     try {
-        const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        // 1. Send welcome email to subscriber
+        await fetch('https://api.emailjs.com/api/v1.0/email/send', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            headers,
             body: JSON.stringify({
-                service_id: process.env.EMAILJS_SERVICE_ID,
-                template_id: process.env.EMAILJS_SUBSCRIBE_TEMPLATE_ID,
-                user_id: process.env.EMAILJS_PUBLIC_KEY,
-                accessToken: process.env.EMAILJS_PRIVATE_KEY,
-                template_params: {
-                    subscriber_email,
-                    subscriber_name,
-                    subscription_date: new Date().toLocaleString(),
-                },
+                ...baseBody,
+                to_email: subscriber_email, // this overrides the template's default recipient
             }),
         });
 
-        if (!response.ok) {
-            const errorText = await response.text();
-            console.error('EmailJS Error Response:', errorText);
-            return res.status(500).json({ success: false, error: errorText });
-        }
+        // 2. Send notification email to YOU
+        await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'POST',
+            headers,
+            body: JSON.stringify({
+                ...baseBody,
+                to_email: process.env.ADMIN_EMAIL, // <- set this in Vercel
+            }),
+        });
 
-        return res.status(200).json({ success: true, message: 'Subscription successful!' });
+        return res.status(200).json({ success: true, message: 'Subscription and welcome sent!' });
     } catch (err) {
-        console.error('Server Error:', err.message);
+        console.error('Error sending emails:', err.message);
         return res.status(500).json({ success: false, error: err.message });
     }
 }
