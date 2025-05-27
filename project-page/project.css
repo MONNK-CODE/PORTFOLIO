@@ -613,7 +613,7 @@ img {
   margin: 40px auto;
   max-width: 400px;
   border-radius: 12px;
-  background-color: #252525;
+  background-color: #1e1e1e;
   transition: background-color 0.3s, color 0.3s;
 }
 
