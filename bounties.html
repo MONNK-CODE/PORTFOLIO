@@ -45,6 +45,35 @@
       color: #ccc;
       margin-top: 30px;
     }
+
+    #vote-confirmation {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1c1c1c;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 1rem;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      animation: fadeInOut 3s ease-in-out forwards;
+    }
+
+    @media (prefers-color-scheme: light) {
+      #vote-confirmation {
+        background: #f0f0f0;
+        color: #333;
+      }
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+      10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    }
   </style>
 </head>
 <body>
@@ -113,7 +142,8 @@
       up.className = "vote-button";
       up.innerHTML = `<i class="fas fa-thumbs-up"></i> ${bounty.votes || 0}`;
       up.onclick = () => {
-        const newVoteCount = (bounty.votes || 0) + 1;
+        db.ref(`bounties/${id}/votes`).set((bounty.votes || 0) + 1);
+        showVoteConfirmation();
 
         db.ref(`bounties/${id}/votes`).set(newVoteCount);
 
@@ -138,6 +168,7 @@
       down.innerHTML = `<i class="fas fa-thumbs-down"></i> ${bounty.dislikes || 0}`;
       down.onclick = () => {
         db.ref(`bounties/${id}/dislikes`).set((bounty.dislikes || 0) + 1);
+        showVoteConfirmation();
       };
 
       voteBox.appendChild(up);
@@ -149,6 +180,17 @@
     });
   });
 
+  function showVoteConfirmation() {
+    const el = document.getElementById("vote-confirmation");
+    el.style.display = "block";
+    el.classList.remove("fade-out");
+
+    setTimeout(() => {
+      el.style.display = "none";
+    }, 3000);
+  }
+
 </script>
+<div id="vote-confirmation" style="display: none;">Thanks for your vote! ✅</div>
 </body>
 </html>
