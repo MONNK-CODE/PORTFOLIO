@@ -1,36 +1,239 @@
-<!DOCTYPE html>
+<script src="project-bounty.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Bounties – Muhais</title>
-  <link rel="stylesheet" href="../style.css" />
-  <link rel="stylesheet" href="project-bounty.css" />
-  <script src="project-bounty.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    /* Form Section */
+    #bounty-form {
+      background: rgba(158, 0, 0, 0.05);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 40px auto;
+      max-width: 800px;
+      border: 1px solid rgba(158, 0, 0, 0.2);
+    }
+
+    #bounty-form h3 {
+      font-size: 1.8rem;
+      color: #9e0000;
+      margin-bottom: 15px;
+    }
+
+    #bounty-form p {
+      color: #cccccc;
+      margin-bottom: 20px;
+    }
+
+    #bounty-form iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 554px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    /* Project Bounties */
+    .bounties-section {
+      background: rgba(158, 0, 0, 0.05);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 40px auto;
+      max-width: 800px;
+      border: 1px solid rgba(158, 0, 0, 0.2);
+    }
+
+    .bounties-title {
+      font-size: 1.8rem;
+      color: #9e0000;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .bounties-section > p {
+      color: #cccccc;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .bounty-item {
+      background: rgba(158, 0, 0, 0.1);
+      border: 1px solid #9e0000;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 15px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+    }
+
+    .bounty-item:hover {
+      background: rgba(158, 0, 0, 0.15);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(158, 0, 0, 0.2);
+    }
+
+    .bounty-item > div:first-child {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .bounty-item strong {
+      font-size: 1.2rem;
+      color: #ffffff;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .bounty-item p {
+      color: #cccccc !important;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      margin: 5px 0;
+    }
+
+    .vote-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      min-width: 80px;
+    }
+
+    .vote-button {
+      cursor: pointer;
+      color: #fff;
+      background: #9e0000;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      border: none;
+      min-width: 70px;
+      text-align: center;
+    }
+
+    .vote-button:hover {
+      background: #7e0000;
+      transform: scale(1.05);
+    }
+
+    .vote-button:nth-child(2) {
+      background: #666;
+    }
+
+    .vote-button:nth-child(2):hover {
+      background: #555;
+    }
+
+    #loading {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #9e0000;
+      margin: 30px 0;
+      padding: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    #vote-confirmation {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(158, 0, 0, 0.95);
+      color: #fff;
+      padding: 15px 25px;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      box-shadow: 0 10px 30px rgba(158, 0, 0, 0.4);
+      z-index: 1000;
+      animation: fadeInOut 3s ease-in-out forwards;
+      border: 1px solid #9e0000;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+      10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .bounty-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .bounty-item > div:first-child {
+        margin-right: 0;
+      }
+
+      .vote-buttons {
+        align-self: stretch;
+        flex-direction: row;
+        justify-content: space-between;
+        min-width: unset;
+      }
+
+      #bounty-form iframe {
+        height: 400px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .bounties-section,
+      #bounty-form {
+        padding: 20px;
+        margin: 20px auto;
+      }
+
+      .bounties-title,
+      #bounty-form h3 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <section id="bounty-form">
-  <h3>Suggest a Project Idea</h3>
-  <p style="color: #ccc;">Use this form to submit new bounty ideas. If accepted, they’ll appear below for voting.</p>
+  <h3><i class="fas fa-lightbulb"></i> Suggest a Project Idea</h3>
+  <p>Use this form to submit new bounty ideas. If accepted, they'll appear below for voting.</p>
   <div style="margin-top: 20px;">
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeflF1UAmYFgq4Jhy-q3qzw_WvO2rbcjvgrTNmMCw363KPF-w/viewform?embedded=true" width="640" height="554" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
   </div>
 </section>
 
-
 <div class="bounties-section" id="bounty-section">
-  <h3 class="bounties-title">🧩 Project Bounties - Vote for My Next Build!</h3>
-  <p style="color: #cccccc; margin-bottom: 20px;">
+  <h3 class="bounties-title"><i class="fas fa-puzzle-piece"></i> Project Bounties - Vote for My Next Build!</h3>
+  <p>
     Help me decide what to build next by voting on these ideas:
   </p>
-  <div id="loading">Loading bounties...</div>
+  <div id="loading">
+    <i class="fas fa-spinner fa-spin"></i> Loading bounties...
+  </div>
   <div id="bounties-list"></div>
 </div>
 
-<div id="vote-confirmation" style="display: none;">Thanks for your vote! ✅</div>
+<div id="vote-confirmation" style="display: none;">
+  <i class="fas fa-check-circle"></i> Thanks for your vote!
+</div>
+
 </body>
 </html>
