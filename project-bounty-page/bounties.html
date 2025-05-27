@@ -2,13 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Bounties – Muhais</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="../style.css" />
-  <script src="project-bounty.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <title>Project Bounties</title>
+<!--  <link rel="stylesheet" href="project.css" />-->
+</head>
+<body>
+
+<!-- Your HTML content here -->
+
+<!-- Firebase Scripts (must be before your custom JS) -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+
+<!-- Your Firebase config and script -->
+<script src="project-bounty.js"></script>
+</body>
+</html>
   <style>
     /* Form Section */
     #bounty-form {
@@ -235,6 +243,3 @@
 <div id="vote-confirmation" style="display: none;">
   <i class="fas fa-check-circle"></i> Thanks for your vote!
 </div>
-
-</body>
-</html>
