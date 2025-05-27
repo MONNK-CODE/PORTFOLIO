@@ -309,3 +309,130 @@ h1 span.stop-blinking::after {
     bottom: 10rem;
   }
 }
+
+/* TikTok Follow Button */
+.tiktok-follow {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.tiktok-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(45deg, #ff0050, #ff0050, #000000);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.tiktok-btn:hover {
+  transform: scale(1.05);
+  color: white;
+}
+
+.tiktok-btn i {
+  font-size: 1.5rem;
+}
+
+/* Now Page Styles */
+.now-section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.now-title {
+  font-size: 2.5rem;
+  color: #9e0000;
+  margin-bottom: 20px;
+}
+
+.now-subtitle {
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin-bottom: 40px;
+}
+
+.current-projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin: 40px 0;
+}
+
+.project-card {
+  background: rgba(158, 0, 0, 0.1);
+  border: 2px solid #9e0000;
+  border-radius: 15px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-status {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.status-active {
+  background: #ff4444;
+  color: white;
+}
+
+.status-paused {
+  background: #ffaa00;
+  color: white;
+}
+
+.status-planning {
+  background: #4444ff;
+  color: white;
+}
+
+.project-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.project-description {
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .now-title {
+    font-size: 2rem;
+  }
+
+  .current-projects {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Light mode adjustments */
+@media (prefers-color-scheme: light) {
+  .now-subtitle, .project-description {
+    color: #555;
+  }
+  .project-card, .bounty-item {
+    background: rgba(158, 0, 0, 0.05);
+  }
+}

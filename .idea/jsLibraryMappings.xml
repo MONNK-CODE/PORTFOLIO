@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{@emailjs/browser, devicon, email, firebase-app, firebase-database, firebase-database-compat, firebase-firestore, sweetalert}" />
+    <file url="PROJECT" libraries="{@emailjs/browser, devicon, email, firebase-app, firebase-app-compat, firebase-database, firebase-database-compat, firebase-firestore, sweetalert}" />
   </component>
 </project>

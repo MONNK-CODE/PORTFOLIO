@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Bounties – Muhais</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="project-bounty.css" />
+  <script src="project-bounty.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<section id="bounty-form">
+  <h3>Suggest a Project Idea</h3>
+  <p style="color: #ccc;">Use this form to submit new bounty ideas. If accepted, they’ll appear below for voting.</p>
+  <div style="margin-top: 20px;">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeflF1UAmYFgq4Jhy-q3qzw_WvO2rbcjvgrTNmMCw363KPF-w/viewform?embedded=true" width="640" height="554" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+</section>
+
+
+<div class="bounties-section" id="bounty-section">
+  <h3 class="bounties-title">🧩 Project Bounties - Vote for My Next Build!</h3>
+  <p style="color: #cccccc; margin-bottom: 20px;">
+    Help me decide what to build next by voting on these ideas:
+  </p>
+  <div id="loading">Loading bounties...</div>
+  <div id="bounties-list"></div>
+</div>
+
+<div id="vote-confirmation" style="display: none;">Thanks for your vote! ✅</div>
+</body>
+</html>
