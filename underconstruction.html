@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Bounty - Coming Soon!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Your Provided CSS Theme */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            color: #ffffff; /* Default to white for dark mode */
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #1e1e1e; /* Default dark mode background */
+            font-family: 'Outfit', sans-serif; /* Apply Outfit font */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for theme change */
+        }
+
+
+        html, body{
+            background: #1e1e1e; /* Default dark mode background */
+            margin: 0;
+            padding: 0;
+            max-width: 100vw;
+            overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* About Section Styling - Adapted for main content */
+        .details {
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            font-size: 1rem;
+            color : #F0F8FF; /* Default for dark mode */
+        }
+
+        @media (min-width: 769px) {
+            .details {
+                padding: 20px;
+                font-size: 2rem
+            }
+        }
+
+        /* Section and Title Styling - Adapted for main content */
+        section{
+            width: 100%;
+            box-sizing: border-box;
+        }
+        section .content{
+            width: 80%;
+            margin: 40px auto;
+            font-family: 'Outfit', serif;
+            text-align: center; /* Center content in the under construction page */
+        }
+
+        section .title{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        section .title span{
+            color: #F0F8FF; /* Default for dark mode */
+            font-size: 60px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        section .sn span{
+            color: #171616; /* Dark background color, consider adjusting for light mode */
+        }
+        section .title span::before,
+        section .title span::after{
+            content: '';
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: #9e0000;
+            left: 0;
+            bottom: 0;
+        }
+        section .title span::after{
+            bottom: -7px;
+            width: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Skills background - Adapted for main content */
+        .skills{
+            background: #1e1e1e; /* Default dark mode background */
+        }
+        .skills .content{
+            padding: 40px 0;
+        }
+
+        /* Mobile title */
+        @media (max-width: 768px) {
+            section .title span {
+                font-size: 40px;
+            }
+        }
+
+        /* Typing effect - Adapted for main heading */
+        h1 {
+            color: #ffffff; /* Default for dark mode */
+            font-size: 3rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        h1 span {
+            background: linear-gradient(to bottom, #9E0000, #FF6A6A);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1 span::after {
+            content: "|";
+            position: absolute;
+            right: -8px;
+            color: white; /* Default for dark mode */
+            animation: blink 0.7s infinite;
+        }
+
+        h1 span.stop-blinking::after {
+            animation: none;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0 }
+        }
+        /* Typing effect end */
+
+        /* Countdown specific styling */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .countdown div {
+            background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 2em;
+            font-weight: bold;
+            color: inherit; /* Inherit text color for theme change */
+            min-width: 100px; /* Ensure a minimum width for each box */
+        }
+
+        .countdown div span {
+            display: block;
+            font-size: 0.5em;
+            margin-top: 5px;
+            color: inherit; /* Inherit text color */
+        }
+
+        /* LIGHT MODE ADAPTATION */
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #f0f0f0;
+                color: #333; /* Darker text for light mode */
+            }
+            * {
+                color: #333; /* Override * selector for general text color */
+            }
+            strong {
+                font-weight: 600;
+                color: #9E0000;
+            }
+
+            .title {
+                color: #333;
+            }
+
+            .details {
+                color: #333;
+            }
+            section .title span{
+                color: #333;
+            }
+
+            .title.sn span {
+                color: #171616;
+            }
+            .icon i { /* Though icons are not present, keeping for consistency */
+                color: #171616;
+            }
+            .skills, html, body { /* Apply light background to relevant elements */
+                background: #f0f0f0;
+            }
+            .sn {
+                color : #121212;
+            }
+            h1 {
+                color: #333; /* Darker heading for light mode */
+            }
+            h1 span::after {
+                color: #333; /* Darker cursor for light mode */
+            }
+            .countdown div {
+                background-color: rgba(0, 0, 0, 0.1); /* Darker transparent background for light mode */
+            }
+        }
+
+        /* Specific overrides for the current page structure */
+        .container-fluid.main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .container-fluid.main-content h1 {
+            margin-bottom: 20px;
+        }
+        .container-fluid.main-content p.lead {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            color: inherit; /* Inherit text color from body */
+        }
+
+        /* Ensure no manual toggle is displayed */
+        .toggle-switch {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid main-content">
+    <section class="content">
+        <div class="title">
+            <span>Project Bounty</span>
+        </div>
+        <h1 class="text">Coming Soon!</h1>
+        <p class="lead details">We're working hard to get things ready. My project bounty will be available next week!</p>
+
+        <div class="countdown">
+            <div>
+                <span id="days"></span>
+                <span>Days</span>
+            </div>
+            <div>
+                <span id="hours"></span>
+                <span>Hours</span>
+            </div>
+            <div>
+                <span id="minutes"></span>
+                <span>Minutes</span>
+            </div>
+            <div>
+                <span id="seconds"></span>
+                <span>Seconds</span>
+            </div>
+        </div>
+
+        <p class="mt-4 details">Stay tuned for exciting updates!</p>
+    </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set the date for next week (adjust as needed)
+        const nextWeek = new Date();
+        nextWeek.setDate(nextWeek.getDate() + 7); // Adds 7 days to the current date
+
+        const countdownDate = nextWeek.getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector('.countdown').innerHTML = "<h2>The bounty is ready!</h2>";
+                document.querySelector('.lead').innerHTML = "Good news! Your project bounty is now available. Check it out!";
+            }
+        }, 1000);
+    });
+</script>
+</body>
+</html>
