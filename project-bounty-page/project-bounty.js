@@ -28,18 +28,20 @@ document.addEventListener("DOMContentLoaded", function() {
             item.className = "bounty-item";
 
             const left = document.createElement("div");
+            left.className = "bounty-content";
             left.innerHTML = `
                 <strong>${bounty.title}</strong>
-                <p style="margin: 5px 0; color: #cccccc;">${bounty.description}</p>
+                <p>${bounty.description}</p>
             `;
 
             const voteBox = document.createElement("div");
             voteBox.className = "vote-buttons";
 
-            const up = document.createElement("div");
+            const up = document.createElement("button");
             up.className = "vote-button";
             up.innerHTML = `<i class="fas fa-thumbs-up"></i> ${bounty.votes || 0}`;
-            up.onclick = () => {
+            up.onclick = (e) => {
+                e.preventDefault();
                 const newVoteCount = (bounty.votes || 0) + 1;
                 db.ref(`bounties/${id}/votes`).set(newVoteCount);
                 showVoteConfirmation();
@@ -55,14 +57,15 @@ document.addEventListener("DOMContentLoaded", function() {
                             description: bounty.description,
                             votes: newVoteCount,
                         }),
-                    });
+                    }).catch(err => console.log('Notification service unavailable'));
                 }
             };
 
-            const down = document.createElement("div");
+            const down = document.createElement("button");
             down.className = "vote-button";
             down.innerHTML = `<i class="fas fa-thumbs-down"></i> ${bounty.dislikes || 0}`;
-            down.onclick = () => {
+            down.onclick = (e) => {
+                e.preventDefault();
                 db.ref(`bounties/${id}/dislikes`).set((bounty.dislikes || 0) + 1);
                 showVoteConfirmation();
             };
@@ -79,7 +82,11 @@ document.addEventListener("DOMContentLoaded", function() {
     function showVoteConfirmation() {
         const el = document.getElementById("vote-confirmation");
         el.style.display = "block";
-        el.classList.remove("fade-out");
+        el.style.animation = "none";
+
+        // Trigger reflow to restart animation
+        el.offsetHeight;
+        el.style.animation = "fadeInOut 3s ease-in-out forwards";
 
         setTimeout(() => {
             el.style.display = "none";

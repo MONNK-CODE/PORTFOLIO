@@ -198,6 +198,8 @@ h3 {
     position: relative;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(158, 0, 0, 0.3);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .vote-button::before {
@@ -249,7 +251,7 @@ h3 {
     margin-right: 0.5rem;
 }
 
-/* Vote confirmation */
+/* Vote confirmation - FIXED FOR MOBILE */
 #vote-confirmation {
     position: fixed;
     bottom: 2rem;
@@ -262,10 +264,13 @@ h3 {
     font-size: 1rem;
     font-weight: 600;
     box-shadow: 0 10px 30px rgba(158, 0, 0, 0.4);
-    z-index: 1000;
+    z-index: 1001;
     animation: fadeInOut 3s ease-in-out forwards;
     border: 1px solid var(--highlight-color);
     backdrop-filter: blur(10px);
+    max-width: calc(100vw - 2rem);
+    white-space: nowrap;
+    pointer-events: none;
 }
 
 #vote-confirmation i {
@@ -343,18 +348,44 @@ h3 {
     .vote-button {
         flex: 1;
         max-width: 8rem;
+        touch-action: manipulation;
     }
 
     #bounty-form iframe {
         height: 25rem;
     }
 
+    /* FIXED: Mobile vote confirmation */
     #vote-confirmation {
         bottom: 1rem;
         left: 1rem;
         right: 1rem;
         transform: none;
         text-align: center;
+        max-width: none;
+        width: calc(100% - 2rem);
+        font-size: 0.9rem;
+        padding: 0.875rem 1rem;
+    }
+
+    /* FIXED: Mobile animation */
+    @keyframes fadeInOut {
+        0% {
+            opacity: 0;
+            transform: translateY(1.25rem) scale(0.9);
+        }
+        10% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        90% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(1.25rem) scale(0.9);
+        }
     }
 }
 
@@ -362,7 +393,7 @@ h3 {
     .bounties-section,
     #bounty-form {
         padding: 1rem;
-        margin-top: 4.5rem;
+        margin-top: 90px;
         border-radius: 0.75rem;
     }
 
@@ -393,6 +424,11 @@ h3 {
 
     #bounty-form iframe {
         height: 20rem;
+    }
+
+    #vote-confirmation {
+        font-size: 0.85rem;
+        padding: 0.75rem;
     }
 }
 
