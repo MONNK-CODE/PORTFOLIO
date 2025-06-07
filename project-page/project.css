@@ -119,13 +119,14 @@ img {
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 300px));
-  gap: 20px;
   justify-content: center;
+  row-gap: 20px;
 }
 
 @media (max-width: 600px) {
   .project-grid {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
