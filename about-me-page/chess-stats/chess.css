@@ -1,12 +1,12 @@
-/* Chess Stats Section - Enhanced for Laptops */
+/* Chess Stats Section - Chess.com Style */
 .stats-container {
-    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    background: linear-gradient(135deg, #2f2f2f 0%, #1a1a1a 100%);
     padding: 40px 35px;
     border-radius: 20px;
-    max-width: 800px; /* Increased from 500px */
+    max-width: 800px;
     margin: 30px auto;
     box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
-    border: 1px solid #333;
+    border: 1px solid #3a3a3a;
     position: relative;
     overflow: hidden;
 }
@@ -17,8 +17,8 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 4px; /* Slightly thicker */
-    background: linear-gradient(90deg, #9e0000, #FF6A6A, #9e0000);
+    height: 4px;
+    background: linear-gradient(90deg, #769656, #8BC34A, #769656);
     border-radius: 20px 20px 0 0;
 }
 
@@ -26,9 +26,9 @@
     text-align: center;
     margin-bottom: 30px;
     font-family: 'Outfit', serif;
-    font-size: 2rem; /* Increased from 1.4rem */
+    font-size: 2rem;
     font-weight: 600;
-    color: #F0F8FF;
+    color: #ffffff;
     position: relative;
 }
 
@@ -37,36 +37,37 @@
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Changed from 2 to 3 columns */
-    gap: 15px; /* Increased gap */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
 }
 
 .stats-list li {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 18px; /* Increased padding */
+    padding: 15px 18px;
     background: rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
-    min-height: 60px; /* Increased from 40px */
+    min-height: 60px;
 }
 
 .stats-list li:hover {
-    background: rgba(158, 0, 0, 0.15);
-    border-color: rgba(158, 0, 0, 0.4);
+    background: rgba(118, 150, 86, 0.15);
+    border-color: rgba(118, 150, 86, 0.4);
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(158, 0, 0, 0.3);
+    box-shadow: 0 4px 16px rgba(118, 150, 86, 0.3);
 }
 
 .stat-icon {
-    font-size: 22px; /* Increased from 16px */
+    font-size: 22px;
     margin-right: 12px;
     min-width: 28px;
     text-align: center;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+    color: #FF9500;
 }
 
 .stat-name {
@@ -74,21 +75,25 @@
     text-align: left;
     font-family: 'Outfit', serif;
     font-weight: 500;
-    color: #F0F8FF;
-    font-size: 1.1rem; /* Increased from 0.9rem */
+    color: #ffffff;
+    font-size: 1.1rem;
 }
 
 .stat-value {
     font-weight: 700;
     font-family: 'Outfit', serif;
-    font-size: 1rem; /* Increased from 0.85rem */
-    color: #ffffff;
-    background: linear-gradient(135deg, #9e0000, #FF6A6A);
+    font-size: 1rem;
+    color: #769656;
+    min-width: 60px;
+    text-align: right;
+}
+
+/* Special highlighting for premium stats */
+.stat-value.premium {
+    background: linear-gradient(135deg, #FF9500, #FFB74D);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    min-width: 60px;
-    text-align: right;
 }
 
 /* Loading state animation */
@@ -223,46 +228,88 @@
     }
 }
 
-/* Light mode support */
+/* Light mode support - Chess.com style */
 @media (prefers-color-scheme: light) {
     .stats-container {
-        background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
-        border: 1px solid #ddd;
-        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 1px solid #dee2e6;
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1);
+    }
+
+    .stats-container::before {
+        background: linear-gradient(90deg, #769656, #8BC34A, #769656);
     }
 
     .chess-title {
-        color: #333;
+        color: #2c3e50;
     }
 
     .stats-list li {
-        background: rgba(0, 0, 0, 0.05);
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        background: rgba(118, 150, 86, 0.08);
+        border: 1px solid rgba(118, 150, 86, 0.2);
     }
 
     .stats-list li:hover {
-        background: rgba(158, 0, 0, 0.1);
-        border-color: rgba(158, 0, 0, 0.3);
+        background: rgba(118, 150, 86, 0.15);
+        border-color: rgba(118, 150, 86, 0.4);
+    }
+
+    .stat-icon {
+        color: #FF9500;
     }
 
     .stat-name {
-        color: #333;
+        color: #2c3e50;
     }
 
     .stat-value {
-        color: #333;
+        color: #769656;
+    }
+
+    .stat-value.premium {
+        background: linear-gradient(135deg, #FF9500, #FFB74D);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 }
 
 /* Error state styling */
 .stat-value:has-text("Error") {
-    color: #ff6b6b !important;
+    color: #dc3545 !important;
     background: none !important;
-    -webkit-text-fill-color: #ff6b6b !important;
+    -webkit-text-fill-color: #dc3545 !important;
 }
 
 .stat-value:has-text("N/A") {
-    color: #888 !important;
+    color: #6c757d !important;
     background: none !important;
-    -webkit-text-fill-color: #888 !important;
+    -webkit-text-fill-color: #6c757d !important;
+}
+
+/* Chess.com accent colors for special stats */
+.stat-value.win-rate {
+    color: #769656;
+}
+
+.stat-value.rating {
+    color: #FF9500;
+}
+
+.stat-value.games-played {
+    color: #8BC34A;
+}
+
+/* Premium member badge styling */
+.premium-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #2c3e50;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }

@@ -12,6 +12,8 @@
     <link href="../footer.css" rel="stylesheet" type="text/css">
     <link href="chess-stats/chess.css" rel="stylesheet" type="text/css">
     <script src="chess-stats/chess.js"></script>
+    <link href="monkey-type-stats/monkey.css" rel="stylesheet" type="text/css">
+    <script src="monkey-type-stats/monkey.js"></script>
     <script src="../nav/nav.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
@@ -94,7 +96,7 @@
             
             <h1 class = "text">Get to Know Me!</h1>
             <h4 class="details">
-                Hey! I’m <strong>Muhais</strong> 👋🏾, a freshman at <strong>UIUC</strong> 📚 studying <strong>Actuarial Science</strong> and exploring the world of <strong>fintech</strong> 💸📊.
+                Hey! I’m <strong>Muhais</strong> 👋🏾, a Sophmore at <strong>UIUC</strong> 📚 studying <strong>Actuarial Science</strong> and exploring the world of <strong>fintech</strong> 💸📊.
 
                 <br><br>When I’m not studying, I’m probably deep in a <strong>Fortnite</strong> battle 🎮 or building my dream team in <strong>EA FC</strong> ⚽. I’m a proud <strong>Arsenal</strong> fan 🔴⚪, Games fuel my love for strategy, quick thinking, and a little chaos, kind of like life.
 
@@ -174,7 +176,10 @@
                              <i class="devicon-react-original"></i>
                              <span class="sn">React</span>
                          </div>
-                        
+<!--                        <div class="icon" id="stata-icon">-->
+<!--                            <i class="devicon-stata-original-wordmark"></i>-->
+<!--                            <span class="sn">Stata</span>-->
+<!--                        </div>-->
                     </div>
                 </section>
                 <!-- Coding languages icon end -->            
@@ -242,6 +247,28 @@
             </ul>
         </div>
 
+<!--        Monkey Type Stats-->
+        <div class="monkey-stats-component">
+            <div class="stats-card">
+                <h2>My 30s Monkey Type PB</h2>
+                <div id="stats-grid" class="stat-grid">
+                    <div class="stat">
+                        <span class="stat-label">WPM</span>
+                        <span id="wpm-30" class="stat-value">...</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Accuracy</span>
+                        <span id="acc-30" class="stat-value">...</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Consistency</span>
+                        <span id="consistency-30" class="stat-value">...</span>
+                    </div>
+                </div>
+                <p id="error-message" class="error-message" style="display: none;"></p>
+            </div>
+        </div>
+<!--        Monkey Type Stats ENd-->
 
 
         <!-- Favorite Anime Section -->

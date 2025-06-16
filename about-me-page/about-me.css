@@ -153,6 +153,7 @@ section .title span::after{
 #js-icon:hover i { color: #a5a800; }
 #kt-icon:hover i { color: #bd3bff; }
 #react-icon:hover i { color: #61dafb; }
+#stata-icon:hover i { color: #393c61; }
 #python-icon:hover i {
   background: linear-gradient(to right, #4B8BBE 0%, #FFD43B 100%);
   -webkit-background-clip: text;
