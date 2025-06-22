@@ -27,7 +27,7 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #9e0000, #FF6A6A, #9e0000);
+    background: linear-gradient(90deg, #0056b3, #4A90E2, #0056b3);
     border-radius: 15px 15px 0 0;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .anime-item-compact:hover {
-    background: rgba(158, 0, 0, 0.1);
+    background: rgba(0, 86, 179, 0.1);
     transform: translateY(-2px);
 }
 
@@ -68,7 +68,7 @@
     font-size: 0.9rem;
     font-weight: 600;
     margin-bottom: 4px;
-    background: linear-gradient(135deg, #9e0000, #FF6A6A);
+    background: linear-gradient(135deg, #0056b3, #4A90E2);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -107,6 +107,7 @@
     position: relative;
     overflow: hidden;
     min-height: 80px;
+    margin-bottom: 1rem;
 }
 
 .language-item::before {
@@ -116,14 +117,14 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, #9e0000, #FF6A6A, #9e0000);
+    background: linear-gradient(90deg, #0056b3, #4A90E2, #0056b3);
     border-radius: 12px 12px 0 0;
 }
 
 .language-item:hover {
     transform: translateY(-2px);
-    border-color: #9e0000;
-    box-shadow: 0 6px 20px rgba(158, 0, 0, 0.15);
+    border-color: #0056b3;
+    box-shadow: 0 6px 20px rgba(0, 86, 179, 0.15);
 }
 
 .language-flag {
@@ -150,12 +151,11 @@
     background: rgba(255, 255, 255, 0.1);
     border-radius: 3px;
     overflow: hidden;
-    margin-bottom: 5px;
 }
 
 .proficiency-fill {
     height: 100%;
-    background: linear-gradient(135deg, #9e0000, #FF6A6A);
+    background: linear-gradient(135deg, #0056b3, #4A90E2);
     border-radius: 3px;
     transition: width 2s ease-in-out;
     width: 0%;

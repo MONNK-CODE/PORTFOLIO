@@ -8,16 +8,16 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: auto; /* Changed from 80vh to auto for better content fitting */
-    min-height: 60vh; /* Added minimum height instead */
+    height: auto;
+    min-height: 60vh;
     /*background: #FAF9F6;*/
     background: #f0f0f0;
-    padding: 40px 20px; /* Increased padding to compensate for reduced margin */
+    padding: 40px 20px;
     box-sizing: border-box;
     text-align: center;
-    margin-top: 80px; /* Reduced from 400px to 80px */
+    margin-top: 80px;
     scroll-behavior: smooth;
-    transition: background 0.3s, color 0.3s; /* For smooth transition */
+    transition: background 0.3s, color 0.3s;
 }
 
 .form-container {
@@ -27,18 +27,18 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background: #f0f0f0;
     text-align: center;
-    transition: background 0.3s, color 0.3s; /* For smooth transition */
+    transition: background 0.3s, color 0.3s;
 }
 
 .con-title {
-    font-size: 4rem; /* Reduced from 5.5rem to 4rem */
-    color: #9e0000;
-    margin-bottom: 30px; /* Added margin for better spacing */
+    font-size: 4rem;
+    color: #0056b3;
+    margin-bottom: 30px;
 }
 
 @media screen and (max-width: 767px) {
     .con-title {
-        font-size: 2.5rem; /* Reduced from 3rem to 2.5rem */
+        font-size: 2.5rem;
     }
 }
 
@@ -62,12 +62,12 @@ textarea {
     transition: border-color 0.3s, background-color 0.3s, color 0.3s;
     font-family: 'Outfit', serif;
     background-color: #f0f0f0;
-    color: #292424; /* Light input text color */
+    color: #292424;
 }
 
 input:focus,
 textarea:focus {
-    border-color: #9e0000;
+    border-color: #0056b3;
 }
 
 label {
@@ -77,12 +77,12 @@ label {
     background: #f0f0f0;
     padding: 0 5px;
     transition: all 0.3s, background-color 0.3s, color 0.3s;
-    color: #9e0000;
+    color: #0056b3;
     font-size: 0.85rem;
 }
 
 .submit-button {
-    background: #9e0000;
+    background: #0056b3;
     color: #F0F8FF;
     padding: 0.7em 1.2em;
     display: flex;
@@ -151,7 +151,7 @@ label {
     }
 
     .con-title {
-        color: #9E0000;
+        color: #0056b3;
     }
 
     input,
@@ -166,11 +166,11 @@ label {
         background: #0e0e0e; /* label background */
         /*background: #1E1E1E; */
         /*color: #ff4d4d; */
-        color: #9e0000; /*label color*/
+        color: #0056b3; /*label color*/
     }
 
     .submit-button {
-        background: #9e0000;
+        background: #0056b3;
         color: #E0E0E0;
     }
 

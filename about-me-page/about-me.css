@@ -77,7 +77,7 @@ section .title span::after{
   position: absolute;
   height: 3px;
   width: 100%;
-  background: #9e0000;
+  background: #0056b3;
   left: 0;
   bottom: 0;
 }
@@ -200,7 +200,8 @@ h1 {
 }
 
 h1 span {
-  background: linear-gradient(to bottom, #9E0000, #FF6A6A);
+  background: linear-gradient(to bottom, #0056b3, #6a76ff);
+    /*background: linear-gradient(to bottom, #4179c4, #0056b3);*/
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -235,7 +236,7 @@ h1 span.stop-blinking::after {
   }
     strong {
         font-weight: 600;
-        color: #9E0000;
+        color: #0056b3;
     }
 
 
@@ -286,7 +287,7 @@ h1 span.stop-blinking::after {
     height: 500px;
     object-fit: cover;
     border-radius: 12px;
-    background-color: #1e1e1e; /* fixes white flicker */
+    background-color: #1e1e1e;
 }
 /* Force dark background on all carousel layers */
 .carousel-inner,

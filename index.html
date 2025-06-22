@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhais Olatundun | Portfolio of a Determined Student </title>
-    <meta name="description" content="Muhais Olatundun, interested in Fintech. Explore my projects, resume, and get in touch with me for collaborations and opportunities.">
-    <meta name="keywords" content="Muhais Olatundun, Portfolio, Projects, Resume, Contact, Computer Science, Software Development, Web Development">
-    <link rel="icon" type="image/x-icon" href="project-page/proj-images/nk.PNG">
-    <link href="footer.css" rel="stylesheet" type="text/css" />
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <link href="background.css" rel="stylesheet" type="text/css" />
-    <link href="social-icons.css" rel="stylesheet" type="text/css" />
-    <link href="resume.css" rel="stylesheet" type="text/css" />
-    <link href="contact-section/contact.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <script src="script.js"></script>
-    <script src="typing.js"></script>
-    <script src="contact-section/contact.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhais Olatundun | Portfolio of a Determined Student </title>
+  <meta name="description" content="Muhais Olatundun, interested in Fintech. Explore my projects, resume, and get in touch with me for collaborations and opportunities.">
+  <meta name="keywords" content="Muhais Olatundun, Portfolio, Projects, Resume, Contact, Computer Science, Software Development, Web Development">
+  <link rel="icon" type="image/x-icon" href="project-page/proj-images/nk.PNG">
+  <link href="footer.css" rel="stylesheet" type="text/css" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="background.css" rel="stylesheet" type="text/css" />
+  <link href="social-icons.css" rel="stylesheet" type="text/css" />
+  <link href="resume.css" rel="stylesheet" type="text/css" />
+  <link href="contact-section/contact.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <script src="script.js"></script>
+  <script src="typing.js"></script>
+  <script src="contact-section/contact.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
 
 <body>
-  <div class="header">
-    <div class="center">
-<section class="intro">
+<div class="header">
+  <div class="center">
+    <section class="intro">
       <style>
         @media (prefers-color-scheme: light) {
           :root {
@@ -51,7 +51,7 @@
           <defs>
             <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" style="stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#9E0000;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#0056b3;stop-opacity:1" />
             </linearGradient>
           </defs>
           <text x="200" y="112.5" text-anchor="middle" dominant-baseline="middle" fill="red">
@@ -59,9 +59,9 @@
           </text>
         </svg>
       </div>
-</section>
+    </section>
 
-      <section class="intro-section">
+    <section class="intro-section">
       <div class="circle-container">
         <img src="img.JPG" alt="Picture Muhais Olatundun" class="profile-image">
       </div>
@@ -69,7 +69,7 @@
 
       <!--  Typing Effect -->
       <header>
-          <h1 class = "text">I'm <span></span></h1>
+        <h1 class = "text">I'm <span></span></h1>
       </header>
       <!--  Typing Effect -->
 
@@ -80,39 +80,40 @@
       <!--  Quote End -->
 
 
-        <!-- Replace your existing button HTML with this -->
-        <div class="resume">
-          <button class="button" type="button" onclick="viewResume()">
-            <span class="button__text">Resume</span>
-            <span class="button__icon">
+      <!-- Resume -->
+      <div class="resume">
+        <button class="button" type="button" onclick="viewResume()">
+          <span class="button__text">Resume</span>
+          <span class="button__icon">
             <i class="fas fa-file-pdf"></i>
         </span>
-          </button>
-        </div>
+        </button>
+      </div>
 
-        <!-- Update your modal HTML -->
-        <div id="resumeModal" class="resume-modal">
-          <div class="resume-modal-content">
-            <div class="modal-header">
-              <h3 class="modal-title">
-                <i class="fas fa-user-tie"></i>
-                Muhais Olatundun
-              </h3>
-              <div class="modal-actions">
-                <button class="modal-btn download-btn" onclick="downloadResume()">
-                  <i class="fas fa-download"></i>
-                  Download
-                </button>
-                <button class="modal-btn close-btn" onclick="closeResumeModal()">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
+      <!-- Resume Modal -->
+      <div id="resumeModal" class="resume-modal">
+        <div class="resume-modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">
+              <i class="fas fa-user-tie"></i>
+              Muhais Olatundun
+            </h3>
+            <div class="modal-actions">
+              <button class="modal-btn download-btn" onclick="downloadResume()">
+                <i class="fas fa-download"></i>
+                Download
+              </button>
+              <button class="modal-btn close-btn" onclick="closeResumeModal()">
+                <i class="fas fa-times"></i>
+              </button>
             </div>
-            <iframe id="resumeFrame" src=""></iframe>
           </div>
+          <iframe id="resumeFrame" src=""></iframe>
         </div>
+      </div>
+      <!-- Resume End -->
 
-  <!-- BUTTONS -->
+      <!-- BUTTONS -->
       <div class="btn">
         <a href="about-me-page/about-me.html" class="button1" aria-label="About Me">
           <i class="fa fa-user" aria-hidden="true"></i>
@@ -134,176 +135,136 @@
           Project Bounties
         </a>
       </div>
-  <!-- BUTTONS END -->
+      <!-- BUTTONS END -->
 
-<!-- SOCIAL ICONS -->
-  <div class="sc">
-    <div class="icons">
-      <a href="https://www.linkedin.com/in/muhais-olatundun-0bb273283" class="ld" target="_blank" aria-label="LinkedIn">
-        <i class="fab fa-linkedin"></i></a>
-      <a href="mailto:monnk101@gmail.com" class="gmail" target="_blank">
-        <img src="gmail-logo.png" alt="Gmail" class="gmail-icon" /></a>
-      <a href="https://github.com/MONNK-CODE" class="git" target="_blank" aria-label="GitHub">
-        <i class="fab fa-github"></i></a>
-       <a href="https://youtube.com/@nkbobwire?sub_confirmation=1" class="youtube" target="_blank" aria-label="YouTube">
-         <i class="fab fa-youtube"></i></a>
-      <a href="https://www.tiktok.com/@niniolaking?is_from_webapp=1&sender_device=pc" class="tiktok" target="_blank" aria-label="TikTok">
-        <i class="fab fa-tiktok"></i></a>
-      <a href="https://www.instagram.com/niniolaking_/" class="instagram" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i></a>
-    </div>
-  </div>
- <!-- SOCIAL ICONS ENDS -->
-        <!-- TIKTOK FOLLOW BUTTON -->
-<!--        <div class="tiktok-follow">-->
-<!--          <a href="https://www.tiktok.com/@niniolaking?is_from_webapp=1&sender_device=pc" class="tiktok-btn" target="_blank">-->
-<!--            <i class="fab fa-tiktok"></i>-->
-<!--            Follow me on TikTok! 🚀-->
-<!--          </a>-->
-<!--          <p style="color: #9e0000; margin-top: 10px; font-weight: 500;">Help me grow my TikTok community! ❤️</p>-->
-<!--        </div>-->
-        <!-- TIKTOK FOLLOW BUTTON END -->
-
-<!--        WHAT I'M DOING NOW SECTION  -->
-<!--      <section class="now-section">-->
-<!--        <h2 class="now-title">📍 What I'm Working On Now</h2>-->
-<!--        <p class="now-subtitle">Here's what's keeping me busy this month - updated regularly!</p>-->
-
-<!--        <div class="current-projects">-->
-<!--          <div class="project-card">-->
-<!--            <div class="project-status status-active">🔴 ACTIVE</div>-->
-<!--            <div class="project-name">Fintech Mobile App</div>-->
-<!--            <div class="project-description">Building a personal finance tracker with budgeting features and expense analytics using React Native and Firebase</div>-->
-<!--          </div>-->
-
-<!--          <div class="project-card">-->
-<!--            <div class="project-status status-active">🔴 ACTIVE</div>-->
-<!--            <div class="project-name">Actuarial Studies</div>-->
-<!--            <div class="project-description">Diving deep into probability theory, statistics, and financial mathematics for my actuarial science coursework</div>-->
-<!--          </div>-->
-
-<!--          <div class="project-card">-->
-<!--            <div class="project-status status-paused">🟡 PAUSED</div>-->
-<!--            <div class="project-name">Chess Analysis Tool</div>-->
-<!--            <div class="project-description">Web app that analyzes chess games and provides improvement suggestions - paused due to semester workload</div>-->
-<!--          </div>-->
-
-<!--          <div class="project-card">-->
-<!--            <div class="project-status status-planning">🔵 PLANNING</div>-->
-<!--            <div class="project-name">YouTube Channel</div>-->
-<!--            <div class="project-description">Planning to start a tech/coding channel with tutorials and project walkthroughs</div>-->
-<!--          </div>-->
-<!--        </div>-->
-
-      </section> <!-- end of intro-section -->
-
-
-
-      <!-- CONTACT FORM -->
-      <div id="contact-section" class="contact-section">
-        <h1 class="con-title">Contact Me</h1>
-        <div class="form-container">
-          <form id="contactForm">
-            <div class="input-group">
-              <label for="first-name">First Name</label>
-              <input type="text" id="first-name" name="first_name" autocomplete="on" required>
-            </div>
-            <div class="input-group">
-              <label for="last-name">Last Name</label>
-              <input type="text" id="last-name" name="last_name" autocomplete="on" required>
-            </div>
-            <div class="input-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" autocomplete="on" required>
-            </div>
-            <div class="input-group">
-              <label for="message">Write your message</label>
-              <textarea id="message" name="message" rows="4" required></textarea>
-            </div>
-            <div class="input-group">
-              <button type="submit" class="submit-button" aria-label="Send">
-                <div class="svg-wrapper-1">
-                  <div class="svg-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="24">
-                      <title>Send Icon</title>
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
-                    </svg>
-                  </div>
-                </div>
-                <span>Send</span>
-              </button>
-            </div>
-          </form>
+      <!-- SOCIAL ICONS -->
+      <div class="sc">
+        <div class="icons">
+          <a href="https://www.linkedin.com/in/muhais-olatundun-0bb273283" class="ld" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i></a>
+          <a href="mailto:monnk101@gmail.com" class="gmail" target="_blank">
+            <img src="gmail-logo.png" alt="Gmail" class="gmail-icon" /></a>
+          <a href="https://github.com/MONNK-CODE" class="git" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i></a>
+          <a href="https://youtube.com/@nkbobwire?sub_confirmation=1" class="youtube" target="_blank" aria-label="YouTube">
+            <i class="fab fa-youtube"></i></a>
+          <a href="https://www.tiktok.com/@niniolaking?is_from_webapp=1&sender_device=pc" class="tiktok" target="_blank" aria-label="TikTok">
+            <i class="fab fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/niniolaking_/" class="instagram" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i></a>
         </div>
       </div>
-      <!-- CONTACT FORM END -->
+      <!-- SOCIAL ICONS ENDS -->
+
+    </section> <!-- end of intro-section -->
 
 
-<!-- BACKGROUND ANIMATION -->
-<div class="hero">
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
-  <div class="cube"></div>
 
-</div>
-<!-- BACKGROUND ANIMATION END -->
-</div>
+    <!-- CONTACT FORM -->
+    <div id="contact-section" class="contact-section">
+      <h1 class="con-title">Contact Me</h1>
+      <div class="form-container">
+        <form id="contactForm">
+          <div class="input-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first_name" autocomplete="on" required>
+          </div>
+          <div class="input-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last_name" autocomplete="on" required>
+          </div>
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" autocomplete="on" required>
+          </div>
+          <div class="input-group">
+            <label for="message">Write your message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+          <div class="input-group">
+            <button type="submit" class="submit-button" aria-label="Send">
+              <div class="svg-wrapper-1">
+                <div class="svg-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="24">
+                    <title>Send Icon</title>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                    <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                  </svg>
+                </div>
+              </div>
+              <span>Send</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- CONTACT FORM END -->
+
+
+    <!-- BACKGROUND ANIMATION -->
+    <div class="hero">
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+
+    </div>
+    <!-- BACKGROUND ANIMATION END -->
   </div>
+</div>
 
-  <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Muhais Olatundun. All rights reserved.</p>
-  </footer>
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Muhais Olatundun. All rights reserved.</p>
+</footer>
 
-  <script>
-    // Auto-update the year
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<script>
+  // Auto-update the year
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>

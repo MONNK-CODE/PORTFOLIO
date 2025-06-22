@@ -1,31 +1,30 @@
-
- .button {
-   padding: 10px 20px;
-   border: none;
-   font-size: 17px;
-   color: #fff;
-   border-radius: 7px;
-   letter-spacing: 4px;
-   font-weight: 700;
-   text-transform: uppercase;
-   transition: 0.5s;
-   transition-property: box-shadow;
-   background: rgb(158, 0, 0);
-   box-shadow: 0 0 25px rgb(158, 0, 0);
-   cursor: pointer;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   gap: 10px;
-   min-width: 180px;
-   height: 50px;
- }
+.button {
+  padding: 10px 20px;
+  border: none;
+  font-size: 17px;
+  color: #fff;
+  border-radius: 7px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.5s;
+  transition-property: box-shadow;
+  background: #0056b3;
+  box-shadow: 0 0 25px #0056b3;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 180px;
+  height: 50px;
+}
 
 .button:hover {
-  box-shadow: 0 0 5px rgb(158, 0, 0),
-  0 0 25px rgb(158, 0, 0),
-  0 0 50px rgb(158, 0, 0),
-  0 0 100px rgb(158, 0, 0);
+  box-shadow: 0 0 5px #0056b3,
+  0 0 25px #0056b3,
+  0 0 50px #0056b3,
+  0 0 100px #0056b3;
 }
 
 .button .button__text {
@@ -51,7 +50,7 @@
 
 .button:active {
   transform: scale(0.98);
-  box-shadow: 0 0 15px rgb(158, 0, 0);
+  box-shadow: 0 0 15px #0056b3;
 }
 
 .resume {
@@ -72,14 +71,14 @@
     font-size: 15px;
     letter-spacing: 2px;
     padding: 8px 16px;
-    box-shadow: 0 0 20px rgb(158, 0, 0);
+    box-shadow: 0 0 20px #0056b3;
   }
 
   .button:hover {
-    box-shadow: 0 0 5px rgb(158, 0, 0),
-    0 0 20px rgb(158, 0, 0),
-    0 0 35px rgb(158, 0, 0),
-    0 0 70px rgb(158, 0, 0);
+    box-shadow: 0 0 5px #0056b3,
+    0 0 20px #0056b3,
+    0 0 35px #0056b3,
+    0 0 70px #0056b3;
   }
 
   .button .button__text {
@@ -151,9 +150,9 @@
 }
 
 .download-btn {
-  background: rgb(158, 0, 0);
+  background: #0056b3;
   color: white;
-  box-shadow: 0 0 15px rgb(158, 0, 0);
+  box-shadow: 0 0 15px #0056b3;
   border: none;
   border-radius: 7px;
   font-weight: 700;
@@ -164,10 +163,10 @@
 }
 
 .download-btn:hover {
-  box-shadow: 0 0 5px rgb(158, 0, 0),
-  0 0 15px rgb(158, 0, 0),
-  0 0 25px rgb(158, 0, 0),
-  0 0 50px rgb(158, 0, 0);
+  box-shadow: 0 0 5px #0056b3,
+  0 0 15px #0056b3,
+  0 0 25px #0056b3,
+  0 0 50px #0056b3;
 }
 
 .close-btn {

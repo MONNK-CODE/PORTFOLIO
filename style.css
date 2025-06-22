@@ -15,9 +15,9 @@ body{
     color: #333;
   }
 
-.text {
-  color: #333;
-}
+  .text {
+    color: #333;
+  }
 
 }
 html {
@@ -96,7 +96,7 @@ svg text {
     stroke-width: 2;
   }
   100% {
-    fill: #9e0000;
+    fill: #0056b3;
     stroke: rgba(255, 255, 255, 0);
     stroke-dashoffset: -25%;
     stroke-dasharray: 50% 0;
@@ -110,7 +110,7 @@ svg text {
   font-size: 3em;
   font-weight: bold;
   text-align: center;
-  text-shadow: 0.08em 0 #940f08;
+  text-shadow: 0.08em 0 #003d80;
   font-family: 'Outfit', sans-serif;
   margin: 20px auto;
   width: 90%;
@@ -132,13 +132,13 @@ svg text {
 /* MOVING TEXT ANIMATION END */
 
 .wrap{
- display: flex;
-justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 /* NAV BAR BUTTON */
 .button1 {
-  --color: #9e0000;
+  --color: #0056b3;
   padding: 0.8em 1.7em;
   background-color: transparent;
   border-radius: .3em;
@@ -222,11 +222,11 @@ justify-content: space-around;
   }
 
   .button1:hover {
-    background-color: #7e0000;
+    background-color: #004494;
   }
 
   .button1:active {
-    background-color: #5e0000;
+    background-color: #003275;
   }
 }
 
@@ -239,10 +239,10 @@ a {
 
 /* Typing effect */
 h1 {
-    color: #ffffff;
-    font-size: 3rem;
-    font-weight: 600;
-    text-align: center;
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -252,7 +252,7 @@ h1 {
 }
 
 h1 span {
-  color: #9e0000;
+  color: #0056b3;
   -webkit-background-clip: text;
   background-clip: text;
   /* color: transparent;
@@ -262,18 +262,18 @@ h1 span {
 }
 
 h1 span::after {
-    content: "|";
-    right: -8px;
-    color: white;
-    animation: blink 0.7s infinite;
+  content: "|";
+  right: -8px;
+  color: white;
+  animation: blink 0.7s infinite;
 }
 
 h1 span.stop-blinking::after {
-    animation: none;
+  animation: none;
 }
 
 @keyframes blink {
-    50% { opacity: 0 }
+  50% { opacity: 0 }
 }
 /* Typing effect end */
 
@@ -286,7 +286,7 @@ h1 span.stop-blinking::after {
   padding: 0 10px;
   font-style: italic;
   font-weight: 400;
-  color: #9e0000;
+  color: #0056b3;
 }
 
 @media (max-width: 768px) {
@@ -320,7 +320,7 @@ h1 span.stop-blinking::after {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(45deg, #ff0050, #ff0050, #000000);
+  background: linear-gradient(45deg, #0056b3, #0056b3, #000000);
   color: white;
   padding: 12px 25px;
   border-radius: 25px;
@@ -350,7 +350,7 @@ h1 span.stop-blinking::after {
 
 .now-title {
   font-size: 2.5rem;
-  color: #9e0000;
+  color: #0056b3;
   margin-bottom: 20px;
 }
 
@@ -368,8 +368,8 @@ h1 span.stop-blinking::after {
 }
 
 .project-card {
-  background: rgba(158, 0, 0, 0.1);
-  border: 2px solid #9e0000;
+  background: rgba(0, 86, 179, 0.1);
+  border: 2px solid #0056b3;
   border-radius: 15px;
   padding: 25px;
   backdrop-filter: blur(10px);
@@ -390,7 +390,7 @@ h1 span.stop-blinking::after {
 }
 
 .status-active {
-  background: #ff4444;
+  background: #0066cc;
   color: white;
 }
 
@@ -400,7 +400,7 @@ h1 span.stop-blinking::after {
 }
 
 .status-planning {
-  background: #4444ff;
+  background: #0056b3;
   color: white;
 }
 
@@ -433,6 +433,6 @@ h1 span.stop-blinking::after {
     color: #555;
   }
   .project-card, .bounty-item {
-    background: rgba(158, 0, 0, 0.05);
+    background: rgba(0, 86, 179, 0.05);
   }
 }

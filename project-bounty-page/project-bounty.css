@@ -3,16 +3,16 @@
 :root {
     /* Light theme variables */
     --text-color: #000000;
-    --bg-color: #f8f9fa;
-    --section-bg: rgba(158, 0, 0, 0.03);
-    --section-border: rgba(158, 0, 0, 0.15);
-    --highlight-color: #9e0000;
+    --bg-color: #f0f0f0;
+    --section-bg: rgba(0, 86, 179, 0.03);
+    --section-border: rgba(0, 86, 179, 0.15);
+    --highlight-color: #0056b3;
     --muted-text: #555555;
-    --bounty-bg: rgba(158, 0, 0, 0.08);
-    --bounty-hover: rgba(158, 0, 0, 0.12);
-    --vote-button: #9e0000;
+    --bounty-bg: rgba(0, 86, 179, 0.08);
+    --bounty-hover: rgba(0, 86, 179, 0.12);
+    --vote-button: #0056b3;
     --vote-button-alt: #6c757d;
-    --confirmation-bg: rgba(158, 0, 0, 0.95);
+    --confirmation-bg: rgba(0, 86, 179, 0.95);
     --shadow-light: rgba(0, 0, 0, 0.1);
     --border-radius: 12px;
     --transition: background-color 0.3s, color 0.3s;
@@ -21,16 +21,16 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --text-color: #ffffff;
-        --bg-color: #0f0f0f;
-        --section-bg: rgba(158, 0, 0, 0.08);
-        --section-border: rgba(158, 0, 0, 0.25);
-        --highlight-color: #9e0000;
+        --bg-color: #1a1a1a;
+        --section-bg: rgba(0, 86, 179, 0.08);
+        --section-border: rgba(0, 100, 200, 0.35);
+        --highlight-color: #1a73e8;
         --muted-text: #b0b0b0;
-        --bounty-bg: rgba(158, 0, 0, 0.12);
-        --bounty-hover: rgba(158, 0, 0, 0.18);
-        --vote-button: #cc1111;
+        --bounty-bg: rgba(0, 86, 179, 0.12);
+        --bounty-hover: rgba(26, 115, 232, 0.18);
+        --vote-button: #1a73e8;
         --vote-button-alt: #6c757d;
-        --confirmation-bg: rgba(158, 0, 0, 0.95);
+        --confirmation-bg: rgba(26, 115, 232, 0.95);
         --shadow-light: rgba(255, 255, 255, 0.1);
     }
 }
@@ -135,7 +135,7 @@ h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, transparent 0%, rgba(158, 0, 0, 0.05) 100%);
+    background: linear-gradient(135deg, transparent 0%, rgba(0, 86, 179, 0.05) 100%);
     opacity: 0;
     transition: var(--transition);
     pointer-events: none;
@@ -144,7 +144,7 @@ h3 {
 .bounty-item:hover {
     background: var(--bounty-hover);
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(158, 0, 0, 0.15);
+    box-shadow: 0 8px 25px rgba(0, 86, 179, 0.15);
     border-color: var(--highlight-color);
 }
 
@@ -197,7 +197,7 @@ h3 {
     text-align: center;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(158, 0, 0, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 86, 179, 0.3);
     user-select: none;
     -webkit-tap-highlight-color: transparent;
 }
@@ -218,9 +218,9 @@ h3 {
 }
 
 .vote-button:hover {
-    background: #7e0000;
+    background: #004494;
     transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 4px 15px rgba(158, 0, 0, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 86, 179, 0.4);
 }
 
 .vote-button:active {
@@ -263,7 +263,7 @@ h3 {
     border-radius: 2rem;
     font-size: 1rem;
     font-weight: 600;
-    box-shadow: 0 10px 30px rgba(158, 0, 0, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 86, 179, 0.4);
     z-index: 1001;
     animation: fadeInOut 3s ease-in-out forwards;
     border: 1px solid var(--highlight-color);
@@ -437,7 +437,7 @@ h3 {
     :root {
         --section-border: var(--highlight-color);
         --bounty-bg: transparent;
-        --bounty-hover: rgba(158, 0, 0, 0.1);
+        --bounty-hover: rgba(0, 86, 179, 0.1);
     }
 
     .bounty-item {

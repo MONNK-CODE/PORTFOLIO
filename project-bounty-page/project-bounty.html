@@ -6,6 +6,7 @@
   <title>Project Bounties</title>
   <link rel="stylesheet" href="project-bounty.css" />
   <link href="../nav/nav.css" rel="stylesheet" type="text/css">
+  <link href="../footer.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <!-- Firebase Scripts -->
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
@@ -98,6 +99,15 @@
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeflF1UAmYFgq4Jhy-q3qzw_WvO2rbcjvgrTNmMCw363KPF-w/viewform?embedded=true" width="640" height="554" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
   </div>
 </section>
+
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Muhais Olatundun. All rights reserved.</p>
+</footer>
+
+<script>
+  // Auto-update the year
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>

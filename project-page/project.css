@@ -15,10 +15,10 @@ body {
 }
 
 
-img { 
-  width: 300px; 
+img {
+  width: 300px;
   height: 200px;
-    }
+}
 
 
 .gallery {
@@ -39,7 +39,7 @@ img {
 }
 
 .gallery-title span:hover {
-  background: linear-gradient(to bottom, #9E0000, #FF6A6A);
+  background: linear-gradient(to bottom, #0056b3, #4A90E2);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -53,22 +53,22 @@ img {
   color: #fff;
   font-size: 1.5rem;
 }
-  .youtube-link-button {
-      transition: transform 0.3s ease;
-      cursor: pointer;
-  }
+.youtube-link-button {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
 
-  .youtube-link-button:hover {
-      transform: scale(1.1);
-  }
+.youtube-link-button:hover {
+  transform: scale(1.1);
+}
 
-  .youtube-icon-svg {
-      transition: transform 0.3s ease;
-  }
+.youtube-icon-svg {
+  transition: transform 0.3s ease;
+}
 
-  .youtube-link-button:hover .youtube-icon-svg {
-      transform: scale(1.2);
-  }
+.youtube-link-button:hover .youtube-icon-svg {
+  transform: scale(1.2);
+}
 
 
 .filter-buttons {
@@ -91,17 +91,17 @@ img {
 
 /* Hover styles for desktop */
 .filter-btn:hover {
-  background-image: linear-gradient(to right, #32110b, #a19191);
+  background-image: linear-gradient(to right, #0b2a32, #91a1a1);
   transform: scale(1.05);
 }
 
 .filter-btn.active {
-  background-color: #9e0000;
+  background-color: #0056b3;
   transition: background-image 0.5s ease-in-out;
 }
 
 .filter-btn.active:hover {
-  background-image: linear-gradient(135deg, #7a061d, #4d2323);
+  background-image: linear-gradient(135deg, #06507a, #23364d);
 }
 
 /* Disable hover effect on mobile */
@@ -135,11 +135,12 @@ img {
   padding: 20px;
   border-radius: 20px;
   max-width: 300px;
-  margin: 0 auto; 
+  margin: 0 auto;
   transition: opacity 0.3s ease-out, max-height 0.3s ease-out;
   opacity: 1;
   max-height: 1000px;
   transform: translateY(0);
+  margin-bottom: 1rem;
 }
 
 
@@ -195,19 +196,19 @@ img {
 
 /*NEW PROJECT BUTTON*/
 /* Base styles for the link */
- .view-project-link {
-   display: inline-flex;
-   align-items: center;
-   justify-content: center;
-   gap: 0.5rem;
-   background-color: #9e0000;
-   color: white;
-   border-radius: 12px;
-   text-decoration: none;
-   font-weight: bold;
-   transition: background-color 0.3s ease;
-   margin-top: 10px;
- }
+.view-project-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #0056b3;
+  color: white;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
 
 .view-project-link:hover {
   background-color: #252525;
@@ -569,7 +570,7 @@ img {
 
 .language-stats li {
   padding: 5px 1px;
-  background-color: #9e0000;
+  background-color: #0056b3;
   color: white;
   border-radius: 5px;
   font-size: 10px;
@@ -634,7 +635,7 @@ img {
 }
 
 .subscription-container button {
-  background-color: #9e0000;
+  background-color: #0056b3;
   border: none;
   padding: 10px 20px;
   color: #fff;
@@ -647,7 +648,7 @@ img {
 
 .subscription-container button:hover {
   transform: scale(1.05);
-  background-color: #7a061d;
+  background-color: #004499;
 }
 
 #subscribe-message {
@@ -669,7 +670,7 @@ img {
   }
 
   .subscription-container button {
-    background-color: #7a061d;
+    background-color: #004499;
   }
 }
 
