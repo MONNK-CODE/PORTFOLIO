@@ -61,21 +61,8 @@ function viewResume() {
   const modal = document.getElementById('resumeModal');
   const iframe = document.getElementById('resumeFrame');
 
-  // Detect if mobile device
-  const isMobile = window.innerWidth <= 767;
-
-  // Set the PDF source with mobile-optimized parameters
-  let pdfSrc = 'RESUME.pdf';
-
-  if (isMobile) {
-    // Add PDF.js parameters for better mobile viewing
-    pdfSrc += '#view=FitH&pagemode=none&scrollbar=0&toolbar=0&navpanes=0';
-  } else {
-    // Desktop parameters
-    pdfSrc += '#view=Fit&pagemode=none';
-  }
-
-  iframe.src = pdfSrc;
+  // Set the PDF source
+  iframe.src = 'RESUME.pdf';
 
   // Show the modal
   modal.style.display = 'block';
@@ -83,13 +70,10 @@ function viewResume() {
   // Prevent body scroll when modal is open
   document.body.style.overflow = 'hidden';
 
-  // Additional mobile optimization
-  if (isMobile) {
-    // Prevent zoom on mobile
-    const viewport = document.querySelector('meta[name="viewport"]');
-    if (viewport) {
-      viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-    }
+  // Disable zoom on mobile
+  const viewport = document.querySelector('meta[name="viewport"]');
+  if (viewport && window.innerWidth <= 767) {
+    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
   }
 }
 
@@ -106,13 +90,10 @@ function closeResumeModal() {
   // Restore body scroll
   document.body.style.overflow = 'auto';
 
-  // Restore viewport settings on mobile
-  const isMobile = window.innerWidth <= 767;
-  if (isMobile) {
-    const viewport = document.querySelector('meta[name="viewport"]');
-    if (viewport) {
-      viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=yes');
-    }
+  // Restore zoom on mobile
+  const viewport = document.querySelector('meta[name="viewport"]');
+  if (viewport && window.innerWidth <= 767) {
+    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=yes');
   }
 }
 
