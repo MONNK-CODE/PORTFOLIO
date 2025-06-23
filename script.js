@@ -1,16 +1,96 @@
+// // RESUME START
+// function viewResume() {
+//   const modal = document.getElementById('resumeModal');
+//   const iframe = document.getElementById('resumeFrame');
+//
+//   // Set the PDF source
+//   iframe.src = 'RESUME.pdf';
+//
+//   // Show the modal
+//   modal.style.display = 'block';
+//
+//   // Prevent body scroll when modal is open
+//   document.body.style.overflow = 'hidden';
+// }
+//
+// function closeResumeModal() {
+//   const modal = document.getElementById('resumeModal');
+//   const iframe = document.getElementById('resumeFrame');
+//
+//   // Hide the modal
+//   modal.style.display = 'none';
+//
+//   // Clear the iframe source to stop loading
+//   iframe.src = '';
+//
+//   // Restore body scroll
+//   document.body.style.overflow = 'auto';
+// }
+//
+// function downloadResume() {
+//   const link = document.createElement('a');
+//   link.href = 'RESUME.pdf';
+//   link.download = 'Muhais-Olatundun-Resume.pdf';
+//   document.body.appendChild(link);
+//   link.click();
+//   document.body.removeChild(link);
+// }
+//
+// // Close modal when clicking outside of it
+// window.onclick = function(event) {
+//   const modal = document.getElementById('resumeModal');
+//   if (event.target === modal) {
+//     closeResumeModal();
+//   }
+// }
+//
+// // Close modal with Escape key
+// document.addEventListener('keydown', function(event) {
+//   if (event.key === 'Escape') {
+//     const modal = document.getElementById('resumeModal');
+//     if (modal.style.display === 'block') {
+//       closeResumeModal();
+//     }
+//   }
+// });
+// // RESUME END
+
+
 // RESUME START
 function viewResume() {
   const modal = document.getElementById('resumeModal');
   const iframe = document.getElementById('resumeFrame');
 
-  // Set the PDF source
-  iframe.src = 'RESUME.pdf';
+  // Detect if mobile device
+  const isMobile = window.innerWidth <= 767;
+
+  // Set the PDF source with mobile-optimized parameters
+  let pdfSrc = 'RESUME.pdf';
+
+  if (isMobile) {
+    // Add PDF.js parameters for better mobile viewing
+    pdfSrc += '#view=FitH&pagemode=none&scrollbar=0&toolbar=0&navpanes=0';
+  } else {
+    // Desktop parameters
+    pdfSrc += '#view=Fit&pagemode=none';
+  }
+
+  iframe.src = pdfSrc;
 
   // Show the modal
   modal.style.display = 'block';
 
   // Prevent body scroll when modal is open
   document.body.style.overflow = 'hidden';
+
+  // Additional mobile optimization
+  if (isMobile) {
+    // Prevent zoom on mobile
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) {
+      viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    }
+  }
 }
 
 function closeResumeModal() {
@@ -25,6 +105,15 @@ function closeResumeModal() {
 
   // Restore body scroll
   document.body.style.overflow = 'auto';
+
+  // Restore viewport settings on mobile
+  const isMobile = window.innerWidth <= 767;
+  if (isMobile) {
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) {
+      viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=yes');
+    }
+  }
 }
 
 function downloadResume() {
@@ -53,6 +142,24 @@ document.addEventListener('keydown', function(event) {
     }
   }
 });
+
+// Handle orientation changes on mobile
+window.addEventListener('orientationchange', function() {
+  const modal = document.getElementById('resumeModal');
+  if (modal.style.display === 'block') {
+    // Small delay to allow orientation change to complete
+    setTimeout(() => {
+      const iframe = document.getElementById('resumeFrame');
+      // Reload iframe to adjust to new orientation
+      const currentSrc = iframe.src;
+      iframe.src = '';
+      setTimeout(() => {
+        iframe.src = currentSrc;
+      }, 100);
+    }, 300);
+  }
+});
+
 // RESUME END
 
 
