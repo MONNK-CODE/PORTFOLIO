@@ -18,5 +18,6 @@
     <orderEntry type="library" name="firebase-database" level="application" />
     <orderEntry type="library" name="firebase-database-compat" level="application" />
     <orderEntry type="library" name="firebase-app-compat" level="application" />
+    <orderEntry type="library" name="embed" level="application" />
   </component>
 </module>
