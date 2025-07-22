@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Post</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Using Inter as the default font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Instagram embed requires a max-width to look good */
+        .instagram-media {
+            margin: 1rem auto !important;
+            max-width: 540px !important;
+            min-width: 326px !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <!-- Main container for the card -->
+    <div class="bg-white rounded-xl shadow-lg p-6 sm:p-8 w-full max-w-xl mx-4">
+
+        <header class="text-center mb-6">
+            <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Embedded Instagram Post</h1>
+            <p class="text-gray-500 mt-2">Here is the post you wanted to see.</p>
+        </header>
+
+        <!-- Container for the embed and a potential error message -->
+        <div id="embed-container">
+            <!-- Instagram Embed Code -->
+            <!-- The blockquote is a placeholder that the script below will replace with the actual post. -->
+            <!-- I have cleaned the permalink to its simplest form, which is more reliable. -->
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CexKl26OP6U/" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+            </blockquote>
+        </div>
+
+        <!-- This script is provided by Instagram to power the embed -->
+        <script async src="https://www.instagram.com/embed.js"></script>
+
+        <!-- Custom script to ensure the embed loads -->
+        <script>
+            // This script waits for the page to fully load.
+            window.addEventListener('load', function() {
+                // Sometimes the Instagram script doesn't process the embed automatically.
+                // This checks if the script exists and manually tells it to process the page.
+                if (typeof window.instgrm !== 'undefined') {
+                    window.instgrm.Embeds.process();
+                }
+
+                // Fallback mechanism: Check if the embed was rendered after a short delay.
+                setTimeout(() => {
+                    const embedContainer = document.getElementById('embed-container');
+                    // The Instagram script adds an iframe. If it's not there, the embed failed.
+                    if (embedContainer.querySelector('iframe.instagram-media-rendered') === null) {
+                        // If it failed, show an error message.
+                        const blockquote = embedContainer.querySelector('.instagram-media');
+                        if (blockquote) {
+                            blockquote.style.display = 'none'; // Hide the broken blockquote
+                        }
+                        const errorMessage = document.createElement('div');
+                        errorMessage.className = 'text-center text-red-500 bg-red-100 p-4 rounded-lg';
+                        errorMessage.innerHTML = '<strong>Failed to load Instagram post.</strong><p>This may be due to browser privacy settings (like ad-blockers) or a network issue. Please try disabling any ad-blockers for this page or checking your connection.</p>';
+                        embedContainer.appendChild(errorMessage);
+                    }
+                }, 3000); // Wait 3 seconds before checking
+            });
+        </script>
+
+    </div>
+
+</body>
+</html>
