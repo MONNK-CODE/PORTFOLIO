@@ -1,5 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
+/* == ANIMATION STYLES == */
+/* Keyframes for the slide-up and fade-in animation */
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Set the initial state of elements to be animated */
+.gallery-title,
+.mobile-gallery-title,
+.filter-buttons,
+.project-grid,
+.subscription-container {
+  opacity: 0;
+}
+
+/* Apply the animation to each element with a delay */
+.gallery-title {
+  animation: slideUpFadeIn 0.7s ease-out 0.2s forwards;
+}
+.mobile-gallery-title {
+  animation: slideUpFadeIn 0.7s ease-out 0.2s forwards;
+}
+.filter-buttons {
+  animation: slideUpFadeIn 0.7s ease-out 0.4s forwards;
+}
+.project-grid {
+  animation: slideUpFadeIn 0.7s ease-out 0.6s forwards;
+}
+.subscription-container {
+  animation: slideUpFadeIn 0.7s ease-out 0.8s forwards;
+}
+/* == END ANIMATION STYLES == */
+
 html {
   height: 100%;
   width: 100%;
