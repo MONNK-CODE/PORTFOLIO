@@ -1,14 +1,27 @@
 document.addEventListener("DOMContentLoaded", function() {
+
+    // const firebaseConfig = {
+    //     apiKey: "AIzaSyCFfXxB6ZKSUUkw6i1knjKudk48sWwd3f8",
+    //     authDomain: "muhais-bounties.firebaseapp.com",
+    //     databaseURL: "https://muhais-bounties-default-rtdb.firebaseio.com",
+    //     projectId: "muhais-bounties",
+    //     storageBucket: "muhais-bounties.firebasestorage.app",
+    //     messagingSenderId: "454566960560",
+    //     appId: "1:454566960560:web:5ac7db55d66be8c02a0a75",
+    //     measurementId: "G-XXN6VTEB32"
+    // };
+
     const firebaseConfig = {
-        apiKey: "AIzaSyCFfXxB6ZKSUUkw6i1knjKudk48sWwd3f8",
-        authDomain: "muhais-bounties.firebaseapp.com",
-        databaseURL: "https://muhais-bounties-default-rtdb.firebaseio.com",
-        projectId: "muhais-bounties",
-        storageBucket: "muhais-bounties.firebasestorage.app",
-        messagingSenderId: "454566960560",
-        appId: "1:454566960560:web:5ac7db55d66be8c02a0a75",
-        measurementId: "G-XXN6VTEB32"
+        apiKey: "AIzaSyA1ZhVfL2qE7ciPEe3O5dKaTm88yGFu0Y4",
+        authDomain: "project-bounties.firebaseapp.com",
+        databaseURL: "https://project-bounties-default-rtdb.firebaseio.com",
+        projectId: "project-bounties",
+        storageBucket: "project-bounties.firebasestorage.app",
+        messagingSenderId: "361842644515",
+        appId: "1:361842644515:web:215ab9cdf70c7efa380396",
+        measurementId: "G-0GPKLEE1YK"
     };
+
 
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
