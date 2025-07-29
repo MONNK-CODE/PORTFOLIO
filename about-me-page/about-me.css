@@ -94,14 +94,14 @@ html, body{
   justify-content: center;
   text-align: center;
   padding: 10px;
- font-size: 1rem;
+ font-size: 0.7rem;
 color : #F0F8FF;
 }
 
 @media (min-width: 769px) {
 .details {
   padding: 20px;
-  font-size: 2rem
+  font-size: 1.5rem
 }
 }
 

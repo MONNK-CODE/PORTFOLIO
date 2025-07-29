@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const dynamicText = document.querySelector("h1 span");
-    const words = ["a Student", "Learning", "the Future"];
+    const words = ["Creating", "Learning", "the Future"];
 
     let wordIndex = 0;
     let charIndex = 0;
