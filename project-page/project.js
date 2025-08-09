@@ -1,74 +1,173 @@
-// Function to fetch programming languages used in a GitHub repository and display their statistics
-function fetchRepoLanguages(cardTitleElement, cardOwnerElement) {
-  // Extract the repository name and owner from the card elements
-  const repoName = cardTitleElement.textContent.trim();
-  const owner = cardOwnerElement.textContent.trim();
+/* ==============================
+   Language color pills
+============================== */
+const LANG_COLORS = {
+  "JavaScript":   { bg: "#f7df1e", text: "#000000" },
+  "TypeScript":   { bg: "#3178c6", text: "#ffffff" },
+  "Python":       { bg: "#3776ab", text: "#ffffff" },
+  "HTML":         { bg: "#e34c26", text: "#ffffff" },
+  "CSS":          { bg: "#2965f1", text: "#ffffff" },
+  "Kotlin":       { bg: "#a97bff", text: "#000000" },
+  "Java":         { bg: "#b07219", text: "#ffffff" },
+  "C":            { bg: "#555555", text: "#ffffff" },
+  "C++":          { bg: "#00599c", text: "#ffffff" },
+  "C#":           { bg: "#178600", text: "#ffffff" },
+  "Go":           { bg: "#00add8", text: "#000000" },
+  "Rust":         { bg: "#dea584", text: "#000000" },
+  "Swift":        { bg: "#f05138", text: "#ffffff" },
+  "PHP":          { bg: "#777bb4", text: "#ffffff" },
+  "Ruby":         { bg: "#cc342d", text: "#ffffff" },
+  "Shell":        { bg: "#89e051", text: "#000000" },
+  "Stata":        { bg: "#1a5aa6", text: "#ffffff" },
+  "Google Sheets":{ bg: "#0f9d58", text: "#ffffff" }
+};
+const DEFAULT_LANG_COLOR = { bg: "#6c757d", text: "#ffffff" };
 
-  // Construct the GitHub API URL to fetch repository languages
-  const url = `https://api.github.com/repos/${owner}/${repoName}/languages`;
+/* ==============================
+   Static fallback (labels only)
+   Used if API/proxy fails
+============================== */
+const FALLBACK_LANGS = {
+  "MONNK-CODE/PAY-CALCULATOR": ["JavaScript", "HTML", "CSS"],
+  "MONNK-CODE/GPA-CALCULATOR": ["JavaScript", "HTML", "CSS"],
+  "MONNK-CODE/GuessMaster-WebApp": ["JavaScript", "HTML", "CSS"],
+  "MONNK-CODE/Password-Generator-WebApp": ["JavaScript", "HTML", "CSS"],
+  "MONNK-CODE/Instant-Ayah": ["JavaScript", "HTML", "CSS"],
+  "MONNK-CODE/WAGE-CALCULATOR": ["Python"],
+  "MONNK-CODE/RPS-GAME": ["JavaScript", "HTML", "CSS"],
+  "MONNK-CODE/Random-Quote-Generator": ["JavaScript", "HTML", "CSS"],
+  "MONNK-CODE/Calculator": ["JavaScript", "HTML", "CSS"],
+  "MONNK-CODE/Trip-to-School": ["JavaScript", "HTML", "CSS"],
+  "MONNK-CODE/GENRE-REMIX": ["JavaScript", "HTML", "CSS"],
+  "MONNK-CODE/DANGERS-OF-SODA-WEBSITE-FIRST-PROJECT": ["HTML", "CSS"],
+  "MONNK-CODE/Stock-Simulator": ["JavaScript", "HTML", "CSS"],
+  "CS196Illinois/FA24-Group1": ["JavaScript", "HTML", "CSS"]
+};
 
-  // Make an API request to fetch the language data
-  fetch(url)
-      .then(response => {
-        // Check if the response is valid (HTTP status 200–299)
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json(); // Parse the JSON response
-      })
-      .then(data => {
-        // Calculate the total number of bytes for all languages
-        const totalBytes = Object.values(data).reduce((acc, val) => acc + val, 0);
+/* ==============================
+   Local cache (24h) to minimize calls
+============================== */
+const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
+const STORAGE_KEY_PREFIX = "repoLangs::";
 
-        // Find the parent card element to display the results
-        const card = cardTitleElement.closest('.project-card');
-
-        // Select the element where language statistics will be displayed
-        const languageStatsElement = card.querySelector('.language-stats');
-        languageStatsElement.innerHTML = ''; // Clear any existing content
-
-        // Iterate over each language in the response
-        Object.keys(data).forEach(key => {
-          // Calculate the percentage of the language in the repository
-          const percentage = ((data[key] / totalBytes) * 100).toFixed(1);
-
-          // Create a new list item for the language and its percentage
-          const listItem = document.createElement('li');
-          listItem.innerHTML = `<span>${key}:</span> ${percentage}%`;
-
-          // Append the list item to the language stats element
-          languageStatsElement.appendChild(listItem);
-        });
-      })
-      .catch(error => console.error('Fetching error:', error)); // Log any errors to the console
+function storageKey(owner, repo) {
+  return `${STORAGE_KEY_PREFIX}${owner}/${repo}`;
+}
+function getCached(owner, repo) {
+  try {
+    const raw = localStorage.getItem(storageKey(owner, repo));
+    if (!raw) return null;
+    const { data, ts } = JSON.parse(raw);
+    if (!data || !ts) return null;
+    if (Date.now() - ts > CACHE_TTL_MS) return null;
+    return data;
+  } catch { return null; }
+}
+function setCached(owner, repo, data) {
+  try {
+    localStorage.setItem(storageKey(owner, repo), JSON.stringify({ data, ts: Date.now() }));
+  } catch {}
 }
 
-// Run this code when the window has finished loading
+/* ==============================
+   DOM helpers
+============================== */
+function createPill(text, bg, color) {
+  const pill = document.createElement('li');
+  pill.className = 'lang-pill';
+  pill.style.backgroundColor = bg;
+  pill.style.color = color;
+  pill.textContent = text;
+  return pill;
+}
+
+function renderFromList(container, langs) {
+  container.innerHTML = '';
+  if (!langs || !langs.length) {
+    container.appendChild(createPill('Languages N/A', DEFAULT_LANG_COLOR.bg, DEFAULT_LANG_COLOR.text));
+    return;
+  }
+  langs.forEach(lang => {
+    const { bg, text } = (LANG_COLORS[lang] || DEFAULT_LANG_COLOR);
+    container.appendChild(createPill(lang, bg, text));
+  });
+}
+
+function renderPercentages(container, data) {
+  container.innerHTML = '';
+  const totals = Object.values(data);
+  if (!totals.length) {
+    container.appendChild(createPill('Languages N/A', DEFAULT_LANG_COLOR.bg, DEFAULT_LANG_COLOR.text));
+    return;
+  }
+  const totalBytes = totals.reduce((a, b) => a + b, 0);
+  Object.keys(data).forEach(key => {
+    const pct = ((data[key] / totalBytes) * 100).toFixed(1);
+    const { bg, text } = (LANG_COLORS[key] || DEFAULT_LANG_COLOR);
+    container.appendChild(createPill(`${key} ${pct}%`, bg, text));
+  });
+}
+
+/* ==============================
+   Fetch via Vercel proxy (no client token)
+============================== */
+async function fetchRepoLanguages(cardTitleElement, cardOwnerElement) {
+  const repoName = cardTitleElement?.textContent?.trim();
+  const owner    = cardOwnerElement?.textContent?.trim();
+  if (!repoName || !owner) return;
+
+  const card = cardTitleElement.closest('.project-card');
+  const languageStatsElement = card?.querySelector('.language-stats');
+  if (!languageStatsElement) return;
+
+  const key = `${owner}/${repoName}`;
+
+  // Prefer cached API results
+  const cached = getCached(owner, repoName);
+  if (cached) {
+    renderPercentages(languageStatsElement, cached);
+    return;
+  }
+
+  try {
+    const resp = await fetch(`/api/github-langs?owner=${encodeURIComponent(owner)}&repo=${encodeURIComponent(repoName)}`);
+    if (!resp.ok) {
+      // Proxy/GitHub error → fallback labels
+      return renderFromList(languageStatsElement, FALLBACK_LANGS[key]);
+    }
+    const data = await resp.json();
+    setCached(owner, repoName, data);
+    renderPercentages(languageStatsElement, data);
+  } catch {
+    // Network error → fallback labels
+    renderFromList(languageStatsElement, FALLBACK_LANGS[key]);
+  }
+}
+
+/* ==============================
+   Load languages for each card on window load
+============================== */
 window.onload = () => {
-  // Select all project card elements
   const cards = document.querySelectorAll('.project-card');
-
-  // Loop through each project card
+  let idx = 0;
   cards.forEach(card => {
-    // Get the repository title and owner elements from the card
-    const cardTitleElement = card.querySelector('.card-title');
-    const cardOwnerElement = card.querySelector('.card-owner');
-
-    // Ensure both title and owner elements exist before proceeding
-    if (cardTitleElement && cardOwnerElement) {
-      // Fetch and display the repository's language data
-      fetchRepoLanguages(cardTitleElement, cardOwnerElement);
+    const titleEl = card.querySelector('.card-title');
+    const ownerEl = card.querySelector('.card-owner');
+    if (titleEl && ownerEl) {
+      // small stagger just to smooth things out
+      setTimeout(() => fetchRepoLanguages(titleEl, ownerEl), idx * 120);
+      idx++;
     }
   });
 };
 
-
-
-
-
+/* ==============================
+   Filtering logic
+============================== */
 document.addEventListener("DOMContentLoaded", function() {
   const filterButtons = document.querySelectorAll(".filter-btn");
-  const projectCards = document.querySelectorAll(".project-card");
+  const projectCards  = document.querySelectorAll(".project-card");
+
   filterButtons.forEach(button => {
     button.addEventListener("click", function() {
       const category = this.textContent.trim().toLowerCase();
@@ -83,64 +182,12 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-
 document.addEventListener("DOMContentLoaded", function() {
   const filterButtons = document.querySelectorAll(".filter-btn");
-
   filterButtons.forEach(button => {
     button.addEventListener("click", function() {
-
       filterButtons.forEach(btn => btn.classList.remove("active"));
       this.classList.add("active");
     });
   });
 });
-
-// //Project Subscribers
-// document.addEventListener("DOMContentLoaded", function () {
-//   const form = document.getElementById('subscription-form');
-//   const subscribeMessage = document.getElementById('subscribe-message');
-//
-//   form.addEventListener('submit', async (event) => {
-//     event.preventDefault();
-//
-//     const email = document.getElementById('subscriber-email').value;
-//     const name = document.getElementById('subscriber-name').value;
-//
-//     if (!validateEmail(email)) {
-//       subscribeMessage.style.color = '#dc3545';
-//       subscribeMessage.textContent = 'Please enter a valid email address.';
-//       return;
-//     }
-//
-//     try {
-//       const response = await fetch('/api/subscribe', {
-//         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify({ subscriber_email: email, subscriber_name: name }),
-//       });
-//
-//       const result = await response.json();
-//
-//       if (response.ok) {
-//         subscribeMessage.style.color = '#28a745';
-//         subscribeMessage.textContent = result.message;
-//         form.reset();
-//       } else {
-//         throw new Error(result.error || 'Subscription failed.');
-//       }
-//     } catch (error) {
-//       console.error('Subscription error:', error);
-//       subscribeMessage.style.color = '#dc3545';
-//       subscribeMessage.textContent = 'Subscription failed, please try again later.';
-//     }
-//   });
-//
-//   function validateEmail(email) {
-//     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//     return re.test(email);
-//   }
-// });
-
-
-
