@@ -4,7 +4,7 @@
 const LANG_COLORS = {
   "JavaScript":   { bg: "#f7df1e", text: "#000000" },
   "TypeScript":   { bg: "#3178c6", text: "#ffffff" },
-  "Python":       { bg: "#3776ab", text: "#ffffff" },
+  "Python":       { bg: "#FFD43B", text: "#ffffff" },
   "HTML":         { bg: "#e34c26", text: "#ffffff" },
   "CSS":          { bg: "#2965f1", text: "#ffffff" },
   "Kotlin":       { bg: "#a97bff", text: "#000000" },
@@ -18,10 +18,13 @@ const LANG_COLORS = {
   "PHP":          { bg: "#777bb4", text: "#ffffff" },
   "Ruby":         { bg: "#cc342d", text: "#ffffff" },
   "Shell":        { bg: "#89e051", text: "#000000" },
-  "Stata":        { bg: "#1a5aa6", text: "#ffffff" },
-  "Google Sheets":{ bg: "#0f9d58", text: "#ffffff" }
+  "Stata":        { bg: "#1a5aa6", text: "#ffffff" }
 };
-const DEFAULT_LANG_COLOR = { bg: "#6c757d", text: "#ffffff" };
+const DEFAULT_LANG_COLOR = { bg: "#6c757d", text: "#ffffff" }; // fallback
+
+
+
+
 
 /* ==============================
    Static fallback (labels only)

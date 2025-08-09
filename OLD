@@ -31,16 +31,3 @@ old theme color - #9e0000
 
 
 
-// Language color map (bg, text)
-const LANG_COLORS = {
-    "JavaScript":   { bg: "#f0db4f", text: "#000000" },
-    "TypeScript":   { bg: "#3178c6", text: "#ffffff" },
-    "Python":       { bg: "#FFD43B", text: "#000000" },
-    "HTML":         { bg: "#F06529", text: "#ffffff" },
-    "CSS":          { bg: "#2965f1", text: "#ffffff" },
-    "Kotlin":       { bg: "#a97bff", text: "#000000" },
-    "Stata":        { bg: "#1a5aa6", text: "#ffffff" },
-    "AppScript":    { bg: "#0F9D58", text: "#000000" },
-    "Google Sheets":{ bg: "#0f9d58", text: "#ffffff" }
-};
-const DEFAULT_LANG_COLOR = { bg: "#6c757d", text: "#ffffff" }; // fallback

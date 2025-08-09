@@ -623,6 +623,26 @@ img {
 /*  background-color: #252525;*/
 /*}*/
 
+.language-stats li[data-lang] {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: white;
+  margin: 2px;
+}
+
+
+/* Manual language colors */
+.language-stats li[data-lang="AppScript"] {
+  background-color: #34a853; /* Google green */
+}
+
+.language-stats li[data-lang="Google Sheets"] {
+  background-color: #0f9d58; /* Sheets green */
+}
+
 /* Colored language pills (background set via JS) */
 .lang-pill {
   padding: 6px 10px;
@@ -639,7 +659,7 @@ img {
   white-space: nowrap;
 }
 
-.lang-pill:hover {
+.lang-pill:hover,.language-stats li[data-lang]:hover {
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   opacity: 0.95;
