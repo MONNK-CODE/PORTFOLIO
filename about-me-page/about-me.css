@@ -6,14 +6,14 @@
 /* == ANIMATION STYLES == */
 /* Keyframes for the slide-up and fade-in animation */
 @keyframes slideUpFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Set the initial state of elements to be animated */
@@ -27,49 +27,49 @@ h4.details,
 .monkey-stats-component,
 .anime-container,
 .languages-container {
-  opacity: 0;
+    opacity: 0;
 }
 
 /* Apply the animation to each element with a delay */
 section .title {
-  animation: slideUpFadeIn 0.7s ease-out 0.2s forwards;
+    animation: slideUpFadeIn 0.7s ease-out 0.2s forwards;
 }
 h1.text {
-  animation: slideUpFadeIn 0.7s ease-out 0.4s forwards;
+    animation: slideUpFadeIn 0.7s ease-out 0.4s forwards;
 }
 h4.details {
-  animation: slideUpFadeIn 0.7s ease-out 0.6s forwards;
+    animation: slideUpFadeIn 0.7s ease-out 0.6s forwards;
 }
 .carousel {
-  animation: slideUpFadeIn 0.7s ease-out 0.8s forwards;
+    animation: slideUpFadeIn 0.7s ease-out 0.8s forwards;
 }
 .icon-container {
-  animation: slideUpFadeIn 0.7s ease-out 1.0s forwards;
+    animation: slideUpFadeIn 0.7s ease-out 1.0s forwards;
 }
 .quran-container {
-  animation: slideUpFadeIn 0.7s ease-out 1.2s forwards;
+    animation: slideUpFadeIn 0.7s ease-out 1.2s forwards;
 }
 .stats-container {
-  animation: slideUpFadeIn 0.7s ease-out 1.4s forwards;
+    animation: slideUpFadeIn 0.7s ease-out 1.4s forwards;
 }
 .monkey-stats-component {
-  animation: slideUpFadeIn 0.7s ease-out 1.6s forwards;
+    animation: slideUpFadeIn 0.7s ease-out 1.6s forwards;
 }
 .anime-container {
-  animation: slideUpFadeIn 0.7s ease-out 1.8s forwards;
+    animation: slideUpFadeIn 0.7s ease-out 1.8s forwards;
 }
 .languages-container {
-  animation: slideUpFadeIn 0.7s ease-out 2.0s forwards;
+    animation: slideUpFadeIn 0.7s ease-out 2.0s forwards;
 }
 /* == END ANIMATION STYLES == */
 
 *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  color: #ffffff;
-  scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #ffffff;
+    scroll-behavior: smooth;
     /*font-family: 'Combo', 'Outfit',"Onest", "DM Sans", sans-serif;*/
     font-family: 'Outfit', sans-serif;
     font-weight: 600;
@@ -80,84 +80,84 @@ body {
 
 
 html, body{
-  background: #1e1e1e;
-  margin: 0;
-  padding: 0;
-  max-width: 100vw;
-  overflow-x: hidden;
-  transition: background-color 0.3s, color 0.3s;
+    background: #1e1e1e;
+    margin: 0;
+    padding: 0;
+    max-width: 100vw;
+    overflow-x: hidden;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* About Section Styling */
 
 .details {
-  justify-content: center;
-  text-align: center;
-  padding: 10px;
- font-size: 0.7rem;
-color : #F0F8FF;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.7rem;
+    color : #F0F8FF;
 }
 
 @media (min-width: 769px) {
-.details {
-  padding: 20px;
-  font-size: 1.5rem
-}
+    .details {
+        padding: 20px;
+        font-size: 1.5rem
+    }
 }
 
 section{
-  /*padding-top: 40px;*/
-  /*width: 100%;*/
-  /*box-sizing: border-box;*/
+    /*padding-top: 40px;*/
+    /*width: 100%;*/
+    /*box-sizing: border-box;*/
 }
 section .content{
-  width: 80%;
-  margin: 40px auto;
+    width: 80%;
+    margin: 40px auto;
     /*font-family: 'Outfit', serif;*/
 }
 
 section .title{
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
 }
 section .title span{
-  color: #F0F8FF;
-  font-size: 60px;
-  font-weight: 600;
-  position: relative;
-  padding-bottom: 8px;
+    color: #F0F8FF;
+    font-size: 60px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 8px;
 }
 
 section .sn span{
-  color: #171616;
+    color: #171616;
 }
 section .title span::before,
 section .title span::after{
-  content: '';
-  position: absolute;
-  height: 3px;
-  width: 100%;
-  background: #0056b3;
-  left: 0;
-  bottom: 0;
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #0056b3;
+    left: 0;
+    bottom: 0;
 }
 section .title span::after{
-  bottom: -7px;
-  width: 70%;
-  left: 50%;
-  transform: translateX(-50%);
+    bottom: -7px;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
- /* My Skills CSS */
- .skills{
-   /*background: #232323;*/
-     background: #1e1e1e;
- }
- .skills .content{
-   padding: 40px 0;
- }
- /* My Skills CSS END */
+/* My Skills CSS */
+.skills{
+    /*background: #232323;*/
+    background: #1e1e1e;
+}
+.skills .content{
+    padding: 40px 0;
+}
+/* My Skills CSS END */
 
 
 /* SKILL ICONS  */
@@ -183,13 +183,13 @@ section .title span::after{
     transition: transform 0.6s ease;
     transform-style: preserve-3d;
     display: inline-block;
-    color: #f1efef; 
+    color: #f1efef;
 }
 .sn{
-  color: #ded9d9;
-} 
+    color: #ded9d9;
+}
 .title.sn span {
-  color: #d3cfcf; 
+    color: #d3cfcf;
 }
 
 .icon i::after {
@@ -216,9 +216,9 @@ section .title span::after{
 #react-icon:hover i { color: #61dafb; }
 #stata-icon:hover i { color: #393c61; }
 #python-icon:hover i {
-  background: linear-gradient(to right, #4B8BBE 0%, #FFD43B 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
+    background: linear-gradient(to right, #4B8BBE 0%, #FFD43B 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
 }
 /*  icon hover effects end */
@@ -255,20 +255,20 @@ h1 {
 }
 
 @media (max-width: 768px) {
-  h1 {
-    font-size: 1.5rem;
-  }
+    h1 {
+        font-size: 1.5rem;
+    }
 }
 
 h1 span {
-  background: linear-gradient(to bottom, #0056b3, #6a76ff);
+    background: linear-gradient(to bottom, #0056b3, #6a76ff);
     /*background: linear-gradient(to bottom, #4179c4, #0056b3);*/
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  position: relative;
-  display: inline-block;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
 }
 
 h1 span::after {
@@ -291,43 +291,43 @@ h1 span.stop-blinking::after {
 
 
 @media (prefers-color-scheme: light) {
-  body {
-    background-color: #f0f0f0;
-    color: #333;
-  }
+    body {
+        background-color: #f0f0f0;
+        color: #333;
+    }
     strong {
         font-weight: 600;
         color: #0056b3;
     }
 
 
-  .title {
-     color: #333;
-  }
+    .title {
+        color: #333;
+    }
 
-.text{
-  color: #333;
-}
+    .text{
+        color: #333;
+    }
     .details {
-    color: #333;
-  }
-  section .title span{
-    color: #333;
-  }
+        color: #333;
+    }
+    section .title span{
+        color: #333;
+    }
 
-  .title.sn span {
-    color: #171616; 
-  }
-  .icon i {
-      color: #171616; 
-  }
-   .skills{
-     /*background: #F0F8FF;*/
-       background: #f0f0f0;
-   }
-  .sn {
-    color : #121212
-  }
+    .title.sn span {
+        color: #171616;
+    }
+    .icon i {
+        color: #171616;
+    }
+    .skills{
+        /*background: #F0F8FF;*/
+        background: #f0f0f0;
+    }
+    .sn {
+        color : #121212
+    }
 }
 
 /* Carousel Styling */
@@ -446,5 +446,3 @@ h1.text, h2.text, h4.details {
         padding-top: 50px !important;
     }
 }
-
-

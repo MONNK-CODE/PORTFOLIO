@@ -105,13 +105,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // QUOTE GENERATOR
   const quotes = [
-    "We chase patterns, not originality, comforting echoes of what's already broken.",
-    "Wonder fades when everything feels like a rerun of forgotten dreams.",
-    "To see clearly is to notice the quiet lies we live by.",
-    "Beauty needs no praise, only silence.",
-    "The future waits, not behind us, but just beyond our patience.",
-    "A true teacher lights the lantern within, not the road ahead.",
-    "He painted with both hands, chaos in one, order in the other."
+    "Your future is built in the quiet hours no one applauds.",
+    "Small consistent steps will outlast the grandest burst of effort.",
+    "Fear is loud, but purpose is steady—choose the steady voice.",
+    "Discomfort is the tuition you pay for growth.",
+    "When you can’t see the whole path, take the step that’s in front of you."
   ];
 
   function typeEffect(text, elementId, speed = 50) {
