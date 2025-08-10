@@ -139,13 +139,14 @@ label {
 @media (prefers-color-scheme: dark) {
     .contact-section {
         /*background: #121212;*/
-        background: #0e0e0e;
+        /*background: #0e0e0e;*/
+        background-color: #1e1e1e;
         color: #E0E0E0;
     }
 
     .form-container {
-        /*background: #1E1E1E;*/
-        background: #0e0e0e;
+        background: #1E1E1E;
+        /*background: #0e0e0e;*/
         box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
         color: #E0E0E0;
     }
@@ -158,13 +159,14 @@ label {
     textarea {
         border-color: #424242;
         /*background-color: #303030; */
-        background: #0e0e0e; /* input background */
+        /*background: #0e0e0e; !* input background *!*/
+        background-color: #1e1e1e;/* input background */
         color: #E0E0E0; /*  input text color */
     }
 
     label {
-        background: #0e0e0e; /* label background */
-        /*background: #1E1E1E; */
+        /*background: #0e0e0e; !* label background *!*/
+        background: #1E1E1E;
         /*color: #ff4d4d; */
         color: #0056b3; /*label color*/
     }
