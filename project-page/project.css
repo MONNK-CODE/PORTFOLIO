@@ -768,3 +768,28 @@ img {
     width: 100%;
   }
 }
+
+/*View More Button*/
+.view-more-container {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.view-more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 50px;
+  background-color: #24292f; /* GitHub dark */
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-more-btn:hover {
+  background-color: #0366d6; /* GitHub blue */
+  transform: scale(1.05);
+}
