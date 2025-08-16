@@ -106,8 +106,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // QUOTE GENERATOR
   const quotes = [
     "Your future is built in the quiet hours no one applauds.",
-    "Small consistent steps will outlast the grandest burst of effort.",
-    "Fear is loud, but purpose is steady—choose the steady voice.",
     "Discomfort is the tuition you pay for growth.",
     "When you can’t see the whole path, take the step that’s in front of you."
   ];
