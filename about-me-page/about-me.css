@@ -233,7 +233,7 @@ section .title span::after{
     #js-icon i { color: #a5a800; }
     #kt-icon i { color: #bd3bff; }
     #react-icon i { color: #61dafb; }
-    #rstudio-icon:hover i { color: #75AADB; }
+    #rstudio-icon i { color: #75AADB; }
     #python-icon i {
         background: linear-gradient(to right, #4B8BBE 0%, #FFD43B 100%);
         -webkit-background-clip: text;
