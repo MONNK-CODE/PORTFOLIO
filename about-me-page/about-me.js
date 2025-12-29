@@ -1,4 +1,4 @@
-// Updated JavaScript with anime links removed
+ // Updated JavaScript with anime links removed
 document.addEventListener('DOMContentLoaded', function() {
     initializeLanguageBars();
 });
