@@ -1,92 +1,3 @@
-// RESUME START
-function viewResume() {
-  const modal = document.getElementById('resumeModal');
-  const iframe = document.getElementById('resumeFrame');
-
-  // Set the PDF source
-  iframe.src = 'RESUME.pdf';
-
-  // Show the modal
-  modal.style.display = 'block';
-
-  // Prevent body scroll when modal is open
-  document.body.style.overflow = 'hidden';
-
-  // Disable zoom on mobile
-  const viewport = document.querySelector('meta[name="viewport"]');
-  if (viewport && window.innerWidth <= 767) {
-    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-  }
-}
-
-function closeResumeModal() {
-  const modal = document.getElementById('resumeModal');
-  const iframe = document.getElementById('resumeFrame');
-
-  // Hide the modal
-  modal.style.display = 'none';
-
-  // Clear the iframe source to stop loading
-  iframe.src = '';
-
-  // Restore body scroll
-  document.body.style.overflow = 'auto';
-
-  // Restore zoom on mobile
-  const viewport = document.querySelector('meta[name="viewport"]');
-  if (viewport && window.innerWidth <= 767) {
-    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=yes');
-  }
-}
-
-function downloadResume() {
-  const link = document.createElement('a');
-  link.href = 'RESUME.pdf';
-  link.download = 'Muhais-Olatundun-Resume.pdf';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-}
-
-// Close modal when clicking outside of it
-window.onclick = function(event) {
-  const modal = document.getElementById('resumeModal');
-  if (event.target === modal) {
-    closeResumeModal();
-  }
-}
-
-// Close modal with Escape key
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'Escape') {
-    const modal = document.getElementById('resumeModal');
-    if (modal.style.display === 'block') {
-      closeResumeModal();
-    }
-  }
-});
-
-// Handle orientation changes on mobile
-window.addEventListener('orientationchange', function() {
-  const modal = document.getElementById('resumeModal');
-  if (modal.style.display === 'block') {
-    // Small delay to allow orientation change to complete
-    setTimeout(() => {
-      const iframe = document.getElementById('resumeFrame');
-      // Reload iframe to adjust to new orientation
-      const currentSrc = iframe.src;
-      iframe.src = '';
-      setTimeout(() => {
-        iframe.src = currentSrc;
-      }, 100);
-    }, 300);
-  }
-});
-
-// RESUME END
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
   // Function to scroll to an element
   function scrollToElement(elementId) {
@@ -134,5 +45,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// VISITOR COUNTER
+ // Callback function to update the HTML with the count
+  function updateCounter(response) {
+  document.getElementById('visitor-count').innerText = response.value;
+}
 
+  // Connect to the API
+  // The "hit" endpoint increases the count by 1 every time the page loads
+  const countScript = document.createElement('script');
+  countScript.src = 'https://api.countapi.xyz/hit/ut_0w0POvoh0DEjrG1tjvjcumXjlu2cgnlciN7sMUdw/visits?callback=updateCounter';
+  document.head.appendChild(countScript);
 

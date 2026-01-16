@@ -8,6 +8,7 @@
   <meta name="description" content="Muhais Olatundun, interested in Fintech. Explore my projects, resume, and get in touch with me for collaborations and opportunities.">
   <meta name="keywords" content="Muhais Olatundun, Portfolio, Projects, Resume, Contact, Computer Science, Software Development, Web Development">
   <link rel="icon" type="image/x-icon" href="project-page/proj-images/nk.PNG">
+<!--  CSS FILES-->
   <link href="footer.css" rel="stylesheet" type="text/css" />
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link href="background.css" rel="stylesheet" type="text/css" />
@@ -15,6 +16,7 @@
   <link href="resume.css" rel="stylesheet" type="text/css" />
   <link href="contact-section/contact.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<!--  JS FILES-->
   <script src="script.js"></script>
   <script src="typing.js"></script>
   <script src="contact-section/contact.js"></script>
@@ -89,40 +91,16 @@
 
       <!-- Resume -->
       <div class="resume">
-        <button class="button" type="button" onclick="viewResume()">
+        <a href="https://docs.google.com/document/d/1okkqiA87cALno50jrxB12I3aAA_RfEqMJ5dLCOIe75M/edit?usp=sharing"
+           target="_blank"
+           class="button">
           <span class="button__text">Resume</span>
           <span class="button__icon">
-            <i class="fas fa-file-pdf"></i>
-        </span>
-        </button>
+      <i class="fas fa-file-pdf"></i>
+    </span>
+        </a>
       </div>
-
-
-
-      <!-- Resume Modal -->
-      <div id="resumeModal" class="resume-modal">
-        <div class="resume-modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title">
-              <i class="fas fa-user-tie"></i>
-              Muhais Olatundun
-            </h3>
-            <div class="modal-actions">
-              <button class="modal-btn download-btn" onclick="downloadResume()">
-                <i class="fas fa-download"></i>
-                Download
-              </button>
-              <button class="modal-btn close-btn" onclick="closeResumeModal()">
-                <i class="fas fa-times"></i>
-              </button>
-            </div>
-          </div>
-          <div class="pdf-container">
-            <iframe id="resumeFrame" src=""></iframe>
-          </div>
-        </div>
-      </div>
-<!--      Resume End-->
+<!--      Resume end-->
 
 
 
@@ -158,11 +136,18 @@
             <i class="fab fa-youtube"></i></a>
           <a href="https://www.tiktok.com/@therealmuhais_?is_from_webapp=1&sender_device=pc" class="tiktok" target="_blank" aria-label="TikTok">
             <i class="fab fa-tiktok"></i></a>
-          <a href="https://www.instagram.com/therealmuhais_/" class="instagram" target="_blank" aria-label="Instagram">
+          <a href="https://www.instagram.com/therealmuhais/" class="instagram" target="_blank" aria-label="Instagram">
             <i class="fab fa-instagram"></i></a>
         </div>
       <!-- SOCIAL ICONS ENDS -->
       </div>
+
+      <div class="counter-container">
+        <p class="counter-label">Global Visitors</p>
+        <span id="visitor-count">0000</span>
+      </div>
+
+
     </section> <!-- end of the intro section -->
 
 
@@ -264,6 +249,7 @@
     <!-- BACKGROUND ANIMATION END -->
   </div>
 </div>
+
 
 <footer class="site-footer">
   <p>&copy; <span id="year"></span> Muhais Olatundun. All rights reserved.</p>

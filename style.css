@@ -485,3 +485,29 @@ h1 span.stop-blinking::after {
     background: rgba(0, 86, 179, 0.05);
   }
 }
+
+
+/*Vistor Counter*/
+.counter-container {
+  margin-top: 40px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.counter-label {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+#visitor-count {
+  font-size: 32px;
+  font-weight: 800;
+  color: #fff;
+  /* This creates a glow that matches your button */
+  text-shadow: 0 0 10px #0056b3,
+  0 0 20px #0056b3;
+  letter-spacing: 2px;
+}

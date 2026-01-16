@@ -7,7 +7,7 @@ export default async function handler(req, res) {
 
     const { first_name, last_name, email, message, nickname } = req.body;
 
-    // 1. Honeypot field check
+    // 1. field check
     if (nickname && nickname.trim() !== "") {
         console.warn("Bot detected:", { first_name, last_name, email });
         return res.status(400).json({ success: false, error: "Bot detected" });
