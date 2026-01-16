@@ -46,14 +46,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // VISITOR COUNTER
- // Callback function to update the HTML with the count
-  function updateCounter(response) {
-  document.getElementById('visitor-count').innerText = response.value;
+  function displayCount(data) {
+  const counterElement = document.getElementById('visitor-count');
+  if (counterElement && data.count) {
+  counterElement.innerText = data.count;
+  }
 }
+// API CALL
+  const namespace = "muhais-olatundun"; //workspace
+  const key = "first-counter-2519"; //slug
 
-  // Connect to the API
-  // The "hit" endpoint increases the count by 1 every time the page loads
-  const countScript = document.createElement('script');
-  countScript.src = 'https://api.countapi.xyz/hit/ut_0w0POvoh0DEjrG1tjvjcumXjlu2cgnlciN7sMUdw/visits?callback=updateCounter';
-  document.head.appendChild(countScript);
+  fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`)
+  .then(response => {
+  if (!response.ok) throw new Error('Network response was not ok');
+  return response.json();
+})
+  .then(data => {
+  displayCount(data);
+})
+  .catch(error => {
+  console.error('Counter Error:', error);
+  // Fallback text if the API fails
+  document.getElementById('visitor-count').innerText = "1";
+});
 
