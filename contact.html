@@ -2,10 +2,359 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Onest&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Combo&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Geist Mono", 'Onest', 'Combo', 'Outfit', "DM Sans", sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #f0f0f0;
+                color: #333;
+            }
+            .contact-btn {
+                background-color: #ffffff;
+                color: #333;
+            }
+            .contact-btn:hover {
+                background-color: #0056b3;
+                color: #ffffff;
+            }
+        }
+
+        .contact-container {
+            max-width: 600px;
+            width: 100%;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 60px;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 2px;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 18px 30px;
+            background-color: transparent;
+            border: 2px solid #0056b3;
+            border-radius: 12px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 0.6s ease-out backwards;
+        }
+
+        /* LinkedIn - Blue */
+        .contact-btn.linkedin {
+            border-color: #0077b5;
+        }
+
+        .contact-btn.linkedin::before {
+            background: radial-gradient(circle, rgba(0, 119, 181, 0.4) 0%, rgba(0, 119, 181, 0.2) 50%, transparent 70%);
+        }
+
+        .contact-btn.linkedin:hover {
+            border-color: #0077b5;
+            box-shadow: 0 0 20px rgba(0, 119, 181, 0.6),
+            0 0 40px rgba(0, 119, 181, 0.3),
+            inset 0 0 20px rgba(0, 119, 181, 0.15);
+        }
+
+        .contact-btn.linkedin:hover::after {
+            background: linear-gradient(45deg, transparent, rgba(0, 119, 181, 0.3), transparent);
+        }
+
+        /* Email - Red/Orange */
+        .contact-btn.email {
+            border-color: #ea4335;
+        }
+
+        .contact-btn.email::before {
+            background: radial-gradient(circle, rgba(234, 67, 53, 0.4) 0%, rgba(234, 67, 53, 0.2) 50%, transparent 70%);
+        }
+
+        .contact-btn.email:hover {
+            border-color: #ea4335;
+            box-shadow: 0 0 20px rgba(234, 67, 53, 0.6),
+            0 0 40px rgba(234, 67, 53, 0.3),
+            inset 0 0 20px rgba(234, 67, 53, 0.15);
+        }
+
+        .contact-btn.email:hover::after {
+            background: linear-gradient(45deg, transparent, rgba(234, 67, 53, 0.3), transparent);
+        }
+
+        /* GitHub - Purple/White */
+        .contact-btn.github {
+            border-color: #8b5cf6;
+        }
+
+        .contact-btn.github::before {
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, rgba(139, 92, 246, 0.2) 50%, transparent 70%);
+        }
+
+        .contact-btn.github:hover {
+            border-color: #8b5cf6;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.6),
+            0 0 40px rgba(139, 92, 246, 0.3),
+            inset 0 0 20px rgba(139, 92, 246, 0.15);
+        }
+
+        .contact-btn.github:hover::after {
+            background: linear-gradient(45deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+        }
+
+        /* Instagram - Gradient Pink/Purple/Orange */
+        .contact-btn.instagram {
+            border-color: #e1306c;
+        }
+
+        .contact-btn.instagram::before {
+            background: radial-gradient(circle, rgba(225, 48, 108, 0.4) 0%, rgba(193, 53, 132, 0.3) 30%, rgba(131, 58, 180, 0.2) 50%, transparent 70%);
+        }
+
+        .contact-btn.instagram:hover {
+            border-color: #e1306c;
+            box-shadow: 0 0 20px rgba(225, 48, 108, 0.6),
+            0 0 40px rgba(193, 53, 132, 0.4),
+            0 0 60px rgba(131, 58, 180, 0.2),
+            inset 0 0 20px rgba(225, 48, 108, 0.15);
+        }
+
+        .contact-btn.instagram:hover::after {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            opacity: 0.3;
+        }
+
+        /* TikTok - Cyan/Pink */
+        .contact-btn.tiktok {
+            border-color: #00f2ea;
+        }
+
+        .contact-btn.tiktok::before {
+            background: radial-gradient(circle, rgba(0, 242, 234, 0.4) 0%, rgba(255, 0, 80, 0.3) 50%, transparent 70%);
+        }
+
+        .contact-btn.tiktok:hover {
+            border-color: #00f2ea;
+            box-shadow: 0 0 20px rgba(0, 242, 234, 0.6),
+            0 0 40px rgba(255, 0, 80, 0.4),
+            inset 0 0 20px rgba(0, 242, 234, 0.15);
+        }
+
+        .contact-btn.tiktok:hover::after {
+            background: linear-gradient(45deg, transparent, rgba(0, 242, 234, 0.3), rgba(255, 0, 80, 0.3), transparent);
+        }
+
+        /* YouTube - Red */
+        .contact-btn.youtube {
+            border-color: #ff0000;
+        }
+
+        .contact-btn.youtube::before {
+            background: radial-gradient(circle, rgba(255, 0, 0, 0.4) 0%, rgba(255, 0, 0, 0.2) 50%, transparent 70%);
+        }
+
+        .contact-btn.youtube:hover {
+            border-color: #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6),
+            0 0 40px rgba(255, 0, 0, 0.3),
+            inset 0 0 20px rgba(255, 0, 0, 0.15);
+        }
+
+        .contact-btn.youtube:hover::after {
+            background: linear-gradient(45deg, transparent, rgba(255, 0, 0, 0.3), transparent);
+        }
+
+        .contact-btn:nth-child(1) { animation-delay: 0.1s; }
+        .contact-btn:nth-child(2) { animation-delay: 0.2s; }
+        .contact-btn:nth-child(3) { animation-delay: 0.3s; }
+        .contact-btn:nth-child(4) { animation-delay: 0.4s; }
+        .contact-btn:nth-child(5) { animation-delay: 0.5s; }
+        .contact-btn:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+            z-index: -1;
+        }
+
+        .contact-btn:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+
+        .contact-btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-btn:hover::after {
+            opacity: 1;
+        }
+
+        .contact-btn:hover {
+            color: #ffffff;
+            transform: translateX(5px);
+        }
+
+        .contact-btn i {
+            font-size: 1.5rem;
+            min-width: 24px;
+        }
+
+        .contact-btn span {
+            font-family: "Geist Mono", monospace;
+        }
+
+        @media (max-width: 768px) {
+            .contact-btn {
+                padding: 15px 20px;
+                font-size: 1rem;
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+
+            .contact-btn::before {
+                display: none;
+            }
+
+            .contact-btn:hover {
+                transform: none;
+                background-color: #0056b3;
+            }
+
+            .contact-btn i {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<h1>Contact Me</h1>
+<div class="contact-container">
+    <h1>Contact Me</h1>
+    <div class="contact-links">
+        <a href="https://www.linkedin.com/in/muhaisolatundun/" target="_blank" class="contact-btn linkedin">
+            <i class="fab fa-linkedin"></i>
+            <span>Muhais Olatundun</span>
+        </a>
 
+        <a href="mailto:monnk101@gmail.com" class="contact-btn email">
+            <i class="fas fa-envelope"></i>
+            <span>monnk101@gmail.com</span>
+        </a>
+
+        <a href="https://github.com/MONNK-CODE" target="_blank" class="contact-btn github">
+            <i class="fab fa-github"></i>
+            <span>MONNK-CODE</span>
+        </a>
+
+        <a href="https://www.instagram.com/therealmuhais" target="_blank" class="contact-btn instagram">
+            <i class="fab fa-instagram"></i>
+            <span>@therealmuhais</span>
+        </a>
+
+        <a href="https://www.tiktok.com/@therealmuhais_" target="_blank" class="contact-btn tiktok">
+            <i class="fab fa-tiktok"></i>
+            <span>@therealmuhais_</span>
+        </a>
+
+        <a href="https://www.youtube.com/@therealmuhais" target="_blank" class="contact-btn youtube">
+            <i class="fab fa-youtube"></i>
+            <span>@therealmuhais</span>
+        </a>
+    </div>
+</div>
 </body>
 </html>
