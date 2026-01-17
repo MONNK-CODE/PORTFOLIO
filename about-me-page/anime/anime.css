@@ -1,0 +1,72 @@
+:root {
+    --accent-color: #D6D3CD;
+    --grid-gap: 12px;
+    --card-radius: 12px;
+}
+
+.anime-square-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--grid-gap);
+    padding: 20px 0;
+}
+
+.anime-tile {
+    position: relative;
+    background: #1a1a1a;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    border: 1px solid rgba(214, 211, 205, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.anime-tile:hover {
+    transform: scale(1.03);
+    border-color: var(--accent-color);
+    z-index: 2;
+}
+
+.anime-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
+}
+
+.anime-tile:hover img {
+    filter: grayscale(0%);
+}
+
+.tile-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+    text-align: center;
+}
+
+.tile-overlay h3 {
+    color: #fff;
+    font-size: 0.85rem;
+    margin: 0;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+    .anime-square-grid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 8px;
+    }
+
+    .tile-overlay h3 {
+        font-size: 0.75rem;
+    }
+}

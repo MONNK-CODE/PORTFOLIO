@@ -1,6 +1,6 @@
 // api/github-langs.js
 export default async function handler(req, res) {
-    // CORS (restrict to your domain)
+    // CORS (restrict to my domain)
     const ORIGIN = req.headers.origin || "";
     const ALLOW_ORIGIN = /https?:\/\/(www\.)?muhais\.org$/i.test(ORIGIN) ? ORIGIN : "*";
     res.setHeader("Access-Control-Allow-Origin", ALLOW_ORIGIN);
@@ -35,7 +35,6 @@ export default async function handler(req, res) {
 
         const data = await gh.json();
 
-        // Cache at the edge for 1 hour, allow SWR for 1 day
         res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate=86400");
         return res.status(200).json(data);
     } catch (err) {

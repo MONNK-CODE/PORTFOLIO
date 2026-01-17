@@ -1,0 +1,190 @@
+:root {
+    --chess-green: #769656;
+    --chess-dark: #262421;
+    --mt-yellow: #e2b714;
+    --mt-bg: #323437;
+    --mt-sub: #646669;
+    --font-main: 'Outfit', sans-serif;
+    --card-padding: 22px;
+}
+
+/* --- Dashboard Layout --- */
+.dashboard-wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 15px;
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 10px;
+    align-items: stretch;
+}
+
+/* Card  */
+.stats-container,
+.monkey-stats-component .stats-card {
+    margin: 0 !important;
+    height: 100%;
+    box-sizing: border-box;
+    padding: var(--card-padding);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- CHESS STATS--- */
+.stats-container {
+    background: var(--chess-dark);
+    border-top: 4px solid var(--chess-green);
+}
+
+.stats-container .chess-title {
+    color: #fff;
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 0 0 20px 0;
+}
+
+.stats-container .stats-list {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    gap: 10px;
+}
+
+.elo-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.stats-container li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    min-height: 50px;
+}
+
+.stats-container .games-row {
+    margin-bottom: 5px;
+}
+
+.stats-container .stat-name { color: #bababa; font-size: 0.85rem; flex-grow: 1; margin-left: 10px; }
+.stats-container .stat-value { font-weight: 700; color: #fff; font-size: 0.9rem; }
+
+/* ---  TYPING STATS --- */
+.monkey-stats-component .stats-card {
+    background: var(--mt-bg);
+    border-top: 4px solid var(--mt-yellow);
+}
+
+.monkey-stats-component h2 {
+    color: var(--mt-sub);
+    font-size: 1.4rem;
+    margin: 0 0 20px 0;
+}
+
+.monkey-stats-component .stat-grid {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 10px;
+}
+
+.monkey-stats-component .stat {
+    background: rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.monkey-stats-component .stat-label { color: var(--mt-sub); font-size: 0.75rem; text-transform: lowercase; }
+.monkey-stats-component .stat-value { font-weight: 700; font-size: 1.8rem; color: var(--mt-yellow); }
+
+
+.mt-bottom-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 600px) {
+    .dashboard-wrapper {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 5px;
+    }
+
+    .stat-value { font-size: 1.1rem !important; }
+    .stat-label, .stat-name { font-size: 0.65rem !important; }
+}
+
+
+/* --- HOVER --- */
+@media (hover: hover) {
+    .stats-container .stats-list li:hover,
+    .monkey-stats-component .stat:hover {
+        transform: translateY(-2px);
+        transition: all 0.2s ease;
+    }
+
+    .stats-container .stats-list li:hover {
+        background: rgba(118, 150, 86, 0.15);
+        border-color: var(--chess-green);
+    }
+
+    .monkey-stats-component .stat:hover {
+        border-color: var(--mt-yellow);
+        background: rgba(0, 0, 0, 0.25);
+    }
+}
+
+/* --- MOBILE SIDE-BY-SIDE --- */
+@media (max-width: 768px) {
+    .dashboard-wrapper {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .stats-container,
+    .monkey-stats-component .stats-card {
+        padding: 15px;
+    }
+
+
+    .stat-value { font-size: 1.2rem !important; }
+    .stat-label, .stat-name { font-size: 0.7rem !important; }
+    .chess-title { font-size: 1.1rem; margin-bottom: 15px; }
+
+
+    .stats-container .stats-list {
+        grid-template-columns: 1fr;
+    }
+    .stats-container .stats-list li:first-child {
+        grid-column: auto;
+    }
+}
+
+/* Loading States */
+[data-status="loading"] {
+    opacity: 0.4;
+    font-style: italic;
+    animation: pulse 1.5s infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.6; } }

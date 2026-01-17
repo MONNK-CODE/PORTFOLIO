@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Onest&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Combo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght&display=swap');
 
 /* == NEW ANIMATION STYLES == */
 /* Keyframes for the slide-up and fade-in animation */
@@ -45,7 +49,7 @@
 /* == END NEW ANIMATION STYLES == */
 
 body{
-  font-family: 'Outfit', serif;
+  font-family: "Geist Mono", 'Onest', 'Combo', 'Outfit',"DM Sans", 'sans-serif';
   color : #ffffff;
   /*background: #0e0e0e;*/
   background-color: #1e1e1e;
@@ -60,7 +64,9 @@ body{
     background-color: #f0f0f0;
     color: #333;
   }
-
+  .counter-label {
+    color: #333;
+  }
   .text {
     color: #333;
   }
@@ -154,7 +160,6 @@ svg text {
   text-transform: uppercase;
   color: #fdf6f0;
   font-size: 3em;
-  font-weight: bold;
   text-align: center;
   text-shadow: 0.08em 0 #003d80;
   font-family: 'Outfit', sans-serif;
@@ -195,10 +200,8 @@ svg text {
   overflow: hidden;
   cursor: pointer;
   transition: .5s;
-  font-weight: 400;
   font-size: 17px;
   border: 1px solid var(--color);
-  font-family: 'Outfit', serif;
   text-transform: uppercase;
   color: var(--color);
   z-index: 1;
@@ -290,7 +293,7 @@ a {
 h1 {
   color: #ffffff;
   font-size: 3rem;
-  font-weight: 600;
+  /*font-weight: 600;*/
   text-align: center;
 }
 
@@ -333,8 +336,6 @@ h1 span.stop-blinking::after {
   margin: 20px auto;
   max-width: 90%;
   padding: 0 10px;
-  font-style: italic;
-  font-weight: 400;
   color: #0056b3;
 }
 
@@ -374,7 +375,6 @@ h1 span.stop-blinking::after {
   padding: 12px 25px;
   border-radius: 25px;
   text-decoration: none;
-  font-weight: bold;
   transition: transform 0.3s ease;
   border: none;
   cursor: pointer;
@@ -389,113 +389,13 @@ h1 span.stop-blinking::after {
   font-size: 1.5rem;
 }
 
-/* Now Page Styles */
-.now-section {
-  padding: 60px 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.now-title {
-  font-size: 2.5rem;
-  color: #0056b3;
-  margin-bottom: 20px;
-}
-
-.now-subtitle {
-  font-size: 1.2rem;
-  color: #cccccc;
-  margin-bottom: 40px;
-}
-
-.current-projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-  margin: 40px 0;
-}
-
-.project-card {
-  background: rgba(0, 86, 179, 0.1);
-  border: 2px solid #0056b3;
-  border-radius: 15px;
-  padding: 25px;
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-}
-
-.project-status {
-  display: inline-block;
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.status-active {
-  background: #0066cc;
-  color: white;
-}
-
-.status-paused {
-  background: #ffaa00;
-  color: white;
-}
-
-.status-planning {
-  background: #0056b3;
-  color: white;
-}
-
-.project-name {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.project-description {
-  color: #cccccc;
-  line-height: 1.6;
-}
-
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .now-title {
-    font-size: 2rem;
-  }
-
-  .current-projects {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Light mode adjustments */
-@media (prefers-color-scheme: light) {
-  .now-subtitle, .project-description {
-    color: #555;
-  }
-  .project-card, .bounty-item {
-    background: rgba(0, 86, 179, 0.05);
-  }
-}
-
-
 /*Vistor Counter*/
 .counter-container {
   margin-top: 40px;
   text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .counter-label {
-  color: rgba(255, 255, 255, 0.6);
   font-size: 12px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -504,10 +404,20 @@ h1 span.stop-blinking::after {
 
 #visitor-count {
   font-size: 32px;
-  font-weight: 800;
   color: #fff;
-  /* This creates a glow that matches your button */
   text-shadow: 0 0 10px #0056b3,
   0 0 20px #0056b3;
   letter-spacing: 2px;
 }
+
+@media (prefers-color-scheme: light) {
+  .counter-label {
+    color: #333;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .counter-label {
+    color: #fff;
+  }
+}
+

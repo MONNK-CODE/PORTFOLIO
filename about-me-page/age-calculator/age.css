@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Combo&display=swap');
-
 /* Light/Dark themes */
 .age-container{
+    margin-top: 1rem;
     --age-text: #0056b3;
     --age-border: color-mix(in oklab, currentColor 28%, transparent);
     --age-shadow: transparent;
 
-/* Respect user theme */
 @media (prefers-color-scheme: dark){
     .age-container{
         --age-text: #e7e7e7;
@@ -22,7 +20,6 @@
     }
 }
 
-/* Layout: no card background */
 .age-container{
     background: none;
     border: 0;
@@ -43,8 +40,6 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
-    font-family: Combo, sans-serif;
     font-weight: 700;
     font-size: clamp(1rem, 1.4vw + 0.6rem, 1.25rem);
     line-height: 1;

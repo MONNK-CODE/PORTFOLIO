@@ -22,7 +22,8 @@ function initializeChessStats() {
     }
 
     if (titleElement) {
-        titleElement.textContent = username.toUpperCase() + " CHESS STATS";
+        // titleElement.textContent = username.toUpperCase() + " CHESS STATS";
+        titleElement.textContent = "CHESS STATS";
         console.log("Chess title set successfully");
     } else {
         console.error("Error: Could not find or create chess title element.");
@@ -61,14 +62,8 @@ async function fetchStats() {
             games: data.chess_rapid?.record
                 ? data.chess_rapid.record.win + data.chess_rapid.record.loss + data.chess_rapid.record.draw
                 : "N/A",
-            puzzles: data.tactics?.highest?.rating
-                ? `${data.tactics.highest.rating} ELO`
-                : "N/A",
             rapid: data.chess_rapid?.last?.rating
                 ? `${data.chess_rapid.last.rating} ELO`
-                : "N/A",
-            daily: data.chess_daily?.last?.rating
-                ? `${data.chess_daily.last.rating} ELO`
                 : "N/A",
             blitz: data.chess_blitz?.last?.rating
                 ? `${data.chess_blitz.last.rating} ELO`

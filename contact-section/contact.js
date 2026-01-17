@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const email = document.querySelector('[name="email"]').value;
             const message = document.querySelector('[name="message"]').value;
 
+            // honeypot field to prevent spam
+            const nickname   = document.querySelector('[name="nickname"]')?.value || "";
+
             try {
                 const response = await fetch('/api/send-email', {
                     method: 'POST',

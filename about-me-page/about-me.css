@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Onest&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Combo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght&display=swap');
+
 
 /* == ANIMATION STYLES == */
 /* Keyframes for the slide-up and fade-in animation */
@@ -16,7 +18,6 @@
     }
 }
 
-/* Set the initial state of elements to be animated */
 section .title,
 h1.text,
 h4.details,
@@ -30,7 +31,7 @@ h4.details,
     opacity: 0;
 }
 
-/* Apply the animation to each element with a delay */
+/* Applying the animation to each element with a delay */
 section .title {
     animation: slideUpFadeIn 0.7s ease-out 0.2s forwards;
 }
@@ -68,20 +69,12 @@ h4.details {
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    color: #ffffff;
     scroll-behavior: smooth;
-    /*font-family: 'Combo', 'Outfit',"Onest", "DM Sans", sans-serif;*/
-    font-family: 'Outfit', sans-serif;
-    /*font-family: 'Combo'*/
-    font-weight: 600;
+    font-family: "Geist Mono", 'Onest', 'Combo', 'Outfit',"DM Sans", 'sans-serif';
+    /*font-weight: 100;*/
 }
-body {
-    background-color: #1e1e1e;
-}
-
 
 html, body{
-    /*background: #1e1e1e;*/
     margin: 0;
     padding: 0;
     max-width: 100vw;
@@ -96,7 +89,6 @@ html, body{
     text-align: center;
     padding: 10px;
     font-size: 0.7rem;
-    color : #F0F8FF;
 }
 
 @media (min-width: 769px) {
@@ -123,7 +115,6 @@ section .title{
     margin-bottom: 40px;
 }
 section .title span{
-    color: #F0F8FF;
     font-size: 60px;
     font-weight: 600;
     position: relative;
@@ -150,81 +141,243 @@ section .title span::after{
     transform: translateX(-50%);
 }
 
-/* My Skills CSS */
-.skills{
-    /*background: #232323;*/
-    background: #1e1e1e;
+/* === SKILLS CARDS === */
+/* === TECH STACK + EXAMS CARDS === */
+:root{
+    --accent: #0056b3;
 }
-.skills .content{
-    padding: 40px 0;
+
+.stack-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(260px, 420px));
+    gap: 28px;
+    justify-content: center;
+    margin-top: 24px;
 }
-/* My Skills CSS END */
 
+.stack-card{
+    border-radius: 18px;
+    padding: 18px 18px 14px;
+    border: 1px solid rgba(0, 86, 179, 0.35);
+    box-shadow: 0 0 22px rgba(0, 86, 179, 0.18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
 
-/* SKILL ICONS  */
-.icon-container {
+.stack-title{
+    font-size: 1.6rem;
+    font-weight: 650;
+    margin: 2px 0 14px;
+}
+
+.stack-section{
+    margin-top: 14px;
+}
+
+.stack-label{
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.pill-row{
     display: flex;
-    justify-content: space-around;
-    margin: 40px 0;
     flex-wrap: wrap;
-    box-sizing: border-box;
+    gap: 10px;
 }
 
-.icon {
-    display: flex;
-    flex-direction: column;
+.pill{
+    display: inline-flex;
     align-items: center;
-    margin: 20px;
-    perspective: 1000px;
-    box-sizing: border-box;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.06);
 }
 
-.icon i {
-    font-size: 60px;
-    transition: transform 0.6s ease;
-    transform-style: preserve-3d;
-    display: inline-block;
-    color: #f1efef;
-}
-.sn{
-    color: #ded9d9;
-}
-.title.sn span {
-    color: #d3cfcf;
+.pill i{
+    font-size: 1.05rem;
 }
 
-.icon i::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: inherit;
-    transform: rotateY(180deg);
-    color: transparent;
+.pill-meta{
+    margin-left: 8px;
+    font-size: 0.8rem;
+    opacity: 0.75;
 }
 
-/* Flip effect on hover */
-.icon:hover i {
-    transform: rotateY(180deg);
+/* DARK MODE */
+@media (prefers-color-scheme: dark){
+    .stack-card{
+        background: rgba(255,255,255,0.03);
+        color: #f1efef;
+    }
 }
-/*  icon hover effects */
-#css-icon:hover i { color: #0756d5; }
-#html-icon:hover i { color: #e34c26; }
-#js-icon:hover i { color: #a5a800; }
-#kt-icon:hover i { color: #bd3bff; }
-#react-icon:hover i { color: #61dafb; }
-#stata-icon:hover i { color: #393c61; }
-#rstudio-icon:hover i { color: #75AADB; }
-#python-icon:hover i {
+
+/* LIGHT MODE */
+@media (prefers-color-scheme: light){
+    .stack-card{
+        background: rgba(0,0,0,0.03);
+        color: #111;
+        border: 1px solid rgba(0, 86, 179, 0.25);
+        box-shadow: 0 0 18px rgba(0, 86, 179, 0.12);
+    }
+    .pill{
+        border: 1px solid rgba(0,0,0,0.18);
+        background: rgba(0,0,0,0.03);
+    }
+}
+
+/* MOBILE */
+@media (max-width: 900px){
+    .stack-grid{
+        grid-template-columns: 1fr;
+    }
+
+    section .title span{
+        font-size: 2rem;
+    }
+}
+
+/* === DESKTOP-ONLY HOVER EFFECTS === */
+@media (hover: hover) and (pointer: fine) {
+
+    .stack-card {
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .stack-card:hover {
+        transform: translateY(-6px);
+        box-shadow:
+                0 12px 30px rgba(0, 86, 179, 0.25),
+                0 0 18px rgba(0, 86, 179, 0.25);
+    }
+
+    .pill {
+        transition:
+                transform 0.2s ease,
+                background-color 0.2s ease,
+                border-color 0.2s ease;
+    }
+
+    .pill:hover {
+        transform: translateY(-2px);
+        border-color: rgba(0, 86, 179, 0.6);
+        background: rgba(0, 86, 179, 0.08);
+    }
+
+}
+/* == SKILL PILL HOVER EFFECTS == */
+
+.pill {
+    transition: all 0.3s ease;
+}
+
+/* Python */
+.pill.python-icon:hover {
+    transform: translateY(-2px);
+    border-color: #beb84b;
+    background: rgba(190, 167, 75, 0.12);
+}
+.pill.python-icon:hover i {
     background: linear-gradient(to right, #4B8BBE 0%, #FFD43B 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
-/*  icon hover effects end */
-/* SKILL ICONS END  */
+
+/* JS - Fixed color from purple to Yellow */
+.pill.js-icon:hover {
+    transform: translateY(-2px);
+    border-color: #a5a800;
+    background: rgba(165, 168, 0, 0.12);
+}
+.pill.js-icon:hover i {
+    color: #a5a800;
+}
+
+/* Kotlin - Kept as Purple */
+.pill.kt-icon:hover {
+    transform: translateY(-2px);
+    border-color: #bd3bff;
+    background: rgba(189, 59, 255, 0.12);
+}
+.pill.kt-icon:hover i {
+    color: #bd3bff;
+}
+
+/* R-Studio - Fixed color to Light Blue */
+.pill.rstudio-icon:hover {
+    transform: translateY(-2px);
+    border-color: #75AADB;
+    background: rgba(117, 170, 219, 0.12);
+}
+.pill.rstudio-icon:hover i {
+    color: #75AADB;
+}
+
+/* React - Fixed color to Cyan */
+.pill.react-icon:hover {
+    transform: translateY(-2px);
+    border-color: #61dafb;
+    background: rgba(97, 218, 251, 0.12);
+}
+.pill.react-icon:hover i {
+    color: #61dafb;
+}
+
+/* HTML - Fixed color to Orange */
+.pill.html-icon:hover {
+    transform: translateY(-2px);
+    border-color: #e34c26;
+    background: rgba(227, 76, 38, 0.12);
+}
+.pill.html-icon:hover i {
+    color: #e34c26;
+}
+
+/* CSS - Fixed color to Dark Blue */
+.pill.css-icon:hover {
+    transform: translateY(-2px);
+    border-color: #0756d5;
+    background: rgba(7, 86, 213, 0.12);
+}
+.pill.css-icon:hover i {
+    color: #0756d5;
+}
+
+/* Jupyter - Fixed color to Jupyter Orange */
+.pill.jupyter-icon:hover {
+    transform: translateY(-2px);
+    border-color: #f37626;
+    background: rgba(243, 118, 38, 0.12);
+}
+.pill.jupyter-icon:hover i {
+    color: #f37626;
+}
+
+/* Google Colab - Added Orange/Yellow */
+.pill.colab-icon:hover {
+    transform: translateY(-2px);
+    border-color: #F9AB00;
+    background: rgba(249, 171, 0, 0.12);
+}
+.pill.colab-icon:hover i {
+    color: #F9AB00;
+}
+
+/* Excel - Fixed color to Excel Green */
+.pill.excel-icon:hover {
+    transform: translateY(-2px);
+    border-color: #1D6F42;
+    background: rgba(29, 111, 66, 0.12);
+}
+.pill.excel-icon:hover i {
+    color: #1D6F42;
+}
+/*END HOVER*/
 
 /* Mobile styles */
 @media (max-width: 768px) {
@@ -241,97 +394,8 @@ section .title span::after{
         color: transparent;
     }
 }
+/* === SKILLS CARDS === */
 
-/*mobile title*/
-@media (max-width: 768px) {
-    section .title span {
-        font-size: 40px;
-    }
-}
-
-/* Typing effect */
-h1 {
-    color: #ffffff;
-    font-size: 3rem;
-    font-weight: 600;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 1.5rem;
-    }
-}
-
-h1 span {
-    background: linear-gradient(to bottom, #0056b3, #6a76ff);
-    /*background: linear-gradient(to bottom, #4179c4, #0056b3);*/
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    position: relative;
-    display: inline-block;
-}
-
-h1 span::after {
-    content: "|";
-    position: absolute;
-    right: -8px;
-    color: white;
-    animation: blink 0.7s infinite;
-}
-
-h1 span.stop-blinking::after {
-    animation: none;
-}
-
-@keyframes blink {
-    50% { opacity: 0 }
-}
-
-/* Typing effect end */
-
-
-@media (prefers-color-scheme: light) {
-    body {
-        background-color: #f0f0f0;
-        color: #333;
-    }
-    strong {
-        font-weight: 600;
-        color: #0056b3;
-    }
-
-
-    .title {
-        color: #333;
-    }
-
-    .text{
-        color: #333;
-    }
-    .details {
-        color: #333;
-    }
-    section .title span{
-        color: #333;
-    }
-
-    .title.sn span {
-        color: #171616;
-    }
-    .icon i {
-        color: #171616;
-    }
-    .skills{
-        /*background: #F0F8FF;*/
-        background: #f0f0f0;
-    }
-    .sn {
-        color : #121212
-    }
-}
 
 /* Carousel Styling */
 .carousel {
@@ -353,13 +417,13 @@ h1 span.stop-blinking::after {
     border-radius: 12px;
     background-color: #1e1e1e;
 }
-/* Force dark background on all carousel layers */
+
 .carousel-inner,
 .carousel-item {
     background-color: transparent !important;
 }
 
-/* Ensure body and section also stay dark */
+
 section,
 .about,
 .skills {
@@ -383,12 +447,17 @@ section,
     .desktop-only {
         display: none !important;
     }
+    .t-head{
+        font-size: 0.90rem;
+    }
 }
-
+strong {
+    color: #0056b3;
+}
 /* DARK MODE */
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #1e1e1e;
+        background-color: #1e1e1e !important;
     }
 
     section,
@@ -397,19 +466,36 @@ section,
     .carousel-image {
         background-color: #1e1e1e !important;
     }
+    .details {
+        color: #F0F8FF;
+    }
+    section .title span {
+        color: #F0F8FF;
+    }
+    .t-head{
+        color: #F0F8FF;
+    }
 }
 
 /* LIGHT MODE */
 @media (prefers-color-scheme: light) {
     body {
-        background-color: #f0f0f0;
+        background-color: #f0f0f0 !important;
     }
-
     section,
     .about,
     .skills,
     .carousel-image {
         background-color: #f0f0f0 !important;
+    }
+    .details {
+        color: #333;
+    }
+    section .title span {
+        color: #333;
+    }
+    .t-head{
+        color: #333;
     }
 }
 
@@ -449,3 +535,71 @@ h1.text, h2.text, h4.details {
         padding-top: 50px !important;
     }
 }
+
+
+/* == ABOUT ME SIDE-BY-SIDE LAYOUT == */
+.about-me-container {
+    display: flex;
+    flex-direction: row; /* Forces side-by-side on desktop AND mobile */
+    align-items: flex-start; /* Aligns content to the top */
+    justify-content: center;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 30px auto !important;
+    padding: 0 15px;
+    opacity: 0;
+    animation: slideUpFadeIn 0.7s ease-out 0.6s forwards;
+}
+
+.about-left {
+    flex: 0 0 40%; /* Carousel takes 40% of the width */
+    max-width: 450px;
+}
+
+.about-right {
+    flex: 1; /* Text fills the remaining 60% */
+}
+
+/* Desktop Text Styling */
+.about-right .details {
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding: 0;
+}
+
+/* Desktop Image Styling */
+.carousel-image {
+    width: 100%;
+    height: 500px; /* Standard standing rectangle height */
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 86, 179, 0.3);
+}
+
+/* Mobile Tweak (Keeping the Row) */
+@media (max-width: 768px) {
+    .about-me-container {
+        gap: 15px; /* Tightens the space between image and text */
+        align-items: center; /* Centers them vertically on small screens */
+    }
+
+    .about-left {
+        flex: 0 0 35%; /* Reduces image width to 35% on mobile */
+    }
+
+    .about-right .details {
+        font-size: 0.65rem; /* Scales text down significantly to fit */
+        line-height: 1.3;
+    }
+
+    .carousel-image {
+        height: 220px; /* Scales image height down for mobile */
+    }
+}
+
+
+
+
+
+
