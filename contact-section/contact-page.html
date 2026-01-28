@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +7,62 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="../footer.css" rel="stylesheet" type="text/css" />
     <link href="contact-page.css" rel="stylesheet" type="text/css" />
+    <link href="../nav/nav.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+
+
+
+<!-- NAV BAR -->
+<nav>
+    <div class="nav-content">
+        <div class="toggle-btn">
+            <a class="menu"><i class="fa-solid fa-bars" id="menu-icon"></i></a>
+        </div>
+
+        <span style="--i:1;">
+      <a href="../index.html">
+        <div>
+          <i class="fa-solid fa-house"></i>
+          <p>Home</p>
+        </div>
+      </a>
+    </span>
+
+        <span style="--i:2;">
+      <a href="../project-page/project.html">
+        <div>
+          <i class="fa-solid fa-lightbulb"></i>
+          <p>Projects</p>
+        </div>
+      </a>
+    </span>
+
+        <span style="--i:3;">
+      <a href="../about-me-page/about-me.html">
+        <div>
+          <i class="fa fa-user"></i>
+          <p>About Me</p>
+        </div>
+      </a>
+    </span>
+
+    </div>
+</nav>
+<!-- NAV BAR END -->
+
+
+<!-- Mobile Navigation Bar -->
+<div class="mobile-nav">
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../project-page/project.html">Projects</a></li>
+        <li><a href="../index.html#contact-section"> Contact Me</a></li>
+    </ul>
+</div>
+<!-- Mobile Navigation Bar End -->
+
+
 <div class="contact-container">
     <h1>Contact Me</h1>
 
@@ -53,6 +107,7 @@
     // Auto-update the year
     document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+<script src="../nav/nav.js"></script>
 
 </body>
 </html>
