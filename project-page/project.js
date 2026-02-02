@@ -11,6 +11,7 @@ const CONFIG = {
 const LANG_COLORS = {
   "JavaScript": { bg: "#f7df1e", text: "#000000" },
   "TypeScript": { bg: "#3178c6", text: "#ffffff" },
+  "Jupyter Notebook": {bg: "#DA5B0B", text: "#ffffff"},
   "Python": { bg: "#FFD43B", text: "#306998" },
   "HTML": { bg: "#e34c26", text: "#ffffff" },
   "CSS": { bg: "#2965f1", text: "#ffffff" },
@@ -45,6 +46,7 @@ const FALLBACK_LANGS = {
   "MONNK-CODE/DANGERS-OF-SODA-WEBSITE-FIRST-PROJECT": ["HTML", "CSS"],
   "MONNK-CODE/Stock-Simulator": ["JavaScript", "HTML", "CSS"],
   "MONNK-CODE/NABA-WEBSITE": ["JavaScript", "HTML", "CSS"],
+  "MONNK-CODE/Premier-League-Analysis": ["Jupyter Notebook"],
   "CS196Illinois/FA24-Group1": ["JavaScript", "HTML", "CSS"]
 };
 
