@@ -16,6 +16,7 @@
   <link href="resume.css" rel="stylesheet" type="text/css" />
   <link href="contact-section/contact.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <!--  JS FILES-->
   <script src="script.js"></script>
   <script src="typing.js"></script>
@@ -103,7 +104,6 @@
 <!--      Resume end-->
 
 
-
       <!-- BUTTONS -->
       <div class="btn">
         <a href="about-me-page/about-me.html" class="button1" aria-label="About Me">
@@ -121,6 +121,7 @@
           <i class="fa-solid fa-message"></i>
           Contact Me
         </a>
+
       </div>
       <!-- BUTTONS END -->
 
@@ -150,8 +151,6 @@
 
 
     </section> <!-- end of the intro section -->
-
-
 
 <!--    &lt;!&ndash; CONTACT FORM &ndash;&gt;-->
 <!--    <div id="contact-section" class="contact-section">-->
@@ -260,6 +259,20 @@
   // Auto-update the year
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script type="text/javascript">
+  window.addEventListener('load', function() {
+    Calendly.initBadgeWidget({
+      url: 'https://calendly.com/monnk101/new-meeting',
+      text: 'Schedule time with me',
+      color: '#0069ff',
+      textColor: '#ffffff',
+      branding: true
+    });
+  });
+</script>
+
 
 </body>
 </html>
