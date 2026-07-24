@@ -18,7 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const quotes = [
     "Your future is built in the quiet hours no one applauds.",
     "Discomfort is the tuition you pay for growth.",
-    "When you can’t see the whole path, take the step that’s in front of you."
+    "When you can’t see the whole path, take the step that’s in front of you.",
+    "To conquer frustration, one must remain intensely focused on the outcome, not the obstacles.",
+    "If you are curious, you'll find the puzzles around you. If you are determined, you will solve them.",
+    "Have the courage to make up your mind and hold your decisions.",
+    "Practice makes perfect. After a long time of practicing, our work will become natural, skillful, swift, and steady.",
+    "Stay afraid, but do it anyway. What’s important is the action. You don’t have to wait to be confident. Just do it, and eventually the confidence will follow.",
+    "It’s not about the number of hours you practice, it’s about the number of hours your mind is present during the practice.",
+    "You don’t need to know what happens next. You just need to be ready for the heat."
   ];
 
   function typeEffect(text, elementId, speed = 50) {
