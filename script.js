@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 // API CALL
   const namespace = "muhais-olatundun"; //workspace
-  const key = "first-counter-2519"; //slug
+  const key = "ut_0w0POvoh0DEjrG1tjvjcumXjlu2cgnlciN7sMUdw"; //slug
 
   fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`)
   .then(response => {
