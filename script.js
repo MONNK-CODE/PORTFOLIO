@@ -53,27 +53,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // VISITOR COUNTER
-  function displayCount(data) {
-  const counterElement = document.getElementById('visitor-count');
-  if (counterElement && data.count) {
-  counterElement.innerText = data.count;
+function displayCount(count) {
+  const counterElement = document.getElementById("visitor-count");
+
+  if (counterElement && typeof count === "number") {
+    counterElement.innerText = count;
   }
 }
-// API CALL
-  const namespace = "muhais-olatunduns-team-2519"; //workspace
-  const key = "first-counter-2519";
 
-  fetch(`https://api.counterapi.dev/v2/${namespace}/${key}/up`)
-  .then(response => {
-  if (!response.ok) throw new Error('Network response was not ok');
-  return response.json();
-})
-  .then(data => {
-  displayCount(data);
-})
-  .catch(error => {
-  console.error('Counter Error:', error);
-  // Fallback text if the API fails
-  document.getElementById('visitor-count').innerText = "1";
-});
+// COUNTERAPI V2
+const workspace = "muhais-olatunduns-team-2519";
+const counterName = "first-counter-2519";
+const apiToken = "ut_0w0POvoh0DEjrG1tjvjcumXjlu2cgnlciN7sMUdw";
 
+fetch(
+    `https://api.counterapi.dev/v2/${workspace}/${counterName}/up`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${apiToken}`
+      }
+    }
+)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`CounterAPI error: ${response.status}`);
+      }
+
+      return response.json();
+    })
+    .then(data => {
+      console.log("CounterAPI response:", data);
+
+      displayCount(data.data.up_count);
+    })
+    .catch(error => {
+      console.error("Counter Error:", error);
+
+      const counterElement = document.getElementById("visitor-count");
+
+      if (counterElement) {
+        counterElement.innerText = "1";
+      }
+    });
