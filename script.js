@@ -56,93 +56,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // VISITOR COUNTER
 document.addEventListener("DOMContentLoaded", function () {
-  const workspace = "muhais-olatunduns-team-2519";
-  const counterName = "first-counter-2519";
-
-  // IMPORTANT: replace this after rotating your exposed token
-  const apiToken = "ut_0w0POvoh0DEjrG1tjvjcumXjlu2cgnlciN7sMUdw";
-
   const counterElement = document.getElementById("visitor-count");
 
-  if (!counterElement) {
-    console.error("Visitor counter element not found.");
-    return;
-  }
-
-  fetch(
-      `https://api.counterapi.dev/v2/${workspace}/${counterName}/up`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${apiToken}`
-        }
-      }
-  )
-      .then(async response => {
-        const data = await response.json();
-
+  fetch("/api/visitor-counter")
+      .then(response => {
         if (!response.ok) {
-          console.error("CounterAPI response:", data);
-          throw new Error(`CounterAPI error: ${response.status}`);
+          throw new Error(`Counter error: ${response.status}`);
         }
 
-        return data;
+        return response.json();
       })
       .then(data => {
-        console.log("CounterAPI success:", data);
-
-        if (typeof data?.data?.up_count === "number") {
-          counterElement.textContent = data.data.up_count;
-        } else {
-          throw new Error("Unexpected CounterAPI response");
-        }
+        counterElement.textContent = data.count;
       })
       .catch(error => {
         console.error("Counter Error:", error);
         counterElement.textContent = "—";
       });
 });
-// // VISITOR COUNTER
-// function displayCount(count) {
-//   const counterElement = document.getElementById("visitor-count");
-//
-//   if (counterElement && typeof count === "number") {
-//     counterElement.innerText = count;
-//   }
-// }
-//
-// // COUNTERAPI V2
-// const workspace = "muhais-olatunduns-team-2519";
-// const counterName = "first-counter-2519";
-// const apiToken = "ut_0w0POvoh0DEjrG1tjvjcumXjlu2cgnlciN7sMUdw";
-//
-// fetch(
-//     `https://api.counterapi.dev/v2/${workspace}/${counterName}/up`,
-//     {
-//       method: "GET",
-//       headers: {
-//         Authorization: `Bearer ${apiToken}`
-//       }
-//     }
-// )
-//     .then(response => {
-//       if (!response.ok) {
-//         throw new Error(`CounterAPI error: ${response.status}`);
-//       }
-//
-//       return response.json();
-//     })
-//     .then(data => {
-//       console.log("CounterAPI response:", data);
-//
-//       displayCount(data.data.up_count);
-//     })
-//     .catch(error => {
-//       console.error("Counter Error:", error);
-//
-//       const counterElement = document.getElementById("visitor-count");
-//
-//       if (counterElement) {
-//         counterElement.innerText = "1";
-//       }
-//     });
