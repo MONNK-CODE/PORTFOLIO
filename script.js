@@ -60,8 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 }
 // API CALL
-  const namespace = "muhais-olatundun"; //workspace
-  const key = "ut_0w0POvoh0DEjrG1tjvjcumXjlu2cgnlciN7sMUdw";
+  const namespace = "muhais-olatunduns-team-2519"; //workspace
+  const key = "first-counter-2519";
 
   fetch(`https://api.counterapi.dev/v2/${namespace}/${key}/up`)
   .then(response => {
