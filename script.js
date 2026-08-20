@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener("DOMContentLoaded", function () {
   const counterElement = document.getElementById("visitor-count");
 
-  fetch("/api/visitor-counter")
+  fetch("api/visitor-counter")
       .then(response => {
         if (!response.ok) {
           throw new Error(`Counter error: ${response.status}`);
