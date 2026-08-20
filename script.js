@@ -61,9 +61,9 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 // API CALL
   const namespace = "muhais-olatundun"; //workspace
-  const key = "ut_0w0POvoh0DEjrG1tjvjcumXjlu2cgnlciN7sMUdw"; //slug
+  const key = "ut_0w0POvoh0DEjrG1tjvjcumXjlu2cgnlciN7sMUdw";
 
-  fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`)
+  fetch(`https://api.counterapi.dev/v2/${namespace}/${key}/up`)
   .then(response => {
   if (!response.ok) throw new Error('Network response was not ok');
   return response.json();
