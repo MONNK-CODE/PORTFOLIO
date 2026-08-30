@@ -1,10 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Onest&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Combo&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght&display=swap');
-
-
 /* == ANIMATION STYLES == */
 /* Keyframes for the slide-up and fade-in animation */
 @keyframes slideUpFadeIn {
@@ -70,7 +63,6 @@ h4.details {
     box-sizing: border-box;
     text-decoration: none;
     scroll-behavior: smooth;
-    font-family: "Geist Mono", 'Onest', 'Combo', 'Outfit',"DM Sans", 'sans-serif';
     /*font-weight: 100;*/
 }
 

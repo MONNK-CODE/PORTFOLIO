@@ -8,6 +8,8 @@
     <link href="../footer.css" rel="stylesheet" type="text/css" />
     <link href="contact-page.css" rel="stylesheet" type="text/css" />
     <link href="../nav/nav.css" rel="stylesheet" type="text/css" />
+    <script src="../font.js" defer></script>
+    <link href="../font.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -57,7 +59,7 @@
     <ul>
         <li><a href="../index.html">Home</a></li>
         <li><a href="../project-page/project.html">Projects</a></li>
-        <li><a href="../index.html#contact-section"> Contact Me</a></li>
+        <li><a href="../about-me-page/about-me.html"> About Me</a></li>
     </ul>
 </div>
 <!-- Mobile Navigation Bar End -->
@@ -72,10 +74,57 @@
             <span>Muhais Olatundun</span>
         </a>
 
+        <!-- Email Button with Copy Icon Inside -->
         <a href="mailto:monnk101@gmail.com" class="contact-btn email">
             <i class="fas fa-envelope"></i>
             <span>monnk101@gmail.com</span>
+            <!-- The copy icon -->
+            <i class="fas fa-copy copy-icon" onclick="copyEmail(event)" title="Copy Email"></i>
         </a>
+
+        <script>
+            function copyEmail(event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                const email = "monnk101@gmail.com";
+                const icon = event.target;
+
+                navigator.clipboard.writeText(email).then(() => {
+                    icon.classList.remove('fa-copy');
+                    icon.classList.add('fa-check');
+
+                    setTimeout(() => {
+                        icon.classList.remove('fa-check');
+                        icon.classList.add('fa-copy');
+                    }, 2000);
+                });
+            }
+        </script>
+
+        <style>
+            /* Copy Icon Styles */
+            .copy-icon {
+                position: absolute;
+                right: 20px;
+                font-size: 1.2rem !important; /* Slightly smaller than the main envelope icon */
+                cursor: pointer;
+                transition: transform 0.2s ease, color 0.2s ease;
+                z-index: 10; /* Ensures it stays clickable above the button background */
+            }
+
+            /* Add a fun little hover effect for the icon */
+            .copy-icon:hover {
+                transform: scale(1.2);
+                color: #ffffff;
+            }
+
+            @media (max-width: 768px) {
+                .copy-icon {
+                    right: 15px;
+                }
+            }
+        </style>
 
         <a href="https://github.com/MONNK-CODE" target="_blank" class="contact-btn github">
             <i class="fab fa-github"></i>
@@ -101,7 +150,7 @@
 
 
 
-<footer class="site-footer">
+<footer class="site-footer" style="background: #1e1e1e; margin-top:200px;">
     <p>&copy; <span id="year"></span> Muhais Olatundun. All rights reserved.</p>
 </footer>
 

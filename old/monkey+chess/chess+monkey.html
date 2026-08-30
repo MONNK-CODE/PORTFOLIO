@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess + Monkey</title>
+    <script src="chess.js"></script>
+    <link href="monkey+chess.css" rel="stylesheet" type="text/css">
+    <script src="monkey.js"></script>
+<!--    <link href="../../about-me-page/about-me.css" rel="stylesheet" type="text/css">-->
+
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+    <div class="stats-container">
+        <h2 class="chess-title">Chess Stats</h2>
+        <ul class="stats-list">
+            <li>
+                <div class="stat-icon">♟️</div>
+                <span class="stat-name">Games</span>
+                <span class="stat-value" id="games">...</span>
+            </li>
+            <li>
+                <div class="stat-icon">⏱️</div>
+                <span class="stat-name">Rapid</span>
+                <span class="stat-value" id="rapid">...</span>
+            </li>
+            <li>
+                <div class="stat-icon">⚡</div>
+                <span class="stat-name">Blitz</span>
+                <span class="stat-value" id="blitz">...</span>
+            </li>
+            <li>
+                <div class="stat-icon">🚀</div>
+                <span class="stat-name">Bullet</span>
+                <span class="stat-value" id="bullet">...</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="monkey-stats-component">
+        <div class="stats-card">
+            <h2>Typing Stats</h2>
+            <div id="stats-grid" class="stat-grid">
+                <div class="stat">
+                    <span class="stat-label">wpm</span>
+                    <span id="wpm-30" class="stat-value">...</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">accuracy</span>
+                    <span id="acc-30" class="stat-value">...</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">consistency</span>
+                    <span id="consistency-30" class="stat-value">...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

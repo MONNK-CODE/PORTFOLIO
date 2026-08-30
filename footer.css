@@ -12,7 +12,7 @@
     .site-footer {
         background-color: #f0f0f0;
         color: #1a1a1a;
-        font-weight: 600; /* Slightly more readable than bold */
+        font-weight: 600;
     }
 
     .site-footer * {

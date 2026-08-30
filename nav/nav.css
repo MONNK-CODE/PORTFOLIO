@@ -106,7 +106,6 @@ nav.open .nav-content span {
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
-  font-family: 'Outfit', sans-serif;
 }
 
 
@@ -156,7 +155,6 @@ nav.open .nav-content span {
   color: #F0F8FF;
   font-weight: 400;
   font-size: 14px;
-  font-family: 'Outfit', serif;
   text-transform: uppercase;
   text-align: center;
   transition: .5s;
