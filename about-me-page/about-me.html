@@ -4,21 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
-    <link rel="icon" type="image/x-icon" href="../project-page/proj-images/nk.PNG">
+    <link rel="icon" type="image/x-icon" href="../profile.jpg">
     <link href="about-me.css" rel="stylesheet" type="text/css">
     <link href="language.css" rel="stylesheet" type="text/css">
     <link href="surah.css" rel="stylesheet" type="text/css">
-    <script src="about-me.js"></script>
-    <script src="../font.js" defer></script>
+    <script src="about-me.js" defer></script>
     <link href="../font.css" rel="stylesheet" type="text/css">
     <link href="../nav/nav.css" rel="stylesheet" type="text/css">
     <link href="../footer.css" rel="stylesheet" type="text/css">
     <script src="../nav/nav.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link href="age-calculator/age.css" rel="stylesheet" type="text/css">
 
 
@@ -29,7 +25,14 @@
 <nav>
     <div class="nav-content">
         <div class="toggle-btn">
-            <a class="menu"><i class="fa-solid fa-bars" id="menu-icon"></i></a>
+            <button
+                    class="menu"
+                    type="button"
+                    aria-label="Open navigation"
+                    aria-expanded="false"
+            >
+                <i class="fa-solid fa-bars" id="menu-icon"></i>
+            </button>
         </div>
 
         <span style="--i:1;">
@@ -69,8 +72,8 @@
     <ul>
         <li><a href="../index.html">Home</a></li>
         <li><a href="../project-page/project.html">Projects</a></li>
-        <li><a href="../contact-section/contact-page.html">Projects</a></li>
-<!--        <li><a href="../index.html#contact-section"> Contact Me</a></li>-->
+        <li><a href="../contact-section/contact-page.html">Contact Me</a></li>
+        <!--        <li><a href="../index.html#contact-section"> Contact Me</a></li>-->
 
     </ul>
 </div>
@@ -81,151 +84,202 @@
     <div class="content">
         <div class="title"><span>About Me</span></div>
 
-         <!--  Age Calculator-->
+        <!--  Age Calculator-->
         <div class="age-container" aria-live="polite">
             <div class="age-display">
-                <span id="age-counter">18.000000000</span>
+                <span id="age-counter"></span>
             </div>
         </div>
         <!--  Age Calculator-->
 
-        <div class="about-me-container">
-            <div class="about-left">
-                <h2 class="t-head" style="text-align:center;">A Glimpse of Me 📸</h2>
-                <div id="photoCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-touch="true">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#photoCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
-                        <button type="button" data-bs-target="#photoCarousel" data-bs-slide-to="1"></button>
-                        <button type="button" data-bs-target="#photoCarousel" data-bs-slide-to="2"></button>
-                    </div>
+        <!-- About Me Story -->
+        <div class="story-experience">
 
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="aboutme-imgs/your-image-3.JPG" class="carousel-image" alt="Photo 1">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="aboutme-imgs/your-image-2.jpg" class="carousel-image" alt="Photo 2">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="aboutme-imgs/your-image-1.jpg" class="carousel-image" alt="Photo 3">
-                        </div>
+            <!-- 01: Intro -->
+            <article class="story-panel">
+                <div class="story-panel-media">
+                    <img src="aboutme-imgs/your-image-2.jpg" alt="Muhais" class="story-image">
+                    <div class="story-media-overlay"></div>
+                    <div class="story-media-meta">
+                        <span>01</span>
+                        <span>INTRO</span>
                     </div>
-
-                    <button class="carousel-control-prev desktop-only" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    </button>
-                    <button class="carousel-control-next desktop-only" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    </button>
                 </div>
-            </div>
-            <div class="about-right">
-                <h3 class="t-head">Get to Know Me!</h3>
-                <h4 class="details">
-                    Hey! I’m <strong>Muhais</strong> <i class="fa-solid fa-hand-wave"></i>, a sophomore at the <strong>University of Illinois Urbana-Champaign</strong> majoring in <strong>Statistics</strong> with minors in <strong>Data Science</strong> and <strong>Business</strong>. I’m curious about how we make decisions, from what drives digital products to how data shapes behavior.
-                    <br><br>When I’m not working on a new side project or debugging code, you’ll probably catch me playing <strong>Fortnite</strong> or managing my squad in <strong>EA FC</strong>. I'm a Gunner, so you know I support <strong>Arsenal</strong> ⚽.
-                    <br><br>My favorite food is <strong>semo and efo riro with turkey</strong> 🍽️, a dish rich in flavor and history. As a <strong>Muslim</strong> and proud <strong>Nigerian</strong> 🇳🇬, my faith and culture guide everything I pursue.
-                    <br><br>These days, I'm exploring how to build smarter tools that streamline tasks. You can also find me sharing insights and reflections on <a href="https://www.linkedin.com/in/muhais-olatundun" target="_blank">LinkedIn</a> or creating content on <a href="https://www.tiktok.com/@therealmuhais_" target="_blank">TikTok</a> & <a href="https://www.instagram.com/therealmuhais?" target="_blank">Instagram</a>. Feel free to reach out—let's connect!
-                </h4>
-            </div>
-        </div>
 
+                <div class="story-copy">
+                    <span class="story-index">01 / 05</span>
+                    <h2>Hey, I’m <span>Muhais.</span></h2>
+
+                    <p>
+                        I’m the type of person who can have one random thought,
+                        think about it for way too long, and eventually decide,
+                        <strong>“I might as well do something with this.”</strong>
+                    </p>
+
+                    <p>
+                        A lot of what interests me sits somewhere between
+                        <strong>data, technology, business, creativity, and people.</strong>
+                        I like figuring out why things work the way they do,
+                        and sometimes questioning why they were made that way
+                        in the first place.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 02: Building -->
+            <article class="story-panel">
+                <div class="story-panel-media">
+                    <img src="aboutme-imgs/your-image-1.jpg" alt="Muhais working on ideas and projects" class="story-image" loading="lazy">
+                    <div class="story-media-overlay"></div>
+                    <div class="story-media-meta">
+                        <span>02</span>
+                        <span>BUILD</span>
+                    </div>
+                </div>
+
+                <div class="story-copy">
+                    <span class="story-index">02 / 05</span>
+                    <h2>My ideas rarely stay <span>ideas.</span></h2>
+
+                    <p>
+                        A lot of my projects start with one question:
+                        <strong>“Why doesn’t this already exist?”</strong>
+                    </p>
+
+                    <p>
+                        Sometimes the answer becomes a website.
+                        Sometimes it becomes a data project, an app concept,
+                        or something sitting unfinished in my notes.
+                        Either way, building things is one of the main ways I learn.
+                    </p>
+
+                    <a href="../project-page/project.html" class="story-text-link">
+                        See what I’ve been building
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- 03: Roots -->
+            <article class="story-panel">
+                <div class="story-panel-media">
+                    <img src="aboutme-imgs/your-image-4.JPG" alt="A personal photo representing Muhais's roots" class="story-image" loading="lazy">
+                    <div class="story-media-overlay"></div>
+                    <div class="story-media-meta">
+                        <span>03</span>
+                        <span>ROOTS</span>
+                    </div>
+                </div>
+
+                <div class="story-copy">
+                    <span class="story-index">03 / 05</span>
+                    <h2>But I’m more than what I <span>build.</span></h2>
+
+                    <p>
+                        I’m <strong>Nigerian 🇳🇬</strong> and
+                        <strong>Muslim</strong>, and both are important parts
+                        of how I understand myself and the world around me.
+                    </p>
+
+                    <p>
+                        And yes, give me
+                        <strong>semo, efo riro, and turkey</strong>
+                        and you’ve probably made my day.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 04: Offline -->
+            <article class="story-panel">
+                <div class="story-panel-media">
+                    <img src="aboutme-imgs/your-image-5.jpg" alt="Muhais outside of work and projects" class="story-image" loading="lazy">
+                    <div class="story-media-overlay"></div>
+                    <div class="story-media-meta">
+                        <span>04</span>
+                        <span>OFFLINE</span>
+                    </div>
+                </div>
+
+                <div class="story-copy">
+                    <span class="story-index">04 / 05</span>
+                    <h2>There is an <span>offline Muhais</span> too.</h2>
+
+                    <p>
+                        I’m an <strong>Arsenal</strong> supporter,
+                        which means football regularly ruins or improves my weekend.
+                    </p>
+
+                    <p>
+                        I’ll also somehow end up on <strong>Fortnite</strong>
+                        or spend way too much time building a squad on
+                        <strong>EA FC</strong>.
+                    </p>
+
+                    <p>
+                        I take the things I care about seriously.
+                        I try not to take myself too seriously.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 05: ThinkingWithMuhais -->
+<!--            <article class="story-panel thinking-panel">-->
+<!--                <div class="story-panel-media">-->
+<!--                    <img src="aboutme-imgs/your-image-3.JPG" alt="ThinkingWithMuhais" class="story-image" loading="lazy">-->
+<!--                    <div class="story-media-overlay"></div>-->
+<!--                    <div class="story-media-meta">-->
+<!--                        <span>05</span>-->
+<!--                        <span>THINKING</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="story-copy">-->
+<!--                    <span class="story-index">05 / 05</span>-->
+<!--                    <p class="thinking-kicker">And then there’s everything going on up here...</p>-->
+<!--                    <h2 class="thinking-title">Thinking<span>WithMuhais.</span></h2>-->
+
+<!--                    <p class="thinking-opening">I think a lot. Probably too much.</p>-->
+
+<!--                    <p>-->
+<!--                        About growth. Faith. Relationships. Ambition.-->
+<!--                        People. Perspective. And those random moments in life-->
+<!--                        that seem small until you actually sit with them.-->
+<!--                    </p>-->
+
+<!--                    <p>-->
+<!--                        <strong>ThinkingWithMuhais</strong> is where some of those-->
+<!--                        thoughts finally leave my head.-->
+<!--                    </p>-->
+
+<!--                    <a-->
+<!--                            href="#"-->
+<!--                            target="_blank"-->
+<!--                            rel="noopener noreferrer"-->
+<!--                            class="thinking-button"-->
+<!--                    >-->
+<!--                        <div>-->
+<!--                            <span>Enter ThinkingWithMuhais</span>-->
+<!--                            <small>See what I’ve been thinking about</small>-->
+<!--                        </div>-->
+
+<!--                        <i class="fa-solid fa-arrow-up-right-from-square"></i>-->
+<!--                    </a>-->
+
+<!--                    <div class="story-signoff">to impact and be impacted.</div>-->
+<!--                </div>-->
+<!--            </article>-->
+
+        </div>
     </div>
 </section>
 <!-- About Section End -->
 
 
-<!-- My Skill Section -->
-<section class="skills" id="skills">
-    <div class="content">
-        <div class="title sn"><span>Technical Profile</span></div>
 
-        <div class="stack-grid">
+<!-- Personal Details: Verse + Languages -->
+<div class="personal-details-grid">
 
-            <!-- TECH STACK CARD -->
-            <div class="stack-card">
-                <h3 class="stack-title">Tech Stack</h3>
-
-                <div class="stack-section">
-                    <div class="stack-label">LANGUAGES</div>
-                    <div class="pill-row">
-                        <span class="pill python-icon"><i class="devicon-python-plain"></i>Python</span>
-                        <span class="pill js-icon"><i class="devicon-javascript-plain"></i>JavaScript</span>
-                        <span class="pill kt-icon"><i class="devicon-kotlin-plain"></i>Kotlin</span>
-                        <span class="pill rstudio-icon"><i class="devicon-r-plain"></i>R</span>
-                    </div>
-                </div>
-
-                <div class="stack-section">
-                    <div class="stack-label">FRONTEND</div>
-                    <div class="pill-row">
-                        <span class="pill react-icon"><i class="devicon-react-original"></i>React</span>
-                        <span class="pill html-icon"><i class="devicon-html5-plain"></i>HTML</span>
-                        <span class="pill css-icon"><i class="devicon-css3-plain"></i>CSS</span>
-                    </div>
-                </div>
-
-                <div class="stack-section">
-                    <div class="stack-label">DATA & TOOLS</div>
-                    <div class="pill-row">
-                        <span class="pill jupyter-icon"><i class="fa-solid fa-book"></i>Jupyter Notebook</span>
-                        <span class="pill colab-icon"><i class="fa-brands fa-google"></i>Colab</span>
-                        <span class="pill excel-icon"><i class="fa-solid fa-file-excel"></i>Excel</span>
-                    </div>
-                </div>
-                </div>
-
-                <div class="stack-section">
-                    <div class="stack-card">
-<!--                    <div class="stack-label">CERTIFICATIONS</div>-->
-                    <h3 class="stack-title">CERTIFICATIONS</h3>
-                    <div class="pill-row">
-                        <span class="pill"><i class="fa-solid fa-certificate"></i>CodePath Intermediate Web Dev</span>
-                        <a href="https://d7.cs.illinois.edu/badges/DPI-discovery-su24-WLi0RQ803Ihvch3Jslf9sQrALsMw0c/"
-                           target="_blank"
-                           class="pill"
-                           style="text-decoration: none;">
-                            <i class="fa-solid fa-certificate"></i>
-                            Data Science Discovery
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ACTUARIAL EXAMS CARD -->
-<!--            <div class="stack-card">-->
-<!--                <h3 class="stack-title">Actuarial Exams</h3>-->
-
-<!--                <div class="stack-section">-->
-<!--                    <div class="stack-label">Property & Casualty (P&C) TRACK</div>-->
-<!--                    <div class="pill-row">-->
-<!--            <span class="pill">-->
-<!--              <i class="fa-solid fa-calculator"></i>Exam FM-->
-<!--              <span class="pill-meta">Sitting Sep 2026</span>-->
-<!--            </span>-->
-<!--                        <span class="pill">-->
-<!--              <i class="fa-solid fa-chart-line"></i>Exam P-->
-<!--              <span class="pill-meta">Sitting Jun 2027</span>-->
-<!--            </span>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                <div class="stack-section">-->
-<!--                    <div class="stack-label">RELEVANT COURSEWORK</div>-->
-<!--                    <div class="pill-row">-->
-<!--                        <span class="pill"><i class="fa-solid fa-square-root-variable"></i>Calculus I–II</span>-->
-<!--                        <span class="pill"><i class="fa-solid fa-chart-simple"></i>Probability</span>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-
-        </div>
-    </div>
-</section>
-
-<!-- My Skill Section End -->
-
-     <!-- MY Favorite Quran Verse Section -->
+    <!-- Favorite Quran Verse -->
     <section class="quran-section" id="quran">
         <div class="content">
             <div class="title"><span>Favorite Quran Verse</span></div>
@@ -241,7 +295,7 @@
                         Surah Ash-Sharh (94:6)<br>
                         The Relief
                     </div>
-                    <a href="https://quran.com/94/5" target="_blank" class="quran-link">
+                    <a href="https://quran.com/94/6" target="_blank" class="quran-link">
                         Read Full Surah →
                     </a>
                 </div>
@@ -249,56 +303,59 @@
         </div>
     </section>
 
+    <!-- Languages -->
+    <section class="languages-section" id="languages">
+        <div class="content">
+            <div class="title"><span>Languages I Speak</span></div>
+            <div class="languages-container">
+                <div class="language-item">
+                    <div class="language-flag">🇺🇸</div>
+                    <div class="language-info">
+                        <h3>English</h3>
+                        <div class="proficiency-bar">
+                            <div class="proficiency-fill" data-level="100"></div>
+                        </div>
+                        <span class="proficiency-text">Native</span>
+                    </div>
+                </div>
 
+                <div class="language-item">
+                    <div class="language-flag">🇳🇬</div>
+                    <div class="language-info">
+                        <h3>Yoruba</h3>
+                        <div class="proficiency-bar">
+                            <div class="proficiency-fill" data-level="90"></div>
+                        </div>
+                        <span class="proficiency-text">Native</span>
+                    </div>
+                </div>
 
-<!-- Languages Section -->
-<section class="languages-section" id="languages">
-    <div class="content">
-        <div class="title"><span>Languages I Speak</span></div>
-        <div class="languages-container">
-            <div class="language-item">
-                <div class="language-flag">🇺🇸</div>
-                <div class="language-info">
-                    <h3>English</h3>
-                    <div class="proficiency-bar">
-                        <div class="proficiency-fill" data-level="100"></div>
+                <div class="language-item">
+                    <div class="language-flag">🗣️</div>
+                    <div class="language-info">
+                        <h3>Nigerian Pidgin</h3>
+                        <div class="proficiency-bar">
+                            <div class="proficiency-fill" data-level="80"></div>
+                        </div>
+                        <span class="proficiency-text">Intermediate</span>
                     </div>
-                    <span class="proficiency-text">Native</span>
                 </div>
-            </div>
-            <div class="language-item">
-                <div class="language-flag">🇳🇬</div>
-                <div class="language-info">
-                    <h3>Yoruba</h3>
-                    <div class="proficiency-bar">
-                        <div class="proficiency-fill" data-level="90"></div>
+
+                <div class="language-item">
+                    <div class="language-flag">🇫🇷</div>
+                    <div class="language-info">
+                        <h3>French</h3>
+                        <div class="proficiency-bar">
+                            <div class="proficiency-fill" data-level="30"></div>
+                        </div>
+                        <span class="proficiency-text">Basic</span>
                     </div>
-                    <span class="proficiency-text">Native</span>
-                </div>
-            </div>
-            <div class="language-item">
-                <div class="language-flag">🗣️</div>
-                <div class="language-info">
-                    <h3>Nigerian Pidgin</h3>
-                    <div class="proficiency-bar">
-                        <div class="proficiency-fill" data-level="80"></div>
-                    </div>
-                    <span class="proficiency-text">Intermediate</span>
-                </div>
-            </div>
-            <div class="language-item">
-                <div class="language-flag">🇫🇷</div>
-                <div class="language-info">
-                    <h3>French</h3>
-                    <div class="proficiency-bar">
-                        <div class="proficiency-fill" data-level="30"></div>
-                    </div>
-                    <span class="proficiency-text">Basic</span>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+</div>
 
 
 

@@ -2,7 +2,6 @@
 
 /* Light Mode Styles */
 .contact-section {
-    font-family: 'Outfit', serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,7 +59,6 @@ textarea {
     border: 2px solid #292424;
     border-radius: 4px;
     transition: border-color 0.3s, background-color 0.3s, color 0.3s;
-    font-family: 'Outfit', serif;
     background-color: #f0f0f0;
     color: #292424;
 }

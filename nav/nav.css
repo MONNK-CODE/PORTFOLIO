@@ -32,16 +32,28 @@ nav .nav-content {
   z-index: 2;
 }
 
-.toggle-btn i {
+.nav-content .toggle-btn .menu {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-btn i,
+.toggle-btn svg {
   font-size: 28px;
   color: #fff;
   transition: transform 0.2s ease;
 }
 
-nav.open .toggle-btn i {
+nav.open .toggle-btn i,
+nav.open .toggle-btn svg {
   transform: rotate(180deg);
 }
-
 .nav-content span {
   position: absolute;
   top: 20px;

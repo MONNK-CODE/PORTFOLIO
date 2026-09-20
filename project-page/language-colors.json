@@ -1,0 +1,22 @@
+{
+  "default": "#6c757d",
+  "languages": {
+    "JavaScript": "#f7df1e",
+    "TypeScript": "#3178c6",
+    "Jupyter Notebook": "#DA5B0B",
+    "Python": "#3572A5",
+    "HTML": "#e34c26",
+    "CSS": "#563d7c",
+    "Kotlin": "#A97BFF",
+    "Java": "#b07219",
+    "C": "#555555",
+    "C++": "#f34b7d",
+    "C#": "#178600",
+    "Go": "#00ADD8",
+    "Rust": "#dea584",
+    "Swift": "#F05138",
+    "Stata": "#1a5aa6",
+    "R": "#198CE7",
+    "MATLAB": "#e16737"
+  }
+}

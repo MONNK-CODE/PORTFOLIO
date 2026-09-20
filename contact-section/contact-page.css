@@ -5,7 +5,6 @@
 }
 
 body {
-    /*font-family: "Geist Mono", 'Onest', 'Combo', 'Outfit', "DM Sans", sans-serif;*/
     background-color: #1e1e1e;
     color: #ffffff;
     min-height: 100vh;
@@ -21,10 +20,12 @@ body {
         background-color: #f0f0f0;
         color: #333;
     }
+
     .contact-btn {
         background-color: #ffffff;
         color: #333;
     }
+
     .contact-btn:hover {
         background-color: #0056b3;
         color: #ffffff;
@@ -32,7 +33,7 @@ body {
 }
 
 .contact-container {
-    max-width: 600px;
+    max-width: 720px;
     width: 100%;
     animation: fadeIn 0.8s ease-out;
 }
@@ -52,8 +53,6 @@ h1 {
     font-size: 3rem;
     text-align: center;
     margin-bottom: 60px;
-    /*font-family: "Geist Mono", 'Onest', 'Combo', 'Outfit', "DM Sans", sans-serif;*/
-    /*letter-spacing: 2px;*/
     animation: slideDown 0.6s ease-out;
 }
 
@@ -76,25 +75,35 @@ h1 {
 }
 
 .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 180px);
+    gap: 24px;
+    justify-content: center;
+    justify-items: center;
 }
 
 .contact-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
-    padding: 18px 30px;
-    background-color: transparent;
+    flex-direction: column;
+    gap: 8px;
+    width: 180px;
+    height: 132px;
+    padding: 18px;
+    background-color: rgba(255, 255, 255, 0.04);
     border: 2px solid #0056b3;
-    border-radius: 12px;
+    border-radius: 30px;
     color: #ffffff;
     text-decoration: none;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
+    font-size: 0.72rem;
+    line-height: 1.12;
+    text-align: center;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.24);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
     position: relative;
+    isolation: isolate;
     overflow: hidden;
     animation: slideUp 0.6s ease-out backwards;
 }
@@ -221,12 +230,49 @@ h1 {
     background: linear-gradient(45deg, transparent, rgba(255, 0, 0, 0.3), transparent);
 }
 
-.contact-btn:nth-child(1) { animation-delay: 0.1s; }
-.contact-btn:nth-child(2) { animation-delay: 0.2s; }
-.contact-btn:nth-child(3) { animation-delay: 0.3s; }
-.contact-btn:nth-child(4) { animation-delay: 0.4s; }
-.contact-btn:nth-child(5) { animation-delay: 0.5s; }
-.contact-btn:nth-child(6) { animation-delay: 0.6s; }
+/* Calendly - Green */
+.contact-btn.calendly {
+    border-color: #00a2ff;
+}
+
+.contact-btn.calendly::before {
+    background: radial-gradient(circle, rgba(0, 162, 255, 0.4) 0%, rgba(0, 201, 167, 0.25) 50%, transparent 70%);
+}
+
+.contact-btn.calendly:hover {
+    border-color: #00c9a7;
+    box-shadow: 0 0 20px rgba(0, 162, 255, 0.55),
+    0 0 40px rgba(0, 201, 167, 0.3),
+    inset 0 0 20px rgba(0, 162, 255, 0.14);
+}
+
+.contact-btn.calendly:hover::after {
+    background: linear-gradient(45deg, transparent, rgba(0, 162, 255, 0.3), rgba(0, 201, 167, 0.3), transparent);
+}
+
+.contact-btn:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.contact-btn:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.contact-btn:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.contact-btn:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.contact-btn:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.contact-btn:nth-child(6) {
+    animation-delay: 0.6s;
+}
 
 @keyframes slideUp {
     from {
@@ -246,7 +292,7 @@ h1 {
     left: 50%;
     width: 0;
     height: 0;
-    border-radius: 50%;
+    border-radius: 20px;
     transform: translate(-50%, -50%);
     transition: width 0.6s ease, height 0.6s ease;
     z-index: -1;
@@ -261,7 +307,8 @@ h1 {
     content: '';
     position: absolute;
     inset: 0;
-    border-radius: 12px;
+    border-radius: 20px;
+    z-index: 0;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -272,36 +319,101 @@ h1 {
 
 .contact-btn:hover {
     color: #ffffff;
-    transform: translateX(5px);
+    background-color: rgba(255, 255, 255, 0.08);
+    transform: translateY(-6px) scale(1.04);
 }
 
 .contact-btn i {
-    font-size: 1.5rem;
-    min-width: 24px;
+    position: relative;
+    z-index: 1;
+    font-size: 2rem;
+    min-width: 0;
 }
 
-/*.contact-btn span {*/
-/*    font-family: "Geist Mono", monospace;*/
-/*}*/
+.contact-btn span {
+    position: relative;
+    z-index: 1;
+    display: block;
+    max-width: calc(100% - 10px);
+    overflow-wrap: anywhere;
+    hyphens: auto;
+}
 
 @media (max-width: 768px) {
+    .contact-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        width: 100%;
+    }
+
     .contact-btn {
-        padding: 15px 20px;
-        font-size: 1rem;
-        background-color: #0056b3;
-        border-color: #0056b3;
+        width: 100%;
+        max-width: 160px;
+        height: 118px;
+        padding: 12px;
+        gap: 6px;
+        font-size: 0.81rem;
+        line-height: 1.08;
+        background-color: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.24);
+        transition: none;
     }
 
     .contact-btn::before {
         display: none;
     }
 
+    .contact-btn::after {
+        display: none;
+    }
+
     .contact-btn:hover {
         transform: none;
-        background-color: #0056b3;
+        background-color: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.24);
+        border-color: inherit;
+    }
+
+    .contact-btn.linkedin:hover {
+        border-color: #0077b5;
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.24);
+    }
+
+    .contact-btn.email:hover {
+        border-color: #ea4335;
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.24);
+    }
+
+    .contact-btn.github:hover {
+        border-color: #8b5cf6;
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.24);
+    }
+
+    .contact-btn.instagram:hover {
+        border-color: #e1306c;
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.24);
+    }
+
+    .contact-btn.tiktok:hover {
+        border-color: #00f2ea;
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.24);
+    }
+
+    .contact-btn.youtube:hover {
+        border-color: #ff0000;
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.24);
+    }
+
+    .contact-btn.calendly:hover {
+        border-color: #00a2ff;
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.24);
     }
 
     .contact-btn i {
-        font-size: 1.3rem;
+        font-size: 1.45rem;
+    }
+
+    .contact-btn span {
+        max-width: 100%;
     }
 }

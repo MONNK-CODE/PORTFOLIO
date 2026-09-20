@@ -13,5 +13,5 @@ function updateAge() {
 }
 
 
-setInterval(updateAge, 50);
+setInterval(updateAge);
 updateAge();

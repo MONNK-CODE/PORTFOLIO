@@ -1,268 +1,1200 @@
-/* ==============================
-   Configuration & Constants
-============================== */
+
 const CONFIG = {
   CACHE_TTL_MS: 24 * 60 * 60 * 1000,
   STORAGE_KEY_PREFIX: "repoLangs::",
   API_STAGGER_DELAY: 120,
-  API_ENDPOINT: "/api/github-langs"
+  API_ENDPOINT: "/api/github-langs",
+  LANGUAGE_COLORS_FILE: "./language-colors.json"
 };
 
-const LANG_COLORS = {
-  "JavaScript": { bg: "#f7df1e", text: "#000000" },
-  "TypeScript": { bg: "#3178c6", text: "#ffffff" },
-  "Jupyter Notebook": {bg: "#DA5B0B", text: "#ffffff"},
-  "Python": { bg: "#FFD43B", text: "#306998" },
-  "HTML": { bg: "#e34c26", text: "#ffffff" },
-  "CSS": { bg: "#2965f1", text: "#ffffff" },
-  "Kotlin": { bg: "#a97bff", text: "#000000" },
-  "Java": { bg: "#b07219", text: "#ffffff" },
-  "C": { bg: "#555555", text: "#ffffff" },
-  "C++": { bg: "#00599c", text: "#ffffff" },
-  "C#": { bg: "#178600", text: "#ffffff" },
-  "Go": { bg: "#00add8", text: "#000000" },
-  "Rust": { bg: "#dea584", text: "#000000" },
-  "Swift": { bg: "#f05138", text: "#ffffff" },
-  "PHP": { bg: "#777bb4", text: "#ffffff" },
-  "Ruby": { bg: "#cc342d", text: "#ffffff" },
-  "Shell": { bg: "#89e051", text: "#000000" },
-  "Stata": { bg: "#1a5aa6", text: "#ffffff" }
-};
 
-const DEFAULT_LANG_COLOR = { bg: "#6c757d", text: "#ffffff" };
+
+let LANG_COLORS = {};
+let DEFAULT_LANG_COLOR = "#6c757d";
+
+
+/* ===================================================
+   FALLBACK LANGUAGES
+
+   These are only used if the GitHub language
+   API request fails.
+
+   Successful API responses still display
+   actual percentage breakdowns.
+=================================================== */
 
 const FALLBACK_LANGS = {
-  "MONNK-CODE/PAY-CALCULATOR": ["JavaScript", "HTML", "CSS"],
-  "MONNK-CODE/GPA-CALCULATOR": ["JavaScript", "HTML", "CSS"],
-  "MONNK-CODE/GuessMaster-WebApp": ["JavaScript", "HTML", "CSS"],
-  "MONNK-CODE/Password-Generator-WebApp": ["JavaScript", "HTML", "CSS"],
-  "MONNK-CODE/Instant-Ayah": ["JavaScript", "HTML", "CSS"],
-  "MONNK-CODE/WAGE-CALCULATOR": ["Python"],
-  "MONNK-CODE/RPS-GAME": ["JavaScript", "HTML", "CSS"],
-  "MONNK-CODE/Random-Quote-Generator": ["JavaScript", "HTML", "CSS"],
-  "MONNK-CODE/Calculator": ["JavaScript", "HTML", "CSS"],
-  "MONNK-CODE/Trip-to-School": ["JavaScript", "HTML", "CSS"],
-  "MONNK-CODE/GENRE-REMIX": ["JavaScript", "HTML", "CSS"],
-  "MONNK-CODE/DANGERS-OF-SODA-WEBSITE-FIRST-PROJECT": ["HTML", "CSS"],
-  "MONNK-CODE/Stock-Simulator": ["JavaScript", "HTML", "CSS"],
-  "MONNK-CODE/NABA-WEBSITE": ["JavaScript", "HTML", "CSS"],
-  "MONNK-CODE/Premier-League-Analysis": ["Jupyter Notebook"],
-  "CS196Illinois/FA24-Group1": ["JavaScript", "HTML", "CSS"]
+  "MONNK-CODE/PAY-CALCULATOR": [
+    "JavaScript",
+    "HTML",
+    "CSS"
+  ],
+
+  "MONNK-CODE/GPA-CALCULATOR": [
+    "JavaScript",
+    "HTML",
+    "CSS"
+  ],
+
+  "MONNK-CODE/NABA-WEBSITE": [
+    "JavaScript",
+    "HTML",
+    "CSS"
+  ],
+
+  "MONNK-CODE/Premier-League-Analysis": [
+    "Jupyter Notebook"
+  ],
+
+  "MONNK-CODE/Instant-Ayah": [
+    "JavaScript",
+    "HTML",
+    "CSS"
+  ],
+
+  "CS196Illinois/FA24-Group1": [
+    "JavaScript",
+    "HTML",
+    "CSS"
+  ]
 };
 
-/* ==============================
-   Cache Management
-============================== */
+
+/* ===================================================
+   LOAD LANGUAGE COLORS
+=================================================== */
+
+async function loadLanguageColors() {
+
+  try {
+
+    const response = await fetch(
+        CONFIG.LANGUAGE_COLORS_FILE
+    );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+          `Failed to load language colors: ${response.status}`
+      );
+
+    }
+
+
+    const data = await response.json();
+
+
+    LANG_COLORS =
+        data.languages || {};
+
+
+    DEFAULT_LANG_COLOR =
+        data.default || "#6c757d";
+
+
+  } catch (error) {
+
+    console.warn(
+        "Could not load language-colors.json. " +
+        "Unknown languages will use the default gray color.",
+        error
+    );
+
+  }
+
+}
+
+
+/* ===================================================
+   COLOR HELPERS
+=================================================== */
+
+
+/*
+   Automatically chooses dark or light text
+   depending on the language pill background.
+*/
+
+function getContrastText(hexColor) {
+
+  if (!hexColor) {
+    return "#ffffff";
+  }
+
+
+  let hex =
+      hexColor
+          .replace("#", "")
+          .trim();
+
+
+  /* Convert short hex such as #fff */
+
+  if (hex.length === 3) {
+
+    hex =
+        hex
+            .split("")
+            .map(character =>
+                character + character
+            )
+            .join("");
+
+  }
+
+
+  /*
+     If the value somehow isn't a normal
+     6-character hex color, fall back to white.
+  */
+
+  if (hex.length !== 6) {
+    return "#ffffff";
+  }
+
+
+  const red =
+      parseInt(
+          hex.substring(0, 2),
+          16
+      );
+
+
+  const green =
+      parseInt(
+          hex.substring(2, 4),
+          16
+      );
+
+
+  const blue =
+      parseInt(
+          hex.substring(4, 6),
+          16
+      );
+
+
+  /*
+     Perceived brightness calculation.
+  */
+
+  const luminance =
+      (0.299 * red) +
+      (0.587 * green) +
+      (0.114 * blue);
+
+
+  return luminance > 160
+      ? "#111111"
+      : "#ffffff";
+
+}
+
+
+/*
+   Gets a language color from JSON.
+   Unknown languages use the default.
+*/
+
+function getLanguageColor(language) {
+
+  return (
+      LANG_COLORS[language] ||
+      DEFAULT_LANG_COLOR
+  );
+
+}
+
+
+/* ===================================================
+   CACHE MANAGEMENT
+=================================================== */
+
 const CacheManager = {
+
   getKey(owner, repo) {
-    return `${CONFIG.STORAGE_KEY_PREFIX}${owner}/${repo}`;
+
+    return (
+        `${CONFIG.STORAGE_KEY_PREFIX}` +
+        `${owner}/${repo}`
+    );
+
   },
+
 
   get(owner, repo) {
-    try {
-      const raw = localStorage.getItem(this.getKey(owner, repo));
-      if (!raw) return null;
 
-      const { data, ts } = JSON.parse(raw);
-      if (!data || !ts) return null;
-      if (Date.now() - ts > CONFIG.CACHE_TTL_MS) {
-        this.remove(owner, repo);
+    try {
+
+      const key =
+          this.getKey(owner, repo);
+
+
+      const raw =
+          localStorage.getItem(key);
+
+
+      if (!raw) {
         return null;
       }
+
+
+      const parsed =
+          JSON.parse(raw);
+
+
+      const data =
+          parsed.data;
+
+
+      const timestamp =
+          parsed.ts;
+
+
+      if (!data || !timestamp) {
+        return null;
+      }
+
+
+      const age =
+          Date.now() - timestamp;
+
+
+      /*
+         Remove cache after 24 hours.
+      */
+
+      if (
+          age >
+          CONFIG.CACHE_TTL_MS
+      ) {
+
+        this.remove(
+            owner,
+            repo
+        );
+
+        return null;
+
+      }
+
+
       return data;
+
+
     } catch (error) {
-      console.warn(`Cache read error for ${owner}/${repo}:`, error);
+
+      console.warn(
+          `Cache read error for ${owner}/${repo}:`,
+          error
+      );
+
+
       return null;
+
     }
+
   },
+
 
   set(owner, repo, data) {
+
     try {
-      const payload = JSON.stringify({ data, ts: Date.now() });
-      localStorage.setItem(this.getKey(owner, repo), payload);
+
+      const key =
+          this.getKey(
+              owner,
+              repo
+          );
+
+
+      const payload =
+          JSON.stringify({
+            data: data,
+            ts: Date.now()
+          });
+
+
+      localStorage.setItem(
+          key,
+          payload
+      );
+
+
     } catch (error) {
-      console.warn(`Cache write error for ${owner}/${repo}:`, error);
+
+      console.warn(
+          `Cache write error for ${owner}/${repo}:`,
+          error
+      );
+
     }
+
   },
+
 
   remove(owner, repo) {
+
     try {
-      localStorage.removeItem(this.getKey(owner, repo));
+
+      localStorage.removeItem(
+          this.getKey(
+              owner,
+              repo
+          )
+      );
+
+
     } catch (error) {
-      console.warn(`Cache remove error for ${owner}/${repo}:`, error);
+
+      console.warn(
+          `Cache removal error for ${owner}/${repo}:`,
+          error
+      );
+
     }
+
   }
+
 };
 
-/* ==============================
-   DOM Utilities
-============================== */
+
+/* ===================================================
+   DOM UTILITIES
+=================================================== */
+
 const DOMUtils = {
-  createPill(text, bg, color) {
-    const pill = document.createElement('li');
-    pill.className = 'lang-pill';
-    pill.style.backgroundColor = bg;
-    pill.style.color = color;
-    pill.textContent = text;
+
+
+  /*
+     Creates one language pill.
+  */
+
+  createPill(
+      text,
+      backgroundColor,
+      textColor
+  ) {
+
+    const pill =
+        document.createElement("li");
+
+
+    pill.className =
+        "lang-pill";
+
+
+    pill.style.backgroundColor =
+        backgroundColor;
+
+
+    pill.style.color =
+        textColor;
+
+
+    pill.textContent =
+        text;
+
+
     return pill;
+
   },
+
+
+  /*
+     Removes everything currently
+     inside a language list.
+  */
 
   clearContainer(container) {
-    while (container.firstChild) {
-      container.removeChild(container.firstChild);
-    }
-  },
 
-  renderLanguageList(container, langs) {
-    this.clearContainer(container);
+    while (
+        container.firstChild
+        ) {
 
-    if (!langs?.length) {
-      container.appendChild(
-          this.createPill('Languages N/A', DEFAULT_LANG_COLOR.bg, DEFAULT_LANG_COLOR.text)
+      container.removeChild(
+          container.firstChild
       );
-      return;
+
     }
 
-    const fragment = document.createDocumentFragment();
-    langs.forEach(lang => {
-      const { bg, text } = LANG_COLORS[lang] || DEFAULT_LANG_COLOR;
-      fragment.appendChild(this.createPill(lang, bg, text));
-    });
-    container.appendChild(fragment);
   },
 
-  renderLanguagePercentages(container, data) {
-    this.clearContainer(container);
 
-    const entries = Object.entries(data);
+  /*
+     Used when the API fails and we only
+     know the language names.
+
+     Example:
+     JavaScript
+     HTML
+     CSS
+  */
+
+  renderLanguageList(
+      container,
+      languages
+  ) {
+
+    this.clearContainer(
+        container
+    );
+
+
+    if (
+        !languages ||
+        !languages.length
+    ) {
+
+      const background =
+          DEFAULT_LANG_COLOR;
+
+
+      const textColor =
+          getContrastText(
+              background
+          );
+
+
+      container.appendChild(
+
+          this.createPill(
+              "Languages N/A",
+              background,
+              textColor
+          )
+
+      );
+
+
+      return;
+
+    }
+
+
+    const fragment =
+        document.createDocumentFragment();
+
+
+    languages.forEach(
+        language => {
+
+          const background =
+              getLanguageColor(
+                  language
+              );
+
+
+          const textColor =
+              getContrastText(
+                  background
+              );
+
+
+          fragment.appendChild(
+
+              this.createPill(
+                  language,
+                  background,
+                  textColor
+              )
+
+          );
+
+        }
+    );
+
+
+    container.appendChild(
+        fragment
+    );
+
+  },
+
+
+  /*
+     Converts GitHub's byte counts into
+     percentages.
+
+     Example API data:
+
+     {
+         "JavaScript": 94500,
+         "HTML": 42000,
+         "CSS": 31000
+     }
+
+     becomes:
+
+     JavaScript 56.4%
+     HTML 25.1%
+     CSS 18.5%
+  */
+
+  renderLanguagePercentages(
+      container,
+      data
+  ) {
+
+    this.clearContainer(
+        container
+    );
+
+
+    const entries =
+        Object.entries(
+            data || {}
+        );
+
+
     if (!entries.length) {
+
+      const background =
+          DEFAULT_LANG_COLOR;
+
+
       container.appendChild(
-          this.createPill('Languages N/A', DEFAULT_LANG_COLOR.bg, DEFAULT_LANG_COLOR.text)
+
+          this.createPill(
+              "Languages N/A",
+              background,
+              getContrastText(
+                  background
+              )
+          )
+
       );
+
+
+      return;
+
+    }
+
+
+    const totalBytes =
+        entries.reduce(
+
+            (
+                total,
+                [, bytes]
+            ) => {
+
+              return (
+                  total +
+                  Number(bytes)
+              );
+
+            },
+
+            0
+
+        );
+
+
+    if (
+        !totalBytes ||
+        totalBytes <= 0
+    ) {
+
+      this.renderLanguageList(
+          container,
+          []
+      );
+
+      return;
+
+    }
+
+
+    /*
+       Largest language appears first.
+    */
+
+    entries.sort(
+        (
+            [, bytesA],
+            [, bytesB]
+        ) => {
+
+          return (
+              bytesB -
+              bytesA
+          );
+
+        }
+    );
+
+
+    const fragment =
+        document.createDocumentFragment();
+
+
+    entries.forEach(
+        ([language, bytes]) => {
+
+          const percentage =
+              (
+                  (
+                      Number(bytes) /
+                      totalBytes
+                  ) *
+                  100
+              ).toFixed(1);
+
+
+          const background =
+              getLanguageColor(
+                  language
+              );
+
+
+          const textColor =
+              getContrastText(
+                  background
+              );
+
+
+          fragment.appendChild(
+
+              this.createPill(
+                  `${language} ${percentage}%`,
+                  background,
+                  textColor
+              )
+
+          );
+
+        }
+    );
+
+
+    container.appendChild(
+        fragment
+    );
+
+  }
+
+};
+
+
+/* ===================================================
+   GITHUB LANGUAGE API
+=================================================== */
+
+const GitHubLanguageService = {
+
+
+  async fetchLanguages(
+      owner,
+      repo
+  ) {
+
+    const url =
+        `${CONFIG.API_ENDPOINT}` +
+        `?owner=${encodeURIComponent(owner)}` +
+        `&repo=${encodeURIComponent(repo)}`;
+
+
+    const response =
+        await fetch(url);
+
+
+    if (!response.ok) {
+
+      throw new Error(
+          `GitHub language API failed with status ${response.status}`
+      );
+
+    }
+
+
+    return await response.json();
+
+  },
+
+
+  async getLanguagesWithCache(
+      owner,
+      repo
+  ) {
+
+    /*
+       Check browser cache first.
+    */
+
+    const cached =
+        CacheManager.get(
+            owner,
+            repo
+        );
+
+
+    if (cached) {
+
+      return {
+        data: cached,
+        fromCache: true
+      };
+
+    }
+
+
+    /*
+       No cache found.
+       Fetch fresh GitHub data.
+    */
+
+    const data =
+        await this.fetchLanguages(
+            owner,
+            repo
+        );
+
+
+    /*
+       Save it locally for next time.
+    */
+
+    CacheManager.set(
+        owner,
+        repo,
+        data
+    );
+
+
+    return {
+      data: data,
+      fromCache: false
+    };
+
+  }
+
+};
+
+
+/* ===================================================
+   PROJECT CARD LANGUAGE HANDLER
+=================================================== */
+
+const ProjectCardHandler = {
+
+
+  async updateLanguages(card) {
+
+    /*
+       Repository information now lives in:
+
+       data-owner="MONNK-CODE"
+       data-repo="NABA-WEBSITE"
+
+       instead of hidden <h3> elements.
+    */
+
+    const owner =
+        card.dataset.owner;
+
+
+    const repo =
+        card.dataset.repo;
+
+
+    const languageStats =
+        card.querySelector(
+            ".language-stats"
+        );
+
+
+    /*
+       Projects without GitHub metadata
+       may use manually written tech tags.
+
+       Example:
+       College Application Tracker.
+    */
+
+    if (
+        !owner ||
+        !repo ||
+        !languageStats
+    ) {
+
+      return;
+
+    }
+
+
+    const fallbackKey =
+        `${owner}/${repo}`;
+
+
+    try {
+
+      const result =
+          await GitHubLanguageService
+              .getLanguagesWithCache(
+                  owner,
+                  repo
+              );
+
+
+      DOMUtils
+          .renderLanguagePercentages(
+              languageStats,
+              result.data
+          );
+
+
+    } catch (error) {
+
+      console.warn(
+          `Unable to load language percentages for ${fallbackKey}.`,
+          error
+      );
+
+
+      /*
+         If GitHub API fails,
+         show the fallback language names.
+      */
+
+      const fallback =
+          FALLBACK_LANGS[
+              fallbackKey
+              ];
+
+
+      DOMUtils
+          .renderLanguageList(
+              languageStats,
+              fallback
+          );
+
+    }
+
+  },
+
+
+  initializeAll() {
+
+    /*
+       Only select cards that actually
+       contain repository metadata.
+    */
+
+    const cards =
+        document.querySelectorAll(
+            ".project-card[data-owner][data-repo]"
+        );
+
+
+    cards.forEach(
+        (card, index) => {
+
+          /*
+             Small stagger prevents all
+             repositories from hitting the
+             API at exactly the same moment.
+          */
+
+          setTimeout(
+
+              () => {
+
+                this.updateLanguages(
+                    card
+                );
+
+              },
+
+              index *
+              CONFIG.API_STAGGER_DELAY
+
+          );
+
+        }
+    );
+
+  }
+
+};
+
+
+/* ===================================================
+   PROJECT FILTERS
+=================================================== */
+
+const FilterManager = {
+
+
+  init() {
+
+    const filterButtons =
+        document.querySelectorAll(
+            ".filter-btn"
+        );
+
+
+    const projectCards =
+        document.querySelectorAll(
+            ".project-card"
+        );
+
+
+    if (
+        !filterButtons.length ||
+        !projectCards.length
+    ) {
+
+      return;
+
+    }
+
+
+    filterButtons.forEach(
+        button => {
+
+          button.addEventListener(
+              "click",
+              () => {
+
+                const category =
+                    button.dataset.filter ||
+                    "all";
+
+
+                this.setActiveButton(
+                    button,
+                    filterButtons
+                );
+
+
+                this.filterProjects(
+                    category,
+                    projectCards
+                );
+
+              }
+          );
+
+        }
+    );
+
+  },
+
+
+  setActiveButton(
+      activeButton,
+      allButtons
+  ) {
+
+    allButtons.forEach(
+        button => {
+
+          const isActive =
+              button ===
+              activeButton;
+
+
+          button.classList.toggle(
+              "active",
+              isActive
+          );
+
+
+          button.setAttribute(
+              "aria-pressed",
+              isActive.toString()
+          );
+
+        }
+    );
+
+  },
+
+
+  filterProjects(
+      category,
+      cards
+  ) {
+
+    cards.forEach(
+        card => {
+
+          const shouldShow =
+              category === "all" ||
+              card.classList.contains(
+                  category
+              );
+
+
+          card.classList.toggle(
+              "filtered",
+              !shouldShow
+          );
+
+        }
+    );
+
+  }
+
+};
+
+
+/* ===================================================
+   PROJECT CARD SCROLL ANIMATIONS
+=================================================== */
+
+const RevealManager = {
+
+
+  init() {
+
+    const cards =
+        document.querySelectorAll(
+            ".project-card"
+        );
+
+
+    if (!cards.length) {
       return;
     }
 
-    const totalBytes = entries.reduce((sum, [, bytes]) => sum + bytes, 0);
-    const fragment = document.createDocumentFragment();
 
-    entries
-        .sort(([, a], [, b]) => b - a)
-        .forEach(([lang, bytes]) => {
-          const pct = ((bytes / totalBytes) * 100).toFixed(1);
-          const { bg, text } = LANG_COLORS[lang] || DEFAULT_LANG_COLOR;
-          fragment.appendChild(this.createPill(`${lang} ${pct}%`, bg, text));
-        });
+    /*
+       Respect users who prefer
+       reduced motion.
+    */
 
-    container.appendChild(fragment);
-  }
-};
+    const prefersReducedMotion =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
 
-/* ==============================
-   API Service
-============================== */
-const GitHubLanguageService = {
-  async fetchLanguages(owner, repo) {
-    const url = `${CONFIG.API_ENDPOINT}?owner=${encodeURIComponent(owner)}&repo=${encodeURIComponent(repo)}`;
 
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`API request failed: ${response.status}`);
-      }
-      return await response.json();
-    } catch (error) {
-      console.error(`Failed to fetch languages for ${owner}/${repo}:`, error);
-      throw error;
-    }
-  },
+    if (prefersReducedMotion) {
 
-  async getLanguagesWithCache(owner, repo) {
-    const cached = CacheManager.get(owner, repo);
-    if (cached) return { data: cached, fromCache: true };
+      cards.forEach(
+          card => {
 
-    const data = await this.fetchLanguages(owner, repo);
-    CacheManager.set(owner, repo, data);
-    return { data, fromCache: false };
-  }
-};
+            card.classList.add(
+                "is-visible"
+            );
 
-/* ==============================
-   Project Card Handler
-============================== */
-const ProjectCardHandler = {
-  async updateLanguages(card) {
-    const titleEl = card.querySelector('.card-title');
-    const ownerEl = card.querySelector('.card-owner');
-    const languageStatsEl = card.querySelector('.language-stats');
-
-    if (!titleEl || !ownerEl || !languageStatsEl) return;
-
-    const repo = titleEl.textContent.trim();
-    const owner = ownerEl.textContent.trim();
-    const fallbackKey = `${owner}/${repo}`;
-
-    if (!repo || !owner) return;
-
-    try {
-      const { data } = await GitHubLanguageService.getLanguagesWithCache(owner, repo);
-      DOMUtils.renderLanguagePercentages(languageStatsEl, data);
-    } catch (error) {
-      const fallback = FALLBACK_LANGS[fallbackKey];
-      DOMUtils.renderLanguageList(languageStatsEl, fallback);
-    }
-  },
-
-  async initializeAll() {
-    const cards = document.querySelectorAll('.project-card');
-
-    cards.forEach((card, index) => {
-      setTimeout(
-          () => this.updateLanguages(card),
-          index * CONFIG.API_STAGGER_DELAY
+          }
       );
-    });
+
+
+      return;
+
+    }
+
+
+    const observer =
+        new IntersectionObserver(
+
+            entries => {
+
+              entries.forEach(
+                  entry => {
+
+                    if (
+                        !entry.isIntersecting
+                    ) {
+
+                      return;
+
+                    }
+
+
+                    entry.target
+                        .classList.add(
+                        "is-visible"
+                    );
+
+
+                    /*
+                       Once animated,
+                       stop watching.
+                    */
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                  }
+              );
+
+            },
+
+            {
+              threshold: 0.12,
+              rootMargin:
+                  "0px 0px -6% 0px"
+            }
+
+        );
+
+
+    cards.forEach(
+        card => {
+
+          observer.observe(
+              card
+          );
+
+        }
+    );
+
   }
+
 };
 
-/* ==============================
-   Filter Functionality
-============================== */
-const FilterManager = {
-  init() {
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const projectCards = document.querySelectorAll(".project-card");
 
-    filterButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        this.setActiveButton(button, filterButtons);
-        this.filterProjects(button.textContent.trim().toLowerCase(), projectCards);
-      });
-    });
-  },
+/* ===================================================
+   INITIALIZATION
+=================================================== */
 
-  setActiveButton(activeButton, allButtons) {
-    allButtons.forEach(btn => btn.classList.remove("active"));
-    activeButton.classList.add("active");
-  },
+async function init() {
 
-  filterProjects(category, cards) {
-    cards.forEach(card => {
-      const shouldShow = category === "all" || card.classList.contains(category);
-      card.classList.toggle("filtered", !shouldShow);
-    });
-  }
-};
+  /*
+     Load color data first so the language
+     pills have their correct colors before
+     repository data is rendered.
+  */
 
-/* ==============================
-   Initialization
-============================== */
-function init() {
+  await loadLanguageColors();
+
+
+  /*
+     Initialize filters.
+  */
+
   FilterManager.init();
-  ProjectCardHandler.initializeAll();
+
+
+  /*
+     Fetch repository language percentages.
+  */
+
+  ProjectCardHandler
+      .initializeAll();
+
+
+  /*
+     Initialize card entrance animations.
+  */
+
+  RevealManager.init();
+
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
-}
+
+/* ===================================================
+   START
+=================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    init
+);

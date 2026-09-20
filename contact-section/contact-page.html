@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/profile.jpg">
     <title>Contact Me Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="../footer.css" rel="stylesheet" type="text/css" />
     <link href="contact-page.css" rel="stylesheet" type="text/css" />
     <link href="../nav/nav.css" rel="stylesheet" type="text/css" />
-    <script src="../font.js" defer></script>
     <link href="../font.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -19,7 +19,14 @@
 <nav>
     <div class="nav-content">
         <div class="toggle-btn">
-            <a class="menu"><i class="fa-solid fa-bars" id="menu-icon"></i></a>
+            <button
+                    class="menu"
+                    type="button"
+                    aria-label="Open navigation"
+                    aria-expanded="false"
+            >
+                <i class="fa-solid fa-bars" id="menu-icon"></i>
+            </button>
         </div>
 
         <span style="--i:1;">
@@ -69,18 +76,23 @@
     <h1>Contact Me</h1>
 
     <div class="contact-links">
-        <a href="https://www.linkedin.com/in/muhaisolatundun/" target="_blank" class="contact-btn linkedin">
+        <a href="https://www.linkedin.com/in/muhais-olatundun/" target="_blank" class="contact-btn linkedin">
             <i class="fab fa-linkedin"></i>
             <span>Muhais Olatundun</span>
         </a>
+<!--Email Copy-->
+        <div class="email-container">
+            <a href="mailto:monnk101@gmail.com" class="contact-btn email">
+                <i class="fas fa-envelope"></i>
+                <span>monnk101@gmail.com</span>
+            </a>
 
-        <!-- Email Button with Copy Icon Inside -->
-        <a href="mailto:monnk101@gmail.com" class="contact-btn email">
-            <i class="fas fa-envelope"></i>
-            <span>monnk101@gmail.com</span>
-            <!-- The copy icon -->
-            <i class="fas fa-copy copy-icon" onclick="copyEmail(event)" title="Copy Email"></i>
-        </a>
+            <button class="copy-btn" onclick="copyEmail(event)">
+                <i class="fas fa-copy"></i> Copy
+            </button>
+        </div>
+
+
 
         <script>
             function copyEmail(event) {
@@ -88,7 +100,8 @@
                 event.stopPropagation();
 
                 const email = "monnk101@gmail.com";
-                const icon = event.target;
+                const btn = event.currentTarget;
+                const icon = btn.querySelector('i');
 
                 navigator.clipboard.writeText(email).then(() => {
                     icon.classList.remove('fa-copy');
@@ -103,28 +116,38 @@
         </script>
 
         <style>
-            /* Copy Icon Styles */
-            .copy-icon {
-                position: absolute;
-                right: 20px;
-                font-size: 1.2rem !important; /* Slightly smaller than the main envelope icon */
+            /* Use flexbox to stack the email button and the copy button vertically */
+            .email-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center; /* Centers the copy button under the email */
+                gap: 8px; /* Adds space between the email button and copy button */
+                margin-top: 15px;
+            }
+
+            /* Copy Button Styles */
+            .copy-btn {
+                font-size: 0.9rem; /* Slightly smaller text for secondary action */
                 cursor: pointer;
                 transition: transform 0.2s ease, color 0.2s ease;
-                z-index: 10; /* Ensures it stays clickable above the button background */
+
+                /* Button Resets */
+                background: transparent;
+                border: none;
+                outline: none;
+                color: inherit;
+                padding: 5px 10px; /* Small padding makes it easier to tap */
+                display: flex;
+                align-items: center;
+                gap: 6px;
             }
 
-            /* Add a fun little hover effect for the icon */
-            .copy-icon:hover {
-                transform: scale(1.2);
-                color: #ffffff;
-            }
-
-            @media (max-width: 768px) {
-                .copy-icon {
-                    right: 15px;
-                }
+            .copy-btn:hover {
+                transform: scale(1.1);
+                color: #ffffff; /* Change this to your preferred hover color */
             }
         </style>
+        <!--Email Copy End-->
 
         <a href="https://github.com/MONNK-CODE" target="_blank" class="contact-btn github">
             <i class="fab fa-github"></i>
@@ -141,10 +164,16 @@
             <span>@therealmuhais_</span>
         </a>
 
-        <a href="https://www.youtube.com/@therealmuhais" target="_blank" class="contact-btn youtube">
-            <i class="fab fa-youtube"></i>
-            <span>@therealmuhais</span>
+<!--        <a href="https://www.youtube.com/@therealmuhais" target="_blank" class="contact-btn youtube">-->
+<!--            <i class="fab fa-youtube"></i>-->
+<!--            <span>@therealmuhais</span>-->
+<!--        </a>-->
+
+        <a href="https://calendly.com/monnk101/new-meeting" target="_blank" class="contact-btn calendly">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Schedule a Meeting</span>
         </a>
+
     </div>
 </div>
 
