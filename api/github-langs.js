@@ -7,8 +7,7 @@ export default async function handler(req, res) {
 
     const allowedOrigins = [
         "https://muhais.org",
-        "https://www.muhais.org",
-        "http://localhost:63342"
+        "https://www.muhais.org"
     ];
 
     if (allowedOrigins.includes(origin)) {
