@@ -1,381 +1,275 @@
+// -----------------------------------
+// CONFIGURATION
+// -----------------------------------
 
-const CONFIG = {
-  CACHE_TTL_MS: 24 * 60 * 60 * 1000,
-  STORAGE_KEY_PREFIX: "repoLangs::",
-  API_STAGGER_DELAY: 120,
-  API_ENDPOINT: "/api/github-langs",
-  LANGUAGE_COLORS_FILE: "./language-colors.json"
-};
-
-
-
-let LANG_COLORS = {};
-let DEFAULT_LANG_COLOR = "#6c757d";
+const CACHE_TIME = 60 * 60 * 1000; // 1 hour
+const STORAGE_KEY_PREFIX = "repoLangs::";
+const API_ENDPOINT = "/api/github-langs";
+const LANGUAGE_COLORS_FILE = "./language-colors.json";
 
 
-/* ===================================================
-   FALLBACK LANGUAGES
+// -----------------------------------
+// LANGUAGE COLORS
+// -----------------------------------
 
-   These are only used if the GitHub language
-   API request fails.
-
-   Successful API responses still display
-   actual percentage breakdowns.
-=================================================== */
-
-const FALLBACK_LANGS = {
-  "MONNK-CODE/PAY-CALCULATOR": [
-    "JavaScript",
-    "HTML",
-    "CSS"
-  ],
-
-  "MONNK-CODE/GPA-CALCULATOR": [
-    "JavaScript",
-    "HTML",
-    "CSS"
-  ],
-
-  "MONNK-CODE/NABA-WEBSITE": [
-    "JavaScript",
-    "HTML",
-    "CSS"
-  ],
-
-  "MONNK-CODE/Premier-League-Analysis": [
-    "Jupyter Notebook"
-  ],
-
-  "MONNK-CODE/Instant-Ayah": [
-    "JavaScript",
-    "HTML",
-    "CSS"
-  ],
-
-  "CS196Illinois/FA24-Group1": [
-    "JavaScript",
-    "HTML",
-    "CSS"
-  ]
-};
+let languageColors = {};
+let defaultLanguageColor = "#6c757d";
 
 
-/* ===================================================
-   LOAD LANGUAGE COLORS
-=================================================== */
+// -----------------------------------
+// LOAD LANGUAGE COLORS
+// -----------------------------------
 
 async function loadLanguageColors() {
 
-  try {
+    try {
 
-    const response = await fetch(
-        CONFIG.LANGUAGE_COLORS_FILE
-    );
+        const response = await fetch(LANGUAGE_COLORS_FILE);
 
+        if (!response.ok) {
+            throw new Error(
+                "Could not load language colors."
+            );
+        }
 
-    if (!response.ok) {
+        const data = await response.json();
 
-      throw new Error(
-          `Failed to load language colors: ${response.status}`
-      );
+        languageColors = data.languages || {};
 
+        defaultLanguageColor =
+            data.default || "#6c757d";
+
+    } catch (error) {
+
+        console.log(
+            "Could not load language-colors.json:",
+            error
+        );
     }
-
-
-    const data = await response.json();
-
-
-    LANG_COLORS =
-        data.languages || {};
-
-
-    DEFAULT_LANG_COLOR =
-        data.default || "#6c757d";
-
-
-  } catch (error) {
-
-    console.warn(
-        "Could not load language-colors.json. " +
-        "Unknown languages will use the default gray color.",
-        error
-    );
-
-  }
-
 }
 
 
-/* ===================================================
-   COLOR HELPERS
-=================================================== */
-
-
-/*
-   Automatically chooses dark or light text
-   depending on the language pill background.
-*/
-
-function getContrastText(hexColor) {
-
-  if (!hexColor) {
-    return "#ffffff";
-  }
-
-
-  let hex =
-      hexColor
-          .replace("#", "")
-          .trim();
-
-
-  /* Convert short hex such as #fff */
-
-  if (hex.length === 3) {
-
-    hex =
-        hex
-            .split("")
-            .map(character =>
-                character + character
-            )
-            .join("");
-
-  }
-
-
-  /*
-     If the value somehow isn't a normal
-     6-character hex color, fall back to white.
-  */
-
-  if (hex.length !== 6) {
-    return "#ffffff";
-  }
-
-
-  const red =
-      parseInt(
-          hex.substring(0, 2),
-          16
-      );
-
-
-  const green =
-      parseInt(
-          hex.substring(2, 4),
-          16
-      );
-
-
-  const blue =
-      parseInt(
-          hex.substring(4, 6),
-          16
-      );
-
-
-  /*
-     Perceived brightness calculation.
-  */
-
-  const luminance =
-      (0.299 * red) +
-      (0.587 * green) +
-      (0.114 * blue);
-
-
-  return luminance > 160
-      ? "#111111"
-      : "#ffffff";
-
-}
-
-
-/*
-   Gets a language color from JSON.
-   Unknown languages use the default.
-*/
+// -----------------------------------
+// GET LANGUAGE COLOR
+// -----------------------------------
 
 function getLanguageColor(language) {
 
-  return (
-      LANG_COLORS[language] ||
-      DEFAULT_LANG_COLOR
-  );
+    if (languageColors[language]) {
+        return languageColors[language];
+    }
 
+    return defaultLanguageColor;
 }
 
 
-/* ===================================================
-   CACHE MANAGEMENT
-=================================================== */
+// -----------------------------------
+// CHOOSE TEXT COLOR
+// -----------------------------------
 
-const CacheManager = {
+function getContrastText(hexColor) {
 
-  getKey(owner, repo) {
+    if (!hexColor) {
+        return "#ffffff";
+    }
+
+    let hex = hexColor.replace("#", "").trim();
+
+
+    // Convert short hex like #fff
+    // into #ffffff
+    if (hex.length === 3) {
+
+        let expandedHex = "";
+
+        for (const character of hex) {
+            expandedHex =
+                expandedHex +
+                character +
+                character;
+        }
+
+        hex = expandedHex;
+    }
+
+
+    if (hex.length !== 6) {
+        return "#ffffff";
+    }
+
+
+    const red =
+        parseInt(
+            hex.substring(0, 2),
+            16
+        );
+
+    const green =
+        parseInt(
+            hex.substring(2, 4),
+            16
+        );
+
+    const blue =
+        parseInt(
+            hex.substring(4, 6),
+            16
+        );
+
+
+    const brightness =
+        (0.299 * red) +
+        (0.587 * green) +
+        (0.114 * blue);
+
+
+    if (brightness > 160) {
+        return "#111111";
+    }
+
+    return "#ffffff";
+}
+
+
+// -----------------------------------
+// CACHE KEY
+// -----------------------------------
+
+function getCacheKey(owner, repo) {
 
     return (
-        `${CONFIG.STORAGE_KEY_PREFIX}` +
-        `${owner}/${repo}`
+        STORAGE_KEY_PREFIX +
+        owner +
+        "/" +
+        repo
     );
+}
 
-  },
 
+// -----------------------------------
+// GET CACHED LANGUAGE DATA
+// -----------------------------------
 
-  get(owner, repo) {
+function getCachedLanguages(owner, repo) {
 
     try {
 
-      const key =
-          this.getKey(owner, repo);
+        const key =
+            getCacheKey(owner, repo);
+
+        const saved =
+            localStorage.getItem(key);
 
 
-      const raw =
-          localStorage.getItem(key);
+        if (!saved) {
+            return null;
+        }
 
 
-      if (!raw) {
-        return null;
-      }
+        const parsed =
+            JSON.parse(saved);
 
 
-      const parsed =
-          JSON.parse(raw);
+        if (
+            !parsed.data ||
+            !parsed.timestamp
+        ) {
+
+            return null;
+        }
 
 
-      const data =
-          parsed.data;
+        const age =
+            Date.now() -
+            parsed.timestamp;
 
 
-      const timestamp =
-          parsed.ts;
+        // Remove cache if older than 1 hour
+        if (age > CACHE_TIME) {
+
+            localStorage.removeItem(key);
+
+            return null;
+        }
 
 
-      if (!data || !timestamp) {
-        return null;
-      }
+        return parsed.data;
 
+    } catch (error) {
 
-      const age =
-          Date.now() - timestamp;
-
-
-      /*
-         Remove cache after 24 hours.
-      */
-
-      if (
-          age >
-          CONFIG.CACHE_TTL_MS
-      ) {
-
-        this.remove(
-            owner,
-            repo
+        console.log(
+            "Could not read cached GitHub language data:",
+            error
         );
 
         return null;
-
-      }
-
-
-      return data;
-
-
-    } catch (error) {
-
-      console.warn(
-          `Cache read error for ${owner}/${repo}:`,
-          error
-      );
-
-
-      return null;
-
     }
+}
 
-  },
 
+// -----------------------------------
+// SAVE LANGUAGE DATA TO CACHE
+// -----------------------------------
 
-  set(owner, repo, data) {
+function saveCachedLanguages(
+    owner,
+    repo,
+    data
+) {
 
     try {
 
-      const key =
-          this.getKey(
-              owner,
-              repo
-          );
+        const key =
+            getCacheKey(owner, repo);
 
 
-      const payload =
-          JSON.stringify({
+        const savedData = {
+
             data: data,
-            ts: Date.now()
-          });
+
+            timestamp: Date.now()
+        };
 
 
-      localStorage.setItem(
-          key,
-          payload
-      );
-
-
-    } catch (error) {
-
-      console.warn(
-          `Cache write error for ${owner}/${repo}:`,
-          error
-      );
-
-    }
-
-  },
-
-
-  remove(owner, repo) {
-
-    try {
-
-      localStorage.removeItem(
-          this.getKey(
-              owner,
-              repo
-          )
-      );
-
+        localStorage.setItem(
+            key,
+            JSON.stringify(savedData)
+        );
 
     } catch (error) {
 
-      console.warn(
-          `Cache removal error for ${owner}/${repo}:`,
-          error
-      );
-
+        console.log(
+            "Could not save GitHub language data:",
+            error
+        );
     }
-
-  }
-
-};
+}
 
 
-/* ===================================================
-   DOM UTILITIES
-=================================================== */
+// -----------------------------------
+// CLEAR AN ELEMENT
+// -----------------------------------
 
-const DOMUtils = {
+function clearElement(element) {
+
+    while (element.firstChild) {
+
+        element.removeChild(
+            element.firstChild
+        );
+    }
+}
 
 
-  /*
-     Creates one language pill.
-  */
+// -----------------------------------
+// CREATE A LANGUAGE PILL
+// -----------------------------------
 
-  createPill(
-      text,
-      backgroundColor,
-      textColor
-  ) {
+function createLanguagePill(
+    text,
+    backgroundColor,
+    textColor
+) {
 
     const pill =
         document.createElement("li");
@@ -398,302 +292,197 @@ const DOMUtils = {
 
 
     return pill;
+}
 
-  },
+
+// -----------------------------------
+// SHOW "LANGUAGES N/A"
+// -----------------------------------
+
+function showLanguagesUnavailable(container) {
+
+    clearElement(container);
 
 
-  /*
-     Removes everything currently
-     inside a language list.
-  */
+    const backgroundColor =
+        defaultLanguageColor;
 
-  clearContainer(container) {
 
-    while (
-        container.firstChild
-        ) {
+    const textColor =
+        getContrastText(
+            backgroundColor
+        );
 
-      container.removeChild(
-          container.firstChild
-      );
 
+    const pill =
+        createLanguagePill(
+            "Languages N/A",
+            backgroundColor,
+            textColor
+        );
+
+
+    container.appendChild(pill);
+}
+
+
+// -----------------------------------
+// RENDER LANGUAGE PERCENTAGES
+// -----------------------------------
+
+function renderLanguagePercentages(
+    container,
+    data
+) {
+
+    clearElement(container);
+
+
+    if (!data) {
+
+        showLanguagesUnavailable(
+            container
+        );
+
+        return;
     }
-
-  },
-
-
-  /*
-     Used when the API fails and we only
-     know the language names.
-
-     Example:
-     JavaScript
-     HTML
-     CSS
-  */
-
-  renderLanguageList(
-      container,
-      languages
-  ) {
-
-    this.clearContainer(
-        container
-    );
-
-
-    if (
-        !languages ||
-        !languages.length
-    ) {
-
-      const background =
-          DEFAULT_LANG_COLOR;
-
-
-      const textColor =
-          getContrastText(
-              background
-          );
-
-
-      container.appendChild(
-
-          this.createPill(
-              "Languages N/A",
-              background,
-              textColor
-          )
-
-      );
-
-
-      return;
-
-    }
-
-
-    const fragment =
-        document.createDocumentFragment();
-
-
-    languages.forEach(
-        language => {
-
-          const background =
-              getLanguageColor(
-                  language
-              );
-
-
-          const textColor =
-              getContrastText(
-                  background
-              );
-
-
-          fragment.appendChild(
-
-              this.createPill(
-                  language,
-                  background,
-                  textColor
-              )
-
-          );
-
-        }
-    );
-
-
-    container.appendChild(
-        fragment
-    );
-
-  },
-
-
-  /*
-     Converts GitHub's byte counts into
-     percentages.
-
-     Example API data:
-
-     {
-         "JavaScript": 94500,
-         "HTML": 42000,
-         "CSS": 31000
-     }
-
-     becomes:
-
-     JavaScript 56.4%
-     HTML 25.1%
-     CSS 18.5%
-  */
-
-  renderLanguagePercentages(
-      container,
-      data
-  ) {
-
-    this.clearContainer(
-        container
-    );
 
 
     const entries =
-        Object.entries(
-            data || {}
+        Object.entries(data);
+
+
+    if (entries.length === 0) {
+
+        showLanguagesUnavailable(
+            container
         );
 
-
-    if (!entries.length) {
-
-      const background =
-          DEFAULT_LANG_COLOR;
-
-
-      container.appendChild(
-
-          this.createPill(
-              "Languages N/A",
-              background,
-              getContrastText(
-                  background
-              )
-          )
-
-      );
-
-
-      return;
-
+        return;
     }
 
 
-    const totalBytes =
-        entries.reduce(
+    // -----------------------------------
+    // FIND TOTAL BYTES
+    // -----------------------------------
 
-            (
-                total,
-                [, bytes]
-            ) => {
-
-              return (
-                  total +
-                  Number(bytes)
-              );
-
-            },
-
-            0
-
-        );
+    let totalBytes = 0;
 
 
-    if (
-        !totalBytes ||
-        totalBytes <= 0
-    ) {
+    for (const entry of entries) {
 
-      this.renderLanguageList(
-          container,
-          []
-      );
+        const bytes =
+            Number(entry[1]);
 
-      return;
 
+        totalBytes =
+            totalBytes +
+            bytes;
     }
 
 
-    /*
-       Largest language appears first.
-    */
+    if (totalBytes <= 0) {
+
+        showLanguagesUnavailable(
+            container
+        );
+
+        return;
+    }
+
+
+    // -----------------------------------
+    // SORT BIGGEST LANGUAGE FIRST
+    // -----------------------------------
 
     entries.sort(
-        (
-            [, bytesA],
-            [, bytesB]
-        ) => {
+        function (first, second) {
 
-          return (
-              bytesB -
-              bytesA
-          );
+            const firstBytes =
+                first[1];
 
+            const secondBytes =
+                second[1];
+
+
+            return (
+                secondBytes -
+                firstBytes
+            );
         }
     );
 
 
-    const fragment =
-        document.createDocumentFragment();
+    // -----------------------------------
+    // CREATE LANGUAGE PILLS
+    // -----------------------------------
+
+    for (const entry of entries) {
+
+        const language =
+            entry[0];
+
+        const bytes =
+            Number(entry[1]);
 
 
-    entries.forEach(
-        ([language, bytes]) => {
-
-          const percentage =
-              (
-                  (
-                      Number(bytes) /
-                      totalBytes
-                  ) *
-                  100
-              ).toFixed(1);
+        const percentage =
+            (
+                bytes /
+                totalBytes *
+                100
+            ).toFixed(1);
 
 
-          const background =
-              getLanguageColor(
-                  language
-              );
+        const backgroundColor =
+            getLanguageColor(
+                language
+            );
 
 
-          const textColor =
-              getContrastText(
-                  background
-              );
+        const textColor =
+            getContrastText(
+                backgroundColor
+            );
 
 
-          fragment.appendChild(
-
-              this.createPill(
-                  `${language} ${percentage}%`,
-                  background,
-                  textColor
-              )
-
-          );
-
-        }
-    );
+        const pillText =
+            language +
+            " " +
+            percentage +
+            "%";
 
 
-    container.appendChild(
-        fragment
-    );
-
-  }
-
-};
-
-
-/* ===================================================
-   GITHUB LANGUAGE API
-=================================================== */
-
-const GitHubLanguageService = {
+        const pill =
+            createLanguagePill(
+                pillText,
+                backgroundColor,
+                textColor
+            );
 
 
-  async fetchLanguages(
-      owner,
-      repo
-  ) {
+        container.appendChild(
+            pill
+        );
+    }
+}
+
+
+// -----------------------------------
+// FETCH LANGUAGE DATA FROM API
+// -----------------------------------
+
+async function fetchGitHubLanguages(
+    owner,
+    repo
+) {
 
     const url =
-        `${CONFIG.API_ENDPOINT}` +
-        `?owner=${encodeURIComponent(owner)}` +
-        `&repo=${encodeURIComponent(repo)}`;
+        API_ENDPOINT +
+        "?owner=" +
+        encodeURIComponent(owner) +
+        "&repo=" +
+        encodeURIComponent(repo);
 
 
     const response =
@@ -702,94 +491,68 @@ const GitHubLanguageService = {
 
     if (!response.ok) {
 
-      throw new Error(
-          `GitHub language API failed with status ${response.status}`
-      );
-
-    }
-
-
-    return await response.json();
-
-  },
-
-
-  async getLanguagesWithCache(
-      owner,
-      repo
-  ) {
-
-    /*
-       Check browser cache first.
-    */
-
-    const cached =
-        CacheManager.get(
-            owner,
-            repo
+        throw new Error(
+            "GitHub language API failed with status " +
+            response.status
         );
-
-
-    if (cached) {
-
-      return {
-        data: cached,
-        fromCache: true
-      };
-
     }
 
-
-    /*
-       No cache found.
-       Fetch fresh GitHub data.
-    */
 
     const data =
-        await this.fetchLanguages(
+        await response.json();
+
+
+    return data;
+}
+
+
+// -----------------------------------
+// GET LANGUAGE DATA
+// -----------------------------------
+
+async function getGitHubLanguages(
+    owner,
+    repo
+) {
+
+    // Check cache first
+    const cachedData =
+        getCachedLanguages(
             owner,
             repo
         );
 
 
-    /*
-       Save it locally for next time.
-    */
+    if (cachedData) {
+        return cachedData;
+    }
 
-    CacheManager.set(
+
+    // No cache, fetch new data
+    const data =
+        await fetchGitHubLanguages(
+            owner,
+            repo
+        );
+
+
+    // Save fresh data
+    saveCachedLanguages(
         owner,
         repo,
         data
     );
 
 
-    return {
-      data: data,
-      fromCache: false
-    };
-
-  }
-
-};
+    return data;
+}
 
 
-/* ===================================================
-   PROJECT CARD LANGUAGE HANDLER
-=================================================== */
+// -----------------------------------
+// UPDATE ONE PROJECT CARD
+// -----------------------------------
 
-const ProjectCardHandler = {
-
-
-  async updateLanguages(card) {
-
-    /*
-       Repository information now lives in:
-
-       data-owner="MONNK-CODE"
-       data-repo="NABA-WEBSITE"
-
-       instead of hidden <h3> elements.
-    */
+async function updateProjectLanguages(card) {
 
     const owner =
         card.dataset.owner;
@@ -805,129 +568,76 @@ const ProjectCardHandler = {
         );
 
 
-    /*
-       Projects without GitHub metadata
-       may use manually written tech tags.
-
-       Example:
-       College Application Tracker.
-    */
-
+    // If this project does not have
+    // GitHub repository information,
+    // leave its manual tech tags alone.
     if (
         !owner ||
         !repo ||
         !languageStats
     ) {
 
-      return;
-
+        return;
     }
-
-
-    const fallbackKey =
-        `${owner}/${repo}`;
 
 
     try {
 
-      const result =
-          await GitHubLanguageService
-              .getLanguagesWithCache(
-                  owner,
-                  repo
-              );
+        const data =
+            await getGitHubLanguages(
+                owner,
+                repo
+            );
 
 
-      DOMUtils
-          .renderLanguagePercentages(
-              languageStats,
-              result.data
-          );
-
+        renderLanguagePercentages(
+            languageStats,
+            data
+        );
 
     } catch (error) {
 
-      console.warn(
-          `Unable to load language percentages for ${fallbackKey}.`,
-          error
-      );
+        console.log(
+            "Could not load languages for " +
+            owner +
+            "/" +
+            repo +
+            ":",
+            error
+        );
 
 
-      /*
-         If GitHub API fails,
-         show the fallback language names.
-      */
-
-      const fallback =
-          FALLBACK_LANGS[
-              fallbackKey
-              ];
-
-
-      DOMUtils
-          .renderLanguageList(
-              languageStats,
-              fallback
-          );
-
+        showLanguagesUnavailable(
+            languageStats
+        );
     }
+}
 
-  },
 
+// -----------------------------------
+// INITIALIZE PROJECT LANGUAGES
+// -----------------------------------
 
-  initializeAll() {
+function initializeProjectLanguages() {
 
-    /*
-       Only select cards that actually
-       contain repository metadata.
-    */
-
-    const cards =
+    const projectCards =
         document.querySelectorAll(
             ".project-card[data-owner][data-repo]"
         );
 
 
-    cards.forEach(
-        (card, index) => {
+    for (const card of projectCards) {
 
-          /*
-             Small stagger prevents all
-             repositories from hitting the
-             API at exactly the same moment.
-          */
-
-          setTimeout(
-
-              () => {
-
-                this.updateLanguages(
-                    card
-                );
-
-              },
-
-              index *
-              CONFIG.API_STAGGER_DELAY
-
-          );
-
-        }
-    );
-
-  }
-
-};
+        updateProjectLanguages(card);
+    }
+}
 
 
-/* ===================================================
-   PROJECT FILTERS
-=================================================== */
+// -----------------------------------
+// PROJECT FILTERS
+// -----------------------------------
 
-const FilterManager = {
-
-
-  init() {
+function initializeFilters() {
 
     const filterButtons =
         document.querySelectorAll(
@@ -942,113 +652,117 @@ const FilterManager = {
 
 
     if (
-        !filterButtons.length ||
-        !projectCards.length
+        filterButtons.length === 0 ||
+        projectCards.length === 0
     ) {
 
-      return;
-
+        return;
     }
 
 
-    filterButtons.forEach(
-        button => {
+    for (const button of filterButtons) {
 
-          button.addEventListener(
-              "click",
-              () => {
+        button.addEventListener(
+            "click",
+            function () {
 
-                const category =
-                    button.dataset.filter ||
-                    "all";
+                let category =
+                    button.dataset.filter;
 
 
-                this.setActiveButton(
-                    button,
-                    filterButtons
-                );
+                if (!category) {
+                    category = "all";
+                }
 
 
-                this.filterProjects(
-                    category,
-                    projectCards
-                );
+                // -----------------------
+                // ACTIVE BUTTON
+                // -----------------------
 
-              }
-          );
+                for (
+                    const otherButton
+                    of filterButtons
+                    ) {
 
-        }
-    );
+                    if (
+                        otherButton === button
+                    ) {
 
-  },
+                        otherButton
+                            .classList
+                            .add("active");
 
+                        otherButton
+                            .setAttribute(
+                                "aria-pressed",
+                                "true"
+                            );
 
-  setActiveButton(
-      activeButton,
-      allButtons
-  ) {
+                    } else {
 
-    allButtons.forEach(
-        button => {
+                        otherButton
+                            .classList
+                            .remove("active");
 
-          const isActive =
-              button ===
-              activeButton;
-
-
-          button.classList.toggle(
-              "active",
-              isActive
-          );
-
-
-          button.setAttribute(
-              "aria-pressed",
-              isActive.toString()
-          );
-
-        }
-    );
-
-  },
+                        otherButton
+                            .setAttribute(
+                                "aria-pressed",
+                                "false"
+                            );
+                    }
+                }
 
 
-  filterProjects(
-      category,
-      cards
-  ) {
+                // -----------------------
+                // FILTER CARDS
+                // -----------------------
 
-    cards.forEach(
-        card => {
+                for (
+                    const card
+                    of projectCards
+                    ) {
 
-          const shouldShow =
-              category === "all" ||
-              card.classList.contains(
-                  category
-              );
+                    let shouldShow = false;
 
 
-          card.classList.toggle(
-              "filtered",
-              !shouldShow
-          );
+                    if (category === "all") {
 
-        }
-    );
+                        shouldShow = true;
 
-  }
+                    } else if (
+                        card.classList.contains(
+                            category
+                        )
+                    ) {
 
-};
-
-
-/* ===================================================
-   PROJECT CARD SCROLL ANIMATIONS
-=================================================== */
-
-const RevealManager = {
+                        shouldShow = true;
+                    }
 
 
-  init() {
+                    if (shouldShow) {
+
+                        card.classList.remove(
+                            "filtered"
+                        );
+
+                    } else {
+
+                        card.classList.add(
+                            "filtered"
+                        );
+                    }
+                }
+            }
+        );
+    }
+}
+
+
+// -----------------------------------
+// SCROLL REVEAL ANIMATION
+// -----------------------------------
+
+function initializeScrollAnimations() {
 
     const cards =
         document.querySelectorAll(
@@ -1056,143 +770,101 @@ const RevealManager = {
         );
 
 
-    if (!cards.length) {
-      return;
+    if (cards.length === 0) {
+        return;
     }
 
 
-    /*
-       Respect users who prefer
-       reduced motion.
-    */
-
     const prefersReducedMotion =
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches;
+        window
+            .matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            )
+            .matches;
 
 
+    // If user prefers less animation,
+    // show everything immediately
     if (prefersReducedMotion) {
 
-      cards.forEach(
-          card => {
+        for (const card of cards) {
 
             card.classList.add(
                 "is-visible"
             );
+        }
 
-          }
-      );
-
-
-      return;
-
+        return;
     }
 
 
     const observer =
         new IntersectionObserver(
 
-            entries => {
+            function (entries) {
 
-              entries.forEach(
-                  entry => {
+                for (const entry of entries) {
 
                     if (
-                        !entry.isIntersecting
+                        entry.isIntersecting
                     ) {
 
-                      return;
-
-                    }
-
-
-                    entry.target
-                        .classList.add(
-                        "is-visible"
-                    );
-
-
-                    /*
-                       Once animated,
-                       stop watching.
-                    */
-
-                    observer.unobserve(
                         entry.target
-                    );
+                            .classList
+                            .add(
+                                "is-visible"
+                            );
 
-                  }
-              );
 
+                        observer.unobserve(
+                            entry.target
+                        );
+                    }
+                }
             },
 
             {
-              threshold: 0.12,
-              rootMargin:
-                  "0px 0px -6% 0px"
-            }
+                threshold: 0.12,
 
+                rootMargin:
+                    "0px 0px -6% 0px"
+            }
         );
 
 
-    cards.forEach(
-        card => {
+    for (const card of cards) {
 
-          observer.observe(
-              card
-          );
-
-        }
-    );
-
-  }
-
-};
-
-
-/* ===================================================
-   INITIALIZATION
-=================================================== */
-
-async function init() {
-
-  /*
-     Load color data first so the language
-     pills have their correct colors before
-     repository data is rendered.
-  */
-
-  await loadLanguageColors();
-
-
-  /*
-     Initialize filters.
-  */
-
-  FilterManager.init();
-
-
-  /*
-     Fetch repository language percentages.
-  */
-
-  ProjectCardHandler
-      .initializeAll();
-
-
-  /*
-     Initialize card entrance animations.
-  */
-
-  RevealManager.init();
-
+        observer.observe(card);
+    }
 }
 
 
-/* ===================================================
-   START
-=================================================== */
+// -----------------------------------
+// INITIALIZE PAGE
+// -----------------------------------
+
+async function init() {
+
+    // Load language colors first
+    await loadLanguageColors();
+
+
+    // Load GitHub language breakdowns
+    initializeProjectLanguages();
+
+
+    // Set up project filters
+    initializeFilters();
+
+
+    // Set up scroll animations
+    initializeScrollAnimations();
+}
+
+
+// -----------------------------------
+// START
+// -----------------------------------
 
 document.addEventListener(
     "DOMContentLoaded",

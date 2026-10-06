@@ -169,7 +169,7 @@ html {
 
     align-items: flex-start;
 
-    gap: 0px;
+    /*gap: 0px;*/
 
     padding-top: 2px;
     padding-bottom: 3px;
@@ -667,6 +667,26 @@ h1 span.stop-blinking::after {
 
 .pill.rstudio-icon:hover i {
   color: #75aadb;
+}
+
+.pill.sql-icon:hover {
+  border-color: #0064a5;
+  background: rgba(0, 100, 165, 0.12);
+}
+.pill.sql-icon:hover i {
+  color: transparent;
+  background: linear-gradient(to right, #0064a5 0%, #008bb9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.pill.tableau-icon:hover {
+  border-color: #63A5B9;
+  background: rgba(99, 165, 185, 0.12);
+}
+
+.pill.tableau-icon:hover i {
+  color: #63A5B9;
 }
 
 .pill.react-icon:hover {

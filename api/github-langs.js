@@ -1,43 +1,177 @@
 // api/github-langs.js
 export default async function handler(req, res) {
+
     // CORS (restrict to my domain)
-    const ORIGIN = req.headers.origin || "";
-    const ALLOW_ORIGIN = /https?:\/\/(www\.)?muhais\.org$/i.test(ORIGIN) ? ORIGIN : "*";
-    res.setHeader("Access-Control-Allow-Origin", ALLOW_ORIGIN);
-    res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-    if (req.method === "OPTIONS") return res.status(200).end();
+
+    const origin = req.headers.origin || "";
+
+    const allowedOrigins = [
+        "https://muhais.org",
+        "https://www.muhais.org",
+        "http://localhost:63342"
+    ];
+
+    if (allowedOrigins.includes(origin)) {
+
+        res.setHeader(
+            "Access-Control-Allow-Origin",
+            origin
+        );
+    }
+
+
+    res.setHeader(
+        "Access-Control-Allow-Methods",
+        "GET, OPTIONS"
+    );
+
+
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "Content-Type"
+    );
+
+    if (req.method === "OPTIONS") {
+
+        return res
+            .status(200)
+            .end();
+    }
 
     try {
-        const token = process.env.GITHUB_TOKEN;
-        if (!token) return res.status(500).json({ error: "Missing GITHUB_TOKEN env var" });
 
-        const { owner, repo } = req.query || {};
-        if (!owner || !repo) return res.status(400).json({ error: "owner and repo are required" });
+        // -----------------------------------
+        // GITHUB TOKEN
+        // -----------------------------------
 
-        const url = `https://api.github.com/repos/${owner}/${repo}/languages`;
-        const gh = await fetch(url, {
-            headers: {
-                "Accept": "application/vnd.github+json",
-                "Authorization": `Bearer ${token}`,
-                "User-Agent": "muhais.org language-proxy"
-            }
-        });
+        const token =
+            process.env.GITHUB_TOKEN;
 
-        // Forward GitHub’s status if not OK
-        if (!gh.ok) {
-            const text = await gh.text();
+
+        if (!token) {
+
             return res
-                .status(gh.status)
-                .setHeader("Cache-Control", "no-store")
-                .json({ error: "GitHub error", status: gh.status, body: text });
+                .status(500)
+                .json({
+                    error:
+                        "Missing GITHUB_TOKEN environment variable"
+                });
         }
 
-        const data = await gh.json();
 
-        res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate=86400");
-        return res.status(200).json(data);
-    } catch (err) {
-        return res.status(500).json({ error: err.message || "Proxy error" });
+        // -----------------------------------
+        // GET REPOSITORY INFORMATION
+        // -----------------------------------
+
+        const owner =
+            req.query.owner;
+
+
+        const repo =
+            req.query.repo;
+
+
+        if (!owner || !repo) {
+
+            return res
+                .status(400)
+                .json({
+                    error:
+                        "owner and repo are required"
+                });
+        }
+
+
+        // -----------------------------------
+        // GITHUB API URL
+        // -----------------------------------
+
+        const url =
+            "https://api.github.com/repos/" +
+            encodeURIComponent(owner) +
+            "/" +
+            encodeURIComponent(repo) +
+            "/languages";
+
+
+        // -----------------------------------
+        // REQUEST GITHUB
+        // -----------------------------------
+
+        const githubResponse =
+            await fetch(
+                url,
+                {
+                    headers: {
+
+                        "Accept":
+                            "application/vnd.github+json",
+
+                        "Authorization":
+                            "Bearer " + token,
+
+                        "User-Agent":
+                            "muhais.org language-proxy"
+                    }
+                }
+            );
+
+
+        // -----------------------------------
+        // GITHUB ERROR
+        // -----------------------------------
+
+        if (!githubResponse.ok) {
+
+            const message =
+                await githubResponse.text();
+
+
+            res.setHeader(
+                "Cache-Control",
+                "no-store"
+            );
+
+
+            return res
+                .status(githubResponse.status)
+                .json({
+                    error: "GitHub error",
+                    status: githubResponse.status,
+                    body: message
+                });
+        }
+
+
+        // -----------------------------------
+        // GITHUB DATA
+        // -----------------------------------
+
+        const data =
+            await githubResponse.json();
+
+
+        // Cache successful responses
+        // for 5 minutes
+        res.setHeader(
+            "Cache-Control",
+            "s-maxage=300, stale-while-revalidate=600"
+        );
+
+
+        return res
+            .status(200)
+            .json(data);
+
+
+    } catch (error) {
+
+        return res
+            .status(500)
+            .json({
+                error:
+                    error.message ||
+                    "Proxy error"
+            });
     }
 }
