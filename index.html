@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Muhais Olatundun | Data, Technology & Ideas</title>
-  <link rel="icon" type="image/x-icon" href="profile.jpg">
+    <link rel="icon" type="image/jpeg" href="profile.jpg">
   <meta name="description" content="The personal portfolio of Muhais Olatundun, exploring data, technology, projects, creativity, and ideas.">
   <meta name="keywords" content="Muhais Olatundun, Portfolio, Projects, Resume, Contact, Data Science, Computer Science, Software Development, Web Development">
 
@@ -21,7 +21,14 @@
           content="https://muhais.org/profile.jpg"
   >
 
-  <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:site_name" content="Muhais Olatundun">
+    <meta property="og:image:alt" content="Portrait of Muhais Olatundun">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Muhais Olatundun | Data, Technology & Ideas">
+    <meta name="twitter:description" content="Data, technology, projects, and the things I'm thinking about.">
+    <meta name="twitter:image" content="https://muhais.org/profile.jpg">
+    <meta name="twitter:image:alt" content="Portrait of Muhais Olatundun">
 
 
   <!--  CSS FILES-->
@@ -65,7 +72,7 @@
         </style>
 
         <div class="svg-container hero-name-svg" aria-label="Muhais Olatundun">
-          <svg viewBox="0 0 760 310" preserveAspectRatio="xMinYMid meet" role="img" aria-labelledby="hero-name-title">
+     <svg viewBox="0 0 760 310" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="hero-name-title">
             <title id="hero-name-title">Muhais Olatundun</title>
             <defs>
               <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -73,22 +80,32 @@
                 <stop offset="100%" style="stop-color:#0056b3;stop-opacity:1" />
               </linearGradient>
             </defs>
-            <text class="hero-name-line" x="0" y="112" text-anchor="start">MUHAIS</text>
-            <text class="hero-name-line hero-name-last" x="0" y="255" text-anchor="start">OLATUNDUN</text>
+       <text class="hero-name-line" x="380" y="112" text-anchor="middle">MUHAIS</text>
+       <text class="hero-name-line hero-name-last" x="380" y="255" text-anchor="middle">OLATUNDUN</text>
           </svg>
         </div>
       </section>
 
+
       <div class="circle-container">
-        <img src="profile.jpg" alt="Picture Muhais Olatundun" class="profile-image">
+<!--        <img src="profile.jpg" alt="Picture Muhais Olatundun" class="profile-image">-->
+          <picture>
+              <source srcset="profile.webp" type="image/webp">
+              <img src="profile.jpg"
+                   alt="Picture of Muhais Olatundun"
+                   class="profile-image"
+                   width="800" height="800"
+                   fetchpriority="high">
+          </picture>
       </div>
     </div>
 
     <section class="intro-section">
+
       <!--  Typing Effect -->
-      <header>
-        <h1 class = "text">I'm <span></span></h1>
-      </header>
+<!--      <header>-->
+<!--        <h1 class = "text">I'm <span></span></h1>-->
+<!--      </header>-->
       <!--  Typing Effect -->
 
       <div class="quote">
@@ -108,6 +125,17 @@
         </a>
       </div>
       <!--      Resume end-->
+
+        <div class="currently">
+            <p>
+                <span class="currently-label">Currently</span>
+                Learning <strong>Tableau</strong> <!--Skill-->
+                <span class="dot">·</span>
+                Building <strong>Models</strong>    <!--Project-->
+                <span class="dot">·</span>
+                Reading <strong>Blue Lock</strong> <!--Book-->
+            </p>
+        </div>
 
 
       <!-- BUTTONS -->
@@ -221,7 +249,7 @@
               <div class="stack-section">
                 <div class="stack-label">DATA & TOOLS</div>
                 <div class="pill-row">
-                  <span class="pill sql-icon"><i class="devicon-postgresql-plain"></i>SQL</span>
+<!--                  <span class="pill sql-icon"><i class="devicon-postgresql-plain"></i>SQL</span>-->
                   <span class="pill tableau-icon">
   <img src="https://cdn.jsdelivr.net/npm/simple-icons@11/icons/tableau.svg" width="16" height="16" alt="Tableau icon" style="vertical-align: middle; margin-right: 4px;" />
   TABLEAU
@@ -236,10 +264,22 @@
 
             <div class="stack-section">
               <div class="stack-card">
-                <!--                    <div class="stack-label">CERTIFICATIONS</div>-->
+
                 <h3 class="stack-title">CERTIFICATIONS</h3>
+
                 <div class="pill-row">
-                  <span class="pill"><i class="fa-solid fa-certificate"></i>CodePath Intermediate Web Dev</span>
+
+<!--                  <span class="pill"><i class="fa-solid fa-certificate"></i>CodePath Intermediate Web Dev</span>-->
+
+<!--                  <a href="Certifications/web102-codepath.pdf"-->
+                    <a
+                     target="_blank"
+                     class="pill"
+                     style="text-decoration: none;">
+                    <i class="fa-solid fa-certificate"></i>
+                    CodePath Intermediate Web Dev
+                  </a>
+
                   <a href="https://d7.cs.illinois.edu/badges/DPI-discovery-su24-WLi0RQ803Ihvch3Jslf9sQrALsMw0c/"
                      target="_blank"
                      class="pill"
@@ -247,6 +287,7 @@
                     <i class="fa-solid fa-certificate"></i>
                     Data Science Discovery
                   </a>
+
                   <a href="https://credentials.giesbusiness.illinois.edu/c582f4e6-7bfb-4103-b3b1-3871ede0d737#acc.Y43Njl7s"
                      target="_blank"
                      class="pill"
@@ -254,6 +295,25 @@
                     <i class="fa-solid fa-certificate"></i>
                     Business Fundamentals
                   </a>
+
+<!--                  <a href="Certifications/aetna-certificate.pdf"-->
+                    <a
+                     target="_blank"
+                     class="pill"
+                     style="text-decoration: none;">
+                    <i class="fa-solid fa-certificate"></i>
+                    Aetna Underwriting Externship
+                  </a>
+
+<!--                    <a href="Certifications/ede+.pdf"-->
+                       <a
+                       target="_blank"
+                       class="pill"
+                       style="text-decoration: none;">
+                        <i class="fa-solid fa-certificate"></i>
+                        Expanding Discovery in Economics+
+                    </a>
+
                 </div>
               </div>
             </div>
